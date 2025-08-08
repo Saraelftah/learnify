@@ -3,20 +3,30 @@
 @source "../.flowbite-react/class-list.json";
 
 
-/* :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+:root {
+  /* colors */
+  --primary-color: #016a6d; /*border - icons - special text - highlights*/
+  --light-primary-color: #1d9190; 
+  --secondary-color: #f2773b; /*buttons*/
+  --light-secondary-color: #fbc8b0; /*light background*/
+  --dark-color: #043e52; /* for titles */
+  --stars-color: #ffb500;
+  --text-color: #7e7d7d;
+  --error-color: #fb7375;
+  --success-color: #83cc85;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-} */
+  --border-radius: 10px;
+  --box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
+
+  /* text */
+  --title-font-size: 25px;
+  --font-size-xs: 12px;
+  --line-height: 1.7;
+
+  
+  
+}
 
 body {
   margin: 0;

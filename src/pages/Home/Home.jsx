@@ -1,8 +1,7 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import style from './Home.module.css'
 
 function Home() {
-    const [counter, setCounter] = useState(0);
 
     useEffect(() => {
     }, []);
