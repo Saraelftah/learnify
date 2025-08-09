@@ -9,10 +9,10 @@ function App() {
   return (
     <>
       <Suspense fallback={<Loader />}>
-        <div className="text-xl bg-amber-300">Hello world</div>
+        {/* <div className="text-xl bg-amber-300">Hello world</div>
         <button type="button" class="mybtn">
           Default
-        </button>
+        </button> */}
         <AppRoutes />
       </Suspense>
     </>

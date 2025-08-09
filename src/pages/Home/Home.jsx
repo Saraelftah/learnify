@@ -2,7 +2,6 @@ import { useEffect } from 'react'
 import style from './Home.module.css'
 
 function Home() {
-
     useEffect(() => {
     }, []);
   return (
