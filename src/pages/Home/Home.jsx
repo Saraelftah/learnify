@@ -1,15 +1,14 @@
-import { useEffect } from 'react'
-// import style from './Home.module.css'
+import { useEffect, useState } from "react";
+import style from "./Home.module.css";
 
 function Home() {
-    useEffect(() => {
-    }, []);
+
+  useEffect(() => {}, []);
   return (
-    <>
-        {/* <button className={style.btn}>Click</button> */}
+    <>  
+
     </>
-    
-  )
+  );
 }
 
-export default Home
+export default Home;

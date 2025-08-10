@@ -1,5 +1,7 @@
+
 import { useEffect } from 'react'
 //import style from './StudentProfile.module.css'
+
 
 function StudentProfile() {
 
