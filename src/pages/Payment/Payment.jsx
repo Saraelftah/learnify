@@ -1,8 +1,7 @@
-import { useEffect, useState } from 'react'
-import style from './Payment.module.css'
+import { useEffect } from 'react'
+//import style from './Payment.module.css'
 
 function Payment() {
-    const [counter, setCounter] = useState(0);
 
     useEffect(() => {
     }, []);

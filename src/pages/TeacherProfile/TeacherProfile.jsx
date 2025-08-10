@@ -1,8 +1,7 @@
-import { useEffect, useState } from 'react'
-import style from './TeacherProfile.module.css'
+import { useEffect } from 'react'
+//import style from './TeacherProfile.module.css'
 
 function TeacherProfile() {
-    const [counter, setCounter] = useState(0);
 
     useEffect(() => {
     }, []);
