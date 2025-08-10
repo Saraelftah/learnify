@@ -1,4 +1,4 @@
-yimport { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import style from './StudentProfile.module.css'
 
 function StudentProfile() {
