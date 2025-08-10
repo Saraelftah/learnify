@@ -27,7 +27,7 @@ function Register() {
 
   return (
     <>
-      <div className="container flex ">
+      <div className="flex ">
         <div
           className={`w-5/6 mx-auto lg:w-2/4 bg-white rounded-3xl py-15 px-8 `}
         >
@@ -43,20 +43,22 @@ function Register() {
             <h2 className="text-3xl font-bold">Signup</h2>
             {/* username */}
             <div className="flex flex-col py-2 gap-2 w-5/6">
-              <label htmlFor="">Username</label>
-              <input
-                type="text"
-                placeholder="Enter your name..."
-                className=""
-                autoComplete="off"
-                {...register("username", {
-                  required: "Username is required",
-                  minLength: {
-                    value: 6,
-                    message: "Username must be at least 6 characters",
-                  },
-                })}
-              />
+              <label className="floating-label">
+                <input
+                  type="text"
+                  placeholder="Enter your name..."
+                  className="input input-lg"
+                  autoComplete="off"
+                  {...register("username", {
+                    required: "Username is required",
+                    minLength: {
+                      value: 6,
+                      message: "Username must be at least 6 characters",
+                    },
+                  })}
+                />
+                <span>Username</span>
+              </label>
               {errors.username && (
                 <div className="text-red-500">
                   <i className="fa-solid fa-circle-exclamation"></i>{" "}
@@ -64,22 +66,25 @@ function Register() {
                 </div>
               )}
             </div>
+
             {/* email */}
             <div className="flex flex-col py-2 gap-2 w-5/6 ">
-              <label htmlFor="">Email</label>
-              <input
-                type="email"
-                placeholder="Enter your email..."
-                className=""
-                autoComplete="off"
-                {...register("email", {
-                  required: "Email is required",
-                  pattern: {
-                    value: /[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/,
-                    message: "Email is not valid",
-                  },
-                })}
-              />
+              <label className="floating-label">
+                <input
+                  type="email"
+                  placeholder="Enter your email..."
+                  className="input input-lg"
+                  autoComplete="off"
+                  {...register("email", {
+                    required: "Email is required",
+                    pattern: {
+                      value: /[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/,
+                      message: "Email is not valid",
+                    },
+                  })}
+                />
+                <span>Email</span>
+              </label>
               {errors.email && (
                 <div className="text-red-500">
                   <i className="fa-solid fa-circle-exclamation"></i>{" "}
@@ -87,27 +92,30 @@ function Register() {
                 </div>
               )}
             </div>
+
             {/* Password */}
             <div className="flex flex-col py-2 gap-2 w-5/6 ">
-              <label htmlFor="">Password</label>
-              <input
-                type="password"
-                placeholder="Enter your password..."
-                className=""
-                autoComplete="off"
-                {...register("password", {
-                  required: "Password is required",
-                  minLength: {
-                    value: 6,
-                    message: "Password must be at least 6 characters",
-                  },
-                  pattern: {
-                    value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).+$/,
-                    message:
-                      "Password must contain uppercase, lowercase, number, and special character",
-                  },
-                })}
-              />
+              <label className="floating-label">
+                <input
+                  type="password"
+                  placeholder="Enter your password..."
+                  className="input input-lg"
+                  autoComplete="off"
+                  {...register("password", {
+                    required: "Password is required",
+                    minLength: {
+                      value: 6,
+                      message: "Password must be at least 6 characters",
+                    },
+                    pattern: {
+                      value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).+$/,
+                      message:
+                        "Password must contain uppercase, lowercase, number, and special character",
+                    },
+                  })}
+                />
+                <span>Email</span>
+              </label>
               {errors.password && (
                 <div className="text-red-500">
                   <i className="fa-solid fa-circle-exclamation"></i>
@@ -115,20 +123,23 @@ function Register() {
                 </div>
               )}
             </div>
+
             {/* confirm password */}
             <div className="flex flex-col py-2 gap-2 w-5/6 ">
-              <label htmlFor="">Confirm Password</label>
-              <input
-                type="password"
-                placeholder="Confirm your password..."
-                className=""
-                autoComplete="off"
-                {...register("confirmPassword", {
-                  required: "Confirmation is required",
-                  validate: (value) =>
-                    value === watch("password") || "Password do not match",
-                })}
-              />
+              <label className="floating-label">
+                <input
+                  type="password"
+                  placeholder="Confirm your password..."
+                  className="input input-lg"
+                  autoComplete="off"
+                  {...register("confirmPassword", {
+                    required: "Confirmation is required",
+                    validate: (value) =>
+                      value === watch("password") || "Password do not match",
+                  })}
+                />
+                <span>Confirm Password</span>
+              </label>
               {errors.confirmPassword && (
                 <div className="text-red-500">
                   <i className="fa-solid fa-circle-exclamation"></i>{" "}
