@@ -7,7 +7,7 @@ function Navbar() {
   return (
     <>
       <nav className="home-navbar">
-        <div className="container">
+        <div className="container p-4">
           <div className="navbar px-0 py-[10px] justify-between">
             <div className="navbar-start w-fit">
               <NavLink to="/">
