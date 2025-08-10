@@ -1,10 +1,13 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { db } from "../../firebase";
 import { getDocs, collection } from "firebase/firestore";
+import { useDispatch } from "react-redux";
+import { setTeachers } from "../store/TeachersSlice"; 
 
 function Network() {
-  const [teachersList, setTeachersList] = useState([]);
+  const dispatch = useDispatch();
   const teachersCollection = collection(db, "teachers");
+
 
   useEffect(() => {
     const getTeachers = async () => {
@@ -15,16 +18,21 @@ function Network() {
             ...doc.data()
         }));
         console.log(teachersData);
-        setTeachersList(teachersData);
-      } catch (err) {
+        dispatch(setTeachers(teachersData));
+        } catch (err) {
         console.error(err);
       }
     };
+
     getTeachers();
-  }, [teachersCollection]);
+  }, [teachersCollection, dispatch]);
 
 
-  return <div>network</div>;
+  return (
+    <>
+    
+    </>
+  )
 }
 
 export default Network;

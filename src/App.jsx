@@ -1,9 +1,8 @@
-import { Suspense, useEffect, useState } from "react";
+import { Suspense } from "react";
 import "./App.css";
 import Home from "./pages/Home/Home";
 import Loader from "./components/Loader/Loader";
 import AppRoutes from "./routes/AppRoutes";
-import { Dropdown, DropdownItem } from "flowbite-react";
 import Network from "./network/network";
 
 function App() {
@@ -12,7 +11,7 @@ function App() {
     <>
       <Suspense fallback={<Loader />}>
 
-      <Network />
+        <Network />
 
         <AppRoutes />
       </Suspense>
