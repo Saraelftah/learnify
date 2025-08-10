@@ -4,7 +4,7 @@ import logoImg from "../../assets/images/logo.png";
 function Footer() {
   return (
     <>
-      <footer className="bg-[#022b39] text-white py-[20px]">
+      <footer className="bg-[#212121] text-white py-[20px]">
         <div className="my-container flex items-center justify-between">
           <img
             src={logoImg}

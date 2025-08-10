@@ -1,7 +1,9 @@
 import { Link, NavLink } from "react-router-dom";
 import logoImg from "../../assets/images/logo.png";
+import LightDark from "../LightDark/LightDark";
 
 function Navbar() {
+    
   return (
     <>
       <div className="home-navbar">
@@ -64,6 +66,9 @@ function Navbar() {
                   </NavLink>
                 </li>
               </ul>
+
+              <LightDark />
+
               <NavLink
                 to="/login"
                 className={({ isActive }) =>
@@ -76,7 +81,7 @@ function Navbar() {
               </NavLink>
               <NavLink
                 to="/signup"
-                className="btn bg-[var(--secondary-color)] text-white ml-4 hover:bg-[var(--primary-color)] transition-colors duration-500 ease-in-out"
+                className="btn bg-[var(--secondary-color)] text-white ml-4 hover:bg-[var(--primary-color)] border-0 shadow-none transition-colors duration-500 ease-in-out"
               >
                 Sign Up
               </NavLink>
@@ -115,6 +120,9 @@ function Navbar() {
                   </li>
                   <li>
                     <NavLink to="/contact">Contact</NavLink>
+                  </li>
+                  <li>
+                    <LightDark />
                   </li>
                   <li>
                     <NavLink to="/login">Login</NavLink>
