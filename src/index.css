@@ -5,28 +5,33 @@
 :root {
   /* colors */
   --background-color: #fff;
-  --primary-color: #016a6d; /*border - icons - special text - highlights*/
-  --light-primary-color: #1d9190; 
-  --secondary-color: #f2773b; /*buttons*/
-  --light-secondary-color: #fbc8b0; /*light background*/
-  --dark-color: #043e52; /* for titles */
+  --primary-color: #016a6d;
+  /*border - icons - special text - highlights*/
+  --light-primary-color: #1d9190;
+  --secondary-color: #f2773b;
+  /*buttons*/
+  --light-secondary-color: #fbc8b0;
+  /*light background*/
+  --dark-color: #043e52;
+  /* for titles */
   --stars-color: #ffb500;
-  --text-color: #7e7d7d; /*paragraphs*/
+  --text-color: #7e7d7d;
+  /*paragraphs*/
   --main-text-color: #585858;
   --error-color: #fb7375;
   --success-color: #83cc85;
 
 
   --border-radius: 10px;
-  --box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
+  --box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 
   /* text */
   --title-font-size: 25px;
   --font-size-xs: 12px;
   --line-height: 1.7;
 
-  
-  
+
+
 }
 
 .dark {
@@ -37,8 +42,8 @@
 
 * {
   box-sizing: border-box;
-  
 }
+
 body {
   margin: 0;
   padding: 0;
@@ -48,8 +53,8 @@ body {
   font-family: "Alexandria", sans-serif;
 }
 
-.my-container {
-  width: 95% !important;
+.container {
+  width: 95%;
   margin: auto;
 }
 

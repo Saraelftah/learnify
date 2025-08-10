@@ -6,11 +6,9 @@ import AppRoutes from "./routes/AppRoutes";
 import Network from "./network/network";
 
 function App() {
-
   return (
     <>
       <Suspense fallback={<Loader />}>
-
         <Network />
 
         <AppRoutes />
