@@ -6,7 +6,7 @@ function Home() {
     }, []);
   return (
     <>
-        <button className={style.btn}>Click</button>
+        {/* <button className={style.btn}>Click</button> */}
     </>
     
   )

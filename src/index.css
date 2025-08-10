@@ -49,8 +49,8 @@ body {
   font-family: "Alexandria", sans-serif;
 }
 
-.container {
-  width: 95%;
+.my-container {
+  width: 95% !important;
   margin: auto;
 }
 
