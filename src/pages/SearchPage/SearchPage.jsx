@@ -1,8 +1,7 @@
-import { useEffect, useState } from 'react'
-import style from './SearchPage.module.css'
+import { useEffect } from 'react'
+//import style from './SearchPage.module.css'
 
 function SearchPage() {
-    const [counter, setCounter] = useState(0);
 
     useEffect(() => {
     }, []);

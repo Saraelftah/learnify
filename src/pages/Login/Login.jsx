@@ -1,8 +1,7 @@
-import { useEffect, useState } from 'react'
-import style from './Login.module.css'
+import { useEffect } from 'react'
+//import style from './Login.module.css'
 
 function Login() {
-    const [counter, setCounter] = useState(0);
 
     useEffect(() => {
     }, []);

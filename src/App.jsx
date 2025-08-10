@@ -7,12 +7,13 @@ import { Dropdown, DropdownItem } from "flowbite-react";
 import Network from "./network/network";
 
 function App() {
-  const [count, setCount] = useState(0);
 
   return (
     <>
       <Suspense fallback={<Loader />}>
+
       <Network />
+
         <AppRoutes />
       </Suspense>
     </>

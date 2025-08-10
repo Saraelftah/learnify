@@ -1,31 +1,55 @@
 @import "tailwindcss";
-@plugin "flowbite-react/plugin/tailwindcss";
-@source "../.flowbite-react/class-list.json";
+@plugin "daisyui";
 
-/* :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+:root {
+  /* colors */
+  --background-color: #fff;
+  --primary-color: #016a6d; /*border - icons - special text - highlights*/
+  --light-primary-color: #1d9190; 
+  --secondary-color: #f2773b; /*buttons*/
+  --light-secondary-color: #fbc8b0; /*light background*/
+  --dark-color: #043e52; /* for titles */
+  --stars-color: #ffb500;
+  --text-color: #7e7d7d; /*paragraphs*/
+  --main-text-color: #585858;
+  --error-color: #fb7375;
+  --success-color: #83cc85;
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-} */
 
+  --border-radius: 10px;
+  --box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
+
+  /* text */
+  --title-font-size: 25px;
+  --font-size-xs: 12px;
+  --line-height: 1.7;
+
+  
+  
+}
+
+.dark {
+  --background-color: #212121;
+  --main-text-color: #fff;
+}
+
+
+* {
+  box-sizing: border-box;
+  
+}
 body {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  /* dark and light mode */
+  background-color: var(--background-color);
+  color: var(--main-text-color);
   font-family: "Alexandria", sans-serif;
 }
 
-.container {
-  width: 95%;
+.my-container {
+  width: 95% !important;
   margin: auto;
 }
 
