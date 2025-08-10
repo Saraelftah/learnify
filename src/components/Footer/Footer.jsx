@@ -5,7 +5,7 @@ function Footer() {
   return (
     <>
       <footer className="bg-[#212121] text-white py-[20px]">
-        <div className="my-container flex items-center justify-between">
+        <div className="container flex items-center justify-between">
           <img
             src={logoImg}
             alt="Logo"

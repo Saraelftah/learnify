@@ -6,9 +6,9 @@ function Navbar() {
     
   return (
     <>
-      <div className="home-navbar">
-        <div className="my-container">
-          <nav className="navbar px-0 py-[10px] justify-between">
+      <nav className="home-navbar">
+        <div className="container">
+          <div className="navbar px-0 py-[10px] justify-between">
             <div className="navbar-start w-fit">
               <NavLink to="/">
                 <img src={logoImg} alt="logo" className="!w-[100px]" />
@@ -138,9 +138,9 @@ function Navbar() {
                 </ul>
               </div>
             </div>
-          </nav>
+          </div>
         </div>
-      </div>
+      </nav>
     </>
   );
 }
