@@ -1,8 +1,9 @@
-import style from "./Register.module.css";
-import { useNavigate } from "react-router-dom";
+// import style from "./Register.module.css";
+import { NavLink, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../../firebase";
+import logo from "../../assets/images/logo.png";
 
 function Register() {
   const navigate = useNavigate();
@@ -27,27 +28,29 @@ function Register() {
 
   return (
     <>
-      <div className="flex ">
+      <div className="container flex bg-red-200">
         <div
           className={`w-5/6 mx-auto lg:w-2/4 bg-white rounded-3xl py-15 px-8 `}
         >
-          {/* <Link to="/">
+          <NavLink to="/">
             <div className="w-30 mb-8 mx-auto">
               <img src={logo} alt="logo" />
             </div>
-          </Link> */}
+          </NavLink>
           <form
             onSubmit={handleSubmit(onSubmit)}
             className="flex flex-col items-center mb-5"
           >
-            <h2 className="text-3xl font-bold">Signup</h2>
+            <h2 className="text-3xl text-[var(--dark-color)] font-bold">
+              Signup
+            </h2>
             {/* username */}
-            <div className="flex flex-col py-2 gap-2 w-5/6">
+            <div className="flex flex-col py-2 gap-2 w-5/6 bg-red-300">
               <label className="floating-label">
                 <input
                   type="text"
                   placeholder="Enter your name..."
-                  className="input input-lg"
+                  className="input input-lg w-full"
                   autoComplete="off"
                   {...register("username", {
                     required: "Username is required",
@@ -73,7 +76,7 @@ function Register() {
                 <input
                   type="email"
                   placeholder="Enter your email..."
-                  className="input input-lg"
+                  className="input input-lg w-full"
                   autoComplete="off"
                   {...register("email", {
                     required: "Email is required",
@@ -99,7 +102,7 @@ function Register() {
                 <input
                   type="password"
                   placeholder="Enter your password..."
-                  className="input input-lg"
+                  className="input input-lg w-full"
                   autoComplete="off"
                   {...register("password", {
                     required: "Password is required",
@@ -130,7 +133,7 @@ function Register() {
                 <input
                   type="password"
                   placeholder="Confirm your password..."
-                  className="input input-lg"
+                  className="input input-lg w-full"
                   autoComplete="off"
                   {...register("confirmPassword", {
                     required: "Confirmation is required",
@@ -153,12 +156,17 @@ function Register() {
 
             <button
               type="submit"
-              className="w-5/6 mt-3 bg-blue-500 hover:bg-blue-700 text-white"
+              className="w-5/6 btn mt-3 text-white bg-[var(--secondary-color)]"
             >
               Register
             </button>
           </form>
         </div>
+
+
+        {/* <div className="hidden lg:block">
+          <img src={sideImg} alt="image" className="  h-full object-fit" />
+        </div> */}
       </div>
     </>
   );

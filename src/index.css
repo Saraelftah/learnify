@@ -5,18 +5,13 @@
 :root {
   /* colors */
   --background-color: #fff;
-  --primary-color: #016a6d;
-  /*border - icons - special text - highlights*/
+  --primary-color: #016a6d; /*border - icons - special text - highlights*/
   --light-primary-color: #1d9190;
-  --secondary-color: #f2773b;
-  /*buttons*/
-  --light-secondary-color: #fbc8b0;
-  /*light background*/
-  --dark-color: #043e52;
-  /* for titles */
+  --secondary-color: #f2773b; /*buttons*/
+  --light-secondary-color: #fbc8b0; /*light background*/
+  --dark-color: #043e52; /* for titles */
   --stars-color: #ffb500;
-  --text-color: #7e7d7d;
-  /*paragraphs*/
+  --text-color: #7e7d7d; /*paragraphs*/
   --main-text-color: #585858;
   --error-color: #fb7375;
   --success-color: #83cc85;
@@ -29,9 +24,6 @@
   --title-font-size: 25px;
   --font-size-xs: 12px;
   --line-height: 1.7;
-
-
-
 }
 
 .dark {
