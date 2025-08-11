@@ -25,7 +25,7 @@ async function addTeachers() {
 
   const teachers = [
     {
-      photoURL: "https://i.ibb.co/Y4zLbRSq/Gamal.jpg",
+      Image: "https://i.ibb.co/Y4zLbRSq/Gamal.jpg",
       name: "Gamal Abdelsatar",
       subject: "Math",
       gradeLevel: "Secondary",
@@ -36,6 +36,11 @@ async function addTeachers() {
       firstLessonFree: true,
       overview:
         "Jamal Abdel Sattar is a dedicated high school mathematics teacher with a strong passion for helping students understand and enjoy the subject. He has extensive experience in explaining complex mathematical concepts in a clear and engaging way, ensuring that students of all levels can grasp the material and achieve academic success.",
+      availableDates: [
+        { day: "Monday", time: "5:00", period: "PM" },
+        { day: "Wednesday", time: "7:30", period: "PM" },
+        { day: "Friday", time: "10:00", period: "AM" }
+      ],
       reviews: [
         {
           studentName: "Omar Khaled",
@@ -51,7 +56,7 @@ async function addTeachers() {
     },
 
     {
-      photoURL: "https://i.ibb.co/QvcztwQw/Mohamed.jpg",
+      Image: "https://i.ibb.co/QvcztwQw/Mohamed.jpg",
       name: "Mohamed Ali",
       subject: "English",
       gradeLevel: "Preparatory",
@@ -62,6 +67,12 @@ async function addTeachers() {
       firstLessonFree: false,
       overview:
         "Mohamed Ali is a dedicated middle school English teacher who is passionate about helping students improve their language skills. He focuses on building a strong foundation in grammar, vocabulary, and communication, while creating a supportive and engaging classroom environment that encourages students to express themselves confidently in English.",
+      availableDates: [
+        { day: "Monday", time: "5:00", period: "PM" },
+        { day: "Wednesday", time: "7:30", period: "PM" },
+        { day: "Friday", time: "10:00", period: "AM" }
+      ],
+
       reviews: [
         {
           studentName: "Samar Khaled",
@@ -79,7 +90,7 @@ async function addTeachers() {
     },
 
     {
-      photoURL: "https://i.ibb.co/7LGhvgM/Anna.jpg",
+      Image: "https://i.ibb.co/7LGhvgM/Anna.jpg",
       name: "Anna Lotfy",
       subject: "Italy",
       gradeLevel: "Secondary",
@@ -90,6 +101,11 @@ async function addTeachers() {
       firstLessonFree: true,
       overview:
         "Anna Lotfy is an enthusiastic Italian language teacher with a talent for making lessons interactive and enjoyable. She is committed to helping students develop strong language skills in speaking, reading, and writing, while also introducing them to Italian culture and traditions to enhance their learning experience.",
+      availableDates: [
+        { day: "Monday", time: "5:00", period: "PM" },
+        { day: "Wednesday", time: "7:30", period: "PM" },
+        { day: "Friday", time: "10:00", period: "AM" }
+      ],
       reviews: [
         {
           studentName: "Youssef Adel",
@@ -105,7 +121,7 @@ async function addTeachers() {
     },
 
     {
-      photoURL: "https://i.ibb.co/0ytPBGxr/Asmaa.jpg",
+      Image: "https://i.ibb.co/0ytPBGxr/Asmaa.jpg",
       name: "Asmaa Gamal",
       subject: "Science",
       gradeLevel: "Preparatory",
@@ -116,6 +132,11 @@ async function addTeachers() {
       firstLessonFree: true,
       overview:
         "Asmaa Gamal is a passionate middle school science teacher who is committed to making learning exciting and accessible for her students. She uses creative teaching methods and real-life examples to help students understand scientific concepts and develop a love for discovery.",
+      availableDates: [
+        { day: "Monday", time: "5:00", period: "PM" },
+        { day: "Wednesday", time: "7:30", period: "PM" },
+        { day: "Friday", time: "10:00", period: "AM" }
+      ],
       reviews: [
         {
           studentName: "Nada Adel",
@@ -133,7 +154,7 @@ async function addTeachers() {
     },
 
     {
-      photoURL: "https://i.ibb.co/GvQN2dxM/Mohanad.jpg",
+      Image: "https://i.ibb.co/GvQN2dxM/Mohanad.jpg",
       name: "Mohanad Soliman",
       subject: "History",
       gradeLevel: "Preparatory and Secondary",
@@ -144,6 +165,11 @@ async function addTeachers() {
       firstLessonFree: true,
       overview:
         "Mohannad Soliman is an experienced history teacher for both middle and high school levels. He is dedicated to bringing history to life through engaging stories, interactive discussions, and critical thinking activities. His teaching helps students understand the past, connect it to the present, and develop a deeper appreciation for historical events and their impact on the world.",
+      availableDates: [
+        { day: "Monday", time: "5:00", period: "PM" },
+        { day: "Wednesday", time: "7:30", period: "PM" },
+        { day: "Friday", time: "10:00", period: "AM" }
+      ],
       reviews: [
         {
           studentName: "Mostafa saber",
@@ -161,7 +187,7 @@ async function addTeachers() {
     },
 
     {
-      photoURL: "https://i.ibb.co/dwcvFR36/Mona.jpg",
+      Image: "https://i.ibb.co/dwcvFR36/Mona.jpg",
       name: "Mona Waheed",
       subject: "geography",
       gradeLevel: "Preparatory and Secondary",
@@ -172,6 +198,11 @@ async function addTeachers() {
       firstLessonFree: true,
       overview:
         "Mona Waheed is a dedicated geography teacher for both middle and high school students. She has a talent for making geography engaging by connecting lessons to real-world examples and current events. Her teaching style encourages curiosity, critical thinking, and a deeper understanding of the world’s landscapes, cultures, and environments.",
+      availableDates: [
+        { day: "Monday", time: "5:00", period: "PM" },
+        { day: "Wednesday", time: "7:30", period: "PM" },
+        { day: "Friday", time: "10:00", period: "AM" }
+      ],
       reviews: [
         {
           studentName: "Menna Ahmed",
@@ -189,7 +220,7 @@ async function addTeachers() {
     },
 
     {
-      photoURL: "https://i.ibb.co/gZvSDftB/Yasser.jpg",
+      Image: "https://i.ibb.co/gZvSDftB/Yasser.jpg",
       name: "Yasser Yahia",
       subject: "Chemistry",
       gradeLevel: "Secondary",
@@ -200,6 +231,12 @@ async function addTeachers() {
       firstLessonFree: false,
       overview:
         "Yasser Yehia is a skilled high school chemistry teacher with a passion for simplifying complex scientific concepts. He uses clear explanations, experiments, and real-life applications to help students understand chemistry and develop strong problem-solving skills. His lessons inspire curiosity and a deeper appreciation for the subject.",
+      availableDates: [
+        { day: "Monday", time: "5:00", period: "PM" },
+        { day: "Tuesday", time: "10:00", period: "AM" },
+        { day: "Wednesday", time: "7:30", period: "PM" },
+        { day: "Friday", time: "10:00", period: "AM" }
+      ],
       reviews: [
         {
           studentName: "Nelly Mahrous",
@@ -217,7 +254,7 @@ async function addTeachers() {
     },
 
     {
-      photoURL: "https://i.ibb.co/whddXF7J/Marawan.jpg",
+      Image: "https://i.ibb.co/whddXF7J/Marawan.jpg",
       name: "Marawan Abdekader",
       subject: "Physics",
       gradeLevel: "Secondary",
@@ -228,6 +265,11 @@ async function addTeachers() {
       firstLessonFree: false,
       overview:
         "Marwan Abdelkader is a dedicated high school physics teacher who excels at making challenging concepts clear and engaging. He uses practical examples, demonstrations, and problem-solving exercises to help students grasp the principles of physics and apply them in real-life situations. His approach encourages analytical thinking and a genuine interest in science.",
+      availableDates: [
+        { day: "Monday", time: "5:00", period: "PM" },
+        { day: "Wednesday", time: "7:30", period: "PM" },
+        { day: "Friday", time: "10:00", period: "AM" }
+      ],
       reviews: [
         {
           studentName: "Belal Ahmed",
@@ -245,7 +287,7 @@ async function addTeachers() {
     },
 
     {
-      photoURL: "https://i.ibb.co/20xNbRmm/Abdelrahman.jpg",
+      Image: "https://i.ibb.co/20xNbRmm/Abdelrahman.jpg",
       name: "Abdelrahman Gamal",
       subject: "French",
       gradeLevel: "Secondary",
@@ -256,6 +298,11 @@ async function addTeachers() {
       firstLessonFree: true,
       overview:
         "Abdelrahman Gamal is a passionate high school French teacher who is committed to helping students master the language with confidence. He combines grammar, vocabulary, and conversation practice with engaging cultural insights, making learning both enjoyable and effective. His teaching style encourages active participation and continuous improvement.",
+      availableDates: [
+        { day: "Monday", time: "5:00", period: "PM" },
+        { day: "Wednesday", time: "7:30", period: "PM" },
+        { day: "Friday", time: "10:00", period: "AM" }
+      ],
       reviews: [
         {
           studentName: "Nada Adel",
@@ -273,7 +320,7 @@ async function addTeachers() {
     },
 
     {
-      photoURL: "https://i.ibb.co/Jjw7HX3n/Yasser.jpg",
+      Image: "https://i.ibb.co/Jjw7HX3n/Yasser.jpg",
       name: "Yasser Ibrahim",
       subject: "Biology",
       gradeLevel: "Preparatory and Secondary",
@@ -284,6 +331,13 @@ async function addTeachers() {
       firstLessonFree: false,
       overview:
         "Yasser Ibrahim is a dedicated biology teacher for both middle and high school students. He has a talent for making the subject engaging by connecting biological concepts to everyday life and the natural world. Through clear explanations, visuals, and interactive activities, he inspires students to explore science with curiosity and enthusiasm.",
+      availableDates: [
+        { day: "Sunday", time: "8:00", period: "AM" },
+        { day: "Monday", time: "5:00", period: "PM" },
+        { day: "Wednesday", time: "7:30", period: "PM" },
+        { day: "Thursdau", time: "7:30", period: "PM" },
+        { day: "Friday", time: "10:00", period: "AM" }
+      ],
       reviews: [
         {
           studentName: "Sawsan",
@@ -300,7 +354,7 @@ async function addTeachers() {
       ],
     },
     {
-      photoURL: "https://i.ibb.co/HL8657ww/Afnan.jpg",
+      Image: "https://i.ibb.co/HL8657ww/Afnan.jpg",
       name: "Afnan Elgendy",
       subject: "English",
       gradeLevel: "Preparatory",
@@ -311,6 +365,12 @@ async function addTeachers() {
       firstLessonFree: true,
       overview:
         "Afnan El Gendy is a passionate middle school English teacher who focuses on building her students’ confidence in speaking, reading, and writing. She uses interactive activities, engaging materials, and clear explanations to make learning English enjoyable and effective. Her supportive teaching style encourages students to express themselves freely.",
+      availableDates: [
+        { day: "Monday", time: "5:00", period: "PM" },
+        { day: "Wednesday", time: "7:30", period: "PM" },
+        { day: "Thursday", time: "7:30", period: "PM" },
+        { day: "Friday", time: "10:00", period: "AM" }
+      ],
       reviews: [
         {
           studentName: "Shereen Ahmed",
@@ -328,7 +388,7 @@ async function addTeachers() {
     },
 
     {
-      photoURL: "https://i.ibb.co/zhnHp01x/Ahmed.jpg",
+      Image: "https://i.ibb.co/zhnHp01x/Ahmed.jpg",
       name: "Ahmed Elnagar",
       subject: "؛sychology",
       gradeLevel: "Secondary",
@@ -339,6 +399,12 @@ async function addTeachers() {
       firstLessonFree: true,
       overview:
         "Ahmed El Nagar is a dedicated high school psychology teacher who is passionate about helping students understand human behavior and mental processes. He presents psychological concepts in an engaging and relatable way, encouraging critical thinking and self-awareness. His lessons inspire curiosity and a deeper interest in the subject.",
+      availableDates: [
+        { day: "Monday", time: "5:00", period: "PM" },
+        { day: "Tuesday", time: "8:00", period: "AM" },
+        { day: "Wednesday", time: "7:30", period: "PM" },
+        { day: "Friday", time: "10:00", period: "AM" }
+      ],
       reviews: [
         {
           studentName: "Malk Adel",
@@ -354,9 +420,9 @@ async function addTeachers() {
         },
       ],
     },
-    
+
     {
-      photoURL: "https://i.ibb.co/NgKgvHJ6/Aya.jpg",
+      Image: "https://i.ibb.co/NgKgvHJ6/Aya.jpg",
       name: "Aya Ahmed",
       subject: "Biology",
       gradeLevel: "Preparatory",
@@ -367,6 +433,12 @@ async function addTeachers() {
       firstLessonFree: false,
       overview:
         "Aya Ahmed is a passionate middle school biology teacher who brings science to life through engaging explanations and practical examples. She helps students understand complex concepts by connecting them to everyday life, fostering curiosity and a love for learning about the natural world.",
+      availableDates: [
+        { day: "Sunday", time: "5:00", period: "PM" },
+        { day: "Monday", time: "5:00", period: "PM" },
+        { day: "Wednesday", time: "7:30", period: "PM" },
+        { day: "Friday", time: "10:00", period: "AM" }
+      ],
       reviews: [
         {
           studentName: "Nada Adel",
@@ -382,9 +454,9 @@ async function addTeachers() {
         },
       ],
     },
-   
+
     {
-      photoURL: "https://i.ibb.co/QvWcdDtc/Samira.jpg",
+      Image: "https://i.ibb.co/QvWcdDtc/Samira.jpg",
       name: "Samira Noureldin",
       subject: "Italy",
       gradeLevel: "Secondary",
@@ -395,6 +467,12 @@ async function addTeachers() {
       firstLessonFree: true,
       overview:
         "Samira Nour El Din is a dedicated high school Italian teacher who combines language learning with cultural exploration. She uses interactive activities, conversation practice, and engaging materials to help students build strong speaking, reading, and writing skills. Her lessons make learning Italian both enjoyable and effective.",
+      availableDates: [
+        { day: "Saturday", time: "5:00", period: "PM" },
+        { day: "Monday", time: "5:00", period: "PM" },
+        { day: "Wednesday", time: "7:30", period: "PM" },
+        { day: "Friday", time: "10:00", period: "AM" }
+      ],
       reviews: [
         {
           studentName: "Nada Yossry",
@@ -412,7 +490,7 @@ async function addTeachers() {
     },
 
     {
-      photoURL: "https://i.ibb.co/hFfwjpbK/Mostafa.jpg",
+      Image: "https://i.ibb.co/hFfwjpbK/Mostafa.jpg",
       name: "Mostafa Anwar",
       subject: "Maths",
       gradeLevel: "Preparatory and Secondary",
@@ -423,6 +501,12 @@ async function addTeachers() {
       firstLessonFree: true,
       overview:
         "Mostafa Anwar is a skilled mathematics teacher for both middle and high school levels. He is dedicated to helping students understand mathematical concepts with clarity and confidence. Using step-by-step explanations, practical examples, and problem-solving exercises, he makes math engaging and accessible for learners of all abilities.",
+      availableDates: [
+        { day: "Monday", time: "5:00", period: "PM" },
+        { day: "Sunday", time: "8:00", period: "AM" },
+        { day: "Wednesday", time: "7:30", period: "PM" },
+        { day: "Friday", time: "10:00", period: "AM" }
+      ],
       reviews: [
         {
           studentName: "Nada Adel",
@@ -438,9 +522,9 @@ async function addTeachers() {
         },
       ],
     },
-  
+
     {
-      photoURL: "https://i.ibb.co/1Yytn3jQ/Hassan.jpg",
+      Image: "https://i.ibb.co/1Yytn3jQ/Hassan.jpg",
       name: "Hassan Elgammal",
       subject: "Chemistry",
       gradeLevel: "Secondary",
@@ -451,6 +535,12 @@ async function addTeachers() {
       firstLessonFree: false,
       overview:
         "Hassan El Gammal is a dedicated high school chemistry teacher who is passionate about making complex scientific concepts easy to understand. He uses clear explanations, engaging experiments, and real-life applications to help students connect with the subject and develop strong problem-solving skills.",
+      availableDates: [
+        { day: "Monday", time: "5:00", period: "PM" },
+        { day: "Wednesday", time: "7:30", period: "PM" },
+        { day: "Friday", time: "10:00", period: "AM" },
+        { day: "Saturday", time: "10:00", period: "AM" },
+      ],
       reviews: [
         {
           studentName: "Sara Ahmed",
@@ -468,7 +558,7 @@ async function addTeachers() {
     },
 
     {
-      photoURL: "https://i.ibb.co/VY7r9vdd/Hazem.jpg",
+      Image: "https://i.ibb.co/VY7r9vdd/Hazem.jpg",
       name: "Hazem Kassem",
       subject: "Science",
       gradeLevel: "Secondary",
@@ -479,6 +569,12 @@ async function addTeachers() {
       firstLessonFree: true,
       overview:
         "Hazem Kassem is a passionate high school science teacher who is committed to making learning engaging and meaningful. He explains scientific concepts clearly and uses real-life examples, experiments, and discussions to help students understand and apply their knowledge. His teaching inspires curiosity and a love for science.",
+      availableDates: [
+        { day: "Monday", time: "5:00", period: "PM" },
+        { day: "Wednesday", time: "7:30", period: "PM" },
+        { day: "Thursday", time: "8:30", period: "PM" },
+        { day: "Friday", time: "10:00", period: "AM" }
+      ],
       reviews: [
         {
           studentName: "Adel",
@@ -496,7 +592,7 @@ async function addTeachers() {
     },
 
     {
-      photoURL: "https://i.ibb.co/W4dx7RYk/Ayman.jpg",
+      Image: "https://i.ibb.co/W4dx7RYk/Ayman.jpg",
       name: "Ayman Hafez",
       subject: "History",
       gradeLevel: "Preparatory and Secondary",
@@ -507,6 +603,12 @@ async function addTeachers() {
       firstLessonFree: true,
       overview:
         "Ayman Hafez is an experienced history teacher for both middle and high school levels. He brings the past to life through engaging storytelling, interactive discussions, and clear explanations. His lessons help students understand historical events, their causes, and their impact on the world, encouraging critical thinking and a deeper appreciation for history.",
+      availableDates: [
+        { day: "Saturday", time: "8:00", period: "AM" },
+        { day: "Monday", time: "5:00", period: "PM" },
+        { day: "Wednesday", time: "7:30", period: "PM" },
+        { day: "Friday", time: "10:00", period: "AM" }
+      ],
       reviews: [
         {
           studentName: "Mourad",
@@ -524,7 +626,7 @@ async function addTeachers() {
     },
 
     {
-      photoURL: "https://i.ibb.co/yFLw9g5k/Maria.jpg",
+      Image: "https://i.ibb.co/yFLw9g5k/Maria.jpg",
       name: "Maria Elgendy",
       subject: "Psychology",
       gradeLevel: "Preparatory",
@@ -535,6 +637,12 @@ async function addTeachers() {
       firstLessonFree: true,
       overview:
         "Maria El Gendy is a dedicated high school psychology teacher who is passionate about helping students explore the science of the mind and behavior. She presents psychological concepts in a clear, engaging way, encouraging self-reflection, critical thinking, and active class participation. Her lessons inspire curiosity and a deeper understanding of human nature.",
+      availableDates: [
+        { day: "Saturday", time: "5:00", period: "PM" },
+        { day: "Sunday", time: "8:00", period: "AM" },
+        { day: "Wednesday", time: "7:30", period: "PM" },
+        { day: "Friday", time: "10:00", period: "AM" }
+      ],
       reviews: [
         {
           studentName: "Nada Adel",
@@ -552,7 +660,7 @@ async function addTeachers() {
     },
 
     {
-      photoURL: "https://i.ibb.co/SD6146sP/Omar.jpg",
+      Image: "https://i.ibb.co/SD6146sP/Omar.jpg",
       name: "Omar El Attar",
       subject: "Geography",
       gradeLevel: "Preparatory",
@@ -563,6 +671,13 @@ async function addTeachers() {
       firstLessonFree: true,
       overview:
         "Omar El Attar is a passionate middle school geography teacher who makes learning about the world exciting and accessible. He uses maps, visuals, and real-life examples to help students understand geographical concepts and connect them to everyday life. His engaging teaching style encourages curiosity and exploration.",
+      availableDates: [
+        { day: "Saturday", time: "5:00", period: "PM" },
+        { day: "Sunday", time: "8:00", period: "AM" },
+        { day: "Wednesday", time: "7:30", period: "PM" },
+        { day: "Friday", time: "10:00", period: "AM" }
+      ],
+
       reviews: [
         {
           studentName: "Maram",
