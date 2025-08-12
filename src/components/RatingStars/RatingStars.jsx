@@ -8,7 +8,7 @@ function RatingStars({ value }) {
             value >= i
               ? "fa-solid fa-star text-yellow-400"
               : value >= i - 0.5
-              ? "fa-solid fa-star-half-stroke text-yellow-400"
+              ? "fa-solid fa-star-half text-yellow-400"
               : "fa-regular fa-star text-gray-400"
           }
         ></i>
