@@ -20,7 +20,7 @@ function AppRoutes() {
       element: <Layout />,
       children: [
         { index: true, element: <Home /> },
-        { path: "payment", element: <Payment /> },
+        { path: "payment/:id", element: <Payment /> },
         { path: "student/:id", element: <StudentProfile /> },
         { path: "tutor/:id", element: <TeacherProfile /> },
         { path: "*", element: <Notfound /> },

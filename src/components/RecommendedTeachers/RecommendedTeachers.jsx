@@ -53,20 +53,27 @@ function RecommendedTeachers() {
                   src={teacher.Image}
                   alt={teacher.name}
                 />
-                <h3 className="text-[var(--primary-color)]  font-bold">
+                <h3 className="text-[var(--primary-color)]  font-bold ">
                   {teacher.name}
                 </h3>
-                <p>{teacher.subject}</p>
+                <p className="mb-2">{teacher.subject}</p>
                 <span>
                   <RatingStars value={teacher.rating} />
                 </span>
-                
+                <div className="flex gap-2 mt-2">
                 <NavLink
                   to="/"
                   className="btn border-[var(--secondary-color)] bg-white text-[var(--secondary-color)] w-fit"
                 >
                   view more
                 </NavLink>
+                <NavLink
+                  to={`/payment/${teacher.id}`}
+                  className="btn border-[var(--secondary-color)] bg-white text-[var(--secondary-color)] w-fit"
+                >
+                  book now
+                </NavLink>
+                </div>
               </div>
             ))}
         </Carousel>
