@@ -41,6 +41,11 @@ async function addTeachers() {
         { day: "Wednesday", time: "7:30", period: "PM" },
         { day: "Friday", time: "10:00", period: "AM" }
       ],
+      // availableGroupDates: [
+      //   { day: "Monday", time: "5:00", period: "PM" },
+      //   { day: "Wednesday", time: "7:30", period: "PM" },
+      //   { day: "Friday", time: "10:00", period: "AM" }
+      // ],
       reviews: [
         {
           studentName: "Omar Khaled",
