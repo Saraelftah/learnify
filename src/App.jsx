@@ -10,7 +10,6 @@ function App() {
     <>
       <Suspense fallback={<Loader />}>
         <Network />
-
         <AppRoutes />
       </Suspense>
     </>
