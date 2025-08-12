@@ -1,22 +1,21 @@
-import { faStar, faStarHalf } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
 function RatingStars({ value }) {
   return (
     <>
-      <div className="flex gap-1 m-5">
       {[1, 2, 3, 4, 5].map((i) => (
-        value >= i ? (
-          <FontAwesomeIcon key={i} icon={faStar} className="text-yellow-400" />
-        ) : value >= i - 0.5 ? (
-          <FontAwesomeIcon key={i} icon={faStarHalf} className="text-yellow-400" />
-        ) : (
-          <FontAwesomeIcon key={i} icon={faStar} className="text-gray-400" />
-        )
+        <i
+          key={i}
+          className={
+            value >= i
+              ? "fa-solid fa-star text-yellow-400"
+              : value >= i - 0.5
+              ? "fa-solid fa-star-half-stroke text-yellow-400"
+              : "fa-regular fa-star text-gray-400"
+          }
+        ></i>
       ))}
-      </div>
     </>
   );
 }
+
 
 export default RatingStars;

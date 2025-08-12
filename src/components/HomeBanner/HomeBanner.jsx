@@ -1,6 +1,4 @@
-import { faHeart, faLightbulb, faThumbsUp } from "@fortawesome/free-solid-svg-icons";
 import bannerImg from "../../assets/images/banner-home.png"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 
@@ -74,30 +72,22 @@ function HomeBanner() {
 
                   <div className="chat chat-start absolute top-10 right-[-130px] opacity-90">
                     <div className="chat-bubble bg-[var(--light-secondary-color)] w-fit max-w-full whitespace-nowrap px-3 py-2">
-                      <FontAwesomeIcon
-                        className="text-[#d53232] mr-2"
-                        icon={faHeart}
-                      />
+                      <i className="fa-solid fa-heart text-[#d53232] mr-2"></i>
+                      
                       Great Teacher
                     </div>
                   </div>
 
                   <div className="chat chat-start absolute top-40 right-[-130px] opacity-90">
                     <div className="chat-bubble bg-[var(--light-secondary-color)] w-fit max-w-full whitespace-nowrap px-3 py-2">
-                      <FontAwesomeIcon
-                        className="text-[var(--primary-color)] mr-2"
-                        icon={faThumbsUp}
-                      />
+                      <i className="fa-solid fa-heart text-[var(--primary-color)] mr-2"></i>
                       Super Clear
                     </div>
                   </div>
 
                   <div className="chat chat-start absolute bottom-20 right-[-130px] opacity-90">
                     <div className="chat-bubble bg-[var(--light-secondary-color)] w-fit max-w-full whitespace-nowrap px-3 py-2">
-                      <FontAwesomeIcon
-                        className="text-[var(--secondary-color)] mr-2"
-                        icon={faLightbulb}
-                      />
+                      <i class="fa-solid fa-lightbulb text-[var(--secondary-color)] mr-2"></i>
                       Amazing Session
                     </div>
                   </div>
