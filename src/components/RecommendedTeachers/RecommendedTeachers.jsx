@@ -57,7 +57,10 @@ function RecommendedTeachers() {
                   {teacher.name}
                 </h3>
                 <p>{teacher.subject}</p>
-                <RatingStars value={teacher.rating} />
+                <span>
+                  <RatingStars value={teacher.rating} />
+                </span>
+                
                 <NavLink
                   to="/"
                   className="btn border-[var(--secondary-color)] bg-white text-[var(--secondary-color)] w-fit"
