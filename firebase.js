@@ -395,7 +395,7 @@ async function addTeachers() {
     {
       Image: "https://i.ibb.co/zhnHp01x/Ahmed.jpg",
       name: "Ahmed Elnagar",
-      subject: "؛sychology",
+      subject: "Sychology",
       gradeLevel: "Secondary",
       rating: 5,
       averageRating: null,
