@@ -1,12 +1,13 @@
 // import style from "./Register.module.css";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import { createUserWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../../../firebase";
+import { createUserWithEmailAndPassword, signInWithPopup } from "firebase/auth";
+import { auth, googleProvider } from "../../../firebase";
 import logo from "../../assets/images/logo.png";
-// import bc from "../../assets/images/the-design-lady-jggSkHxMRug-unsplash.jpg";
 import bc from "../../assets/images/labtop-bc.png";
 import google from "../../assets/images/google-color.svg";
+import toast from "react-hot-toast";
+
 
 function Register() {
   const navigate = useNavigate();
@@ -24,17 +25,28 @@ function Register() {
 
     try {
       await createUserWithEmailAndPassword(auth, email, password);
+      toast.success("Registered Successfully!");
       navigate("/login");
     } catch (error) {
       console.error(error);
     }
   };
 
+   const signUpWithGoogle = async() => {
+    try {
+      await signInWithPopup(auth, googleProvider);
+       toast.success("Logged in with Google!");
+    navigate("/");
+    }catch(err){
+      console.error(err);
+    }
+  }
+
   return (
     <>
       {/* <div className={style.page}>
       <div className={style.overlay}> */}
-      <div className=" flex">
+      <div className="flex">
         <div
           className={`w-5/6 mx-auto lg:w-2/4 rounded-3xl py-15 px-8 flex flex-col items-center`}
         >
@@ -240,7 +252,8 @@ function Register() {
             <p><b>Signup </b>With Others</p>
           </div>
 
-          <NavLink className="flex gap-2 items-center justify-center bg-white py-3 rounded-3xl border border-gray-200 w-3/4  hover:bg-gray-50 
+          <NavLink onClick={signUpWithGoogle}
+          className="flex gap-2 items-center justify-center bg-white py-3 rounded-3xl border border-gray-200 w-3/4  hover:bg-gray-50 
           transition-colors duration-500 ease-in-out">
             <div className="w-5 md:w-8">
               <img src={google} alt="google" />
@@ -249,6 +262,7 @@ function Register() {
           </NavLink>
         </div>
 
+        {/* side image */}
         <div className="hidden lg:block">
           <img src={bc} alt="image" className="h-full object-fit" />
         </div>

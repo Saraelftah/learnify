@@ -1,7 +1,7 @@
 import { initializeApp } from "firebase/app";
 // import { getAnalytics } from "firebase/analytics";
 import { getFirestore, writeBatch, doc } from "firebase/firestore";
-import { getAuth } from "firebase/auth";
+import { getAuth, GoogleAuthProvider } from "firebase/auth";
 
 
 
@@ -19,6 +19,7 @@ const app = initializeApp(firebaseConfig);
 // const analytics = getAnalytics(app);
 export const auth = getAuth(app)
 export const db = getFirestore(app);
+export const googleProvider = new GoogleAuthProvider();
 
 async function addTeachers() {
   const batch = writeBatch(db);
