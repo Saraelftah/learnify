@@ -52,7 +52,7 @@ function HomeBanner() {
               <div className="w-full lg:w-1/2 p-4">
                 <h1 className="text-[var(--dark-color)] !text-[50px] mb-5">
                     find the most exciting 
-                    <h4 className="h-[50px] font-bold text-[var(--secondary-color)]">{text}</h4>
+                    <p className="h-[45px] font-bold text-[var(--secondary-color)] text-5xl">{text}</p>
                     courses
                 </h1>
                 <p className="text-[var(--text-color)] leading-[var(--line-height)]">
