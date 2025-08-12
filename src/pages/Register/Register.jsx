@@ -8,7 +8,6 @@ import bc from "../../assets/images/labtop-bc.png";
 import google from "../../assets/images/google-color.svg";
 import toast from "react-hot-toast";
 
-
 function Register() {
   const navigate = useNavigate();
 
@@ -20,7 +19,7 @@ function Register() {
   } = useForm();
 
   const onSubmit = async (data) => {
-     console.log(data);
+    console.log(data);
     const { email, password } = data;
 
     try {
@@ -32,15 +31,15 @@ function Register() {
     }
   };
 
-   const signUpWithGoogle = async() => {
+  const signUpWithGoogle = async () => {
     try {
       await signInWithPopup(auth, googleProvider);
-       toast.success("Logged in with Google!");
-    navigate("/");
-    }catch(err){
+      toast.success("Logged in with Google!");
+      navigate("/");
+    } catch (err) {
       console.error(err);
     }
-  }
+  };
 
   return (
     <>
@@ -48,7 +47,7 @@ function Register() {
       <div className={style.overlay}> */}
       <div className="flex">
         <div
-          className={`w-5/6 mx-auto lg:w-2/4 rounded-3xl py-15 px-8 flex flex-col items-center`}
+          className={`w-5/6 mx-auto lg:w-2/4 rounded-3xl py-15 px-8 flex flex-col items-center bg-[#FFFBFA]`}
         >
           <NavLink to="/">
             <div className="w-30 mb-8 mx-auto">
@@ -228,6 +227,7 @@ function Register() {
               )}
             </div>
 
+            {/* submit button */}
             <button
               type="submit"
               className="w-4/6 btn mt-5 mb-9 py-6 rounded-xl text-white bg-[var(--secondary-color)]
@@ -249,21 +249,28 @@ function Register() {
           </div>
 
           <div className="divider w-5/6 mx-auto mb-9">
-            <p><b>Signup </b>With Others</p>
+            <p>
+              <b>Signup </b>With Others
+            </p>
           </div>
 
-          <NavLink onClick={signUpWithGoogle}
-          className="flex gap-2 items-center justify-center bg-white py-3 rounded-3xl border border-gray-200 w-3/4  hover:bg-gray-50 
-          transition-colors duration-500 ease-in-out">
+          {/* google */}
+          <NavLink
+            onClick={signUpWithGoogle}
+            className="flex gap-2 items-center justify-center bg-white py-3 rounded-3xl border border-gray-200 w-3/4  hover:bg-gray-50 
+          transition-colors duration-500 ease-in-out"
+          >
             <div className="w-5 md:w-8">
               <img src={google} alt="google" />
             </div>
-            <p>Signup With <b>Google</b></p>
+            <p>
+              Signup With <b>Google</b>
+            </p>
           </NavLink>
         </div>
 
         {/* side image */}
-        <div className="hidden lg:block">
+        <div className="hidden lg:block w-2/4">
           <img src={bc} alt="image" className="h-full object-fit" />
         </div>
       </div>

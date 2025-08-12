@@ -1,8 +1,7 @@
-import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { NavLink, useNavigate } from "react-router-dom";
 import { auth, googleProvider } from "../../../firebase";
-import { signInWithEmailAndPassword , signInWithPopup} from "firebase/auth";
+import { signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import bc from "../../assets/images/labtop-bc.png";
 import logo from "../../assets/images/logo.png";
 import google from "../../assets/images/google-color.svg";
@@ -34,8 +33,8 @@ function Login() {
   const signUpWithGoogle = async () => {
     try {
       await signInWithPopup(auth, googleProvider);
-       toast.success("Logged in with Google!");
-    navigate("/");
+      toast.success("Logged in with Google!");
+      navigate("/");
     } catch (err) {
       console.error(err);
     }
@@ -43,9 +42,10 @@ function Login() {
 
   return (
     <>
+    
       <div className="flex">
         <div
-          className={`w-5/6 mx-auto lg:w-2/4 rounded-3xl py-15 px-8 flex flex-col items-center`}
+          className={`w-5/6 mx-auto lg:w-2/4 py-15 px-8 flex flex-col items-center bg-[#FFFBFA]`}
         >
           <NavLink to="/">
             <div className="w-30 mb-8 mx-auto">
@@ -115,6 +115,16 @@ function Login() {
                 </div>
               )}
             </div>
+
+            {/* submit button */}
+            <button
+              type="submit"
+              className="w-4/6 btn mt-5 mb-9 py-6 rounded-xl text-white bg-[var(--secondary-color)]
+              hover:bg-[var(--primary-color)]
+              transition duration-300 ease-in-out"
+            >
+              Login
+            </button>
           </form>
 
           <div className="mb-5">
@@ -122,34 +132,35 @@ function Login() {
               Don't have an account?{" "}
               <NavLink to="/signup">
                 {" "}
-                <b className="text-blue-600">Register</b>{" "}
+                <b className="text-[var(--primary-color)]">Register</b>{" "}
               </NavLink>{" "}
             </p>
           </div>
 
-          <div className="text-center flex flex-col items-center justify-center gap-3">
+          <div className="divider w-5/6 mx-auto mb-9">
             <p className="mb-3">
               <b>Login </b>With Others
             </p>
-
-            <NavLink
-              onClick={signUpWithGoogle}
-              className="flex gap-2 items-center justify-center bg-white py-3 rounded-3xl border border-gray-200 w-3/4  hover:bg-gray-50 
-          transition-colors duration-500 ease-in-out"
-            >
-              <div className="w-5 md:w-8">
-                <img src={google} alt="google" />
-              </div>
-              <p>
-                Login With <b>Google</b>
-              </p>
-            </NavLink>
           </div>
+
+          {/* google */}
+          <NavLink
+            onClick={signUpWithGoogle}
+            className="flex gap-2 items-center justify-center bg-white py-3 rounded-3xl border border-gray-200 w-3/4  hover:bg-gray-50 
+          transition-colors duration-500 ease-in-out"
+          >
+            <div className="w-5 md:w-8">
+              <img src={google} alt="google" />
+            </div>
+            <p>
+              Login With <b>Google</b>
+            </p>
+          </NavLink>
         </div>
 
         {/* side image */}
-        <div className="hidden lg:block">
-          <img src={bc} alt="image" className="h-full object-fit" />
+        <div className="hidden lg:block w-2/4">
+          <img src={bc} alt="image" className="max-h-[900px] object-cover" />
         </div>
       </div>
     </>
