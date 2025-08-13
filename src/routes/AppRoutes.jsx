@@ -9,18 +9,21 @@ const Register = lazy(() => import("../pages/Register/Register"));
 const StudentProfile = lazy(() => import("../pages/StudentProfile/StudentProfile"));
 const TeacherProfile = lazy(() => import("../pages/TeacherProfile/TeacherProfile"));
 const Payment = lazy(() => import("../pages/Payment/Payment"));
+const Search = lazy(() => import("../pages/SearchPage/SearchPage"));
 const Notfound = lazy(() => import("../pages/Notfound/Notfound"));
 
 function AppRoutes() {
   let router = createBrowserRouter([
     { path: "login", element: <Login /> },
     { path: "register", element: <Register /> },
+    { path: "search", element: <Search /> },
     {
       path: "",
       element: <Layout />,
       children: [
         { index: true, element: <Home /> },
-        { path: "payment/:id", element: <Payment /> },
+        { path: "search", element: <Search /> },
+        { path: "payment", element: <Payment /> },
         { path: "student/:id", element: <StudentProfile /> },
         { path: "tutor/:id", element: <TeacherProfile /> },
         { path: "*", element: <Notfound /> },
