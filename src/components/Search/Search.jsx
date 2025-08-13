@@ -79,7 +79,7 @@ export default function Search() {
     return teachers.filter((t) => {
       const byName = !q || normalize(t.name).includes(q);
       const bySubject = !s || normalize(t.subject) === s; 
-      
+
       const byGrade =
         !g || normalize(t.gradeLevel).includes(g);
 
@@ -133,7 +133,7 @@ export default function Search() {
               whileTap={{ scale: 0.98 }}
               value={subject}
               onChange={(e) => setSubject(e.target.value)}
-              className={`select select-bordered w-full ${styles["search-input"]}`}
+              className={`select select-bordered w-full ${styles["dropdown"]}`}
             >
               <option value="">All</option>
               {subjectOptions.map((s) => (
@@ -166,7 +166,7 @@ export default function Search() {
               whileTap={{ scale: 0.98 }}
               value={gradeLevel}
               onChange={(e) => setGradeLevel(e.target.value)}
-              className={`select select-bordered w-full ${styles["search-input"]}`}
+              className={`select select-bordered w-full ${styles["dropdown"]}`}
             >
               <option value="">All</option>
               {gradeOptions.map((g) => (
