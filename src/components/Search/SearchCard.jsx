@@ -27,7 +27,7 @@ export default function SearchCard({ teacher }) {
                     loading="lazy"
                 />
                 {firstLessonFree && (
-                    <div className="absolute top-3 left-3">
+                    <div className="absolute top-0 left-0">
                         <span className="badge badge-success">First Lesson Free</span>
                     </div>
                 )}
