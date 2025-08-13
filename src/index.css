@@ -11,6 +11,7 @@
   --light-primary-color: #1d9190;
   --secondary-color: #f2773b; /*buttons*/
   --light-secondary-color: #fbc8b0; /*light background*/
+  --light-background: #eaf9f9;
   --dark-color: #043e52; /* for titles */
   --stars-color: #ffb500;
   --text-color: #7e7d7d; /*paragraphs*/
@@ -30,12 +31,17 @@
 
 .dark {
   --background-color: #212121;
+  --light-background: #302f2f;
+  --text-color: #a9a8a8;
   --main-text-color: #fff;
+  --dark-color: #1d9190;
+  --primary-color: #28bcb9;
 }
 
 
 * {
   box-sizing: border-box;
+  text-transform: capitalize;
 }
 
 body {
