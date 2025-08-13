@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 import "./RecommendedTeachers.module.css";
 import RatingStars from "../RatingStars/RatingStars";
 import { NavLink } from "react-router-dom";
+import BookBtn from "../Button/BookBtn";
 
 function RecommendedTeachers() {
   const teachers = useSelector((state) => state.teachers.teachers);
@@ -31,7 +32,9 @@ function RecommendedTeachers() {
   return (
     <>
       <div className="recommended-teachers py-[50px]">
-        <h3 className="text-[var(--dark-color)] font-bold mb-5 text-[length:var(--title-font-size)]">recommended teachers</h3>
+        <h3 className="text-[var(--dark-color)] font-bold mb-5 text-[length:var(--title-font-size)]">
+          recommended teachers
+        </h3>
         <Carousel
           responsive={responsive}
           itemClass="px-2"
@@ -61,18 +64,22 @@ function RecommendedTeachers() {
                   <RatingStars value={teacher.rating} />
                 </span>
                 <div className="flex gap-2 mt-2">
-                <NavLink
-                  to="/"
-                  className="btn border-[var(--secondary-color)] bg-white text-[var(--secondary-color)] w-fit"
-                >
-                  view more
-                </NavLink>
-                <NavLink
-                  to={`/payment/${teacher.id}`}
-                  className="btn border-[var(--secondary-color)] bg-white text-[var(--secondary-color)] w-fit"
-                >
-                  book now
-                </NavLink>
+                  <NavLink
+                    to="/"
+                    className="btn border-[var(--secondary-color)] bg-white text-[var(--secondary-color)] w-fit"
+                  >
+                    view more
+                  </NavLink>
+                  <BookBtn
+                    teacher={{
+                      id: teacher.id,
+                      name: teacher.name,
+                      subject: teacher.subject,
+                      rating: teacher.rating,
+                      availableTimes: teacher.availableTimes || [],
+                      image: teacher.Image,
+                    }}
+                  />
                 </div>
               </div>
             ))}

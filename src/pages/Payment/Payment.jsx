@@ -1,7 +1,10 @@
-import React, { useState } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
-import { clearBookingTeacher } from "../../store/BookedTeacherSlice";
+import {
+  clearSelectedTeacher,
+  setSelectedTeacher,
+} from "../../store/BookedTeacherSlice";
 
 const steps = ["Book", "Your Details", "Payment"];
 
@@ -11,23 +14,30 @@ function Payment() {
   const teacher = useSelector((state) => state.bookedTeacher.selectedTeacher);
 
   const { register, handleSubmit } = useForm();
-
+  useEffect(() => {
+    if (!teacher) {
+      const storedTeacher = localStorage.getItem("selectedTeacher");
+      if (storedTeacher) {
+        dispatch(setSelectedTeacher(JSON.parse(storedTeacher)));
+      }
+    }
+  }, [teacher, dispatch]);
   const handleNext = () => setActiveStep((prev) => prev + 1);
   const handleBack = () => setActiveStep((prev) => prev - 1);
 
   const handleFinish = (data) => {
     console.log("Form submitted:", data);
     setActiveStep(steps.length);
-    dispatch(clearBookingTeacher());
+    dispatch(clearSelectedTeacher());
   };
 
-  // if (!teacher) {
-  //   return (
-  //     <div className="text-center">
-  //       Choose a teacher to proceed with booking.
-  //     </div>
-  //   );
-  // }
+  if (!teacher) {
+    return (
+      <div className="text-center">
+        Choose a teacher to proceed with booking.
+      </div>
+    );
+  }
 
   return (
     <div className="w-full max-w-3xl mx-auto p-4">
@@ -98,14 +108,17 @@ function Payment() {
                 </div>
                 <div>
                   <label className="label font-medium">Available Times</label>
-                  {/* <select>
+                  <select className="border border-gray-300 rounded-md p-2 w-full focus:outline-none focus:ring-2 focus:ring-[var(--secondary-color)]">
                     <option value="">Select a time</option>
-                    {teacher.availableTimes.map((time, index) => (
-                      <option key={index} value={time}>
-                        {time}
+                    {teacher?.availableDates?.map((slot, index) => (
+                      <option
+                        key={index}
+                        value={`${slot.day} ${slot.time} ${slot.period}`}
+                      >
+                        {slot.day} - {slot.time} {slot.period}
                       </option>
                     ))}
-                  </select> */}
+                  </select>
                 </div>
               </div>
             </div>
