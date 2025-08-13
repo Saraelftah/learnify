@@ -12,10 +12,10 @@ const navigate = useNavigate()
 const handleBook = () => {
     // Set the selected teacher in the Redux store.
     dispatch(setSelectedTeacher(teacher))
-    navigate(`/payment`);
+    navigate(`/payment/${teacher.id}`);
     }
 
-  return (
+   return (
     <button
       onClick={handleBook}
       className="btn border-[var(--secondary-color)] bg-white text-[var(--secondary-color)] w-fit"
