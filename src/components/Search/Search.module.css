@@ -3,7 +3,7 @@
     border: 2px solid var(--primary-color);
     background-color: var(--background-color);
     color: var(--main-text-color);
-    padding: 0.5rem 0.75rem;
+    padding: 0.5rem 2.5rem 0.5rem 0.75rem;
     transition: all 0.3s ease;
     font-size: 14px;
 }
