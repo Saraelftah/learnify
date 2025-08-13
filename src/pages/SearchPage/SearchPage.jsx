@@ -1,16 +1,12 @@
-import { useEffect } from 'react'
-//import style from './SearchPage.module.css'
+import Search from "../../components/Search/Search";
 
-function SearchPage() {
-
-    useEffect(() => {
-    }, []);
+export default function SearchPage() {
   return (
-    <>
-        <div>SearchPage</div>
-    </>
-    
-  )
+    <div className="container mx-auto p-6">
+      <h1 className="text-3xl font-bold text-[var(--dark-color)] mb-8 text-center">
+        Find your teacher
+      </h1>
+      <Search />
+    </div>
+  );
 }
-
-export default SearchPage
