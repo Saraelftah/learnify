@@ -1,12 +1,13 @@
 import { useForm } from "react-hook-form";
 import { NavLink, useNavigate } from "react-router-dom";
-import { auth, googleProvider } from "../../../firebase";
-import { signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
-import bc from "../../assets/images/labtop-bc.png";
-import logo from "../../assets/images/logo.png";
-import google from "../../assets/images/google-color.svg";
+import { auth } from "../../../firebase";
+import { signInWithEmailAndPassword } from "firebase/auth";
 import toast from "react-hot-toast";
-
+import SideImg from "../../components/SideImg/SideImg";
+import Logo from "../../components/Logo/Logo";
+import Google from "../../components/Google/Google";
+import SignBtn from "../../components/SignBtn/SignBtn";
+import FormInput from "../../components/FormInput/FormInput";
 //import style from './Login.module.css'
 
 function Login() {
@@ -23,114 +24,68 @@ function Login() {
 
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      toast.success("Loged in successfully!");
+      toast.success("Logged in successfully!");
       navigate("/");
     } catch (err) {
       console.error(err);
-    }
-  };
-
-  const signUpWithGoogle = async () => {
-    try {
-      await signInWithPopup(auth, googleProvider);
-      toast.success("Logged in with Google!");
-      navigate("/");
-    } catch (err) {
-      console.error(err);
+      toast.error(err.message);
     }
   };
 
   return (
     <>
-    
       <div className="flex">
         <div
-          className={`w-5/6 mx-auto lg:w-2/4 py-15 px-8 flex flex-col items-center bg-[#FFFBFA]`}
+          className={`w-5/6 mx-auto lg:w-2/4 rounded-3xl lg:rounded-none py-15 px-8 flex flex-col items-center bg-[#FFFBFA]`}
         >
-          <NavLink to="/">
-            <div className="w-30 mb-8 mx-auto">
-              <img src={logo} alt="logo" />
-            </div>
-          </NavLink>
+          <Logo />
 
           <form
             onSubmit={handleSubmit(onSubmit)}
             className="flex flex-col items-center mb-5 w-full"
           >
-            <h2 className="text-3xl mb-3 font-bold text-center">Login</h2>
+            <h2 className="text-xl md:text-3xl mb-3 font-bold text-center">
+              Login
+            </h2>
 
             {/* email */}
-            <div className="flex flex-col py-5 gap-3 w-4/6">
-              <label htmlFor="">Email</label>
-              <label className="floating-label">
-                <input
-                  type="email"
-                  placeholder="Enter your email..."
-                  className="input input-lg w-full rounded-xl
-                   focus:ring-1 focus:ring-[var(--light-secondary-color)]
-                  focus:outline focus:outline-[var(--light-secondary-color)]
-                  focus:border-[var(--light-secondary-color)]
-                  shadow-md"
-                  autoComplete="off"
-                  {...register("email", {
-                    required: "Email is required",
-                  })}
-                />
-                <span>Email</span>
-              </label>
-
-              {errors.email && (
-                <div className="text-red-500">
-                  <i class="fa-solid fa-circle-exclamation"></i>{" "}
-                  <span>{errors.email.message} </span>
-                </div>
-              )}
-            </div>
+            <FormInput
+              label="Email"
+              type="email"
+              placeholder="Enter your email..."
+              name="email"
+              register={register}
+              rules={{
+                required: "Email is required",
+                pattern: {
+                  value: /[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/,
+                  message: "Email is not valid",
+                },
+              }}
+              error={errors.email}
+            />
 
             {/* /password */}
-            <div className="flex flex-col py-5 gap-3 w-4/6 ">
-              <label htmlFor="password">Password</label>
-              <label className="floating-label">
-                <input
-                  type="password"
-                  placeholder="Enter your password..."
-                  id="password"
-                  className="input input-lg w-full rounded-xl
-                   focus:ring-1 focus:ring-[var(--light-secondary-color)]
-                  focus:outline focus:outline-[var(--light-secondary-color)]
-                  focus:border-[var(--light-secondary-color)]
-                  shadow-md"
-                  autoComplete="off"
-                  {...register("password", {
-                    required: "Password is required",
-                  })}
-                />
-                <span>Password</span>
-              </label>
-
-              {errors.password && (
-                <div className="text-red-500">
-                  <i class="fa-solid fa-circle-exclamation"></i>
-                  <span> {errors.password.message} </span>
-                </div>
-              )}
-            </div>
+            <FormInput
+              label="Password"
+              type="password"
+              placeholder="Enter your password..."
+              name="password"
+              register={register}
+              rules={{
+                required: "Password is required",
+              }}
+              error={errors.password}
+            />
 
             {/* submit button */}
-            <button
-              type="submit"
-              className="w-4/6 btn mt-5 mb-9 py-6 rounded-xl text-white bg-[var(--secondary-color)]
-              hover:bg-[var(--primary-color)]
-              transition duration-300 ease-in-out"
-            >
-              Login
-            </button>
+            <SignBtn label="Login" />
           </form>
 
           <div className="mb-5">
             <p className="text-center">
               Don't have an account?{" "}
-              <NavLink to="/signup">
+              <NavLink to="/register">
                 {" "}
                 <b className="text-[var(--primary-color)]">Register</b>{" "}
               </NavLink>{" "}
@@ -143,25 +98,10 @@ function Login() {
             </p>
           </div>
 
-          {/* google */}
-          <NavLink
-            onClick={signUpWithGoogle}
-            className="flex gap-2 items-center justify-center bg-white py-3 rounded-3xl border border-gray-200 w-3/4  hover:bg-gray-50 
-          transition-colors duration-500 ease-in-out"
-          >
-            <div className="w-5 md:w-8">
-              <img src={google} alt="google" />
-            </div>
-            <p>
-              Login With <b>Google</b>
-            </p>
-          </NavLink>
+          <Google />
         </div>
 
-        {/* side image */}
-        <div className="hidden lg:block w-2/4">
-          <img src={bc} alt="image" className="max-h-[900px] object-cover" />
-        </div>
+        <SideImg imgClass="max-h-[900px] object-cover" />
       </div>
     </>
   );
