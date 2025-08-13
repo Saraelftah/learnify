@@ -71,14 +71,7 @@ function RecommendedTeachers() {
                     view more
                   </NavLink>
                   <BookBtn
-                    teacher={{
-                      id: teacher.id,
-                      name: teacher.name,
-                      subject: teacher.subject,
-                      rating: teacher.rating,
-                      availableTimes: teacher.availableTimes || [],
-                      image: teacher.Image,
-                    }}
+                    teacher={teacher}
                   />
                 </div>
               </div>
