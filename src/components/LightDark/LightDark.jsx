@@ -13,17 +13,20 @@ function LightDark() {
     }
   }
   return (
-    
     <>
-        {/* Dark Mode Icon */}
-        <button onClick={toggleDarkMode} id="dark-toggle" aria-label="Toggle Dark Mode" className="cursor-pointer hover:text-[var(--primary-color)]">
-        {isDark? 
-        <i class="fa-regular fa-sun"></i>:
-    (<i class="fa-regular fa-moon"></i>)}
-        
-        </button>
+      {/* Dark Mode Icon */}
+      <label
+        onClick={toggleDarkMode}
+        className={`btn btn-circle border-1 border-[var(--secondary-color)] bg-[var(--background-color)] swap swap-rotate ${
+          isDark ? "swap-active" : ""
+        }`}
+      >
+        <i className="fa-regular fa-sun swap-on text-xl text-[var(--secondary-color)]"></i>
+
+        <i className="fa-regular fa-moon swap-off text-xl text-[var(--secondary-color)]"></i>
+      </label>
     </>
-  )
+  );
 }
 
 export default LightDark

@@ -1,6 +1,7 @@
+//import style from './Login.module.css'
 import { useForm } from "react-hook-form";
 import { NavLink, useNavigate } from "react-router-dom";
-import { auth } from "../../../firebase";
+import { auth, db } from "../../../firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import toast from "react-hot-toast";
 import SideImg from "../../components/SideImg/SideImg";
@@ -8,7 +9,8 @@ import Logo from "../../components/Logo/Logo";
 import Google from "../../components/Google/Google";
 import SignBtn from "../../components/SignBtn/SignBtn";
 import FormInput from "../../components/FormInput/FormInput";
-//import style from './Login.module.css'
+import { doc, getDoc } from "firebase/firestore";
+
 
 function Login() {
   const navigate = useNavigate();
@@ -23,12 +25,25 @@ function Login() {
     const { email, password } = data;
 
     try {
-      await signInWithEmailAndPassword(auth, email, password);
+      const cred = await signInWithEmailAndPassword(auth, email, password);
+      // get the user id and check if he is registered or not
+      const uid = cred.user.uid;
+      const snap = await getDoc(doc(db, "users", uid));
+      if(!snap.exists()){
+        toast.error("user not found, please register first");
+        return
+      }
+      // get the user role
+      const role = snap.data().role;
       toast.success("Logged in successfully!");
-      navigate("/");
+
+      // navigate as role
+      if(role === "admin") navigate("/admin");
+      else if(role === "teacher" || role === "student") navigate("/");
+      else if(role === "teacherPending") navigate ("/pending");
     } catch (err) {
       console.error(err);
-      toast.error(err.message);
+      toast.error("Something went wrong");
     }
   };
 

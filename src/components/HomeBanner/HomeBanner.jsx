@@ -1,7 +1,7 @@
 import bannerImg from "../../assets/images/banner-home.png"
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-
+import SearchInputs from "../Search/SearchFilters";
 
 function HomeBanner() {
     const teachers = useSelector((state) => state.teachers.teachers);
@@ -46,10 +46,10 @@ function HomeBanner() {
   return (
     <>
         {/* Banner section */}
-        <section className="home__banner text-left bg-[#eaf9f9] p-[50px]">
+        <section className="home__banner text-left bg-[var(--light-background)] p-[20px] lg:p-[50px]">
           <div className="container">
             <div className="flex flex-col items-center lg:flex-row gap-4 ">
-              <div className="w-full lg:w-1/2 p-4">
+              <div className="w-full lg:w-1/2 order-2 lg:order-1">
                 <h1 className="text-[var(--dark-color)] !text-[50px] mb-5">
                     find the most exciting 
                     <p className="h-[45px] font-bold text-[var(--secondary-color)] text-5xl">{text}</p>
@@ -60,17 +60,19 @@ function HomeBanner() {
                   Master new skills with confidence and unlock opportunities for
                   your future.
                 </p>
-                <div className="banner-search mt-5">search component</div>
+                <div className="banner-search mt-5">
+                  <SearchInputs />
+                </div>
               </div>
-              <div className=" w-[400px] h-[400px] lg:w-1/2  ">
-                <div className="banner-img  w-[400px] h-[400px] rounded-full relative">
+              <div className=" w-[400px] lg:w-1/2 order-1 lg:order-2">
+                <div className="banner-img  justify-self-center w-70 lg:w-[400px] rounded-full relative">
                   <img
                     className="w-100 object-cover"
                     src={bannerImg}
                     alt="banner"
                   />
 
-                  <div className="chat chat-start absolute top-10 right-[-130px] opacity-90">
+                  <div className="chat chat-start absolute top-10 right-[-130px] opacity-90  hidden xl:block">
                     <div className="chat-bubble bg-[var(--light-secondary-color)] w-fit max-w-full whitespace-nowrap px-3 py-2">
                       <i className="fa-solid fa-heart text-[#d53232] mr-2"></i>
                       
@@ -78,14 +80,14 @@ function HomeBanner() {
                     </div>
                   </div>
 
-                  <div className="chat chat-start absolute top-40 right-[-130px] opacity-90">
+                  <div className="chat chat-start absolute top-40 right-[-130px] opacity-90 hidden xl:block">
                     <div className="chat-bubble bg-[var(--light-secondary-color)] w-fit max-w-full whitespace-nowrap px-3 py-2">
                       <i className="fa-solid fa-heart text-[var(--primary-color)] mr-2"></i>
                       Super Clear
                     </div>
                   </div>
 
-                  <div className="chat chat-start absolute bottom-20 right-[-130px] opacity-90">
+                  <div className="chat chat-start absolute bottom-20 right-[-130px] opacity-90 hidden xl:block">
                     <div className="chat-bubble bg-[var(--light-secondary-color)] w-fit max-w-full whitespace-nowrap px-3 py-2">
                       <i class="fa-solid fa-lightbulb text-[var(--secondary-color)] mr-2"></i>
                       Amazing Session

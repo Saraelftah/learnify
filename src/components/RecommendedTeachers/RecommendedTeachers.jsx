@@ -63,18 +63,16 @@ function RecommendedTeachers() {
                   <RatingStars value={teacher.rating} />
                 </span>
                 <div className="flex gap-2 mt-2">
-                  <NavLink
-                    to="/"
-                    className="btn border-[var(--secondary-color)] bg-white text-[var(--secondary-color)] w-fit"
-                  >
-                    view more
-                  </NavLink>
-                  <NavLink
-                    to={`/payment/${teacher.id}`}
-                    className="btn border-[var(--secondary-color)] bg-white text-[var(--secondary-color)] w-fit"
-                  >
-                    Book Now
-                  </NavLink>
+                <NavLink
+                  to="/">
+                  <button className="btn btn-outline block border-[var(--secondary-color)] text-[var(--secondary-color)] w-fit hover:bg-[var(--secondary-color)] hover:text-white">
+                  view more</button>
+                </NavLink>
+                <NavLink
+                  to={`/payment/${teacher.id}`}>
+                  <button className="btn btn-outline block border-[var(--secondary-color)] text-[var(--secondary-color)] w-fit hover:bg-[var(--secondary-color)] hover:text-white">
+                  book now </button>
+                </NavLink>
                 </div>
               </div>
             ))}
