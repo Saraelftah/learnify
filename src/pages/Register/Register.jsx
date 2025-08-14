@@ -2,13 +2,14 @@
 import { NavLink, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../../../firebase";
+import { auth, db } from "../../../firebase";
 import toast from "react-hot-toast";
 import SideImg from "../../components/SideImg/SideImg";
 import Logo from "../../components/Logo/Logo";
 import Google from "../../components/Google/Google";
 import SignBtn from "../../components/SignBtn/SignBtn";
 import FormInput from "../../components/FormInput/FormInput";
+import { doc, serverTimestamp, setDoc } from "firebase/firestore";
 
 function Register() {
   const navigate = useNavigate();
@@ -22,10 +23,31 @@ function Register() {
 
   const onSubmit = async (data) => {
     console.log(data);
-    const { email, password } = data;
-
+    const { email, password, username, phone, role } = data;
     try {
-      await createUserWithEmailAndPassword(auth, email, password);
+      const cred = await createUserWithEmailAndPassword(auth, email, password);
+      const uid = cred.user.uid;
+      const safeRole = role === "teacher" ? "teacherPending" : "student";
+      // make users collection
+      await setDoc(doc(db,"users",uid), {
+        email,
+        name: username,
+        phone,
+        role: safeRole,
+        creatdeAt: serverTimestamp()
+      })
+      // make newteachers collection
+      if (role === "teacher") {
+        await setDoc(doc(db, "newTeachers", uid),{
+          bio: "",
+          subject: "",
+          pricePerHour: null,
+          availability: [],
+          ownerId: uid,
+          createdAt: serverTimestamp(),
+          approved: false,
+        });
+      }
       toast.success("Registered Successfully!");
       navigate("/login");
     } catch (err) {
@@ -48,7 +70,9 @@ function Register() {
             <h2 className="text-xl lg:text-3xl md:text-2xl mb-3 font-bold text-center">
               Hey, We are glad you <br></br> chose Learnify
             </h2>
-            <div className="divider w-full lg:w-5/6 mx-auto mb-5">Lets get started</div>
+            <div className="divider w-full lg:w-5/6 mx-auto mb-5">
+              Lets get started
+            </div>
 
             {/* username */}
             <FormInput
@@ -137,7 +161,27 @@ function Register() {
               }}
               error={errors.phone}
             />
-           
+
+            {/* teacher or student */}
+            <div className="flex gap-6 my-2">
+              <label className="cursor-pointer flex items-center gap-2">
+                <input
+                  type="radio"
+                  value="student"
+                  {...register("role", { required: true })}
+                  defaultChecked
+                />
+                <span>Student</span>
+              </label>
+              <label className="cursor-pointer flex items-center gap-2">
+                <input
+                  type="radio"
+                  value="teacher"
+                  {...register("role", { required: true })}
+                />
+                <span>Teacher</span>
+              </label>
+            </div>
 
             {/* submit button */}
             <SignBtn label="Sign Up" />
