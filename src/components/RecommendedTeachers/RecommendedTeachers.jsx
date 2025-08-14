@@ -5,7 +5,6 @@ import { useSelector } from "react-redux";
 import "./RecommendedTeachers.module.css";
 import RatingStars from "../RatingStars/RatingStars";
 import { NavLink } from "react-router-dom";
-import BookBtn from "../Button/BookBtn";
 
 function RecommendedTeachers() {
   const teachers = useSelector((state) => state.teachers.teachers);
@@ -70,9 +69,12 @@ function RecommendedTeachers() {
                   >
                     view more
                   </NavLink>
-                  <BookBtn
-                    teacher={teacher}
-                  />
+                  <NavLink
+                    to={`/payment/${teacher.id}`}
+                    className="btn border-[var(--secondary-color)] bg-white text-[var(--secondary-color)] w-fit"
+                  >
+                    Book Now
+                  </NavLink>
                 </div>
               </div>
             ))}
