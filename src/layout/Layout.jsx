@@ -6,9 +6,9 @@ function Layout() {
   return (
     <>
       <Navbar />
-
+      <div className="flex-grow">
       <Outlet />
-
+      </div>
       <Footer />
     </>
   );

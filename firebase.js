@@ -42,11 +42,11 @@ async function addTeachers() {
         { day: "Wednesday", time: "7:30", period: "PM" },
         { day: "Friday", time: "10:00", period: "AM" }
       ],
-      // availableGroupDates: [
-      //   { day: "Monday", time: "5:00", period: "PM" },
-      //   { day: "Wednesday", time: "7:30", period: "PM" },
-      //   { day: "Friday", time: "10:00", period: "AM" }
-      // ],
+      availableGroupDates: [
+        { day: "Tuesday", time: "3:15", period: "PM" },
+        { day: "Thursday", time: "8:45", period: "AM" },
+        { day: "Saturday", time: "6:00", period: "PM" }
+      ],
       reviews: [
         {
           studentName: "Omar Khaled",
@@ -78,7 +78,11 @@ async function addTeachers() {
         { day: "Wednesday", time: "7:30", period: "PM" },
         { day: "Friday", time: "10:00", period: "AM" }
       ],
-
+      availableGroupDates: [
+        { day: "Tuesday", time: "3:15", period: "PM" },
+        { day: "Thursday", time: "8:45", period: "AM" },
+        { day: "Saturday", time: "6:00", period: "PM" }
+      ],
       reviews: [
         {
           studentName: "Samar Khaled",
@@ -112,6 +116,11 @@ async function addTeachers() {
         { day: "Wednesday", time: "7:30", period: "PM" },
         { day: "Friday", time: "10:00", period: "AM" }
       ],
+      availableGroupDates: [
+        { day: "Tuesday", time: "3:15", period: "PM" },
+        { day: "Thursday", time: "8:45", period: "AM" },
+        { day: "Saturday", time: "6:00", period: "PM" }
+      ],
       reviews: [
         {
           studentName: "Youssef Adel",
@@ -142,6 +151,11 @@ async function addTeachers() {
         { day: "Monday", time: "5:00", period: "PM" },
         { day: "Wednesday", time: "7:30", period: "PM" },
         { day: "Friday", time: "10:00", period: "AM" }
+      ],
+      availableGroupDates: [
+        { day: "Tuesday", time: "3:15", period: "PM" },
+        { day: "Thursday", time: "8:45", period: "AM" },
+        { day: "Saturday", time: "6:00", period: "PM" }
       ],
       reviews: [
         {
@@ -176,6 +190,11 @@ async function addTeachers() {
         { day: "Wednesday", time: "7:30", period: "PM" },
         { day: "Friday", time: "10:00", period: "AM" }
       ],
+      availableGroupDates: [
+        { day: "Tuesday", time: "3:15", period: "PM" },
+        { day: "Thursday", time: "8:45", period: "AM" },
+        { day: "Saturday", time: "6:00", period: "PM" }
+      ],
       reviews: [
         {
           studentName: "Mostafa saber",
@@ -208,6 +227,11 @@ async function addTeachers() {
         { day: "Monday", time: "5:00", period: "PM" },
         { day: "Wednesday", time: "7:30", period: "PM" },
         { day: "Friday", time: "10:00", period: "AM" }
+      ],
+      availableGroupDates: [
+        { day: "Tuesday", time: "3:15", period: "PM" },
+        { day: "Thursday", time: "8:45", period: "AM" },
+        { day: "Saturday", time: "6:00", period: "PM" }
       ],
       reviews: [
         {
@@ -243,6 +267,11 @@ async function addTeachers() {
         { day: "Wednesday", time: "7:30", period: "PM" },
         { day: "Friday", time: "10:00", period: "AM" }
       ],
+      availableGroupDates: [
+        { day: "Tuesday", time: "3:15", period: "PM" },
+        { day: "Thursday", time: "8:45", period: "AM" },
+        { day: "Saturday", time: "6:00", period: "PM" }
+      ],
       reviews: [
         {
           studentName: "Nelly Mahrous",
@@ -276,6 +305,11 @@ async function addTeachers() {
         { day: "Wednesday", time: "7:30", period: "PM" },
         { day: "Friday", time: "10:00", period: "AM" }
       ],
+      availableGroupDates: [
+        { day: "Tuesday", time: "3:15", period: "PM" },
+        { day: "Thursday", time: "8:45", period: "AM" },
+        { day: "Saturday", time: "6:00", period: "PM" }
+      ],
       reviews: [
         {
           studentName: "Belal Ahmed",
@@ -308,6 +342,11 @@ async function addTeachers() {
         { day: "Monday", time: "5:00", period: "PM" },
         { day: "Wednesday", time: "7:30", period: "PM" },
         { day: "Friday", time: "10:00", period: "AM" }
+      ],
+      availableGroupDates: [
+        { day: "Tuesday", time: "3:15", period: "PM" },
+        { day: "Thursday", time: "8:45", period: "AM" },
+        { day: "Saturday", time: "6:00", period: "PM" }
       ],
       reviews: [
         {
@@ -344,6 +383,11 @@ async function addTeachers() {
         { day: "Thursdau", time: "7:30", period: "PM" },
         { day: "Friday", time: "10:00", period: "AM" }
       ],
+      availableGroupDates: [
+        { day: "Sunday", time: "9:00", period: "AM" },
+        { day: "Tuesday", time: "2:30", period: "PM" },
+        { day: "Thursday", time: "11:15", period: "AM" }
+      ],
       reviews: [
         {
           studentName: "Sawsan",
@@ -376,6 +420,11 @@ async function addTeachers() {
         { day: "Wednesday", time: "7:30", period: "PM" },
         { day: "Thursday", time: "7:30", period: "PM" },
         { day: "Friday", time: "10:00", period: "AM" }
+      ],
+      availableGroupDates: [
+        { day: "Wednesday", time: "4:30", period: "PM" },
+        { day: "Sunday", time: "9:45", period: "AM" },
+        { day: "Friday", time: "6:15", period: "PM" }
       ],
       reviews: [
         {
@@ -411,6 +460,11 @@ async function addTeachers() {
         { day: "Wednesday", time: "7:30", period: "PM" },
         { day: "Friday", time: "10:00", period: "AM" }
       ],
+      availableGroupDates: [
+        { day: "Tuesday", time: "11:00", period: "AM" },
+        { day: "Thursday", time: "1:45", period: "PM" },
+        { day: "Saturday", time: "10:30", period: "AM" }
+      ],
       reviews: [
         {
           studentName: "Malk Adel",
@@ -444,6 +498,11 @@ async function addTeachers() {
         { day: "Monday", time: "5:00", period: "PM" },
         { day: "Wednesday", time: "7:30", period: "PM" },
         { day: "Friday", time: "10:00", period: "AM" }
+      ],
+      availableGroupDates: [
+        { day: "Tuesday", time: "11:00", period: "AM" },
+        { day: "Thursday", time: "1:45", period: "PM" },
+        { day: "Saturday", time: "10:30", period: "AM" }
       ],
       reviews: [
         {
@@ -479,6 +538,11 @@ async function addTeachers() {
         { day: "Wednesday", time: "7:30", period: "PM" },
         { day: "Friday", time: "10:00", period: "AM" }
       ],
+      availableGroupDates: [
+        { day: "Tuesday", time: "11:00", period: "AM" },
+        { day: "Thursday", time: "1:45", period: "PM" },
+        { day: "Saturday", time: "10:30", period: "AM" }
+      ],
       reviews: [
         {
           studentName: "Nada Yossry",
@@ -512,6 +576,11 @@ async function addTeachers() {
         { day: "Sunday", time: "8:00", period: "AM" },
         { day: "Wednesday", time: "7:30", period: "PM" },
         { day: "Friday", time: "10:00", period: "AM" }
+      ],
+      availableGroupDates: [
+        { day: "Monday", time: "9:30", period: "AM" },
+        { day: "Wednesday", time: "9:15", period: "AM" },
+        { day: "Sunday", time: "7:00", period: "PM" }
       ],
       reviews: [
         {
@@ -581,6 +650,11 @@ async function addTeachers() {
         { day: "Thursday", time: "8:30", period: "PM" },
         { day: "Friday", time: "10:00", period: "AM" }
       ],
+      availableGroupDates: [
+        { day: "Friday", time: "8:30", period: "PM" },
+        { day: "Saturday", time: "4:15", period: "PM" },
+        { day: "Thursday", time: "11:45", period: "AM" }
+      ],
       reviews: [
         {
           studentName: "Adel",
@@ -615,6 +689,12 @@ async function addTeachers() {
         { day: "Wednesday", time: "7:30", period: "PM" },
         { day: "Friday", time: "10:00", period: "AM" }
       ],
+      availableGroupDates: [
+        { day: "Friday", time: "8:30", period: "PM" },
+        { day: "Saturday", time: "4:15", period: "PM" },
+        { day: "Thursday", time: "11:45", period: "AM" }
+      ],
+
       reviews: [
         {
           studentName: "Mourad",
@@ -648,6 +728,12 @@ async function addTeachers() {
         { day: "Sunday", time: "8:00", period: "AM" },
         { day: "Wednesday", time: "7:30", period: "PM" },
         { day: "Friday", time: "10:00", period: "AM" }
+      ],
+
+      availableGroupDates: [
+        { day: "Friday", time: "8:30", period: "PM" },
+        { day: "Saturday", time: "8:00", period: "AM" },
+        { day: "Thursday", time: "11:45", period: "AM" }
       ],
       reviews: [
         {
@@ -684,6 +770,11 @@ async function addTeachers() {
         { day: "Friday", time: "10:00", period: "AM" }
       ],
 
+      availableGroupDates: [
+        { day: "Friday", time: "8:30", period: "PM" },
+        { day: "Saturday", time: "4:15", period: "PM" },
+        { day: "Thursday", time: "11:45", period: "AM" }
+      ],
       reviews: [
         {
           studentName: "Maram",

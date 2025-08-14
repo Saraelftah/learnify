@@ -1,0 +1,35 @@
+import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
+import lock from "../../assets/images/lock.png";
+
+function Unauthorized() {
+  const navigate = useNavigate();
+  return (
+    <div className="flex flex-col items-center justify-center min-h-screen text-center p-6">
+      <motion.div
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+      >
+        {/* <i className="fa-solid fa-lock text-red-500 text-6xl mb-4"></i>  */}
+        <div className="w-30 mx-auto">
+          <img src={lock} alt="lock" />
+        </div>
+        <h1 className="text-3xl font-bold mb-2">Access Denied</h1>
+        <p className="text-gray-500 mb-6">
+          You don't have permission to view this page.
+        </p>
+        <button
+          className="btn bg-[var(--stars-color)] 
+              border border-[var(--stars-color)] text-white
+               hover:bg-white hover:text-[var(--stars-color)] transition-colors duration-300"
+          onClick={() => navigate("/")}
+        >
+          Go Home
+        </button>
+      </motion.div>
+    </div>
+  );
+}
+
+export default Unauthorized;
