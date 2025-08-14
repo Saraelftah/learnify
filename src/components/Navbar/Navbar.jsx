@@ -7,7 +7,7 @@ function Navbar() {
   return (
     <>
       <nav className="home-navbar fixed top-0 left-0 z-50 w-full bg-[var(--background-color)]">
-        <div className="container p-4">
+        <div className="container py-4">
           <div className="navbar px-0 py-[10px] justify-between">
             <div className="navbar-start w-fit">
               <NavLink to="/">
