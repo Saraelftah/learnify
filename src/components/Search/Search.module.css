@@ -10,8 +10,8 @@
 
 .search-input:focus {
     outline: none;
-    border-color: var(--secondary-color);
-    box-shadow: 0 0 5px var(--secondary-color);
+    border-color: var(--light-primary-color);
+    box-shadow: 0 0 5px var(--light-primary-color);
 }
 
 .search-input option {
@@ -32,8 +32,8 @@
 
 .dropdown:focus {
     outline: none;
-    border-color: var(--secondary-color);
-    box-shadow: 0 0 5px var(--secondary-color);
+    border-color: var(--light-primary-color);
+    box-shadow: 0 0 5px var(--light-primary-color);
 }
 
 .dropdown option {

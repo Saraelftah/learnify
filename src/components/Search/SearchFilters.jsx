@@ -10,54 +10,39 @@ const dropdownVariants = {
 };
 
 export default function SearchInputs({
-    // query,
-    // setQuery,
-    // subject,
-    // setSubject,
-    // gradeLevel,
-    // setGradeLevel,
-    subjectOptions,
-    gradeOptions
+  subjectOptions,
+  gradeOptions
 }) {
+  const [searchParams] = useSearchParams();
+  const navigate = useNavigate();
+  // Local state for inputs
+  const [localQuery, setLocalQuery] = useState(searchParams.get("query") || "");
+  const [localSubject, setLocalSubject] = useState(searchParams.get("subject") || "");
+  const [localGrade, setLocalGrade] = useState(searchParams.get("grade") || "");
 
-    // const [tempQuery, setTempQuery] = useState(query);
+  const handleSearch = () => {
+    const params = new URLSearchParams();
+    if (localQuery.trim() !== "") {
+      params.set("query", localQuery.trim());
+    }
+    if (localSubject) {
+      params.set("subject", localSubject);
+    }
+    if (localGrade) {
+      params.set("grade", localGrade);
+    }
+    navigate(`/search?${params.toString()}`);
+  };
 
-    //edit
-    const [searchParams, setSearchParams] = useSearchParams();
-    const query = searchParams.get("query") || "";
-    const subject = searchParams.get("subject") || "";
-    const gradeLevel = searchParams.get("grade") || "";
-    const navigate = useNavigate(); //edit
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      handleSearch();
+    }
+  };
 
-
-
-    const handleSearch = () => {
-      //edit
-      const params = new URLSearchParams();
-
-      if (query.trim() !== "") {
-        params.set("query", query.trim());
-      }
-      if (subject) {
-        params.set("subject", subject);
-      }
-      if (gradeLevel) {
-        params.set("grade", gradeLevel);
-      }
-      // setQuery(tempQuery);
-      navigate(`/search?${params.toString()}`); //edit
-    };
-
-    const handleKeyDown = (e) => {
-        if (e.key === "Enter") {
-            e.preventDefault();
-            handleSearch();
-            
-        }
-    };
-
-    return (
-      <div className="grid grid-cols-1 md:grid-cols-6 gap-6 mb-10">
+  return (
+    <div className="grid grid-cols-1 md:grid-cols-6 gap-6 mb-10">
         {/* Search by name */}
         <motion.div
           variants={dropdownVariants}
@@ -74,16 +59,8 @@ export default function SearchInputs({
             <input
               type="text"
               placeholder="Type teacher name..."
-              value={query}
-              onChange={(e) => {
-                const newSearchParams = new URLSearchParams(searchParams);
-                if (e.target.value.trim() !== "") {
-                  newSearchParams.set("query", e.target.value);
-                } else {
-                  newSearchParams.delete("query");
-                }
-                setSearchParams(newSearchParams);
-              }}
+              value={localQuery}
+              onChange={(e) => setLocalQuery(e.target.value)}
               onKeyDown={handleKeyDown}
               className={`input input-bordered w-full pr-10 text-lg ${styles["search-input"]}`}
             />
@@ -109,16 +86,8 @@ export default function SearchInputs({
             <motion.select
               whileFocus={{ scale: 1.03 }}
               whileTap={{ scale: 0.98 }}
-              value={subject}
-              onChange={(e) => {
-                const newSearchParams = new URLSearchParams(searchParams);
-                if (e.target.value) {
-                  newSearchParams.set("subject", e.target.value);
-                } else {
-                  newSearchParams.delete("subject");
-                }
-                setSearchParams(newSearchParams);
-              }}
+              value={localSubject}
+              onChange={(e) => setLocalSubject(e.target.value)}
               className={`select select-bordered w-full ${styles["dropdown"]}`}
             >
               <option value="">All</option>
@@ -150,16 +119,8 @@ export default function SearchInputs({
             <motion.select
               whileFocus={{ scale: 1.03 }}
               whileTap={{ scale: 0.98 }}
-              value={gradeLevel}
-              onChange={(e) => {
-                const newSearchParams = new URLSearchParams(searchParams);
-                if (e.target.value) {
-                  newSearchParams.set("grade", e.target.value);
-                } else {
-                  newSearchParams.delete("grade");
-                }
-                setSearchParams(newSearchParams);
-              }}
+              value={localGrade}
+              onChange={(e) => setLocalGrade(e.target.value)}
               className={`select select-bordered w-full ${styles["dropdown"]}`}
             >
               <option value="">All</option>
