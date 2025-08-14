@@ -1,15 +1,23 @@
+<<<<<<< HEAD
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import toast from "react-hot-toast";
+=======
+import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useForm } from "react-hook-form";
+import { clearBookingTeacher } from "../../store/BookedTeacherSlice";
+>>>>>>> 44c5c17 (teacher Page with book now button to navigate to payment page)
 
 const steps = ["Book", "Your Details", "Payment"];
 
 function Payment() {
   const [activeStep, setActiveStep] = useState(0);
   const dispatch = useDispatch();
+<<<<<<< HEAD
 
   const { register, handleSubmit } = useForm();
   const { id: TeacherId } = useParams();
@@ -28,6 +36,29 @@ function Payment() {
     setActiveStep(steps.length);
   };
 
+=======
+  const teacher = useSelector((state) => state.bookedTeacher.selectedTeacher);
+
+  const { register, handleSubmit } = useForm();
+
+  const handleNext = () => setActiveStep((prev) => prev + 1);
+  const handleBack = () => setActiveStep((prev) => prev - 1);
+
+  const handleFinish = (data) => {
+    console.log("Form submitted:", data);
+    setActiveStep(steps.length);
+    dispatch(clearBookingTeacher());
+  };
+
+  // if (!teacher) {
+  //   return (
+  //     <div className="text-center">
+  //       Choose a teacher to proceed with booking.
+  //     </div>
+  //   );
+  // }
+
+>>>>>>> 44c5c17 (teacher Page with book now button to navigate to payment page)
   return (
     <div className="w-full max-w-3xl mx-auto p-4">
       {/* Stepper */}
@@ -35,7 +66,11 @@ function Payment() {
         {steps.map((label, index) => (
           <li
             key={label}
+<<<<<<< HEAD
             className={`step ${index <= activeStep ? "step-accent" : ""}`}
+=======
+            className={`step ${index <= activeStep ? "step-primary" : ""}`}
+>>>>>>> 44c5c17 (teacher Page with book now button to navigate to payment page)
           >
             {label}
           </li>
@@ -43,9 +78,15 @@ function Payment() {
       </ul>
 
       {activeStep === steps.length ? (
+<<<<<<< HEAD
         <div className="text-center mt-20">
           <div className="text-center">
             <span>summary ! </span>
+=======
+        <div className="text-center">
+          <div role="alert" className="alert alert-success">
+            <span>You 've completed payment successfully! </span>
+>>>>>>> 44c5c17 (teacher Page with book now button to navigate to payment page)
           </div>
         </div>
       ) : (
@@ -97,6 +138,7 @@ function Payment() {
                 </div>
                 <div>
                   <label className="label font-medium">Available Times</label>
+<<<<<<< HEAD
                   <select className="border border-gray-300 rounded-md p-2 w-full focus:outline-none focus:ring-2 focus:ring-[var(--secondary-color)]">
                     <option value="">Select a time</option>
                     {teacher?.availableDates?.map((slot, index) => (
@@ -108,6 +150,16 @@ function Payment() {
                       </option>
                     ))}
                   </select>
+=======
+                  {/* <select>
+                    <option value="">Select a time</option>
+                    {teacher.availableTimes.map((time, index) => (
+                      <option key={index} value={time}>
+                        {time}
+                      </option>
+                    ))}
+                  </select> */}
+>>>>>>> 44c5c17 (teacher Page with book now button to navigate to payment page)
                 </div>
               </div>
             </div>
@@ -193,7 +245,15 @@ function Payment() {
           <div className="flex justify-between mt-6">
             <button
               type="button"
+<<<<<<< HEAD
               className="btn bg-[var(--secondary-color)] border-[var(--secondary-color)]"
+=======
+              className="btn"
+              style={{
+                backgroundColor: "var(--light-secondary-color)",
+                borderColor: "var(--light-secondary-color)",
+              }}
+>>>>>>> 44c5c17 (teacher Page with book now button to navigate to payment page)
               onClick={handleBack}
               disabled={activeStep === 0}
             >
@@ -219,8 +279,12 @@ function Payment() {
                   backgroundColor: "var(--secondary-color)",
                   borderColor: "var(--secondary-color)",
                 }}
+<<<<<<< HEAD
                 onClick={handleSubmit(()=> {
                   handleNext()})}
+=======
+                onClick={handleNext}
+>>>>>>> 44c5c17 (teacher Page with book now button to navigate to payment page)
               >
                 Next
               </button>

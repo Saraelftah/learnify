@@ -1,1 +1,24 @@
+<<<<<<< HEAD
 .TeacherProfile {}
+=======
+/* .cursor-none {
+    cursor: none !important;
+}
+
+.slick-dots {
+    bottom: -30px !important;
+}
+
+.slick-dots li button:before {
+    color: var(--primary-color) !important;
+    font-size: 10px !important;
+}
+
+.slick-prev:before, 
+.slick-next:before {
+    color: var(--primary-color) !important;
+/* } */
+ /* .react-multi-carousel-list{ */
+  /* width: 100% !important; */
+ 
+>>>>>>> 44c5c17 (teacher Page with book now button to navigate to payment page)

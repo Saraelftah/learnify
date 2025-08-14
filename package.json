@@ -26,6 +26,11 @@
     "react-multi-carousel": "^2.8.6",
     "react-redux": "^9.2.0",
     "react-router-dom": "^7.7.1",
+<<<<<<< HEAD
+=======
+    "react-slick": "^0.31.0",
+    "slick-carousel": "^1.8.1",
+>>>>>>> 44c5c17 (teacher Page with book now button to navigate to payment page)
     "tailwindcss": "^4.1.11"
   },
   "devDependencies": {
