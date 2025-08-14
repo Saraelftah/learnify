@@ -1,9 +1,9 @@
 import { Suspense } from "react";
 import "./App.css";
-import Home from "./pages/Home/Home";
 import Loader from "./components/Loader/Loader";
 import AppRoutes from "./routes/AppRoutes";
 import Network from "./network/network";
+
 
 function App() {
   return (

@@ -1,6 +1,11 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Layout from "../layout/Layout";
 import { lazy } from "react";
+import RoleRoute from "./RoleRoute";
+import Admin from "../pages/admin/admin";
+import Teacher from "../pages/Teacher/teacher";
+import RolePage from "../pages/RolePage/RolePage";
+import Unauthorized from "../pages/Unauthorized/Unauthorized";
 
 
 const Home = lazy(() => import("../pages/Home/Home"));
@@ -15,6 +20,8 @@ function AppRoutes() {
   let router = createBrowserRouter([
     { path: "login", element: <Login /> },
     { path: "register", element: <Register /> },
+    { path: "role", element: <RolePage /> },
+    { path: "unauthorized", element: <Unauthorized /> },
     {
       path: "",
       element: <Layout />,
@@ -23,6 +30,18 @@ function AppRoutes() {
         { path: "payment/:id", element: <Payment /> },
         { path: "student/:id", element: <StudentProfile /> },
         { path: "tutor/:id", element: <TeacherProfile /> },
+        { path: "admin", element: 
+        <RoleRoute allow={["admin"]} >
+          <Admin/>
+        </RoleRoute>},
+         { path: "teacher", element: 
+        <RoleRoute allow={["teacher"]} >
+          <Teacher/>
+        </RoleRoute>},
+          { path: "student", element: 
+        <RoleRoute allow={["student"]} >
+          <StudentProfile/>
+        </RoleRoute>},
         { path: "*", element: <Notfound /> },
       ],
     },

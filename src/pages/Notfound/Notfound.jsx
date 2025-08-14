@@ -1,14 +1,11 @@
-import './Notfound.module.css'
+import "./Notfound.module.css";
 
 function Notfound() {
-
-  
   return (
     <>
-        <div>Notfound</div>
+      <div>not found</div>
     </>
-    
-  )
+  );
 }
 
-export default Notfound
+export default Notfound;
