@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
-// import { clearSelectedTeacher } from "../../store/BookedTeacherSlice";
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import toast from "react-hot-toast";
@@ -27,7 +26,6 @@ function Payment() {
   const handleFinish = (data) => {
     console.log("Form submitted:", data);
     setActiveStep(steps.length);
-    // dispatch(clearSelectedTeacher());
   };
 
   return (
