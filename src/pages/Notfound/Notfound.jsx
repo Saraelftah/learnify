@@ -3,7 +3,13 @@ import "./Notfound.module.css";
 function Notfound() {
   return (
     <>
+<<<<<<< HEAD
       <div>not found</div>
+=======
+    <div className="text-align-center flex items-center justify-center">
+        <div>Notfound</div>
+    </div>
+>>>>>>> 5f6f694b97bf533f7f397c93231d894b23c4d2e9
     </>
   );
 }
