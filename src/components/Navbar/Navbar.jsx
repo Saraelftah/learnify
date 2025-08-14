@@ -80,7 +80,7 @@ function Navbar() {
                 Login
               </NavLink>
               <NavLink
-                to="/signup"
+                to="/register"
                 className="btn bg-[var(--secondary-color)] text-white ml-4 hover:bg-[var(--background-color)] hover:text-[var(--secondary-color)] border-1 border-[var(--secondary-color)] shadow-none transition-colors duration-500 ease-in-out"
               >
                 Sign Up

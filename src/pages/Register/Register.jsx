@@ -1,5 +1,4 @@
-// import style from "./Register.module.css";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth, db } from "../../../firebase";
@@ -13,6 +12,8 @@ import { doc, serverTimestamp, setDoc } from "firebase/firestore";
 
 function Register() {
   const navigate = useNavigate();
+  const location = useLocation();
+  const role = location.state?.selectedRole || "student";
 
   const {
     register,
@@ -23,22 +24,22 @@ function Register() {
 
   const onSubmit = async (data) => {
     console.log(data);
-    const { email, password, username, phone, role } = data;
+    const { email, password, username, phone } = data;
     try {
       const cred = await createUserWithEmailAndPassword(auth, email, password);
       const uid = cred.user.uid;
       const safeRole = role === "teacher" ? "teacherPending" : "student";
       // make users collection
-      await setDoc(doc(db,"users",uid), {
+      await setDoc(doc(db, "users", uid), {
         email,
         name: username,
         phone,
         role: safeRole,
-        creatdeAt: serverTimestamp()
-      })
+        createdAt: serverTimestamp(),
+      });
       // make newteachers collection
       if (role === "teacher") {
-        await setDoc(doc(db, "newTeachers", uid),{
+        await setDoc(doc(db, "newTeachers", uid), {
           bio: "",
           subject: "",
           pricePerHour: null,
@@ -58,9 +59,9 @@ function Register() {
 
   return (
     <>
-      <div className="flex">
+      <div className="flex bg-[#FFFBFA]">
         <div
-          className={`w-5/6 mx-auto lg:w-2/4 rounded-3xl lg:rounded-none py-15 px-8 flex flex-col items-center bg-[#FFFBFA]`}
+          className={`w-5/6 mx-auto lg:w-3/6 rounded-3xl lg:rounded-none py-5 px-8 flex flex-col items-center`}
         >
           <Logo />
           <form
@@ -74,76 +75,80 @@ function Register() {
               Lets get started
             </div>
 
-            {/* username */}
-            <FormInput
-              label="Name"
-              type="text"
-              placeholder="Enter your name..."
-              name="username"
-              register={register}
-              rules={{
-                required: "Username is required",
-                minLength: {
-                  value: 6,
-                  message: "Username must be at least 6 characters",
-                },
-              }}
-              error={errors.username}
-            />
+            <div className="flex justify-between w-full gap-5">
+              {/* username */}
+              <FormInput
+                label="Name"
+                type="text"
+                placeholder="Enter your name..."
+                name="username"
+                register={register}
+                rules={{
+                  required: "Username is required",
+                  minLength: {
+                    value: 6,
+                    message: "Username must be at least 6 characters",
+                  },
+                }}
+                error={errors.username}
+              />
 
-            {/* email */}
-            <FormInput
-              label="Email"
-              type="email"
-              placeholder="Enter your email..."
-              name="email"
-              register={register}
-              rules={{
-                required: "Email is required",
-                pattern: {
-                  value: /[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/,
-                  message: "Email is not valid",
-                },
-              }}
-              error={errors.email}
-            />
+              {/* email */}
+              <FormInput
+                label="Email"
+                type="email"
+                placeholder="Enter your email..."
+                name="email"
+                register={register}
+                rules={{
+                  required: "Email is required",
+                  pattern: {
+                    value: /[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/,
+                    message: "Email is not valid",
+                  },
+                }}
+                error={errors.email}
+              />
+            </div>
 
-            {/* Password */}
-            <FormInput
-              label="Password"
-              type="password"
-              placeholder="Enter your password..."
-              name="password"
-              register={register}
-              rules={{
-                required: "Password is required",
-                minLength: {
-                  value: 6,
-                  message: "Password must be at least 6 characters",
-                },
-                pattern: {
-                  value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).+$/,
-                  message:
-                    "Password must contain uppercase, lowercase, number, and special character",
-                },
-              }}
-              error={errors.password}
-            />
+            <div className="flex justify-between w-full gap-5">
+              {/* Password */}
+              <FormInput
+                label="Password"
+                type="password"
+                placeholder="Enter your password..."
+                name="password"
+                register={register}
+                rules={{
+                  required: "Password is required",
+                  minLength: {
+                    value: 6,
+                    message: "Password must be at least 6 characters",
+                  },
+                  pattern: {
+                    value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).+$/,
+                    message:
+                      "Password must contain uppercase, lowercase, number, and special character",
+                  },
+                }}
+                error={errors.password}
+              />
 
-            {/* confirm password */}
-            <FormInput
-              label="Confirm Password"
-              type="Password"
-              placeholder="Confirm your password..."
-              name="confirmPassword"
-              register={register}
-              rules={{
-                required: "Confirmation is required",
-                validate: (value) =>
-                  value === watch("password") || "Password do not match",
-              }}
-              error={errors.confirmPassword}
-            />
+              {/* confirm password */}
+              <FormInput
+                label="Confirm Password"
+                type="Password"
+                placeholder="Confirm your password..."
+                name="confirmPassword"
+                register={register}
+                rules={{
+                  required: "Confirmation is required",
+                  validate: (value) =>
+                    value === watch("password") || "Password do not match",
+                }}
+                error={errors.confirmPassword}
+              />
+            </div>
 
             {/* Phone*/}
             <FormInput
@@ -161,27 +166,6 @@ function Register() {
               }}
               error={errors.phone}
             />
-
-            {/* teacher or student */}
-            <div className="flex gap-6 my-2">
-              <label className="cursor-pointer flex items-center gap-2">
-                <input
-                  type="radio"
-                  value="student"
-                  {...register("role", { required: true })}
-                  defaultChecked
-                />
-                <span>Student</span>
-              </label>
-              <label className="cursor-pointer flex items-center gap-2">
-                <input
-                  type="radio"
-                  value="teacher"
-                  {...register("role", { required: true })}
-                />
-                <span>Teacher</span>
-              </label>
-            </div>
 
             {/* submit button */}
             <SignBtn label="Sign Up" />

@@ -39,7 +39,8 @@ function Login() {
 
       // navigate as role
       if(role === "admin") navigate("/admin");
-      else if(role === "teacher" || role === "student") navigate("/");
+      else if(role === "teacher") navigate("/teacher");
+      else if(role === "student") navigate("/studentProfile");
       else if(role === "teacherPending") navigate ("/pending");
     } catch (err) {
       console.error(err);
@@ -49,9 +50,9 @@ function Login() {
 
   return (
     <>
-      <div className="flex">
+      <div className="flex bg-[#FFFBFA]">
         <div
-          className={`w-5/6 mx-auto lg:w-2/4 rounded-3xl lg:rounded-none py-15 px-8 flex flex-col items-center bg-[#FFFBFA]`}
+          className={`w-5/6 mx-auto lg:w-2/4 rounded-3xl lg:rounded-none py-15 px-8 flex flex-col items-center`}
         >
           <Logo />
 
@@ -100,7 +101,7 @@ function Login() {
           <div className="mb-5">
             <p className="text-center">
               Don't have an account?{" "}
-              <NavLink to="/register">
+              <NavLink to="/role">
                 {" "}
                 <b className="text-[var(--primary-color)]">Register</b>{" "}
               </NavLink>{" "}
@@ -116,7 +117,7 @@ function Login() {
           <Google />
         </div>
 
-        <SideImg imgClass="max-h-[900px] object-cover" />
+        <SideImg />
       </div>
     </>
   );
