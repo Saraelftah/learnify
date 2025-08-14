@@ -49,7 +49,9 @@ const CustomRightArrow = ({ onClick }) => (
   return (
     <>
       <div className="recommended-teachers py-[50px]">
-        <h3 className="text-[var(--dark-color)] font-bold mb-5 text-[length:var(--title-font-size)]">recommended teachers</h3>
+        <h3 className="text-[var(--dark-color)] font-bold mb-5 text-[length:var(--title-font-size)]">
+          recommended teachers
+        </h3>
         <Carousel
           responsive={responsive}
           itemClass="px-2 py-10 bg-transparent"

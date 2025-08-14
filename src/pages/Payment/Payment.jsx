@@ -1,33 +1,32 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
-import { clearBookingTeacher } from "../../store/BookedTeacherSlice";
+import { useParams } from "react-router-dom";
+import { useEffect } from "react";
+import toast from "react-hot-toast";
 
 const steps = ["Book", "Your Details", "Payment"];
 
 function Payment() {
   const [activeStep, setActiveStep] = useState(0);
   const dispatch = useDispatch();
-  const teacher = useSelector((state) => state.bookedTeacher.selectedTeacher);
 
   const { register, handleSubmit } = useForm();
-
+  const { id: TeacherId } = useParams();
+  //Select the teacher from the Redux store using the ID from the URL
+  const teachers = useSelector((state) => state.teachers.teachers);
+  const teacher = teachers.find((t) => t.id === TeacherId);
   const handleNext = () => setActiveStep((prev) => prev + 1);
   const handleBack = () => setActiveStep((prev) => prev - 1);
-
+    useEffect(() => {
+    if (activeStep === steps.length) {
+      toast.success(" You've completed payment successfully!");
+    }
+  }, [activeStep, steps.length]);
   const handleFinish = (data) => {
     console.log("Form submitted:", data);
     setActiveStep(steps.length);
-    dispatch(clearBookingTeacher());
   };
-
-  // if (!teacher) {
-  //   return (
-  //     <div className="text-center">
-  //       Choose a teacher to proceed with booking.
-  //     </div>
-  //   );
-  // }
 
   return (
     <div className="w-full max-w-3xl mx-auto p-4">
@@ -36,7 +35,7 @@ function Payment() {
         {steps.map((label, index) => (
           <li
             key={label}
-            className={`step ${index <= activeStep ? "step-primary" : ""}`}
+            className={`step ${index <= activeStep ? "step-accent" : ""}`}
           >
             {label}
           </li>
@@ -44,9 +43,9 @@ function Payment() {
       </ul>
 
       {activeStep === steps.length ? (
-        <div className="text-center">
-          <div role="alert" className="alert alert-success">
-            <span>You 've completed payment successfully! </span>
+        <div className="text-center mt-20">
+          <div className="text-center">
+            <span>summary ! </span>
           </div>
         </div>
       ) : (
@@ -98,14 +97,17 @@ function Payment() {
                 </div>
                 <div>
                   <label className="label font-medium">Available Times</label>
-                  {/* <select>
+                  <select className="border border-gray-300 rounded-md p-2 w-full focus:outline-none focus:ring-2 focus:ring-[var(--secondary-color)]">
                     <option value="">Select a time</option>
-                    {teacher.availableTimes.map((time, index) => (
-                      <option key={index} value={time}>
-                        {time}
+                    {teacher?.availableDates?.map((slot, index) => (
+                      <option
+                        key={index}
+                        value={`${slot.day} ${slot.time} ${slot.period}`}
+                      >
+                        {slot.day} - {slot.time} {slot.period}
                       </option>
                     ))}
-                  </select> */}
+                  </select>
                 </div>
               </div>
             </div>
@@ -191,11 +193,7 @@ function Payment() {
           <div className="flex justify-between mt-6">
             <button
               type="button"
-              className="btn"
-              style={{
-                backgroundColor: "var(--light-secondary-color)",
-                borderColor: "var(--light-secondary-color)",
-              }}
+              className="btn bg-[var(--secondary-color)] border-[var(--secondary-color)]"
               onClick={handleBack}
               disabled={activeStep === 0}
             >
@@ -221,7 +219,8 @@ function Payment() {
                   backgroundColor: "var(--secondary-color)",
                   borderColor: "var(--secondary-color)",
                 }}
-                onClick={handleNext}
+                onClick={handleSubmit(()=> {
+                  handleNext()})}
               >
                 Next
               </button>
