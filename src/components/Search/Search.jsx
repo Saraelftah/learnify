@@ -97,7 +97,11 @@ export default function Search() {
       />
 
       {loading ? (
+<<<<<<< HEAD
   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+=======
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+>>>>>>> 44c5c17 (teacher Page with book now button to navigate to payment page)
           {Array.from({ length: 6 }).map((_, i) => (
             <div key={i} className="card bg-base-200 animate-pulse h-80" />
           ))}
@@ -105,7 +109,11 @@ export default function Search() {
       ) : filtered.length > 0 ? (
         <motion.div
           layout
+<<<<<<< HEAD
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"
+=======
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
+>>>>>>> 44c5c17 (teacher Page with book now button to navigate to payment page)
         >
           {filtered.map((t, i) => (
             <motion.div

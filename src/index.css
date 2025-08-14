@@ -24,13 +24,21 @@
   --box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 
   /* text */
+<<<<<<< HEAD
   --title-font-size: 30px;
+=======
+  --title-font-size: 25px;
+>>>>>>> 44c5c17 (teacher Page with book now button to navigate to payment page)
   --font-size-xs: 14px;
   --line-height: 1.7;
 }
 
 .dark {
+<<<<<<< HEAD
   --background-color: #2b2b2b;
+=======
+  --background-color: #212121;
+>>>>>>> 44c5c17 (teacher Page with book now button to navigate to payment page)
   --light-background: #302f2f;
   --text-color: #a9a8a8;
   --main-text-color: #fff;
@@ -62,6 +70,14 @@ a {
   text-decoration: none;
 }
 
+<<<<<<< HEAD
+=======
+h1 {
+  font-size: 3.5rem;
+  line-height: 1.1;
+}
+
+>>>>>>> 44c5c17 (teacher Page with book now button to navigate to payment page)
 ul {
   list-style: none;
 }

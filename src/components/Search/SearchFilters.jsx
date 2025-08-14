@@ -10,6 +10,7 @@ const dropdownVariants = {
 };
 
 export default function SearchInputs({
+<<<<<<< HEAD
   subjectOptions,
   gradeOptions
 }) {
@@ -43,6 +44,56 @@ export default function SearchInputs({
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-6 gap-6 mb-10">
+=======
+    // query,
+    // setQuery,
+    // subject,
+    // setSubject,
+    // gradeLevel,
+    // setGradeLevel,
+    subjectOptions,
+    gradeOptions
+}) {
+
+    // const [tempQuery, setTempQuery] = useState(query);
+
+    //edit
+    const [searchParams, setSearchParams] = useSearchParams();
+    const query = searchParams.get("query") || "";
+    const subject = searchParams.get("subject") || "";
+    const gradeLevel = searchParams.get("grade") || "";
+    const navigate = useNavigate(); //edit
+
+
+
+    const handleSearch = () => {
+      //edit
+      const params = new URLSearchParams();
+
+      if (query.trim() !== "") {
+        params.set("query", query.trim());
+      }
+      if (subject) {
+        params.set("subject", subject);
+      }
+      if (gradeLevel) {
+        params.set("grade", gradeLevel);
+      }
+      // setQuery(tempQuery);
+      navigate(`/search?${params.toString()}`); //edit
+    };
+
+    const handleKeyDown = (e) => {
+        if (e.key === "Enter") {
+            e.preventDefault();
+            handleSearch();
+            
+        }
+    };
+
+    return (
+      <div className="grid grid-cols-1 md:grid-cols-6 gap-6 mb-10">
+>>>>>>> 44c5c17 (teacher Page with book now button to navigate to payment page)
         {/* Search by name */}
         <motion.div
           variants={dropdownVariants}
@@ -59,8 +110,21 @@ export default function SearchInputs({
             <input
               type="text"
               placeholder="Type teacher name..."
+<<<<<<< HEAD
               value={localQuery}
               onChange={(e) => setLocalQuery(e.target.value)}
+=======
+              value={query}
+              onChange={(e) => {
+                const newSearchParams = new URLSearchParams(searchParams);
+                if (e.target.value.trim() !== "") {
+                  newSearchParams.set("query", e.target.value);
+                } else {
+                  newSearchParams.delete("query");
+                }
+                setSearchParams(newSearchParams);
+              }}
+>>>>>>> 44c5c17 (teacher Page with book now button to navigate to payment page)
               onKeyDown={handleKeyDown}
               className={`input input-bordered w-full pr-10 text-lg ${styles["search-input"]}`}
             />
@@ -86,8 +150,21 @@ export default function SearchInputs({
             <motion.select
               whileFocus={{ scale: 1.03 }}
               whileTap={{ scale: 0.98 }}
+<<<<<<< HEAD
               value={localSubject}
               onChange={(e) => setLocalSubject(e.target.value)}
+=======
+              value={subject}
+              onChange={(e) => {
+                const newSearchParams = new URLSearchParams(searchParams);
+                if (e.target.value) {
+                  newSearchParams.set("subject", e.target.value);
+                } else {
+                  newSearchParams.delete("subject");
+                }
+                setSearchParams(newSearchParams);
+              }}
+>>>>>>> 44c5c17 (teacher Page with book now button to navigate to payment page)
               className={`select select-bordered w-full ${styles["dropdown"]}`}
             >
               <option value="">All</option>
@@ -119,8 +196,21 @@ export default function SearchInputs({
             <motion.select
               whileFocus={{ scale: 1.03 }}
               whileTap={{ scale: 0.98 }}
+<<<<<<< HEAD
               value={localGrade}
               onChange={(e) => setLocalGrade(e.target.value)}
+=======
+              value={gradeLevel}
+              onChange={(e) => {
+                const newSearchParams = new URLSearchParams(searchParams);
+                if (e.target.value) {
+                  newSearchParams.set("grade", e.target.value);
+                } else {
+                  newSearchParams.delete("grade");
+                }
+                setSearchParams(newSearchParams);
+              }}
+>>>>>>> 44c5c17 (teacher Page with book now button to navigate to payment page)
               className={`select select-bordered w-full ${styles["dropdown"]}`}
             >
               <option value="">All</option>
