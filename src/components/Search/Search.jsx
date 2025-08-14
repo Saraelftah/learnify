@@ -4,6 +4,7 @@ import { db } from "../../../firebase";
 import { motion } from "framer-motion";
 import SearchCard from "./SearchCard";
 import SearchInputs from "./SearchFilters";
+import { useSearchParams } from "react-router-dom";
 
 function normalize(v = "") {
   return String(v).trim().toLowerCase();
@@ -12,10 +13,13 @@ function normalize(v = "") {
 export default function Search() {
   const [loading, setLoading] = useState(true);
   const [teachers, setTeachers] = useState([]);
-
-  const [query, setQuery] = useState("");
-  const [subject, setSubject] = useState("");
-  const [gradeLevel, setGradeLevel] = useState("");
+  const [searchParams, setSearchParams] = useSearchParams(); //edit
+  // const [query, setQuery] = useState("");
+  // const [subject, setSubject] = useState("");
+  // const [gradeLevel, setGradeLevel] = useState("");
+  const query = searchParams.get("query") || "";
+  const subject = searchParams.get("subject") || "";
+  const gradeLevel = searchParams.get("grade") || "";
 
   useEffect(() => {
     (async () => {
@@ -78,14 +82,18 @@ export default function Search() {
   return (
     <div>
       <SearchInputs
-        query={query}
-        setQuery={setQuery}
-        subject={subject}
-        setSubject={setSubject}
-        gradeLevel={gradeLevel}
-        setGradeLevel={setGradeLevel}
+        // query={query}
+        // setQuery={setQuery}
+        // subject={subject}
+        // setSubject={setSubject}
+        // gradeLevel={gradeLevel}
+        // setGradeLevel={setGradeLevel}
+        query={query} //edit
+        subject={subject} //edit
+        gradeLevel={gradeLevel} //edit
         subjectOptions={subjectOptions}
         gradeOptions={gradeOptions}
+        setSearchParams={setSearchParams} //edit
       />
 
       {loading ? (
@@ -95,7 +103,10 @@ export default function Search() {
           ))}
         </div>
       ) : filtered.length > 0 ? (
-        <motion.div layout className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <motion.div
+          layout
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
+        >
           {filtered.map((t, i) => (
             <motion.div
               key={t.id}
@@ -109,7 +120,9 @@ export default function Search() {
           ))}
         </motion.div>
       ) : (
-        <p className="text-center text-[var(--text-color)]">No teachers found.</p>
+        <p className="text-center text-[var(--text-color)]">
+          No teachers found.
+        </p>
       )}
     </div>
   );
