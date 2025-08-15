@@ -25,16 +25,8 @@ function Home() {
     <>
       <section className="home capitalize pt-[100px]">
         <HomeBanner />
-        
 
-        
         <div className="container">
-          <div className="search-home w-[80vw] m-auto shadow-xl relative top-[-30px] z-2 p-5 bg-[var(--background-color)] rounded-[var(--border-radius)]">
-            <h3 className="text-[var(--dark-color)] text-[length:var(--title-font-size)] mb-3 ">find your teacher</h3>
-            <SearchInputs />
-          </div>
-          
-
           {/* why us section */}
           <section className="why-learnify py-[50px]">
               <h3 className="text-[var(--dark-color)] text-[length:var(--title-font-size)] font-bold">Why Choose Us?</h3>

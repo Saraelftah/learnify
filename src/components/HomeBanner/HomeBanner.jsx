@@ -2,6 +2,7 @@ import bannerImg from "../../assets/images/banner-home.png"
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import SearchInputs from "../Search/SearchFilters";
+import { useNavigate } from "react-router-dom";
 
 function HomeBanner() {
 
@@ -44,6 +45,16 @@ function HomeBanner() {
         return () => clearTimeout(timer);
     }, [charIndex, isDeleting, wordIndex, subjects]);
 
+    const navigate = useNavigate(); //edit
+      const [searchQuery, setSearchQuery] = useState("");
+
+    const handleSearch = () => {
+    const params = new URLSearchParams();
+    if (searchQuery.trim() !== "") {
+      params.set("query", searchQuery.trim());
+    }
+    navigate(`/search?${params.toString()}`);
+  };
     
   return (
     <>
@@ -63,6 +74,23 @@ function HomeBanner() {
                   your future.
                 </p>
                 
+                {/* search for teachers */}
+                <div className="home-search pt-5 w-full overflow-hidden">
+                  <h4 className="text-[var(--dark-color)] pb-2">find your teacher</h4>
+                  <input type="text" 
+                  value={searchQuery} 
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter") {
+                      handleSearch();
+                    }}}
+                    placeholder="search by teacher name" 
+                    className="input border-2 border-[var(--secondary-color)] focus:outline-0 w-[80%] bg-[var(--background-color)]" />
+                  <div onClick={handleSearch} className="teacher-icon inline-block relative right-15 top-0 width-full bg-[var(--secondary-color)] px-5 py-[7px] cursor-pointer z-2 rounded-tr-sm rounded-br-sm">
+                    <i className="fa-solid fa-magnifying-glass text-white"></i>
+                  </div>
+                </div>
+
               </div>
               <div className=" w-[350px] lg:w-1/2 order-1 lg:order-2">
                 <div className="banner-img  justify-self-center w-70 lg:w-[350px] rounded-full relative">
@@ -89,7 +117,7 @@ function HomeBanner() {
 
                   <div className="chat chat-start absolute bottom-15 right-[-130px] opacity-90 hidden xl:block">
                     <div className="chat-bubble bg-[var(--light-secondary-color)] w-fit max-w-full whitespace-nowrap px-3 py-2">
-                      <i class="fa-solid fa-lightbulb text-[var(--secondary-color)] mr-2"></i>
+                      <i className="fa-solid fa-lightbulb text-[var(--secondary-color)] mr-2"></i>
                       Amazing Session
                     </div>
                   </div>

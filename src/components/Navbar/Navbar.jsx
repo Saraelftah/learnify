@@ -31,14 +31,14 @@ function Navbar() {
                 </li>
                 <li>
                   <NavLink
-                    to="/about"
+                    to="/search"
                     className={({ isActive }) =>
                       `text-[var(--main-text-color)] hover:text-[var(--primary-color)] ${
                         isActive ? "font-bold text-[var(--primary-color)]" : ""
                       }`
                     }
                   >
-                    About
+                    teachers
                   </NavLink>
                 </li>
                 <li>
@@ -113,7 +113,7 @@ function Navbar() {
                     <NavLink to="/">Home</NavLink>
                   </li>
                   <li>
-                    <NavLink to="/about">About</NavLink>
+                    <NavLink to="/search">teachers</NavLink>
                   </li>
                   <li>
                     <NavLink to="/services">Services</NavLink>
