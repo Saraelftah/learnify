@@ -10,13 +10,8 @@
 
 .search-input:focus {
     outline: none;
-<<<<<<< HEAD
     border-color: var(--light-primary-color);
     box-shadow: 0 0 5px var(--light-primary-color);
-=======
-    border-color: var(--secondary-color);
-    box-shadow: 0 0 5px var(--secondary-color);
->>>>>>> 44c5c17 (teacher Page with book now button to navigate to payment page)
 }
 
 .search-input option {
@@ -37,13 +32,8 @@
 
 .dropdown:focus {
     outline: none;
-<<<<<<< HEAD
     border-color: var(--light-primary-color);
     box-shadow: 0 0 5px var(--light-primary-color);
-=======
-    border-color: var(--secondary-color);
-    box-shadow: 0 0 5px var(--secondary-color);
->>>>>>> 44c5c17 (teacher Page with book now button to navigate to payment page)
 }
 
 .dropdown option {

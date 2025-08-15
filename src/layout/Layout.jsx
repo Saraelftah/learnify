@@ -6,15 +6,9 @@ function Layout() {
   return (
     <>
       <Navbar />
-<<<<<<< HEAD
       <div className="flex-grow">
       <Outlet />
       </div>
-=======
-
-      <Outlet />
-
->>>>>>> 44c5c17 (teacher Page with book now button to navigate to payment page)
       <Footer />
     </>
   );

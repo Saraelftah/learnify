@@ -2,18 +2,11 @@
 import HomeBanner from "../../components/HomeBanner/HomeBanner";
 import RecommendedTeachers from "../../components/RecommendedTeachers/RecommendedTeachers";
 import TeacherBenefits from "../../components/TeacherBenefits/TeacherBenefits";
-<<<<<<< HEAD
 import "react-multi-carousel/lib/styles.css";
 import FeaturesCard from "../../components/FeaturesCard/FeaturesCard";
 import HomeReview from "../../components/HomeReview/HomeReview";
 import SearchInputs from "../../components/Search/SearchFilters";
 
-=======
-import Carousel from "react-multi-carousel";
-import "react-multi-carousel/lib/styles.css";
-import RatingStars from "../../components/RatingStars/RatingStars";
-import FeaturesCard from "../../components/FeaturesCard/FeaturesCard";
->>>>>>> 44c5c17 (teacher Page with book now button to navigate to payment page)
 
 import tutorImg1 from "../../assets/images/tutor-1.jpg";
 import tutorImg2 from "../../assets/images/tutor-2.jpg";
@@ -22,62 +15,16 @@ import tutorImg4 from "../../assets/images/tutor-4.jpg";
 import tutorImg5 from "../../assets/images/tutor-5.jpg";
 import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
-<<<<<<< HEAD
-=======
-import { useEffect, useState } from "react";
->>>>>>> 44c5c17 (teacher Page with book now button to navigate to payment page)
 
 
 
 
 function Home() {
-<<<<<<< HEAD
   const teachers = useSelector((state) => state.teachers.teachers);
-=======
-    const teachers = useSelector((state) => state.teachers.teachers);
-    const [currentSlide, setCurrentSlide] = useState(0);
-
-    const responsive = {
-    desktop: {
-      breakpoint: { max: 3000, min: 1024 },
-      items: 3,
-    },
-    tablet: {
-      breakpoint: { max: 1024, min: 464 },
-      items: 2,
-    },
-    mobile: {
-      breakpoint: { max: 464, min: 0 },
-      items: 1,
-    }
-  }
-
-  // arrows for review section
-  const CustomButtonGroup = ({ next, previous }) => (
-    <div className="flex justify-center gap-5 mt-5">
-        <button
-            onClick={previous}
-            className="btn btn-circle btn-outline p-3 border-2 border-[var(--secondary-color)] bg-[var(--background-color)] text-[var(--secondary-color)] hover:bg-[var(--secondary-color)] hover:text-white transition-colors"
-        >
-            <i className="fa-solid fa-chevron-left"></i>
-        </button>
-        <button
-            onClick={next}
-            className="btn btn-circle btn-outline p-3 border-2 border-[var(--secondary-color)] bg-[var(--background-color)] text-[var(--secondary-color)] hover:bg-[var(--secondary-color)] hover:text-white transition-colors"
-        >
-            <i className="fa-solid fa-chevron-right"></i>
-        </button>
-    </div>
-);
-  
-
-  useEffect
->>>>>>> 44c5c17 (teacher Page with book now button to navigate to payment page)
   return (
     <>
       <section className="home capitalize pt-[100px]">
         <HomeBanner />
-<<<<<<< HEAD
         
 
         
@@ -91,11 +38,6 @@ function Home() {
           {/* why us section */}
           <section className="why-learnify py-[50px]">
               <h3 className="text-[var(--dark-color)] text-[length:var(--title-font-size)] font-bold">Why Choose Us?</h3>
-=======
-        <div className="container">
-          <section className="why-learnify py-[50px]">
-              <h3 className="text-[var(--dark-color)] text-[length:var(--title-font-size)]">Why Choose Us?</h3>
->>>>>>> 44c5c17 (teacher Page with book now button to navigate to payment page)
               <p className="text-[var(--text-color)] leading-[var(--line-height)] py-5">Learn from top-qualified tutors at your convenience. Book private or group lessons, enjoy flexible schedules, and experience interactive online classes — all in one platform.</p>
               <div className="features grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <FeaturesCard iconClass="fa-regular fa-calendar-check" description="Easy Lesson Booking"/>
@@ -107,11 +49,8 @@ function Home() {
 
               </div>
           </section>
-<<<<<<< HEAD
           
           
-=======
->>>>>>> 44c5c17 (teacher Page with book now button to navigate to payment page)
           <RecommendedTeachers />
         </div>
           {/* bcome a tutor section */}
@@ -135,61 +74,15 @@ function Home() {
                 <img className="absolute hidden lg:block !w-[150px] z-3 bottom-[-50px] left-[40px] border-[var(--light-primary-color)] border-4 rotate-45" src={tutorImg5} alt="tutor"/>
               </div> 
             </div>
-<<<<<<< HEAD
             <NavLink to="/register" className="flex justify-center items-center">
             <button className="btn btn-outline block border-[var(--secondary-color)] text-white bg-[var(--secondary-color)] w-fit hover:bg-[var(--background-color)] px-10  hover:text-[var(--secondary-color)]">join us</button>
-=======
-            <NavLink to="/register">
-            <button className="btn btn-outline block border-[var(--secondary-color)] text-[var(--secondary-color)] w-fit hover:bg-[var(--secondary-color)] hover:text-white"> sign up now</button>
->>>>>>> 44c5c17 (teacher Page with book now button to navigate to payment page)
             </NavLink>
           </section>
       </section>
 
 
       {/* reviews section */}
-<<<<<<< HEAD
       <HomeReview teachers={teachers} />
-=======
-      <section className="reviews my-[50px] py-[50px] relative">
-        <div className="container">
-        <h3 className="text-[var(--dark-color)] text-[length:var(--title-font-size)] capitalize mb-2">testiomonials</h3>
-        <p>what students say about us?</p>
-        <Carousel
-        responsive={responsive}
-        itemClass="px-2"
-        arrows={false}
-        showDots={false}
-        containerClass="carousel-container py-15"
-        afterChange={(previousSlide, { currentSlide }) => setCurrentSlide(currentSlide)}
-        customButtonGroup={<CustomButtonGroup />}
-        renderButtonGroupOutside={true}
-        >
-        {teachers?.map((item, i) => {
-        const isCenter = i === currentSlide + Math.floor(responsive.desktop.items / 2);
-
-
-        return(
-          <div 
-            key={item.id}
-            className={` shadow-[var(--box-shadow)] !h-full rounded-[var(--border-radius)] p-5 text-center items-stretch transition-all duration-300 
-            ${isCenter ? "scale-y-120 border-2 border-[var(--secondary-color)] shadow-lg" : "scale-95 opacity-80"} `} >
-            <i className="fa-solid fa-quote-right text-4xl items-end text-[var(--light-primary-color)] mb-2"></i>
-            <div className="flex items-center justify-center">
-              <div>
-                <h4 className="text-[var(--dark-color)]">{item.reviews[0].studentName}</h4>
-                <p className="leading-[var(--line-height] my-2">{item.reviews[0].comment}</p>
-                <RatingStars value={item.reviews[0].rating}/>
-              </div>
-            </div>
-          </div>
-        )})}
-        
-        
-      </Carousel>
-      </div>
-      </section>
->>>>>>> 44c5c17 (teacher Page with book now button to navigate to payment page)
     
     </>
   );

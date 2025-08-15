@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import "./Notfound.module.css";
 
 function Notfound() {
@@ -16,19 +15,3 @@ function Notfound() {
 }
 
 export default Notfound;
-=======
-import './Notfound.module.css'
-
-function Notfound() {
-
-  
-  return (
-    <>
-        <div>Notfound</div>
-    </>
-    
-  )
-}
-
-export default Notfound
->>>>>>> 44c5c17 (teacher Page with book now button to navigate to payment page)

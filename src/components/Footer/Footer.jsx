@@ -4,11 +4,7 @@ import logoImg from "../../assets/images/logo.png";
 function Footer() {
   return (
     <>
-<<<<<<< HEAD
       <footer className="bg-[#2b2b2b] text-white py-[20px]">
-=======
-      <footer className="bg-[#1e1d1d] text-white py-[20px] lg:p-4 p-2">
->>>>>>> 44c5c17 (teacher Page with book now button to navigate to payment page)
         <div className="container flex items-center justify-between flex-col lg:flex-row">
           <img
             src={logoImg}

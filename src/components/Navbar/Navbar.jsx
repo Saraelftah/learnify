@@ -7,11 +7,7 @@ function Navbar() {
   return (
     <>
       <nav className="home-navbar fixed top-0 left-0 z-50 w-full bg-[var(--background-color)]">
-<<<<<<< HEAD
         <div className="container py-4">
-=======
-        <div className="container p-4">
->>>>>>> 44c5c17 (teacher Page with book now button to navigate to payment page)
           <div className="navbar px-0 py-[10px] justify-between">
             <div className="navbar-start w-fit">
               <NavLink to="/">
@@ -84,11 +80,7 @@ function Navbar() {
                 Login
               </NavLink>
               <NavLink
-<<<<<<< HEAD
                 to="/register"
-=======
-                to="/signup"
->>>>>>> 44c5c17 (teacher Page with book now button to navigate to payment page)
                 className="btn bg-[var(--secondary-color)] text-white ml-4 hover:bg-[var(--background-color)] hover:text-[var(--secondary-color)] border-1 border-[var(--secondary-color)] shadow-none transition-colors duration-500 ease-in-out"
               >
                 Sign Up
