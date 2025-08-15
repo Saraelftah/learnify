@@ -6,6 +6,7 @@ import Admin from "../pages/admin/admin";
 import Teacher from "../pages/Teacher/teacher";
 import RolePage from "../pages/RolePage/RolePage";
 import Unauthorized from "../pages/Unauthorized/Unauthorized";
+import TeacherPending from "../pages/TeacherPending/TeacherPending";
 
 
 const Home = lazy(() => import("../pages/Home/Home"));
@@ -22,33 +23,37 @@ function AppRoutes() {
   let router = createBrowserRouter([
     { path: "login", element: <Login /> },
     { path: "register", element: <Register /> },
-<<<<<<< HEAD
     { path: "role", element: <RolePage /> },
     { path: "unauthorized", element: <Unauthorized /> },
-=======
-    { path: "search", element: <Search /> },
->>>>>>> 5f6f694b97bf533f7f397c93231d894b23c4d2e9
+    // { path: "search", element: <Search /> },
     {
       path: "",
       element: <Layout />,
       children: [
         { index: true, element: <Home /> },
-        { path: "search/:id", element: <Search /> },
+        { path: "search", element: <Search /> },
         { path: "payment/:id", element: <Payment /> },
         {path: "payment", element: <ChooseTeacher />},
         { path: "student/:id", element: <StudentProfile /> },
         { path: "tutor/:id", element: <TeacherProfile /> },
+
         { path: "admin", element: 
         <RoleRoute allow={["admin"]} >
           <Admin/>
         </RoleRoute>},
+
          { path: "teacher", element: 
         <RoleRoute allow={["teacher"]} >
           <Teacher/>
         </RoleRoute>},
+        
           { path: "student", element: 
         <RoleRoute allow={["student"]} >
           <StudentProfile/>
+        </RoleRoute>},
+         { path: "Pending", element: 
+        <RoleRoute allow={["teacherPending"]} >
+          <TeacherPending/>
         </RoleRoute>},
         { path: "*", element: <Notfound /> },
       ],
