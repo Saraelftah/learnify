@@ -11,13 +11,14 @@ function Payment() {
   const [activeStep, setActiveStep] = useState(0);
   const dispatch = useDispatch();
 
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit,watch } = useForm();
   const { id: TeacherId } = useParams();
   //Select the teacher from the Redux store using the ID from the URL
   const teachers = useSelector((state) => state.teachers.teachers);
   const teacher = teachers.find((t) => t.id === TeacherId);
   const handleNext = () => setActiveStep((prev) => prev + 1);
   const handleBack = () => setActiveStep((prev) => prev - 1);
+  const sessionType = watch("sessionType");
     useEffect(() => {
     if (activeStep === steps.length) {
       toast.success(" You've completed payment successfully!");
@@ -29,7 +30,7 @@ function Payment() {
   };
 
   return (
-    <div className="w-full max-w-3xl mx-auto p-4">
+    <div className="w-full max-w-3xl mx-auto p-4 mt-30">
       {/* Stepper */}
       <ul className="steps w-full mb-8">
         {steps.map((label, index) => (
@@ -52,7 +53,7 @@ function Payment() {
         <form onSubmit={handleSubmit(handleFinish)}>
           {/* Step 1: Book */}
           {activeStep === 0 && (
-            <div className="bg-base-100 shadow p-6 rounded-lg">
+            <div className=" shadow p-6 rounded-lg">
               <h3 className="text-lg font-bold text-center uppercase mb-6">
                 Schedule
               </h3>
@@ -86,25 +87,42 @@ function Payment() {
                 <div>
                   <label className="label font-medium">Available Dates</label>
                   <select
-                    className="select select-bordered w-full"
+                    className="border border-gray-300 rounded-md p-2 w-full focus:outline-none focus:ring-2 focus:ring-[var(--secondary-color)]"
                     {...register("selectedDate", { required: true })}
                   >
                     <option value="">Select a day</option>
-                    <option value="2025-09-12">12 Sep 2025</option>
-                    <option value="2025-09-13">13 Sep 2025</option>
-                    <option value="2025-09-14">14 Sep 2025</option>
+                    {watch("sessionType") === "Private"
+                      ? teacher?.availableDates?.map((date, index) => (
+                          <option key={index} value={date.day}>
+                            {date.day}
+                          </option>
+                        ))
+                      : teacher?.availableGroupDates?.map((date, index) => (
+                          <option key={index} value={date.day}>
+                            {date.day}
+                          </option>
+                        ))}
                   </select>
                 </div>
                 <div>
                   <label className="label font-medium">Available Times</label>
                   <select className="border border-gray-300 rounded-md p-2 w-full focus:outline-none focus:ring-2 focus:ring-[var(--secondary-color)]">
                     <option value="">Select a time</option>
-                    {teacher?.availableGroupDates?.map((slot, index) => (
+                    {watch("sessionType") === "Private"
+                      ? teacher?.availableDates?.map((time, index) => (
+                        <option
+                          key={index}
+                          value={`${time.time} ${time.period}`}
+                        >
+                          {time.time} {time.period}
+                        </option>
+                      ))
+                      :teacher?.availableGroupDates?.map((time, index) => (
                       <option
                         key={index}
-                        value={`${slot.day} ${slot.time} ${slot.period}`}
+                        value={` ${time.time} ${time.period}`}
                       >
-                        {slot.day} - {slot.time} {slot.period}
+                        {time.time} {time.period}
                       </option>
                     ))}
                   </select>
@@ -115,7 +133,7 @@ function Payment() {
 
           {/* Step 2: Your Details */}
           {activeStep === 1 && (
-            <div className="bg-base-100 shadow p-6 rounded-lg">
+            <div className=" shadow p-6 rounded-lg">
               <h3 className="text-lg font-bold mb-6">Your Details</h3>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
                 <select
@@ -158,7 +176,7 @@ function Payment() {
 
           {/* Step 3: Payment */}
           {activeStep === 2 && (
-            <div className="bg-base-100 shadow p-6 rounded-lg">
+            <div className=" shadow p-6 rounded-lg">
               <h3 className="text-lg font-bold mb-6">Payment Details</h3>
               <input
                 type="text"

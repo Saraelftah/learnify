@@ -4,7 +4,7 @@ function ChooseTeacher() {
     // This component is a placeholder for when no teacher is selected
   return (
     <>
-        <div className="text-center mt-30 ">
+        <div className="text-center mt-50 ">
           Choose a teacher to proceed with booking.
         </div>
         <div className="flex justify-center mt-20">
