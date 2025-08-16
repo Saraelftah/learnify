@@ -3,7 +3,7 @@ import Layout from "../layout/Layout";
 import { lazy } from "react";
 import RoleRoute from "./RoleRoute";
 import Admin from "../pages/Admin/Admin";
-import Teacher from "../pages/Teacher/teacher";
+import Teacher from "../pages/Teacher/Teacher";
 import RolePage from "../pages/RolePage/RolePage";
 import Unauthorized from "../pages/Unauthorized/Unauthorized";
 import TeacherPending from "../pages/TeacherPending/TeacherPending";
