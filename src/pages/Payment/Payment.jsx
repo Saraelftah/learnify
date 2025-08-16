@@ -62,45 +62,43 @@ function Payment() {
               <h3 className="text-lg font-bold text-center uppercase mb-6">
                 Schedule
               </h3>
-                {/* Teacher Image */}
-                <div className="avatar">
-                  <div className="w-24 rounded-full">
+              {/* Teacher Image */}
+              <div className="avatar">
+                <div className="w-24 rounded-full">
                   <img
                     src={teacher?.Image}
                     alt="Teacher"
                     className="w-16 h-16 object-cover"
                   />
-                  </div>
                 </div>
-                  {/* Rating */}
-                  <div className="flex mt-2">
-                    <RatingStars value={teacher?.rating || 0} />
-                  </div>
-                  <h2 className="mt-3 text-lg font-semibold">
-                    Teacher Name: {teacher?.name}
-                  </h2>
-                {/* Hourly Rate */}
-                <div className="mt-4 space-y-3 text-gray-700">
-                  <p>
-                    <span className="font-medium">Hourly Rate: </span>
-                    <span className="text-yellow-600 font-semibold">
-                      ${teacher?.hourlyRate}
-                    </span>
-                  </p>
-                  <p>
-                    <span className="font-medium">Session Type: </span>
-                    <span>
-                      {sessionType || "Select a type"}
-                      {sessionType === "Group Session" &&
-                        teacher?.hourlyRate && (
-                          <span className="ml-2 text-sm text-gray-500">
-                            ({teacher?.hourlyRate / 3}$/student)
-                          </span>
-                        )}
-                    </span>
-                  </p>
-                </div>
-
+              </div>
+              {/* Rating */}
+              <div className="flex mt-2">
+                <RatingStars value={teacher?.rating || 0} />
+              </div>
+              <h2 className="mt-3 text-lg font-semibold">
+                Teacher Name: {teacher?.name}
+              </h2>
+              {/* Hourly Rate */}
+              <div className="mt-4 space-y-3 text-gray-700">
+                <p>
+                  <span className="font-medium">Hourly Rate: </span>
+                  <span className="text-yellow-600 font-semibold">
+                    ${teacher?.hourlyRate}
+                  </span>
+                </p>
+                <p>
+                  <span className="font-medium">Session Type: </span>
+                  <span>
+                    {sessionType || "Select a type"}
+                    {sessionType === "Group Session" && teacher?.hourlyRate && (
+                      <span className="ml-2 text-sm text-gray-500">
+                        ({teacher?.hourlyRate / 3}$/student)
+                      </span>
+                    )}
+                  </span>
+                </p>
+              </div>
               {/* Session Type: Private or Group */}
               <div className="flex gap-6 mb-6 mt-5">
                 <label className="label cursor-pointer">
@@ -134,7 +132,9 @@ function Payment() {
               {/* Date & Time */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <label className="label font-medium mb-1">Available Dates</label>
+                  <label className="label font-medium mb-1">
+                    Available Dates
+                  </label>
                   <select
                     className="border border-gray-300 rounded-md p-2 w-full focus:outline-none focus:ring-2 focus:ring-[var(--secondary-color)]"
                     {...register("selectedDate", {
@@ -161,7 +161,9 @@ function Payment() {
                   )}
                 </div>
                 <div>
-                  <label className="label font-medium mb-1">Available Times</label>
+                  <label className="label font-medium mb-1">
+                    Available Times
+                  </label>
                   <select
                     className="border border-gray-300 rounded-md p-2 w-full focus:outline-none focus:ring-2 focus:ring-[var(--secondary-color)]"
                     {...register("selectedTime", {
@@ -204,38 +206,73 @@ function Payment() {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
                 <select
                   className="select select-bordered"
-                  {...register("title", { required: true })}
+                  {...register("title", { required: "Title is required" })}
                 >
                   <option value="">Title</option>
                   <option value="Mr">Mr</option>
                   <option value="Ms">Ms</option>
                 </select>
+                {errors.title && (
+                  <span className="text-[var(--error-color)] text-sm mb-4 mt-1">
+                    {errors.title.message}
+                  </span>
+                )}
                 <input
                   type="text"
                   placeholder="First Name"
                   className="input input-bordered"
-                  {...register("firstName", { required: true })}
+                  {...register("firstName", {
+                    required: "Please write your first name",
+                  })}
                 />
                 <input
                   type="text"
                   placeholder="Last Name"
                   className="input input-bordered"
-                  {...register("lastName", { required: true })}
+                  {...register("lastName", {
+                    required: "Please write your last name",
+                  })}
                 />
+                {errors.firstName && (
+                  <span className="text-[var(--error-color)] text-sm mb-4 mt-1">
+                    {errors.firstName.message}
+                  </span>
+                )}
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <input
                   type="email"
                   placeholder="Email"
                   className="input input-bordered"
-                  {...register("email", { required: true })}
+                  {...register("email", { required: "Email is required",
+                    pattern: {
+                      value: /^((?!\.)[\w\-_.]*[^.])(@\w+)(\.\w+(\.\w+)?[^.\W])/,
+                      message: "Please enter a valid email address",
+                    },
+                   })}
                 />
+                {errors.email && (
+                  <span className="text-[var(--error-color)] text-sm mb-4 mt-1">
+                    {errors.email.message}
+                  </span>
+                )}
                 <input
                   type="tel"
                   placeholder="Mobile"
                   className="input input-bordered"
-                  {...register("mobile", { required: true })}
+                  {...register("mobile", {
+                    required: "Phone number is required",
+                    pattern: {
+                      value: /^\d{11}$/,
+                      message: "Please enter a valid 11-digit phone number",
+                    },
+                  })}
                 />
+                {errors.mobile && (
+                  <span className="text-[var(--error-color)] text-sm mb-4 mt-1">
+                    {errors.mobile.message}
+                  </span>
+                )}
               </div>
             </div>
           )}
