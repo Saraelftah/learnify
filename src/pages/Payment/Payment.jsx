@@ -4,6 +4,8 @@ import { useForm } from "react-hook-form";
 import { useParams } from "react-router-dom";
 import RatingStars from "../../components/RatingStars/RatingStars";
 import SuccessfulPayment from "./SuccessfulPayment/SuccessfulPayment";
+import { addBooking } from "../../store/BookSlice";
+
 const steps = ["Book", "Your Details", "Payment"];
 
 function Payment() {
@@ -24,10 +26,39 @@ function Payment() {
   const handleBack = () => setActiveStep((prev) => prev - 1);
   const sessionType = watch("sessionType");
 
-  const handleFinish = (data) => {
-    console.log("Form submitted:", data);
-    setActiveStep(steps.length);
+
+const handleFinish = (data) => {
+  const bookingData = {
+    id: Date.now(), // unique id
+    teacherId: TeacherId,
+    teacherImage: teacher?.Image,
+    teacherName: teacher?.name,
+    subject: teacher?.subject,
+    sessionType: data.sessionType,
+    date: data.selectedDate,
+    time: data.selectedTime,
+    price:
+      data.sessionType === "Group Session"
+        ? teacher?.hourlyRate / 3
+        : teacher?.hourlyRate,
+    student: {
+      title: data.title,
+      firstName: data.firstName,
+      lastName: data.lastName,
+      email: data.email,
+      mobile: data.mobile,
+    },
+    payment: {
+      cardHolder: data.cardHolder,
+      last4: data.cardNumber.slice(-4), 
+    },
+    status: "Paid",
   };
+
+  dispatch(addBooking(bookingData)); 
+  setActiveStep(steps.length);
+};
+
 
   return (
     <div className="w-full max-w-3xl mx-auto p-4 mt-30">
@@ -84,7 +115,7 @@ function Payment() {
                     {sessionType || "Select a type"}
                     {sessionType === "Group Session" && teacher?.hourlyRate && (
                       <span className="ml-2 text-sm text-gray-500">
-                        ({teacher?.hourlyRate / 3}$/student)
+                        (${(teacher?.hourlyRate / 3).toFixed(2)}$/student)
                       </span>
                     )}
                   </span>
