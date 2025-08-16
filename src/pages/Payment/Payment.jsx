@@ -2,9 +2,8 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
 import { useParams } from "react-router-dom";
-import { useEffect } from "react";
-import toast from "react-hot-toast";
 import RatingStars from "../../components/RatingStars/RatingStars";
+import SuccessfulPayment from "./SuccessfulPayment/SuccessfulPayment";
 const steps = ["Book", "Your Details", "Payment"];
 
 function Payment() {
@@ -24,11 +23,7 @@ function Payment() {
   const handleNext = () => setActiveStep((prev) => prev + 1);
   const handleBack = () => setActiveStep((prev) => prev - 1);
   const sessionType = watch("sessionType");
-  useEffect(() => {
-    if (activeStep === steps.length) {
-      toast.success(" You've completed payment successfully!");
-    }
-  }, [activeStep, steps.length]);
+
   const handleFinish = (data) => {
     console.log("Form submitted:", data);
     setActiveStep(steps.length);
@@ -49,11 +44,7 @@ function Payment() {
       </ul>
 
       {activeStep === steps.length ? (
-        <div className="text-center mt-20">
-          <div className="text-center">
-            <span>summary ! </span>
-          </div>
-        </div>
+        <SuccessfulPayment />
       ) : (
         <form onSubmit={handleSubmit(handleFinish)}>
           {/* Step 1: Book */}
