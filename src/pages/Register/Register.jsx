@@ -40,14 +40,22 @@ function Register() {
       // make newteachers collection
       if (role === "teacher") {
         await setDoc(doc(db, "newTeachers", uid), {
-          bio: "",
-          subject: "",
-          pricePerHour: null,
-          availability: [],
+
           ownerId: uid,
-          createdAt: serverTimestamp(),
+          name: username,
+          overview: "",
+          subject: "",
+          Image: "",
+          gradeLevel: "",
+          lessonType: "Online",
+          firstLessonFree: false,
+          hourlyRate: null,
+          availableDates: [],
           approved: false,
-        });
+          submitted: false,
+          createdAt: serverTimestamp(), 
+        }, {merge: true});
+
       }
       toast.success("Registered Successfully!");
       navigate("/login");
@@ -75,7 +83,8 @@ function Register() {
               Lets get started
             </div>
 
-            <div className="flex justify-between w-full gap-5">
+            <div className="flex flex-col md:flex-row justify-between w-full gap-5">
+
               {/* username */}
               <FormInput
                 label="Name"
@@ -111,7 +120,9 @@ function Register() {
               />
             </div>
 
-            <div className="flex justify-between w-full gap-5">
+
+            <div className="flex flex-col md:flex-row justify-between w-full gap-5">
+
               {/* Password */}
               <FormInput
                 label="Password"
@@ -137,7 +148,7 @@ function Register() {
               {/* confirm password */}
               <FormInput
                 label="Confirm Password"
-                type="Password"
+                type="password"
                 placeholder="Confirm your password..."
                 name="confirmPassword"
                 register={register}
