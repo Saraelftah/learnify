@@ -26,15 +26,12 @@ function AppRoutes() {
     { path: "register", element: <Register /> },
     { path: "role", element: <RolePage /> },
     { path: "unauthorized", element: <Unauthorized /> },
-    // { path: "search", element: <Search /> },
-
     {
       path: "",
       element: <Layout />,
       children: [
         { index: true, element: <Home /> },
         { path: "search", element: <Search /> },
-
         { path: "payment/:id", element: <Payment /> },
         {path: "payment", element: <ChooseTeacher />},
         { path: "student/:id", element: <StudentProfile /> },

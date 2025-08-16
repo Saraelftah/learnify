@@ -83,8 +83,8 @@ const CustomRightArrow = ({ onClick }) => (
                   <RatingStars value={teacher.rating} />
                 </span>
                 <div className="flex gap-2 mt-2">
-                <NavLink
-                  to="/">
+                
+                <NavLink to={`/tutor/${teacher.id}`}>
                   <button className="btn btn-outline block border-[var(--secondary-color)] text-[var(--secondary-color)] w-fit hover:bg-[var(--secondary-color)] hover:text-white">
                   view more</button>
                 </NavLink>
