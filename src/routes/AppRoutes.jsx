@@ -2,8 +2,8 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Layout from "../layout/Layout";
 import { lazy } from "react";
 import RoleRoute from "./RoleRoute";
-import Admin from "../pages/admin/admin";
-import Teacher from "../pages/Teacher/teacher";
+import Admin from "../pages/Admin/Admin";
+import Teacher from "../pages/Teacher/Teacher";
 import RolePage from "../pages/RolePage/RolePage";
 import Unauthorized from "../pages/Unauthorized/Unauthorized";
 import TeacherPending from "../pages/TeacherPending/TeacherPending";
@@ -25,7 +25,6 @@ function AppRoutes() {
     { path: "register", element: <Register /> },
     { path: "role", element: <RolePage /> },
     { path: "unauthorized", element: <Unauthorized /> },
-    // { path: "search", element: <Search /> },
     {
       path: "",
       element: <Layout />,
