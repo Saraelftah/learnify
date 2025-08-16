@@ -129,7 +129,7 @@ function Navbar() {
                   </li>
                   <li>
                     <NavLink
-                      to="/signup"
+                      to="/register"
                       className="btn bg-[var(--secondary-color)] text-white w-full"
                     >
                       Sign Up
