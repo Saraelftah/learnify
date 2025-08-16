@@ -40,6 +40,7 @@ function Register() {
       // make newteachers collection
       if (role === "teacher") {
         await setDoc(doc(db, "newTeachers", uid), {
+
           ownerId: uid,
           name: username,
           overview: "",
@@ -54,6 +55,7 @@ function Register() {
           submitted: false,
           createdAt: serverTimestamp(), 
         }, {merge: true});
+
       }
       toast.success("Registered Successfully!");
       navigate("/login");
@@ -82,6 +84,7 @@ function Register() {
             </div>
 
             <div className="flex flex-col md:flex-row justify-between w-full gap-5">
+
               {/* username */}
               <FormInput
                 label="Name"
@@ -117,7 +120,9 @@ function Register() {
               />
             </div>
 
+
             <div className="flex flex-col md:flex-row justify-between w-full gap-5">
+
               {/* Password */}
               <FormInput
                 label="Password"
