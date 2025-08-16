@@ -61,7 +61,7 @@ const CustomRightArrow = ({ onClick }) => (
           customTransition="all .5"
           transitionDuration={500}
           customLeftArrow={<CustomLeftArrow />} 
-  customRightArrow={<CustomRightArrow />}
+          customRightArrow={<CustomRightArrow />}
         >
           {teachers
             .filter((teacher) => teacher.rating > 4)
