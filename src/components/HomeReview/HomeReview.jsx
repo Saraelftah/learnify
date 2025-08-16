@@ -67,9 +67,9 @@ function HomeReview({teachers}) {
             <i className="fa-solid fa-quote-right text-4xl items-end text-[var(--light-primary-color)] mb-2"></i>
             <div className="flex items-center justify-center">
               <div>
-                <h4 className="text-[var(--dark-color)]">{item.reviews[0].studentName}</h4>
-                <p className="leading-[var(--line-height] my-2">{item.reviews[0].comment}</p>
-                <RatingStars value={item.reviews[0].rating}/>
+                <h4 className="text-[var(--dark-color)]">{item.reviews[0]?.studentName}</h4>
+                <p className="leading-[var(--line-height] my-2">{item.reviews[0]?.comment}</p>
+                <RatingStars value={item.reviews[0]?.rating}/>
               </div>
             </div>
           </div>
