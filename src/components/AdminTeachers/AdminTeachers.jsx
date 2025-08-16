@@ -18,8 +18,8 @@ function AdminTeachers() {
         {teachers.map((teacher)=>(
           <div className="teacher relative shadow-[var(--box-shadow)] flex items-center gap-2 p-5 rounded-[var(--border-radius)]" 
           key={teacher.id}>
-            <div className="w-[70px] h-[70px] rounded-full">
-              <img className="rounded-full " src={teacher.Image} alt={teacher.name}/>
+            <div className="w-[70px] h-[70px] rounded-full"> 
+                <img className="rounded-full " src={teacher.Image} alt={teacher.name}/>
             </div>
             <div className="">
               <h3 className="text-[var(--primary-color)] font-bold">{teacher.name}</h3>
