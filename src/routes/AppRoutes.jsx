@@ -6,7 +6,10 @@ import Admin from "../pages/admin/admin";
 import Teacher from "../pages/Teacher/teacher";
 import RolePage from "../pages/RolePage/RolePage";
 import Unauthorized from "../pages/Unauthorized/Unauthorized";
-
+import TeacherPending from "../pages/TeacherPending/TeacherPending";
+import AdminOverview from "../components/AdminOverview/AdminOverview";
+import AdminStudents from "../components/AdminStudents/AdminStudents";
+import AdminTeachers from "../components/AdminTeachers/AdminTeachers";
 
 const Home = lazy(() => import("../pages/Home/Home"));
 const Login = lazy(() => import("../pages/Login/Login"));
@@ -24,29 +27,49 @@ function AppRoutes() {
     { path: "register", element: <Register /> },
     { path: "role", element: <RolePage /> },
     { path: "unauthorized", element: <Unauthorized /> },
-    { path: "search", element: <Search /> },
     {
       path: "",
       element: <Layout />,
       children: [
         { index: true, element: <Home /> },
-        { path: "search/:id", element: <Search /> },
+        { path: "search", element: <Search /> },
         { path: "payment/:id", element: <Payment /> },
         {path: "payment", element: <ChooseTeacher />},
         { path: "student/:id", element: <StudentProfile /> },
         { path: "tutor/:id", element: <TeacherProfile /> },
-        { path: "admin", element: 
-        <RoleRoute allow={["admin"]} >
-          <Admin/>
-        </RoleRoute>},
+        // { path: "admin", element: 
+        // <RoleRoute allow={["admin"]} >
+        //   <Admin/>
+        // </RoleRoute>},
+        {
+        path: "admin",
+        element: (
+          <RoleRoute allow={["admin"]}>
+            <Admin />
+          </RoleRoute>
+        ),
+        children: [
+          { index: true, element: <AdminOverview /> },
+          { path: "teachers", element: <AdminTeachers /> }, 
+          { path: "students", element: <AdminStudents /> }, 
+        ],
+      },
+
          { path: "teacher", element: 
         <RoleRoute allow={["teacher"]} >
           <Teacher/>
         </RoleRoute>},
+
           { path: "student", element: 
         <RoleRoute allow={["student"]} >
           <StudentProfile/>
         </RoleRoute>},
+
+         { path: "Pending", element: 
+        <RoleRoute allow={["teacherPending"]} >
+          <TeacherPending/>
+        </RoleRoute>},
+
         { path: "*", element: <Notfound /> },
       ],
     },

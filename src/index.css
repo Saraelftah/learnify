@@ -18,10 +18,10 @@
   --main-text-color: #585858;
   --error-color: #fb7375;
   --success-color: #83cc85;
-
+  --admin-bg-color: #f2f3f4;
 
   --border-radius: 10px;
-  --box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  --box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
 
   /* text */
   --title-font-size: 30px;
@@ -36,6 +36,7 @@
   --main-text-color: #fff;
   --dark-color: #1d9190;
   --primary-color: #28bcb9;
+  --admin-bg-color: #2f2e2e;
 }
 
 

@@ -72,7 +72,7 @@ function Footer() {
                   type="submit"
                   className="absolute right-0 top-0 !width-full bg-[var(--secondary-color)] px-2 py-[9px] cursor-pointer z-2 rounded-tr-sm rounded-br-sm"
                 >
-                  <i class="fa-brands fa-telegram text-white"></i>
+                  <i className="fa-brands fa-telegram text-white"></i>
                 </button>
               </form>
             </div>

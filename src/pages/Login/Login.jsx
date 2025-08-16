@@ -1,4 +1,3 @@
-//import style from './Login.module.css'
 import { useForm } from "react-hook-form";
 import { NavLink, useNavigate } from "react-router-dom";
 import { auth, db } from "../../../firebase";
