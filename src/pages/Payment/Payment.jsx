@@ -223,6 +223,10 @@ function Payment() {
                   className="input input-bordered"
                   {...register("firstName", {
                     required: "Please write your first name",
+                    pattern: {
+                      value: /^[a-zA-Z]+$/,
+                      message: "Please enter a valid first name",
+                    },
                   })}
                 />
                 <input
@@ -231,6 +235,10 @@ function Payment() {
                   className="input input-bordered"
                   {...register("lastName", {
                     required: "Please write your last name",
+                    pattern: {
+                      value: /^[a-zA-Z]+$/,
+                      message: "Please enter a valid last name",
+                    },
                   })}
                 />
                 {errors.firstName && (
@@ -285,28 +293,68 @@ function Payment() {
                 type="text"
                 placeholder="Card Number"
                 className="input input-bordered w-full mb-4"
-                {...register("cardNumber", { required: true })}
+                {...register("cardNumber", { required: "Card number is required",
+                  pattern: {
+                    value: /^\d{16}$/,
+                    message: "Please enter a valid 16-digit card number",
+                  },
+                 })}
               />
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+              {errors.cardNumber && (
+                <span className="text-[var(--error-color)] text-sm mb-4 mt-1">
+                  {errors.cardNumber.message}
+                </span>
+              )}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4 mt-2">
                 <input
                   type="text"
                   placeholder="CVV"
                   className="input input-bordered"
-                  {...register("cvv", { required: true })}
+                  {...register("cvv", { required: "CVV is required",
+                    pattern: {
+                      value: /^\d{3}$/,
+                      message: "Please enter a valid 3-digit CVV",
+                    },
+                   })}
                 />
+                {errors.cvv && (
+                  <span className="text-[var(--error-color)] text-sm mb-4 mt-1">
+                    {errors.cvv.message}
+                  </span>
+                )}
                 <input
                   type="text"
-                  placeholder="Expiry Date"
+                  placeholder="Expiry Date (MM/YY)"
                   className="input input-bordered"
-                  {...register("expiry", { required: true })}
+                  {...register("expiry", { required: "Expiry Date is required",
+                    pattern: {
+                      value: /^(0[1-9]|1[0-2])\/?([0-9]{4}|[0-9]{2})$/,
+                      message: "Please enter a valid expiry date (MM/YY)",
+                    },
+                   })}
                 />
+                {errors.expiry && (
+                  <span className="text-[var(--error-color)] text-sm mb-4 mt-1">
+                    {errors.expiry.message}
+                  </span>
+                )}
               </div>
               <input
                 type="text"
-                placeholder="Card Holder"
+                placeholder="Card Holder (Your Name)"
                 className="input input-bordered w-full"
-                {...register("cardHolder", { required: true })}
+                {...register("cardHolder", { required: "Card Holder is required",
+                  pattern: {
+                    value: /^[a-zA-Z\s]+$/,
+                    message: "Please enter a valid name",
+                  },
+                 })}
               />
+              {errors.cardHolder && (
+                <span className="text-[var(--error-color)] text-sm mb-1">
+                  {errors.cardHolder.message}
+                </span>
+              )}
             </div>
           )}
 
