@@ -99,7 +99,7 @@ function Payment() {
                   <label className="label font-medium">Available Times</label>
                   <select className="border border-gray-300 rounded-md p-2 w-full focus:outline-none focus:ring-2 focus:ring-[var(--secondary-color)]">
                     <option value="">Select a time</option>
-                    {teacher?.availableDates?.map((slot, index) => (
+                    {teacher?.availableGroupDates?.map((slot, index) => (
                       <option
                         key={index}
                         value={`${slot.day} ${slot.time} ${slot.period}`}

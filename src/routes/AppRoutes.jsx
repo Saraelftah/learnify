@@ -22,12 +22,7 @@ function AppRoutes() {
   let router = createBrowserRouter([
     { path: "login", element: <Login /> },
     { path: "register", element: <Register /> },
-<<<<<<< HEAD
-    { path: "role", element: <RolePage /> },
-    { path: "unauthorized", element: <Unauthorized /> },
-=======
     { path: "search", element: <Search /> },
->>>>>>> 5f6f694b97bf533f7f397c93231d894b23c4d2e9
     {
       path: "",
       element: <Layout />,
