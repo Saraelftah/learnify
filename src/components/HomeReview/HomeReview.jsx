@@ -55,7 +55,8 @@ function HomeReview({teachers}) {
         customButtonGroup={<CustomButtonGroup />}
         renderButtonGroupOutside={true}
         >
-        {teachers?.map((item, i) => {
+        {teachers.filter((teacher) => teacher.rating > 4)
+        .map((item, i) => {
         const isCenter = i === currentSlide + Math.floor(responsive.desktop.items / 2);
 
 

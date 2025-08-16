@@ -7,8 +7,9 @@ import Teacher from "../pages/Teacher/Teacher";
 import RolePage from "../pages/RolePage/RolePage";
 import Unauthorized from "../pages/Unauthorized/Unauthorized";
 import TeacherPending from "../pages/TeacherPending/TeacherPending";
-
-
+import AdminOverview from "../components/AdminOverview/AdminOverview";
+import AdminStudents from "../components/AdminStudents/AdminStudents";
+import AdminTeachers from "../components/AdminTeachers/AdminTeachers";
 
 const Home = lazy(() => import("../pages/Home/Home"));
 const Login = lazy(() => import("../pages/Login/Login"));
@@ -36,10 +37,23 @@ function AppRoutes() {
         {path: "payment", element: <ChooseTeacher />},
         { path: "student/:id", element: <StudentProfile /> },
         { path: "tutor/:id", element: <TeacherProfile /> },
-        { path: "admin", element: 
-        <RoleRoute allow={["admin"]} >
-          <Admin/>
-        </RoleRoute>},
+        // { path: "admin", element: 
+        // <RoleRoute allow={["admin"]} >
+        //   <Admin/>
+        // </RoleRoute>},
+        {
+        path: "admin",
+        element: (
+          <RoleRoute allow={["admin"]}>
+            <Admin />
+          </RoleRoute>
+        ),
+        children: [
+          { index: true, element: <AdminOverview /> },
+          { path: "teachers", element: <AdminTeachers /> }, 
+          { path: "students", element: <AdminStudents /> }, 
+        ],
+      },
 
          { path: "teacher", element: 
         <RoleRoute allow={["teacher"]} >

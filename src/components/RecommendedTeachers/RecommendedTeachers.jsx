@@ -61,14 +61,14 @@ const CustomRightArrow = ({ onClick }) => (
           customTransition="all .5"
           transitionDuration={500}
           customLeftArrow={<CustomLeftArrow />} 
-  customRightArrow={<CustomRightArrow />}
+          customRightArrow={<CustomRightArrow />}
         >
           {teachers
             .filter((teacher) => teacher.rating > 4)
             .map((teacher) => (
               <div
                 key={teacher.id}
-                className="teacher-card p-4 rounded-[var(--border-radius)] shadow-lg flex flex-col items-center"
+                className="teacher-card p-4 rounded-[var(--border-radius)] shadow-[var(--box-shadow)] flex flex-col items-center"
               >
                 <img
                   className="rounded-full !w-50 mb-5"

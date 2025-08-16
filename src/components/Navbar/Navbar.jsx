@@ -6,7 +6,7 @@ function Navbar() {
     
   return (
     <>
-      <nav className="home-navbar fixed top-0 left-0 z-50 w-full bg-[var(--background-color)]">
+      <nav className="home-navbar fixed top-0 left-0 z-50 w-full bg-[var(--background-color)] capitalize">
         <div className="container py-4">
           <div className="navbar px-0 py-[10px] justify-between">
             <div className="navbar-start w-fit">
@@ -31,14 +31,14 @@ function Navbar() {
                 </li>
                 <li>
                   <NavLink
-                    to="/about"
+                    to="/search"
                     className={({ isActive }) =>
                       `text-[var(--main-text-color)] hover:text-[var(--primary-color)] ${
                         isActive ? "font-bold text-[var(--primary-color)]" : ""
                       }`
                     }
                   >
-                    About
+                    teachers
                   </NavLink>
                 </li>
                 <li>
@@ -113,7 +113,7 @@ function Navbar() {
                     <NavLink to="/">Home</NavLink>
                   </li>
                   <li>
-                    <NavLink to="/about">About</NavLink>
+                    <NavLink to="/search">teachers</NavLink>
                   </li>
                   <li>
                     <NavLink to="/services">Services</NavLink>
