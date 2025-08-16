@@ -6,7 +6,7 @@ function Navbar() {
     
   return (
     <>
-      <nav className="home-navbar fixed top-0 left-0 z-50 w-full bg-[var(--background-color)]">
+      <nav className="home-navbar fixed top-0 left-0 z-50 w-full bg-[var(--background-color)] capitalize">
         <div className="container py-4">
           <div className="navbar px-0 py-[10px] justify-between">
             <div className="navbar-start w-fit">

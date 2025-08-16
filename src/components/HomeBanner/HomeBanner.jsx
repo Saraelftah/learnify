@@ -77,6 +77,7 @@ function HomeBanner() {
                 {/* search for teachers */}
                 <div className="home-search pt-5 w-full overflow-hidden">
                   <h4 className="text-[var(--dark-color)] pb-2">find your teacher</h4>
+                  <div className="relative w-[90%]">
                   <input type="text" 
                   value={searchQuery} 
                   onChange={(e) => setSearchQuery(e.target.value)}
@@ -85,9 +86,10 @@ function HomeBanner() {
                       handleSearch();
                     }}}
                     placeholder="search by teacher name" 
-                    className="input border-2 border-[var(--secondary-color)] focus:outline-0 w-[80%] bg-[var(--background-color)]" />
-                  <div onClick={handleSearch} className="teacher-icon inline-block relative right-15 top-0 width-full bg-[var(--secondary-color)] px-5 py-[7px] cursor-pointer z-2 rounded-tr-sm rounded-br-sm">
+                    className="input border-2 border-[var(--secondary-color)] focus:outline-0 w-full bg-[var(--background-color)] rounded-[30px] h-[45px]" />
+                  <div onClick={handleSearch} className="teacher-icon absolute right-0 top-0 width-full bg-[var(--secondary-color)] flex justify-center items-center rounded-[30px] h-[45px] w-[70px] cursor-pointer z-2 ">
                     <i className="fa-solid fa-magnifying-glass text-white"></i>
+                  </div>
                   </div>
                 </div>
 

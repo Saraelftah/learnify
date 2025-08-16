@@ -5,7 +5,6 @@ import TeacherBenefits from "../../components/TeacherBenefits/TeacherBenefits";
 import "react-multi-carousel/lib/styles.css";
 import FeaturesCard from "../../components/FeaturesCard/FeaturesCard";
 import HomeReview from "../../components/HomeReview/HomeReview";
-import SearchInputs from "../../components/Search/SearchFilters";
 
 
 import tutorImg1 from "../../assets/images/tutor-1.jpg";
@@ -29,8 +28,11 @@ function Home() {
         <div className="container">
           {/* why us section */}
           <section className="why-learnify py-[50px]">
-              <h3 className="text-[var(--dark-color)] text-[length:var(--title-font-size)] font-bold">Why Choose Us?</h3>
-              <p className="text-[var(--text-color)] leading-[var(--line-height)] py-5">Learn from top-qualified tutors at your convenience. Book private or group lessons, enjoy flexible schedules, and experience interactive online classes — all in one platform.</p>
+              <div className="w-1/2 m-auto text-center mb-5">
+                <h3 className="text-[var(--dark-color)] text-[length:var(--title-font-size)] font-bold">Why Choose Us?</h3>
+                <p className="text-[var(--text-color)] leading-[var(--line-height)] py-5">Learn from top-qualified tutors at your convenience. Book private or group lessons, enjoy flexible schedules, and experience interactive online classes — all in one platform.</p>
+              </div>
+              
               <div className="features grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <FeaturesCard iconClass="fa-regular fa-calendar-check" description="Easy Lesson Booking"/>
                 <FeaturesCard iconClass="fa-regular fa-star" description="Qualified Teachers"/>
