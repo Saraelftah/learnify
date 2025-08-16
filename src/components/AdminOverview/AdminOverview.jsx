@@ -168,7 +168,7 @@ function AdminOverview() {
                   <td className="flex gap-2">
                     {/* approve button */}
                     <button
-                      className="btn btn-success btn-sm"
+                      className="btn bg-[var(--success-color)] text-white btn-sm"
                       onClick={() => approveTeacher(t.id)}
                       disabled={busyId === t.id}
                     >
@@ -181,7 +181,7 @@ function AdminOverview() {
 
                     {/* reject button */}
                     <button
-                      className="btn btn-error btn-sm"
+                      className="btn bg-[var(--error-color)] text-white btn-sm"
                       onClick={() => rejectTeacher(t.id)}
                       disabled={busyId === t.id}
                     >
