@@ -4,14 +4,19 @@ import { useForm } from "react-hook-form";
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import toast from "react-hot-toast";
-
+import RatingStars from "../../components/RatingStars/RatingStars";
 const steps = ["Book", "Your Details", "Payment"];
 
 function Payment() {
   const [activeStep, setActiveStep] = useState(0);
   const dispatch = useDispatch();
 
-  const { register, handleSubmit,watch } = useForm();
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm();
   const { id: TeacherId } = useParams();
   //Select the teacher from the Redux store using the ID from the URL
   const teachers = useSelector((state) => state.teachers.teachers);
@@ -19,7 +24,7 @@ function Payment() {
   const handleNext = () => setActiveStep((prev) => prev + 1);
   const handleBack = () => setActiveStep((prev) => prev - 1);
   const sessionType = watch("sessionType");
-    useEffect(() => {
+  useEffect(() => {
     if (activeStep === steps.length) {
       toast.success(" You've completed payment successfully!");
     }
@@ -57,16 +62,54 @@ function Payment() {
               <h3 className="text-lg font-bold text-center uppercase mb-6">
                 Schedule
               </h3>
-              <p className="mb-4">
-                <strong>Teacher Name:</strong> {teacher?.name}
-              </p>
-              {/* Session Type */}
-              <div className="flex gap-6 mb-6">
+                {/* Teacher Image */}
+                <div className="avatar">
+                  <div className="w-24 rounded-full">
+                  <img
+                    src={teacher?.Image}
+                    alt="Teacher"
+                    className="w-16 h-16 object-cover"
+                  />
+                  </div>
+                </div>
+                  {/* Rating */}
+                  <div className="flex mt-2">
+                    <RatingStars value={teacher?.rating || 0} />
+                  </div>
+                  <h2 className="mt-3 text-lg font-semibold">
+                    Teacher Name: {teacher?.name}
+                  </h2>
+                {/* Hourly Rate */}
+                <div className="mt-4 space-y-3 text-gray-700">
+                  <p>
+                    <span className="font-medium">Hourly Rate: </span>
+                    <span className="text-yellow-600 font-semibold">
+                      ${teacher?.hourlyRate}
+                    </span>
+                  </p>
+                  <p>
+                    <span className="font-medium">Session Type: </span>
+                    <span>
+                      {sessionType || "Select a type"}
+                      {sessionType === "Group Session" &&
+                        teacher?.hourlyRate && (
+                          <span className="ml-2 text-sm text-gray-500">
+                            ({teacher?.hourlyRate / 3}$/student)
+                          </span>
+                        )}
+                    </span>
+                  </p>
+                </div>
+
+              {/* Session Type: Private or Group */}
+              <div className="flex gap-6 mb-6 mt-5">
                 <label className="label cursor-pointer">
                   <input
                     type="radio"
                     value="Private"
-                    {...register("sessionType", { required: true })}
+                    {...register("sessionType", {
+                      required: "Session type is required.",
+                    })}
                     className="radio radio-warning"
                   />
                   <span className="label-text ml-2">Private</span>
@@ -75,20 +118,28 @@ function Payment() {
                   <input
                     type="radio"
                     value="Group Session"
-                    {...register("sessionType", { required: true })}
+                    {...register("sessionType", {
+                      required: "Session type is required.",
+                    })}
                     className="radio radio-warning"
                   />
                   <span className="label-text ml-2">Group Session</span>
                 </label>
               </div>
-
+              {errors.sessionType && (
+                <p className="text-[var(--error-color)] text-sm mb-4 mt-1">
+                  {errors.sessionType.message}
+                </p>
+              )}
               {/* Date & Time */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <label className="label font-medium">Available Dates</label>
+                  <label className="label font-medium mb-1">Available Dates</label>
                   <select
                     className="border border-gray-300 rounded-md p-2 w-full focus:outline-none focus:ring-2 focus:ring-[var(--secondary-color)]"
-                    {...register("selectedDate", { required: true })}
+                    {...register("selectedDate", {
+                      required: "Date is required.",
+                    })}
                   >
                     <option value="">Select a day</option>
                     {watch("sessionType") === "Private"
@@ -103,29 +154,44 @@ function Payment() {
                           </option>
                         ))}
                   </select>
+                  {errors.selectedDate && (
+                    <p className="text-[var(--error-color)] text-sm mb-4 mt-1">
+                      {errors.selectedDate.message}
+                    </p>
+                  )}
                 </div>
                 <div>
-                  <label className="label font-medium">Available Times</label>
-                  <select className="border border-gray-300 rounded-md p-2 w-full focus:outline-none focus:ring-2 focus:ring-[var(--secondary-color)]">
+                  <label className="label font-medium mb-1">Available Times</label>
+                  <select
+                    className="border border-gray-300 rounded-md p-2 w-full focus:outline-none focus:ring-2 focus:ring-[var(--secondary-color)]"
+                    {...register("selectedTime", {
+                      required: "Time is required.",
+                    })}
+                  >
                     <option value="">Select a time</option>
                     {watch("sessionType") === "Private"
                       ? teacher?.availableDates?.map((time, index) => (
-                        <option
-                          key={index}
-                          value={`${time.time} ${time.period}`}
-                        >
-                          {time.time} {time.period}
-                        </option>
-                      ))
-                      :teacher?.availableGroupDates?.map((time, index) => (
-                      <option
-                        key={index}
-                        value={` ${time.time} ${time.period}`}
-                      >
-                        {time.time} {time.period}
-                      </option>
-                    ))}
+                          <option
+                            key={index}
+                            value={`${time.time} ${time.period}`}
+                          >
+                            {time.time} {time.period}
+                          </option>
+                        ))
+                      : teacher?.availableGroupDates?.map((time, index) => (
+                          <option
+                            key={index}
+                            value={` ${time.time} ${time.period}`}
+                          >
+                            {time.time} {time.period}
+                          </option>
+                        ))}
                   </select>
+                  {errors.selectedTime && (
+                    <p className="text-[var(--error-color)] text-sm mb-4 mt-1">
+                      {errors.selectedTime.message}
+                    </p>
+                  )}
                 </div>
               </div>
             </div>
@@ -211,7 +277,7 @@ function Payment() {
           <div className="flex justify-between mt-6">
             <button
               type="button"
-              className="btn bg-[var(--secondary-color)] border-[var(--secondary-color)]"
+              className="btn bg-[var(--secondary-color)] border-[var(--secondary-color)] text-[var(--background-color)]"
               onClick={handleBack}
               disabled={activeStep === 0}
             >
@@ -232,13 +298,10 @@ function Payment() {
             ) : (
               <button
                 type="button"
-                className="btn"
-                style={{
-                  backgroundColor: "var(--secondary-color)",
-                  borderColor: "var(--secondary-color)",
-                }}
-                onClick={handleSubmit(()=> {
-                  handleNext()})}
+                className="btn bg-[var(--secondary-color)] border-[var(--secondary-color)] text-[var(--background-color)]"
+                onClick={handleSubmit(() => {
+                  handleNext();
+                })}
               >
                 Next
               </button>
