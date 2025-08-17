@@ -2,7 +2,7 @@
 function AdminAnalysis() {
   return (
     <>
-        <div className="admin-analysis w-full flex items-center justify-between shadow-[var(--box-shadow)] capitalize mb-10  p-5">
+        <div className="admin-analysis w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 shadow-[var(--box-shadow)] capitalize mb-10  p-5">
             <div className="item text-center">
                 <h4 className="text-[#f7a163] font-bold text-2xl">20000</h4>
                 <p className="text-[var(--text-color)] mt-2">earnings</p>
