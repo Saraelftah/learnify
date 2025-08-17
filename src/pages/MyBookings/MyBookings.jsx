@@ -1,20 +1,21 @@
 import { useSelector } from "react-redux";
+import ChooseTeacher from "../ChooseTeacher/ChooseTeacher";
 
 function MyBookings() {
   const bookings = useSelector((state) => state.bookings.items);
 
   return (
     <div className="p-6 mt-50">
-      <h2 className="text-xl font-bold mb-4">My Bookings</h2>
       {bookings.length === 0 ? (
-        <p>No bookings yet.</p>
+        <ChooseTeacher />
       ) : (
         <ul className="space-y-4">
+          <h2 className="text-xl font-bold mb-4">My Bookings</h2>
           {bookings.map((b) => (
             <div key={b.id} className="p-4 shadow rounded">
                 <div className="avatar w-24 ">
                 <img
-                    src={b.teacherImage}
+                  src={b.teacherImage}
                     alt={b.teacherName}
                     className="w-16 h-16 rounded-full mb-2"
                 />
@@ -22,7 +23,6 @@ function MyBookings() {
               <p>
                 <strong>{b.teacherName}</strong> ({b.subject})
               </p>
-
               <p>
                 {b.date} - {b.time}
               </p>
