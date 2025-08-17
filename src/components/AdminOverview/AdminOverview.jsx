@@ -1,4 +1,6 @@
 import AdminAnalysis from "../AdminAnalysis/AdminAnalysis";
+import ConfirmPopup from "../ConfirmPopup/ConfirmPopup";
+
 
 import {
   collection,
@@ -17,6 +19,27 @@ import { db } from "../../../firebase";
 import toast from "react-hot-toast";
 
 function AdminOverview() {
+  //condirmation popup
+  const [showPopup, setShowPopup] = useState(false);
+  const [actionType, setActionType] = useState(null);
+  const [teacherId, setTeacherId] = useState(null);
+
+  const handleOpenPopup = (type, id) => {
+    setActionType(type);
+    setTeacherId(id);
+    setShowPopup(true);
+  };
+
+  const handleClosePopup = () => {
+    setShowPopup(false);
+    setActionType(null);
+    setTeacherId(null);
+  };
+
+
+
+
+
   const [pending, setPending] = useState([]);
   const [busyId, setBusyId] = useState(null);
 
@@ -132,9 +155,9 @@ function AdminOverview() {
 
         <h1 className="text-xl font-bold mb-4">Pending Teachers</h1>
         <div className="overflow-x-auto">
-          <table className="table">
+          <table className="table w-full rouded-[var(--border-radius)]">
             <thead>
-              <tr>
+              <tr className="bg-[var(--admin-bg-color)] rounded-[var(--border-radius)] text-[var(--text-color)] hidden md:table-row">
                 <th>Image</th>
                 <th>Name</th>
                 <th>Subject</th>
@@ -147,7 +170,7 @@ function AdminOverview() {
             </thead>
             <tbody>
               {pending.map((t) => (
-                <tr key={t.id}>
+                <tr key={t.id} className="bg-[var(--admin-even)] odd:bg-[var(--admin-odd)]  flex flex-col md:table-row mb-4">
                   <td>
                     {t.Image ? (
                       <img
@@ -169,7 +192,8 @@ function AdminOverview() {
                     {/* approve button */}
                     <button
                       className="btn bg-[var(--success-color)] text-white btn-sm"
-                      onClick={() => approveTeacher(t.id)}
+                      // onClick={() => approveTeacher(t.id)}
+                      onClick={()=>handleOpenPopup("approve", t.id)}
                       disabled={busyId === t.id}
                     >
                       {busyId === t.id ? (
@@ -182,7 +206,8 @@ function AdminOverview() {
                     {/* reject button */}
                     <button
                       className="btn bg-[var(--error-color)] text-white btn-sm"
-                      onClick={() => rejectTeacher(t.id)}
+                      // onClick={() => rejectTeacher(t.id)}
+                      onClick={()=>handleOpenPopup("reject", t.id)}
                       disabled={busyId === t.id}
                     >
                       {busyId === t.id ? (
@@ -191,6 +216,26 @@ function AdminOverview() {
                         "Reject"
                       )}
                     </button>
+
+                    {/* confirmation popup */}
+                    {showPopup && (
+                    <ConfirmPopup
+                      title={actionType === "approve" ? "Approve Teacher" : "Reject Teacher"}
+                      description={
+                        actionType === "approve"
+                          ? "Are you sure you want to approve this teacher?"
+                          : "Are you sure you want to reject this teacher?"
+                      }
+                      buttonTitle={actionType === "approve" ? "Approve" : "Reject"}
+                      buttonFunction={
+                        actionType === "approve"
+                          ? () => approveTeacher(teacherId)
+                          : () => rejectTeacher(teacherId)
+                      }
+                      close={handleClosePopup}
+                    />
+                  )}
+
                   </td>
                 </tr>
               ))}
@@ -198,6 +243,9 @@ function AdminOverview() {
           </table>
         </div>
       </div>
+
+
+      
     </>
   );
 }
