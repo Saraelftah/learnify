@@ -21,6 +21,7 @@ const ChooseTeacher = lazy(() => import("../pages/ChooseTeacher/ChooseTeacher"))
 const SuccessfulPayment = lazy(() => import("../pages/Payment/SuccessfulPayment/SuccessfulPayment"));
 const MyBookings = lazy(() => import("../pages/MyBookings/MyBookings"));
 const Search = lazy(() => import("../pages/SearchPage/SearchPage"));
+const About = lazy(() => import("../pages/AboutUs/AboutUs"));
 const Notfound = lazy(() => import("../pages/Notfound/Notfound"));
 
 function AppRoutes() {
@@ -41,6 +42,7 @@ function AppRoutes() {
         {path: "myBookings", element: <MyBookings />},
         { path: "student/:id", element: <StudentProfile /> },
         { path: "tutor/:id", element: <TeacherProfile /> },
+        { path: "about", element: <About /> },
         // { path: "admin", element: 
         // <RoleRoute allow={["admin"]} >
         //   <Admin/>
