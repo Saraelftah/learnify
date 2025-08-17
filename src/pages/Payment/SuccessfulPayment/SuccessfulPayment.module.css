@@ -1,0 +1,5 @@
+@reference "tailwindcss";
+.bgCustom {
+  background: linear-gradient(135deg, #11cbcb, #25fcaa);
+  min-height: 100vh;
+}
