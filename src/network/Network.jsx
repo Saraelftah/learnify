@@ -1,34 +1,57 @@
 import { useEffect } from "react";
 import { db } from "../../firebase";
-import { getDocs, collection, Timestamp } from "firebase/firestore";
+import { getDocs, collection, query, where } from "firebase/firestore";
 import { useDispatch } from "react-redux";
 import { setTeachers } from "../store/TeachersSlice";
+import { setStudents } from "../store/StudentsSlice";
 
 function Network() {
   const dispatch = useDispatch();
-  const teachersCollection = collection(db, "teachers");
 
   useEffect(() => {
-    const getTeachers = async () => {
+    const getData = async () => {
       try {
-        const data = await getDocs(teachersCollection);
-        const teachersData = data.docs.map((doc) => {
+        const teachersQuery = collection(db, "teachers");
+        const studentsQuery = query(collection(db, "users"), where("role", "==", "student"));
+
+        // 💡 جلب البيانات في نفس الوقت باستخدام Promise.all
+        const [teachersSnap, studentsSnap] = await Promise.all([
+          getDocs(teachersQuery),
+          getDocs(studentsQuery)
+        ]);
+                console.log("Students from Firestore:", studentsSnap.docs.map(doc => doc.data()));
+
+        // معالجة بيانات المعلمين
+        const teachersData = teachersSnap.docs.map((doc) => {
           const docData = doc.data();
           return {
             id: doc.id,
             ...docData,
-            createdAt: docData.createdAt ? docData.createdAt.toDate().toISOString() : null,
+            createdAt: docData.createdAt?.toDate().toISOString() || null,
           };
         });
-        console.log(teachersData);
+
+        // معالجة بيانات الطلاب
+        const studentsData = studentsSnap.docs.map((doc) => {
+          const docData = doc.data();
+          return {
+            id: doc.id,
+            ...docData,
+            createdAt: docData.createdAt?.toDate().toISOString() || null,
+          };
+        });
+
+        // 💡 إرسال البيانات إلى Redux
         dispatch(setTeachers(teachersData));
+        dispatch(setStudents(studentsData));
+
       } catch (err) {
         console.error(err);
       }
     };
 
-    getTeachers();
-  }, [teachersCollection, dispatch]);
+    getData();
+  }, [dispatch]);
 
   return <></>;
 }

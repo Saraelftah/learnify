@@ -1,13 +1,29 @@
 import { useSelector } from 'react-redux';
 import { deleteTeacher } from '../../store/TeachersSlice';
 import { useDispatch } from 'react-redux';
+import ConfirmPopup from '../ConfirmPopup/ConfirmPopup';
+import { useState } from 'react';
 
 function AdminTeachers() {
     const teachers = useSelector((state) => state.teachers.teachers);
     const dispatch = useDispatch();
+    const [showPopup, setShowPopup] = useState(false);
+    const [teacherId, setTeacherId] = useState(null);
 
-  const handleDelete = (teacherId) => {
-    dispatch(deleteTeacher(teacherId));
+    const handleOpenPopup =(teacherId) => {
+      setTeacherId(teacherId)
+      setShowPopup(true)
+    }
+    const handleClosePopup =() => {
+      setTeacherId(null)
+      setShowPopup(false)
+    }
+
+    const handleDelete = (teacherId) => {
+      if (teacherId) {
+        dispatch(deleteTeacher(teacherId));
+        handleClosePopup()
+      }
   };
   return (
 
@@ -16,7 +32,7 @@ function AdminTeachers() {
       <h4 className="text-lg">we have <span className="text-[var(--secondary-color)] font-bold">{teachers.length}</span> teachers</h4>
       <div className="teachers-list grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 items-center mt-5">
         {teachers.map((teacher)=>(
-          <div className="teacher relative shadow-[var(--box-shadow)] flex items-center gap-2 p-5 rounded-[var(--border-radius)]" 
+          <div className="teacher relative shadow-[var(--box-shadow)] flex items-center gap-3 p-5 rounded-[var(--border-radius)]" 
           key={teacher.id}>
             <div className="w-[70px] h-[70px] rounded-full"> 
                 <img className="rounded-full " src={teacher.Image} alt={teacher.name}/>
@@ -32,12 +48,30 @@ function AdminTeachers() {
                 <i className="fa-solid fa-ellipsis-vertical"></i>
               </div>
               <ul tabIndex={0} className="dropdown-content menu z-1 w-fit shadow-sm bg-[var(--admin-bg-color)]">
-                <li className=''>
-                  <button onClick={() => handleDelete(teacher.id)}>Remove</button>
+                <li className='bg-transparent'>
+                  <button onClick={()=>{
+                    if (document.activeElement) {
+                    document.activeElement.blur();
+                    }
+                    handleOpenPopup(teacher.id)}}
+                    >Remove</button>
                 </li>
               </ul>
             </div>
+
+            {/* popup confirmation */}
+            {showPopup && (
+            <ConfirmPopup 
+              title="delete teacher"
+              description="are you sure you want to delete this teacher"
+              buttonTitle="delete"
+              buttonFunction={() => handleDelete(teacherId)}
+              close={handleClosePopup}
+            />
+          )}
           </div>
+
+          
         ))}
       </div>
     </div>

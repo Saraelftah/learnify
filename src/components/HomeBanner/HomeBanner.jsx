@@ -59,7 +59,7 @@ function HomeBanner() {
   return (
     <>
         {/* Banner section */}
-        <section className="home__banner text-left bg-[var(--light-background)] py-[20px] lg:py-[50px]">
+        <section className="home__banner min-h-fit lg:min-h-[calc(100vh-100px)] flex flex-col justify-center text-left bg-[var(--light-background)] py-[20px] lg:py-[50px]">
           <div className="container">
             <div className="flex flex-col items-center lg:flex-row gap-4 ">
               <div className="w-full lg:w-1/2 order-2 lg:order-1">

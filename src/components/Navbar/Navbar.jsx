@@ -1,6 +1,8 @@
 import { Link, NavLink } from "react-router-dom";
 import logoImg from "../../assets/images/logo.png";
 import LightDark from "../LightDark/LightDark";
+import Notification from "../Notification/Notification";
+import NavCurrentUser from "../NavCurrentUser/NavCurrentUser";
 
 function Navbar() {
     
@@ -21,7 +23,7 @@ function Navbar() {
                   <NavLink
                     to="/"
                     className={({ isActive }) =>
-                      `text-[var(--main-text-color)] hover:text-[var(--primary-color)] ${
+                      `text-[var(--main-text-color)] hover:text-[var(--primary-color)]  ${
                         isActive ? "font-bold text-[var(--primary-color)]" : ""
                       }`
                     }
@@ -43,14 +45,14 @@ function Navbar() {
                 </li>
                 <li>
                   <NavLink
-                    to="/services"
+                    to="/about"
                     className={({ isActive }) =>
                       `text-[var(--main-text-color)] hover:text-[var(--primary-color)] ${
                         isActive ? "font-bold text-[var(--primary-color)]" : ""
                       }`
                     }
                   >
-                    Services
+                    about
                   </NavLink>
                 </li>
                 <li>
@@ -65,9 +67,17 @@ function Navbar() {
                     Contact
                   </NavLink>
                 </li>
+                <li className="ml-2">
+                    <LightDark />
+                </li>
+                <li className="ml-2">
+                    <Notification />
+                </li>
               </ul>
 
-              <LightDark />
+              
+
+              
 
               <NavLink
                 to="/login"
@@ -85,6 +95,10 @@ function Navbar() {
               >
                 Sign Up
               </NavLink>
+              <div className="ml-2">
+                <NavCurrentUser />
+              </div>
+              
             </div>
 
             <div className="navbar-end lg:hidden w-fit p-0">
@@ -116,13 +130,17 @@ function Navbar() {
                     <NavLink to="/search">teachers</NavLink>
                   </li>
                   <li>
-                    <NavLink to="/services">Services</NavLink>
+                    <NavLink to="/about">about</NavLink>
                   </li>
                   <li>
                     <NavLink to="/contact">Contact</NavLink>
                   </li>
                   <li>
                     <LightDark />
+                    
+                  </li>
+                  <li>
+                    <Notification />
                   </li>
                   <li>
                     <NavLink to="/login">Login</NavLink>

@@ -9,7 +9,7 @@ function ConfirmPopup({title, description, buttonTitle, buttonFunction, close}) 
             <h3 className="text-[var(--dark-color)] font-bold text-[length:var(--title-font-size)] mb-2">{title}</h3>
             <p calssName="text-[var(--main-text)] leading-[var(--line-height)]">{description}</p>
 
-            <button onClick={buttonFunction} className="btn bg-[var(--success-color)] text-white mt-5">{buttonTitle}</button>
+            <button onClick={buttonFunction} className="btn bg-[var(--secondary-color)] text-white mt-5">{buttonTitle}</button>
 
             <div onClick={close} className="close-icon absolute top-3 right-3 w-[35px] h-[35px] bg-[var(--secondary-color)] text-white flex justify-center items-center rounded-full cursor-pointer">
                 <i className="fa-solid fa-xmark "></i>
