@@ -4,9 +4,10 @@ import { Link, NavLink } from "react-router-dom";
 function AdminSidebar() {
   return (
     <>
-    <div className="sidebar w-[20%] bg-[var(--admin-bg-color)] text-[var(--dark-color)] p-5 capitalize">
-      <div className="sidebar flex flex-col gap-2">
-        <h3 className="text-[var(--dark-color)] text-[length:var(--title-font-size)] mb-5">dashboard</h3>
+    <div className="sidebar bg-[var(--admin-bg-color)] text-[var(--dark-color)] p-5 capitalize w-full md:w-[20%]">
+      <h3 className="text-[var(--dark-color)] text-[length:var(--title-font-size)] mb-5 text-center md:text-start">dashboard</h3>
+      <div className="sidebar flex flex-row md:flex-col gap-4 md:gap-2 justify-center md:justify-start">
+        
         <NavLink to="/admin" className="nav-link flex align-center gap-2 mb-2">
           <i className="fa-solid fa-house text-[var(--light-primary-color)]"></i>
            <h5>Overview</h5>
