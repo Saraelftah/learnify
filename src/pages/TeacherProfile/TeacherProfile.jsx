@@ -123,6 +123,7 @@ function TeacherProfile() {
     },
   };
 
+
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
     show: { opacity: 1, y: 0 },
@@ -132,6 +133,7 @@ function TeacherProfile() {
     hover: { scale: 1.03 },
     tap: { scale: 0.98 },
   };
+
 
   // Carousel settings
   const responsive = {
@@ -152,7 +154,6 @@ function TeacherProfile() {
       items: 1,
     },
   };
-
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -165,7 +166,9 @@ function TeacherProfile() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
+
         className="mx-auto bg-[var(--background-color)] rounded-lg shadow-md overflow-hidden "
+
       >
         {/* Header Section */}
         <motion.div
@@ -220,6 +223,7 @@ function TeacherProfile() {
                 transition={{ delay: 0.7 }}
                 className="absolute top-4 right-4 bg-green-500 text-white px-3 py-1 rounded-full text-sm font-bold z-10 shadow-md flex items-center"
               >
+                <i className="fa-solid fa-gift mr-1"></i>
                 First Lesson Free!
               </motion.div>
             )}
@@ -231,15 +235,17 @@ function TeacherProfile() {
                 transition={{ delay: 0.5 }}
                 src={teacher.Image || "/default-teacher.jpg"}
                 alt={teacher.name}
-                className="w-full h-auto rounded-lg shadow-sm object-cover aspect-square"
+                className="w-full  shadow-sm object-cover aspect-square"
               />
             </div>
 
             <div className="mb-6 bg-[var(--light-background)] p-4 rounded-lg">
               <div className="flex justify-between items-center mb-2">
-                <span className="text-[var(--text-color)]">Hourly Rate:</span>
-                <span className="text-[var(--dark-color)] font-bold">
-                  ${teacher.hourlyRate}
+                <span className="text-[var(--text-color)]">Hourly Rate:</span> 
+                <span className="text-[var(--dark-color)] font-bold  ">
+                
+                  {teacher.hourlyRate}
+           <span className="ml-2">       EGP</span>
                 </span>
               </div>
               <div className="flex justify-between items-center mb-2">
@@ -268,6 +274,8 @@ function TeacherProfile() {
             >
               Book This Teacher
             </motion.button>
+
+      
           </motion.div>
 
           {/* Right Column - Information */}
@@ -365,17 +373,105 @@ function TeacherProfile() {
                   </p>
                 </motion.div>
 
-                {/* Testimonials Section */}
+                {/* Education Section */}
+                {teacher.education && (
+                  <motion.div variants={itemVariants}>
+                    <h2 className="text-xl font-bold text-[var(--dark-color)] mb-3">
+                      EDUCATION
+                    </h2>
+                    <div className="space-y-2">
+                      {teacher.education.map((edu, index) => (
+                        <div key={index} className="flex items-start">
+                          <div className="mr-4 mt-1">
+                            <div className="w-3 h-3 rounded-full bg-[var(--primary-color)]"></div>
+                          </div>
+                          <div>
+                            <h3 className="font-medium text-[var(--dark-color)]">
+                              {edu.degree}
+                            </h3>
+                            <p className="text-sm text-[var(--text-color)]">
+                              {edu.institution} • {edu.year}
+                            </p>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </motion.div>
+                )}
 
-                <motion.div variants={itemVariants}>
-                  <h2 className="text-xl font-bold text-[var(--dark-color)] mb-3">
-                    Testimonials
+                {/* Availability Dates */}
+                {teacher.availableDates?.length > 0 && (
+                  <motion.div variants={itemVariants}>
+                    <h2 className="text-xl font-bold text-[var(--dark-color)] mb-3">
+                      AVAILABILITY
+                    </h2>
+                    <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                      {teacher.availableDates.map((slot, index) => (
+                        <motion.div
+                          key={index}
+                          variants={itemVariants}
+                          className="bg-[var(--light-background)] text-[var(--primary-color)] py-2 px-3 rounded-md text-center text-sm font-medium border border-[var(--primary-color)]"
+                        >
+                          {slot.day} {slot.time} {slot.period}
+                        </motion.div>
+                      ))}
+                    </div>
+                  </motion.div>
+                )}
+
+                {/* Group Availability */}
+                {teacher.availableGroupDates?.length > 0 && (
+                  <motion.div variants={itemVariants}>
+                    <h2 className="text-xl font-bold text-[var(--dark-color)] mb-3">
+                      GROUP SESSIONS
+                    </h2>
+                    <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                      {teacher.availableGroupDates.map((slot, index) => (
+                        <motion.div
+                          key={index}
+                          variants={itemVariants}
+                          className="bg-[var(--light-background)] text-[var(--primary-color)] py-2 px-3 rounded-md text-center text-sm font-medium border border-[var(--primary-color)]"
+                        >
+                          {slot.day} {slot.time} {slot.period}
+                        </motion.div>
+                      ))}
+                    </div>
+                  </motion.div>
+                )}
+
+                {/* Teaching Style */}
+                {teacher.teachingStyle && (
+                  <motion.div variants={itemVariants}>
+                    <h2 className="text-xl font-bold text-[var(--dark-color)] mb-3">
+                      TEACHING STYLE
+                    </h2>
+                    <div className="flex flex-wrap gap-2">
+                      {teacher.teachingStyle.map((style, index) => (
+                        <motion.span
+                          key={index}
+                          variants={itemVariants}
+                          className="px-3 py-1 bg-[var(--light-background)] text-[var(--primary-color)] rounded-full text-sm font-medium"
+                        >
+                          {style}
+                        </motion.span>
+                      ))}
+                    </div>
+                  </motion.div>
+                )}
+
+                {/* Reviews Section */}
+                <motion.div variants={itemVariants} className="mt-10">
+                  <h2 className="text-xl font-bold text-[var(--dark-color)] mb-6">
+                    What Students Say
+
                   </h2>
                   {teacher.reviews?.length > 0 ? (
                     <motion.div
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       transition={{ delay: 0.5 }}
+                      className="relative"
+
                     >
                       <Carousel
                         responsive={responsive}
@@ -384,10 +480,14 @@ function TeacherProfile() {
                         autoPlaySpeed={5000}
                         arrows={false}
                         showDots={true}
+
+                        containerClass="carousel-container"
+                        itemClass="carousel-item"
+                 
                       >
                         {teacher.reviews.map((review, index) => (
-                          <div key={index} className="p-4 mb-5 w-full">
-                            <div className="bg-[var(--light-background)] p-6 rounded-lg border-l-4 border-[var(--primary-color)] ">
+                          <div key={index} className="p-4 w-full">
+                            <div className="bg-[var(--light-background)] p-6 rounded-lg border-l-4 border-[var(--primary-color)] mb-2">
                               <div className="flex items-center mb-3">
                                 <RatingStars value={review.rating} />
                                 <span className="ml-2 text-sm text-[var(--text-color)]">
@@ -422,6 +522,7 @@ function TeacherProfile() {
                   )}
                 </motion.div>
 
+
                 {/* Availability */}
                 {teacher.availableDates?.length > 0 && (
                   <motion.div variants={itemVariants}>
@@ -441,6 +542,7 @@ function TeacherProfile() {
                     </div>
                   </motion.div>
                 )}
+
               </motion.div>
             )}
           </motion.div>
@@ -450,4 +552,6 @@ function TeacherProfile() {
   );
 }
 
+
 export default TeacherProfile;
+

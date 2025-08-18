@@ -5,6 +5,8 @@ import RoleRoute from "./RoleRoute";
 import AdminOverview from "../components/AdminOverview/AdminOverview";
 import AdminStudents from "../components/AdminStudents/AdminStudents";
 import AdminTeachers from "../components/AdminTeachers/AdminTeachers";
+import Services from "../pages/Services/Services";
+import Contact from "../pages/ContactUS/ContactUs";
 
 const Home = lazy(() => import("../pages/Home/Home"));
 const RolePage = lazy(() => import("../pages/RolePage/RolePage"));
@@ -42,8 +44,9 @@ function AppRoutes() {
         {path: "myBookings", element: <MyBookings />},
         { path: "student/:id", element: <StudentProfile /> },
         { path: "tutor/:id", element: <TeacherProfile /> },
+        { path: "services", element: <Services /> },
+        { path: "contact", element: <Contact /> },
         { path: "about", element: <About /> },
- 
         {
         path: "admin",
         element: (
