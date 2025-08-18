@@ -56,6 +56,12 @@ function Register() {
           createdAt: serverTimestamp(), 
         }, {merge: true});
 
+      } else{
+        await setDoc(doc(db, "students", uid),{
+          studentId: uid,
+          name: username,
+          createdAt: serverTimestamp(), 
+        })
       }
       toast.success("Registered Successfully!");
       navigate("/login");
