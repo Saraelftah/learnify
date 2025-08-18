@@ -14,6 +14,7 @@ function TeacherPending() {
 
   const defaultValues = {
     Image: "",
+    name: "",
     subject: "",
     gradeLevel: "",
     lessonType: "Online",

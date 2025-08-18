@@ -39,7 +39,7 @@ function Login() {
       // navigate as role
       if(role === "admin") navigate("/admin");
       else if(role === "teacher") navigate("/teacher");
-      else if(role === "student") navigate("/studentProfile");
+      else if(role === "student") navigate("/");
       else if(role === "teacherPending") navigate ("/pending");
     } catch (err) {
       console.error(err);
@@ -116,7 +116,7 @@ function Login() {
           <Google />
         </div>
 
-        <SideImg />
+        <SideImg imgClass="min-h-screen"/>
       </div>
     </>
   );

@@ -7,6 +7,7 @@ import { useFieldArray, useForm } from "react-hook-form";
 import { doc, getDoc, serverTimestamp, setDoc } from "firebase/firestore";
 import { setTeachers } from "../../store/TeachersSlice";
 import toast from "react-hot-toast";
+import RatingStars from "../../components/RatingStars/RatingStars";
 
 function Teacher() {
   const [loading, setLoading] = useState(0);
@@ -23,6 +24,7 @@ function Teacher() {
   const defaultValues = {
     Image: "",
     subject: "",
+    rating: 0,
     gradeLevel: "",
     lessonType: "Online",
     hourlyRate: "",
@@ -166,51 +168,80 @@ function Teacher() {
       <div className="container py-40">
         {!isEditing && (
           <>
-            <div className="flex flex-col items-center">
+          {/*  border-4 border-[var(--primary-color)] */}
+            <div className="flex gap-20 items-start ">
               {/* Display current image*/}
-              <div className="relative w-40 h-40 mb-6 rounded-full overflow-hidden border-4 border-gray-300 shadow-lg">
-                <img
-                  src={profileData.Image || "https://i.ibb.co/Kg8TGk7/user.png"}
-                  alt="Profile"
-                  className="w-full h-full object-cover"
-                />
+              <div className="flex flex-col items-center">
+                
+                <div className="relative w-60 h-60 mb-6 rounded-full overflow-hidden shadow-lg bg-gradient-to-r from-[#f2773b] to-[#1d9190] p-1">
+                  <img
+                    src={
+                      profileData.Image || "https://i.ibb.co/Kg8TGk7/user.png"
+                    }
+                    alt="Profile"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <button
+                  className="btn mt-8 hover:text-white hover:bg-[var(--secondary-color)] rounded-xl bg-white text-[var(--secondary-color)] transition-colors duration-300 shadow-md border-[var(--secondary-color)]"
+                  onClick={() => setIsEditing(true)}
+                >
+                  Edit Profile
+                </button>
               </div>
 
-              <h2 className="text-xl font-semibold mb-2">
-                Subject: {profileData.subject}
-              </h2>
-              <p className="text-gray-600 mb-2">
-                Grade Level: {profileData.gradeLevel}
-              </p>
-              <p className="text-gray-600 mb-4">
-                Hourly Rate: {profileData.hourlyRate} EGP
-              </p>
+              <div>
+                {/* names */}
+                <h2 className="text-2xl capitalize font-bold mb-2">
+                  {profileData.name}
+                </h2>
+                
+                {/* rating */}
+                <div>
+                  <RatingStars value = {profileData.rating} />
 
-              <div className="w-full text-left">
-                <h3 className="text-lg font-medium mt-6 mb-2">Overview</h3>
-                <p className="text-gray-700 leading-relaxed mb-4">
-                  {profileData.overview}
+                </div>
+
+
+
+                {/* subject */}
+                <h2 className="text-xl font-semibold mb-2">
+                  Subject: {profileData.subject}
+                </h2>
+                {/* grade level */}
+                <p className="text-gray-600 mb-2">
+                  Grade Level: {profileData.gradeLevel}
+                </p>
+                {/* hourly rate */}
+                <p className="text-gray-600 mb-4">
+                  Hourly Rate: {profileData.hourlyRate} EGP
                 </p>
 
-                <h3 className="text-lg font-medium mt-6 mb-2">Availability</h3>
-                <div className="flex flex-wrap gap-2">
-                  {profileData.availableDates.map((date, index) => (
-                    <span
-                      key={index}
-                      className="px-4 py-2 bg-blue-100 text-blue-800 rounded-full font-medium"
-                    >
-                      {date.day} - {date.time} {date.period}
-                    </span>
-                  ))}
+                {/* overview */}
+                <div className="w-3/6 py-1 px-2 shadow-lg rounded-2xl 
+                bg-[var(--light-background)]">
+                  <h3 className="text-lg font-medium mt-6 mb-2">Overview</h3>
+                  <p className="mb-4">
+                    {profileData.overview}
+                  </p>
                 </div>
-              </div>
 
-              <button
-                className="btn mt-8 text-white bg-[var(--secondary-color)] rounded-3xl hover:bg-white hover:text-[var(--secondary-color)] transition-colors duration-300 shadow-md border-[var(--secondary-color)]"
-                onClick={() => setIsEditing(true)}
-              >
-                Edit Profile
-              </button>
+                  {/* available dates */}
+                  <h3 className="text-lg font-medium mt-6 mb-2">
+                    Availability
+                  </h3>
+                  <div className="flex flex-wrap gap-2">
+                    {profileData.availableDates.map((date, index) => (
+                      <span
+                        key={index}
+                        className="px-4 py-2 bg-blue-100 text-blue-800 rounded-full font-medium"
+                      >
+                        {date.day} - {date.time} {date.period}
+                      </span>
+                    ))}
+                  </div>
+                
+              </div>
             </div>
           </>
         )}
