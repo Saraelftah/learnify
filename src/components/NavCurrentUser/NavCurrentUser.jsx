@@ -34,7 +34,7 @@ function NavCurrentUser() {
                         user.role === "admin" && (
                         <ul
                             tabIndex={0}
-                            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+                            className="menu menu-sm dropdown-content bg-[var(--background-color)] text-[var(--main-color)] rounded-box z-1 mt-3 w-52 p-2 shadow">
                             <li>
                             <Link to="/admin" className="justify-between">
                                 dashboard
@@ -47,7 +47,7 @@ function NavCurrentUser() {
                         user.role === "student" && (
                         <ul
                             tabIndex={0}
-                            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+                            className="menu menu-sm dropdown-content bg-[var(--background-color)] text-[var(--main-color)] rounded-box z-1 mt-3 w-52 p-2 shadow">
                             <li>
                             <Link to="/myBookings" className="justify-between">
                                 my booking
@@ -60,7 +60,7 @@ function NavCurrentUser() {
                         user.role === "teacher" && (
                         <ul
                             tabIndex={0}
-                            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+                            className="menu menu-sm dropdown-content bg-[var(--background-color)] text-[var(--main-color)] rounded-box z-1 mt-3 w-52 p-2 shadow">
                             <li>
                             <Link to={`/tutor/${user.uid}`} className="justify-between">
                                 Profile
