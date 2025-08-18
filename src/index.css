@@ -6,20 +6,21 @@
 
 :root {
   /* colors */
-  --background-color: #fff;
+  --background-color: #ffffff;
   --primary-color: #016a6d; /*border - icons - special text - highlights*/
   --light-primary-color: #1d9190;
   --secondary-color: #f2773b; /*buttons*/
-  --light-secondary-color: #fbc8b0; /*light background*/
+  --light-secondary-color: #fde9e0; /*light background*/
   --light-background: #eaf9f9;
   --dark-color: #043e52; /* for titles */
   --stars-color: #ffb500;
   --text-color: #7e7d7d; /*paragraphs*/
   --main-text-color: #585858;
-  --error-color: #fb7375;
-  --success-color: #83cc85;
+  --error-color: #e86366;
+  --success-color: #76bfa4;
   --admin-bg-color: #f2f3f4;
-
+  --admin-even: #effefe;
+  --admin-odd: #f8f7ff;
   --border-radius: 10px;
   --box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
 
@@ -37,10 +38,27 @@
   --dark-color: #1d9190;
   --primary-color: #28bcb9;
   --admin-bg-color: #2f2e2e;
+  --admin-even: #383737;
+  --admin-odd: #323232;
 
-  --box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4),
-  0 0 1px rgba(0, 0, 0, 0.6);
+  --box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4), 0 0 1px rgba(0, 0, 0, 0.6);
 }
+
+/* Dark mode update */
+/* .dark {
+  --background-color: #1a1d21;
+  --light-background: #24282e; 
+  --text-color: #b0b3b8;
+  --main-text-color: #ffffff; 
+  --dark-color: #1d9190;
+  --primary-color: #28bcb9;
+  --admin-bg-color: #2f2e2e;
+
+  --box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6),
+  0 0 1px rgba(0, 0, 0, 0.8);
+} */
+/* Dark mode update */
+
 
 
 * {
@@ -53,8 +71,7 @@ body {
   /* dark and light mode */
   background-color: var(--background-color);
   color: var(--main-text-color);
-  font-family: "Alexandria", sans-serif;
-}
+  font-family: "Poppins", sans-serif;}
 
 .container {
   width: 95%;

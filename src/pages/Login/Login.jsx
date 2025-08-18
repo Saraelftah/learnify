@@ -10,8 +10,14 @@ import SignBtn from "../../components/SignBtn/SignBtn";
 import FormInput from "../../components/FormInput/FormInput";
 import { doc, getDoc } from "firebase/firestore";
 
+import { useDispatch } from "react-redux";
+import { setCurrentUser } from "../../store/UsersSlice";
+
 
 function Login() {
+  
+  const dispatch = useDispatch();
+
   const navigate = useNavigate();
 
   const {
@@ -34,6 +40,17 @@ function Login() {
       }
       // get the user role
       const role = snap.data().role;
+
+      //save current user to redux to use it in navbar profile icon
+      const userObject = {
+        uid: cred.user.uid,
+        email: cred.user.email,
+        name: snap.data().name, 
+        image: cred.user.Image,
+        role: role,
+      };
+      dispatch(setCurrentUser(userObject));
+
       toast.success("Logged in successfully!");
 
       // navigate as role

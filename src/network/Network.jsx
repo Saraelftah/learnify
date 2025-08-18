@@ -1,34 +1,50 @@
 import { useEffect } from "react";
 import { db } from "../../firebase";
-import { getDocs, collection, Timestamp } from "firebase/firestore";
-import { useDispatch } from "react-redux";
+import { getDocs, collection, query, where } from "firebase/firestore";
+import { useDispatch, useSelector } from "react-redux";
 import { setTeachers } from "../store/TeachersSlice";
+import { setStudents } from "../store/StudentsSlice";
 
 function Network() {
   const dispatch = useDispatch();
-  const teachersCollection = collection(db, "teachers");
+  const currentUser = useSelector((state) => state.users.currentUser);
 
   useEffect(() => {
-    const getTeachers = async () => {
+    const getData = async () => {
       try {
-        const data = await getDocs(teachersCollection);
-        const teachersData = data.docs.map((doc) => {
-          const docData = doc.data();
-          return {
-            id: doc.id,
-            ...docData,
-            createdAt: docData.createdAt ? docData.createdAt.toDate().toISOString() : null,
-          };
+        // get teachers from database - all users can read it
+        const teachersSnap = await getDocs(collection(db, "teachers"));
+        const teachersData = teachersSnap.docs.map((doc) => {
+          const data = doc.data();
+          if (data.createdAt) {
+            data.createdAt = data.createdAt.toDate().toISOString();
+          }
+          return { id: doc.id, ...data };
         });
-        console.log(teachersData);
         dispatch(setTeachers(teachersData));
+
+        // get students from data base - only admin can read it
+        if (currentUser && currentUser.role === "admin") {
+          const studentsQuery = query(
+            collection(db, "users"),
+            where("role", "==", "student")
+          );
+          const studentsSnap = await getDocs(studentsQuery);
+          const studentsData = studentsSnap.docs.map((doc) => {
+            const data = doc.data();
+            if (data.createdAt) {
+              data.createdAt = data.createdAt.toDate().toISOString();
+            }
+            return { id: doc.id, ...data };
+          });
+          dispatch(setStudents(studentsData));
+        }
       } catch (err) {
-        console.error(err);
+        console.error("Error fetching data:", err);
       }
     };
-
-    getTeachers();
-  }, [teachersCollection, dispatch]);
+    getData();
+  }, [dispatch, currentUser]);
 
   return <></>;
 }

@@ -123,6 +123,7 @@ function TeacherProfile() {
     },
   };
 
+
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
     show: { opacity: 1, y: 0 },
@@ -132,6 +133,7 @@ function TeacherProfile() {
     hover: { scale: 1.03 },
     tap: { scale: 0.98 },
   };
+
 
   // Carousel settings
   const responsive = {
@@ -152,9 +154,6 @@ function TeacherProfile() {
       items: 1,
     },
   };
-
-
-
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -167,7 +166,9 @@ function TeacherProfile() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="mx-auto bg-[var(--background-color)] rounded-lg shadow-md overflow-hidden"
+
+        className="mx-auto bg-[var(--background-color)] rounded-lg shadow-md overflow-hidden "
+
       >
         {/* Header Section */}
         <motion.div
@@ -462,6 +463,7 @@ function TeacherProfile() {
                 <motion.div variants={itemVariants} className="mt-10">
                   <h2 className="text-xl font-bold text-[var(--dark-color)] mb-6">
                     What Students Say
+
                   </h2>
                   {teacher.reviews?.length > 0 ? (
                     <motion.div
@@ -469,6 +471,7 @@ function TeacherProfile() {
                       animate={{ opacity: 1 }}
                       transition={{ delay: 0.5 }}
                       className="relative"
+
                     >
                       <Carousel
                         responsive={responsive}
@@ -477,6 +480,7 @@ function TeacherProfile() {
                         autoPlaySpeed={5000}
                         arrows={false}
                         showDots={true}
+
                         containerClass="carousel-container"
                         itemClass="carousel-item"
                  
@@ -517,6 +521,28 @@ function TeacherProfile() {
                     </p>
                   )}
                 </motion.div>
+
+
+                {/* Availability */}
+                {teacher.availableDates?.length > 0 && (
+                  <motion.div variants={itemVariants}>
+                    <h2 className="text-xl font-bold text-[var(--dark-color)] mb-3">
+                      AVAILABILITY
+                    </h2>
+                    <div className="grid grid-cols-2 sm:grid-cols-2 gap-3">
+                      {teacher.availableDates.map((slot, index) => (
+                        <motion.div
+                          key={index}
+                          variants={itemVariants}
+                          className="bg-[var(--light-background)] text-[var(--primary-color)] py-2 px-3 rounded-md text-center text-sm font-medium border border-[var(--primary-color)]"
+                        >
+                          {slot.day} {slot.time}
+                        </motion.div>
+                      ))}
+                    </div>
+                  </motion.div>
+                )}
+
               </motion.div>
             )}
           </motion.div>
@@ -526,4 +552,6 @@ function TeacherProfile() {
   );
 }
 
+
 export default TeacherProfile;
+
