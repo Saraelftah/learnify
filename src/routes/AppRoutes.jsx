@@ -66,11 +66,15 @@ function AppRoutes() {
           <Teacher/>
         </RoleRoute>},
 
-          { path: "student", element: 
-        <RoleRoute allow={["student"]} >
+          { path: "student", element:(  
+        // <RoleRoute allow={["student"]} >
           <StudentProfile/>
-        </RoleRoute>},
-
+        // </RoleRoute>,
+          ),
+          children: [
+            {path: "myBookings" , element: <MyBookings />}
+          ]
+          },
          { path: "Pending", element: 
         <RoleRoute allow={["teacherPending"]} >
           <TeacherPending/>
