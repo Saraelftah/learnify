@@ -10,6 +10,8 @@ import TeacherPending from "../pages/TeacherPending/TeacherPending";
 import AdminOverview from "../components/AdminOverview/AdminOverview";
 import AdminStudents from "../components/AdminStudents/AdminStudents";
 import AdminTeachers from "../components/AdminTeachers/AdminTeachers";
+import Services from "../pages/Services/Services";
+import Contact from "../pages/ContactUS/ContactUs";
 
 const Home = lazy(() => import("../pages/Home/Home"));
 const Login = lazy(() => import("../pages/Login/Login"));
@@ -37,6 +39,8 @@ function AppRoutes() {
         {path: "payment", element: <ChooseTeacher />},
         { path: "student/:id", element: <StudentProfile /> },
         { path: "tutor/:id", element: <TeacherProfile /> },
+        { path: "services", element: <Services /> },
+        { path: "contact", element: <Contact /> },
         // { path: "admin", element: 
         // <RoleRoute allow={["admin"]} >
         //   <Admin/>
