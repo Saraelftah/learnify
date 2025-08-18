@@ -1,18 +1,22 @@
+import { useSelector } from "react-redux";
+    
 
 function AdminAnalysis() {
+    const teachers = useSelector((state) => state.teachers.teachers);
+    const students = useSelector((state) => state.students.students);
   return (
     <>
-        <div className="admin-analysis w-full flex items-center justify-between shadow-[var(--box-shadow)] capitalize mb-10  p-5">
+        <div className="admin-analysis w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 shadow-[var(--box-shadow)] capitalize mb-10  p-5">
             <div className="item text-center">
                 <h4 className="text-[#f7a163] font-bold text-2xl">20000</h4>
                 <p className="text-[var(--text-color)] mt-2">earnings</p>
             </div>
             <div className="item text-center">
-                <h4 className="text-[#eb94de] font-bold text-2xl">20</h4>
+                <h4 className="text-[#eb94de] font-bold text-2xl">{teachers.length}</h4>
                 <p className="text-[var(--text-color)] mt-2">teachers</p>
             </div>
             <div className="item text-center">
-                <h4 className="text-[#8c98e4] font-bold text-2xl">300</h4>
+                <h4 className="text-[#8c98e4] font-bold text-2xl">{students.length}</h4>
                 <p className="text-[var(--text-color)] mt-2">students</p>
             </div>
             <div className="item text-center">

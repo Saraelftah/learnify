@@ -1,0 +1,24 @@
+.nav-hover {
+  display: inline-block;
+  position: relative;
+}
+.nav-hover:hover {
+    background: transparent;
+}
+.nav-hover::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--primary-color);
+  transition: transform 0.25s ease-out;
+  transform-origin: bottom right;
+}
+.nav-hover:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+   
+}

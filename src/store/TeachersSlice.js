@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { doc, deleteDoc } from "firebase/firestore";
 import { db } from "../../firebase";
 
-// thunk to delete teacher from fire base
+// thunk to delete teacher from fire base (admin dashboard)
 export const deleteTeacher = createAsyncThunk(
   "teachers/deleteTeacher",
   async (teacherId) => {

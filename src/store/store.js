@@ -1,9 +1,15 @@
 import { configureStore } from '@reduxjs/toolkit';
 import teachersReducer from './TeachersSlice';
-// import bookedTeacherReducer from './BookedTeacherSlice';
+import studentsReducer from "./StudentsSlice";
+import usersReducer from "./UsersSlice"
+import bookingsReducer from './BookSlice';
+
+
 export const store = configureStore({
   reducer: {
     teachers: teachersReducer,
-    // bookedTeacher:bookedTeacherReducer
+    students: studentsReducer,
+    users: usersReducer,
+    bookings: bookingsReducer, 
   },
 });
