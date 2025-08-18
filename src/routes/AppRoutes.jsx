@@ -17,8 +17,11 @@ const StudentProfile = lazy(() => import("../pages/StudentProfile/StudentProfile
 const TeacherProfile = lazy(() => import("../pages/TeacherProfile/TeacherProfile"));
 const Payment = lazy(() => import("../pages/Payment/Payment"));
 const ChooseTeacher = lazy(() => import("../pages/ChooseTeacher/ChooseTeacher"));
+const SuccessfulPayment = lazy(() => import("../pages/Payment/SuccessfulPayment/SuccessfulPayment"));
+const MyBookings = lazy(() => import("../pages/MyBookings/MyBookings"));
 const Search = lazy(() => import("../pages/SearchPage/SearchPage"));
 const Unauthorized = lazy(() => import("../pages/Unauthorized/Unauthorized"));
+const About = lazy(() => import("../pages/AboutUs/AboutUs"));
 const Notfound = lazy(() => import("../pages/Notfound/Notfound"));
 
 function AppRoutes() {
@@ -35,8 +38,12 @@ function AppRoutes() {
         { path: "search", element: <Search /> },
         { path: "payment/:id", element: <Payment /> },
         {path: "payment", element: <ChooseTeacher />},
+        {path: "successfulPayment", element: <SuccessfulPayment />},
+        {path: "myBookings", element: <MyBookings />},
         { path: "student/:id", element: <StudentProfile /> },
         { path: "tutor/:id", element: <TeacherProfile /> },
+        { path: "about", element: <About /> },
+ 
         {
         path: "admin",
         element: (

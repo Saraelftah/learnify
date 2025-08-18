@@ -28,7 +28,7 @@ export default function SearchCard({ teacher }) {
                 />
                 {firstLessonFree && (
                     <div className="absolute top-0 left-0">
-                        <span className="badge bg-[var(--primary-color)] rounded-s text-white border-none text[var()]">1st Lesson Free</span>
+                        <span className="badge bg-[var(--stars-color)] rounded-s text-white border-none text[var(--background-color)]">1st Lesson Free</span>
                     </div>
                 )}
             </figure>
@@ -64,11 +64,11 @@ export default function SearchCard({ teacher }) {
                     {/*  justify-around */}
                     <button
                         onClick={bookNow}
-                        className="btn bg-[var(--secondary-color)] text-[var(--background-color)] hover:bg-[var(--light-secondary-color)]"
+                        className="btn bg-[var(--secondary-color)] text-[var(--background-color)] hover:bg-[var(--background-color)] hover:text-[var(--secondary-color)] hover:border-[var(--secondary-color)]"
                     >
                         Book now
                     </button>
-                    <button onClick={goToProfile} className="btn btn-outline">
+                    <button onClick={goToProfile} className="btn btn-outline border-[var(--secondary-color)] text-[var(--secondary-color)] hover:bg-[var(--secondary-color)] hover:text-[var(--background-color)]">
                         View Profile
                     </button>
                 </div>
