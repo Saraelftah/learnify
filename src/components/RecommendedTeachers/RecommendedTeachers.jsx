@@ -31,7 +31,7 @@ function RecommendedTeachers() {
   const CustomLeftArrow = ({ onClick }) => (
   <button 
     onClick={() => onClick()} 
-    className="absolute left-5 top-1/2 transform -translate-y-1/2 w-[50px] h-[50px] bg-[var(--secondary-color)] hover:bg-[var(--background-color)] border-2 border-[var(--secondary-color)] rounded-full flex items-center justify-center cursor-pointer text-white hover:text-[var(--secondary-color)]"
+    className="absolute left-5 top-1/2 transform -translate-y-1/2 w-[50px] h-[50px] bg-[var(--background-color)] hover:bg-[var(--secondary-color)] border-2 border-[var(--secondary-color)] rounded-full flex items-center justify-center cursor-pointer hover:text-white text-[var(--secondary-color)]"
   >
     <i className="fa-solid fa-chevron-left "></i>
   </button>
@@ -40,7 +40,7 @@ function RecommendedTeachers() {
 const CustomRightArrow = ({ onClick }) => (
   <button 
     onClick={() => onClick()} 
-    className="absolute right-5 top-1/2 transform -translate-y-1/2 w-[50px] h-[50px] bg-[var(--secondary-color)] hover:bg-[var(--background-color)] border-2 border-[var(--secondary-color)] rounded-full flex items-center justify-center cursor-pointer text-white hover:text-[var(--secondary-color)]"
+    className="absolute right-5 top-1/2 transform -translate-y-1/2 w-[50px] h-[50px] bg-[var(--background-color)] hover:bg-[var(--secondary-color)] border-2 border-[var(--secondary-color)] rounded-full flex items-center justify-center cursor-pointer hover:text-white text-[var(--secondary-color)]"
   >
     <i className="fa-solid fa-chevron-right"></i>
   </button>
@@ -90,7 +90,7 @@ const CustomRightArrow = ({ onClick }) => (
                 </NavLink>
                 <NavLink
                   to={`/payment/${teacher.id}`}>
-                  <button className="btn btn-outline block border-[var(--secondary-color)] text-[var(--secondary-color)] w-fit hover:bg-[var(--secondary-color)] hover:text-white">
+                  <button className="btn btn-outline block border-[var(--secondary-color)] text-[var(--background-color)] bg-[var(--secondary-color)] w-fit hover:bg-[var(--background-color)] hover:text-[var(--secondary-color)]">
                   book now </button>
                 </NavLink>
                 </div>

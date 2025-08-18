@@ -38,7 +38,7 @@ function AdminStudents() {
           <div className="teacher relative shadow-[var(--box-shadow)] flex items-center gap-3 p-5 rounded-[var(--border-radius)]" 
           key={student.id}>
             <div className="w-[50px] h-[50px] rounded-full flex justify-center items-center border-2 border-[var(--secondary-color)]"> 
-                <i class="text-2xl fa-solid fa-user"></i>
+                <i className="text-2xl fa-solid fa-user"></i>
             </div>
             <div className="">
               <h3 className="text-[var(--primary-color)] font-bold">{student.name}</h3>

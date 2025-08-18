@@ -1,7 +1,6 @@
 import bannerImg from "../../assets/images/banner-home.png"
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import SearchInputs from "../Search/SearchFilters";
 import { useNavigate } from "react-router-dom";
 
 function HomeBanner() {

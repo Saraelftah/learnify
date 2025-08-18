@@ -59,7 +59,13 @@ function AdminTeachers() {
               </ul>
             </div>
 
-            {/* popup confirmation */}
+            
+          </div>
+
+          
+        ))}
+
+        {/* popup confirmation */}
             {showPopup && (
             <ConfirmPopup 
               title="delete teacher"
@@ -69,10 +75,6 @@ function AdminTeachers() {
               close={handleClosePopup}
             />
           )}
-          </div>
-
-          
-        ))}
       </div>
     </div>
 
