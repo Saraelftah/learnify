@@ -20,9 +20,10 @@ function Unauthorized() {
           You don't have permission to view this page.
         </p>
         <button
-          className="btn bg-[var(--stars-color)] 
-              border border-[var(--stars-color)] text-white
-               hover:bg-white hover:text-[var(--stars-color)] transition-colors duration-300"
+          className="btn bg-gradient-to-r from-[var(--secondary-color)] to-[var(--stars-color)] 
+                      border border-[var(--stars-color)] text-white
+                      hover:bg-white hover:from-transparent hover:to-transparent hover:text-[var(--secondary-color)] 
+                      transition-colors duration-300"
           onClick={() => navigate("/")}
         >
           Go Home

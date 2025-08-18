@@ -8,12 +8,11 @@ import Network from "./network/Network";
 function App() {
   return (
     <>
-    <div className="flex flex-col min-h-screen">
       <Suspense fallback={<Loader />}>
         <Network />
         <AppRoutes />
       </Suspense>
-    </div>
+
     </>
   );
 }
