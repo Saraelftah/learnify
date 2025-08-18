@@ -202,7 +202,10 @@ function AdminOverview() {
                     <button
                       className="btn bg-[var(--success-color)] text-white btn-sm"
                       // onClick={() => approveTeacher(t.id)}
-                      onClick={()=>handleOpenPopup("approve", t.id)}
+                      onClick={()=>{
+                        handleOpenPopup("approve", t.id)
+                      }
+                    }
                       disabled={busyId === t.id}
                     >
                       {busyId === t.id ? (
@@ -238,8 +241,8 @@ function AdminOverview() {
                       buttonTitle={actionType === "approve" ? "Approve" : "Reject"}
                       buttonFunction={
                         actionType === "approve"
-                          ? () => approveTeacher(teacherId)
-                          : () => rejectTeacher(teacherId)
+                          ? () => {if(teacherId){approveTeacher(teacherId); handleClosePopup()}}
+                          : () => {if(teacherId){rejectTeacher(teacherId); handleClosePopup()}}
                       }
                       close={handleClosePopup}
                     />
