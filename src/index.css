@@ -53,8 +53,7 @@ body {
   /* dark and light mode */
   background-color: var(--background-color);
   color: var(--main-text-color);
-  font-family: "Alexandria", sans-serif;
-}
+  font-family: "Poppins", sans-serif;}
 
 .container {
   width: 95%;

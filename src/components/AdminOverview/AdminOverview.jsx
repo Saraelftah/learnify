@@ -54,15 +54,15 @@ function AdminOverview() {
 
       const newTeacher = newTeacherSnap.data();
       // const user = userSnap.data();
-
       const publicDoc = {
-        Image: newTeacher.Image || "https://i.ibb.co/placeholder.png",
+        Image: newTeacher.Image || "https://i.ibb.co/Kg8TGk7/user.png",
         name: newTeacher.name || "Unknown",
         subject: newTeacher.subject || "",
         gradeLevel: newTeacher.gradeLevel || "",
+        certificateUrl: newTeacher.certificateUrl || "",
         rating: 0,
         averageRating: null,
-        lessonType: newTeacher.lessonType || "Online",
+        lessonType: "Online",
         hourlyRate: newTeacher.hourlyRate ?? null,
         firstLessonFree: !!newTeacher.firstLessonFree,
         overview: newTeacher.overview || "",
@@ -81,7 +81,7 @@ function AdminOverview() {
         approved: true,
         approvedAt: serverTimestamp(),
       });
-      await deleteDoc(newTeacherRef);
+      await updateDoc(newTeacherRef, {approved: true, approvedAt: serverTimestamp()});
 
       toast.success("Teacher approved successfully");
       setPending((prev) => prev.filter((t) => t.id !== teacherId));
@@ -139,8 +139,9 @@ function AdminOverview() {
                 <th>Name</th>
                 <th>Subject</th>
                 <th>Grade</th>
+                <th>Certificate</th>
                 <th>Rate</th>
-                <th>Lesson Type</th>
+                {/* <th>Lesson Type</th> */}
                 <th>Submitted</th>
                 <th>Actions</th>
               </tr>
@@ -162,8 +163,16 @@ function AdminOverview() {
                   <td>{t.name}</td>
                   <td>{t.subject || "—"}</td>
                   <td>{t.gradeLevel || "—"}</td>
+                  <td>
+                    {t.certificateUrl ? (
+                    <a href={t.certificateUrl}
+                    className="bg-[var(--light-secondary-color)] py-2 px-2 rounded-2xl hover:bg-[var(--secondary-color)] transition duration-500"
+                    target="_blank"
+                    rel="noopener noreferrer">View Certificate</a>
+                  ): ( "-")}</td>
+
                   <td>{t.hourlyRate ?? "—"}</td>
-                  <td>{t.lessonType || "—"}</td>
+                  {/* <td>{t.lessonType || "—"}</td> */}
                   <td>{String(!!t.submitted)}</td>
                   <td className="flex gap-2">
                     {/* approve button */}
