@@ -10,7 +10,7 @@
   --primary-color: #016a6d; /*border - icons - special text - highlights*/
   --light-primary-color: #1d9190;
   --secondary-color: #f2773b; /*buttons*/
-  --light-secondary-color: #fde9e0; /*light background*/
+  --light-secondary-color: #faddcf; /*light background*/
   --light-background: #eaf9f9;
   --dark-color: #043e52; /* for titles */
   --card-background: #fff;
@@ -68,7 +68,9 @@
 * {
   box-sizing: border-box;
 }
-
+html {
+  background-color: var(--background-color);
+}
 body {
   margin: 0;
   padding: 0;

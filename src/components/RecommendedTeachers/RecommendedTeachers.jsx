@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 import "./RecommendedTeachers.module.css";
 import RatingStars from "../RatingStars/RatingStars";
 import { NavLink } from "react-router-dom";
+import BadgeFree from "../BadgeFree/BadgeFree";
 
 function RecommendedTeachers() {
   const teachers = useSelector((state) => state.teachers.teachers);
@@ -48,7 +49,8 @@ const CustomRightArrow = ({ onClick }) => (
 
   return (
     <>
-      <div className="recommended-teachers py-[50px]">
+      <div className="recommended-teachers relative py-[50px] ">
+        
         <h3 className="text-[var(--dark-color)] font-bold mb-5 text-[length:var(--title-font-size)]">
           recommended teachers
         </h3>
@@ -69,7 +71,9 @@ const CustomRightArrow = ({ onClick }) => (
               <div
                 key={teacher.id}
                 className="teacher-card bg-[var(--card-background)] p-4 rounded-[var(--border-radius)] shadow-[var(--box-shadow)] flex flex-col items-center"
+                data-aos="flip-left"
               >
+                
                 <img
                   className="rounded-full !w-50 mb-5"
                   src={teacher.Image}
@@ -94,6 +98,7 @@ const CustomRightArrow = ({ onClick }) => (
                   book now </button>
                 </NavLink>
                 </div>
+                <BadgeFree />
               </div>
             ))}
         </Carousel>

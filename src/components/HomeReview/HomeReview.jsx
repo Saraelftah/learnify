@@ -41,7 +41,7 @@ function HomeReview({teachers}) {
   return (
     <>
         {/* reviews section */}
-      <section className="reviews my-[50px] py-[50px] relative">
+      <section className="reviews my-[50px] py-[50px] relative " data-aos="zoom-in">
         <div className="container">
         <h3 className="text-[var(--dark-color)] text-[length:var(--title-font-size)] font-bold capitalize mb-2">testiomonials</h3>
         <p>what students say about us?</p>
@@ -61,13 +61,13 @@ function HomeReview({teachers}) {
 
 
         return(
-          <div 
-            key={item.id}
+          <div
+            key={item.id} 
             className={` shadow-[var(--box-shadow)] bg-[var(--card-background)] !h-full rounded-[var(--border-radius)] p-5 text-center items-stretch transition-all duration-300 
             ${isCenter ? "scale-y-120 border-2 border-[var(--secondary-color)] shadow-lg" : "scale-95 opacity-80"} `} >
             <i className="fa-solid fa-quote-right text-4xl items-end text-[var(--light-primary-color)] mb-2"></i>
-            <div className="flex items-center justify-center">
-              <div>
+            <div className="flex items-center justify-center ">
+              <div >
                 <h4 className="text-[var(--dark-color)]">{item.reviews[0]?.studentName}</h4>
                 <p className="leading-[var(--line-height] my-2">{item.reviews[0]?.comment}</p>
                 <RatingStars value={item.reviews[0]?.rating}/>

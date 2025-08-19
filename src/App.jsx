@@ -15,6 +15,15 @@ function App() {
     return () => unsubscribe();
   }, [dispatch]);
 
+
+  //AOS for animation
+  useEffect(() => {
+    window.AOS.init({
+      duration: 1000,
+      once: true,
+    });
+  }, []);
+
   return (
     <>
       <Suspense fallback={<Loader />}>
