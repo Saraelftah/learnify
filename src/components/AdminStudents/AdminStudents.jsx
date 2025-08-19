@@ -7,7 +7,7 @@ import ConfirmPopup from '../ConfirmPopup/ConfirmPopup';
 function AdminStudents() {
     const students = useSelector((state) => state.students.students);
     const dispatch = useDispatch();
-
+    console.log(students)
     const [showPopup, setShowPopup] = useState(false);
     const [studentId, setStudentId] = useState(null);
 
