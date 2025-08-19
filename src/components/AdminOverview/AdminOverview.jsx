@@ -35,11 +35,6 @@ function AdminOverview() {
     setActionType(null);
     setTeacherId(null);
   };
-
-
-
-
-
   const [pending, setPending] = useState([]);
   const [busyId, setBusyId] = useState(null);
 
@@ -76,10 +71,10 @@ function AdminOverview() {
       }
 
       const newTeacher = newTeacherSnap.data();
-      // const user = userSnap.data();
+      const user = userSnap.data();
       const publicDoc = {
         Image: newTeacher.Image || "https://i.ibb.co/Kg8TGk7/user.png",
-        name: newTeacher.name || "Unknown",
+        name: user.name || "Unknown",
         subject: newTeacher.subject || "",
         gradeLevel: newTeacher.gradeLevel || "",
         certificateUrl: newTeacher.certificateUrl || "",
@@ -94,7 +89,7 @@ function AdminOverview() {
           : [],
         availableGroupDates: [],
         reviews: [],
-        createdAt: serverTimestamp(),
+        // createdAt: serverTimestamp(),
       };
 
       await setDoc(doc(db, "teachers", teacherId), publicDoc);
