@@ -48,17 +48,19 @@ function Home() {
           <RecommendedTeachers />
         </div>
           {/* bcome a tutor section */}
-          <section className="become-atutor !bg-[var(--light-background)] grid grid-cols-1 lg:grid-cols-2 gap-5 px-[20px] py-[100px] mb-[50px] rounded-[var(--border-radius)]">
+          <section className="become-atutor !bg-[var(--light-background)] py-[100px]">
             <div className="container">
               <h3 className="text-[var(--dark-color)] text-[length:var(--title-font-size)] font-bold mb-4">Become a Tutor</h3>
               <p>Share your knowledge and inspire the next generation</p>
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 px-[20px]  mb-[50px] rounded-[var(--border-radius)]">
+              
               <div className="teacher-benefits grid grid-cols-1 lg:grid-cols-2 gap-5 my-5">
                 <TeacherBenefits iconClass="fa-solid fa-calendar-check" title="Flexible Schedule" description="Teach whenever it suits you"/>
                 <TeacherBenefits iconClass="fa-solid fa-money-check-dollar" title="Earn Extra Income" description="Get paid for your expertise"/>
                 <TeacherBenefits iconClass="fa-solid fa-arrow-up-right-dots" title="Professional Growth" description="Improve your teaching skills"/>
                 <TeacherBenefits iconClass="fa-solid fa-computer-mouse" title="Easy Onboarding" description="Start teaching in just a few clicks"/>
               </div>
-            </div>
+            
             <div className="become-atutor-imgs  flex items-center">
               <div className="relative flex items-center justify-start lg:justify-center w-fit">
                 <img className="lg:!w-1/2 !w-100 relative  z-2 border-none lg:border-white border-4"src={tutorImg1} alt="tutor"/>
@@ -68,9 +70,11 @@ function Home() {
                 <img className="absolute hidden lg:block !w-[150px] z-3 bottom-[-50px] left-[40px] border-[var(--light-primary-color)] border-4 rotate-45" src={tutorImg5} alt="tutor"/>
               </div> 
             </div>
-            <NavLink to="/register" className="flex justify-center items-center">
+            <NavLink to="/register" className="flex justify-start items-center">
             <button className="btn btn-outline block border-[var(--secondary-color)] text-white bg-[var(--secondary-color)] w-fit hover:bg-[var(--background-color)] px-10  hover:text-[var(--secondary-color)]">join us</button>
             </NavLink>
+            </div>
+            </div>
           </section>
       </section>
 

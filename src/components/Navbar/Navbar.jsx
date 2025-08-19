@@ -1,27 +1,31 @@
 import { Link, NavLink } from "react-router-dom";
 import logoImg from "../../assets/images/logo.png";
 import LightDark from "../LightDark/LightDark";
+import Notification from "../Notification/Notification";
+import NavCurrentUser from "../NavCurrentUser/NavCurrentUser";
+import "./Navbar.css"
+import { useSelector } from "react-redux";
 
 function Navbar() {
-    
+  const user = useSelector(state => state.users.currentUser);
   return (
     <>
       <nav className="home-navbar fixed top-0 left-0 z-50 w-full bg-[var(--background-color)] capitalize">
         <div className="container py-4">
-          <div className="navbar px-0 py-[10px] justify-between">
+          <div className="navbar px-0 py-[5px] justify-between items-center">
             <div className="navbar-start w-fit">
               <NavLink to="/">
-                <img src={logoImg} alt="logo" className="!w-[100px]" />
+                <img src={logoImg} alt="logo" className="!w-[100px] " />
               </NavLink>
             </div>
 
-            <div className="navbar-center hidden lg:flex">
-              <ul className="menu menu-horizontal px-1">
-                <li>
+            <div className="navbar-center hidden lg:flex lg:items-center">
+              <ul className="menu menu-horizontal px-1 gap-3 items-center">
+                <li className="">
                   <NavLink
                     to="/"
                     className={({ isActive }) =>
-                      `text-[var(--main-text-color)] hover:text-[var(--primary-color)] ${
+                      `text-[var(--main-text-color)] hover:text-[var(--primary-color)] nav-hover px-0 ${
                         isActive ? "font-bold text-[var(--primary-color)]" : ""
                       }`
                     }
@@ -33,7 +37,7 @@ function Navbar() {
                   <NavLink
                     to="/search"
                     className={({ isActive }) =>
-                      `text-[var(--main-text-color)] hover:text-[var(--primary-color)] ${
+                      `text-[var(--main-text-color)] hover:text-[var(--primary-color)] nav-hover px-0 ${
                         isActive ? "font-bold text-[var(--primary-color)]" : ""
                       }`
                     }
@@ -43,21 +47,21 @@ function Navbar() {
                 </li>
                 <li>
                   <NavLink
-                    to="/services"
+                    to="/about"
                     className={({ isActive }) =>
-                      `text-[var(--main-text-color)] hover:text-[var(--primary-color)] ${
+                      `text-[var(--main-text-color)] hover:text-[var(--primary-color)] nav-hover px-0 ${
                         isActive ? "font-bold text-[var(--primary-color)]" : ""
                       }`
                     }
                   >
-                    Services
+                    about
                   </NavLink>
                 </li>
                 <li>
                   <NavLink
                     to="/contact"
                     className={({ isActive }) =>
-                      `text-[var(--main-text-color)] hover:text-[var(--primary-color)] ${
+                      `text-[var(--main-text-color)] hover:text-[var(--primary-color)] nav-hover px-0 ${
                         isActive ? "font-bold text-[var(--primary-color)]" : ""
                       }`
                     }
@@ -65,26 +69,38 @@ function Navbar() {
                     Contact
                   </NavLink>
                 </li>
+                <li className="">
+                  <LightDark />
+                </li>
+                <li className="">
+                  <Notification />
+                </li>
               </ul>
 
-              <LightDark />
+              {!user && (
+                <>
+                  <NavLink
+                    to="/login"
+                    className={({ isActive }) =>
+                      `text-[var(--main-text-color)] hover:text-[var(--primary-color)] lg:ml-[20px] nav-hover ${
+                        isActive ? "font-bold text-[var(--primary-color)]" : ""
+                      }`
+                    }
+                  >
+                    Login
+                  </NavLink>
+                  <NavLink
+                    to="/register"
+                    className="btn bg-[var(--secondary-color)] text-white ml-4 hover:bg-[var(--background-color)] hover:text-[var(--secondary-color)] border-1 border-[var(--secondary-color)] shadow-none transition-colors duration-500 ease-in-out"
+                  >
+                    Sign Up
+                  </NavLink>
+                </>
+              )}
 
-              <NavLink
-                to="/login"
-                className={({ isActive }) =>
-                  `text-[var(--main-text-color)] hover:text-[var(--primary-color)] lg:ml-[20px] ${
-                    isActive ? "font-bold text-[var(--primary-color)]" : ""
-                  }`
-                }
-              >
-                Login
-              </NavLink>
-              <NavLink
-                to="/register"
-                className="btn bg-[var(--secondary-color)] text-white ml-4 hover:bg-[var(--background-color)] hover:text-[var(--secondary-color)] border-1 border-[var(--secondary-color)] shadow-none transition-colors duration-500 ease-in-out"
-              >
-                Sign Up
-              </NavLink>
+              <div className="ml-2">
+                <NavCurrentUser />
+              </div>
             </div>
 
             <div className="navbar-end lg:hidden w-fit p-0">
@@ -116,7 +132,7 @@ function Navbar() {
                     <NavLink to="/search">teachers</NavLink>
                   </li>
                   <li>
-                    <NavLink to="/services">Services</NavLink>
+                    <NavLink to="/about">about</NavLink>
                   </li>
                   <li>
                     <NavLink to="/contact">Contact</NavLink>
@@ -125,16 +141,24 @@ function Navbar() {
                     <LightDark />
                   </li>
                   <li>
-                    <NavLink to="/login">Login</NavLink>
+                    <Notification />
                   </li>
-                  <li>
-                    <NavLink
-                      to="/register"
-                      className="btn bg-[var(--secondary-color)] text-white w-full"
-                    >
-                      Sign Up
-                    </NavLink>
-                  </li>
+                  {!user && (
+                    <>
+                      <li>
+                        <NavLink to="/login">Login</NavLink>
+                      </li>
+                      <li>
+                        <NavLink
+                          to="/register"
+                          className="btn bg-[var(--secondary-color)] text-white w-full"
+                        >
+                          Sign Up
+                        </NavLink>
+                      </li>
+                    </>
+                  )}
+                  
                 </ul>
               </div>
             </div>
