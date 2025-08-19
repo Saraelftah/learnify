@@ -137,7 +137,7 @@ const Services = () => {
         </div>
       </section>
 
-      {/* Call to Action Section */}
+    
       <section className="cta-section py-16 bg-[var(--primary-color)]">
         <div className="container mx-auto text-center">
           <motion.div

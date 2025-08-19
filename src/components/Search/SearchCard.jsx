@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import RatingStars from "../RatingStars/RatingStars";
 
 export default function SearchCard({ teacher }) {
@@ -68,9 +68,12 @@ export default function SearchCard({ teacher }) {
                     >
                         Book now
                     </button>
+                    <Link to={`/teachers/${id}`}>
                     <button onClick={goToProfile} className="btn btn-outline border-[var(--secondary-color)] text-[var(--secondary-color)] hover:bg-[var(--secondary-color)] hover:text-[var(--background-color)]">
                         View Profile
+
                     </button>
+                    </Link>
                 </div>
             </div>
         </div>

@@ -110,7 +110,6 @@ const contactInfo = [
         </div>
       </section>
 
-      {/* Contact Information */}
       <section className="contact-info py-16">
         <div className="container mx-auto">
           <motion.div
@@ -139,7 +138,7 @@ const contactInfo = [
         </div>
       </section>
 
-      {/* Contact Form */}
+   
       <section className="contact-form py-16 bg-[var(--background-color)]">
         <div className="container mx-auto max-w-4xl">
           <motion.div
