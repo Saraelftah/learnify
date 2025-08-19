@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 export default function AboutUs() {
     return (
         <div 
-            className="px-6 md:px-20 py-16 pt-26"
+            className="px-6 md:px-20 py-40"
             style={{ 
                 backgroundColor: "var(--background-color)", 
                 color: "var(--main-text-color)" 
