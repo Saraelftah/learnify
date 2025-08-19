@@ -14,6 +14,7 @@ function TeacherPending() {
 
   const defaultValues = {
     Image: "",
+    name: "",
     subject: "",
     gradeLevel: "",
     lessonType: "Online",
@@ -96,10 +97,11 @@ function TeacherPending() {
           ...formDataToSave,
           hourlyRate: Number(form.hourlyRate) || null,
           ownerId: user.uid,
+          name: user.name,
           submitted: true,
           approved: false,
           certificateUrl: certificateUrl,
-          updatedAt: serverTimestamp(),
+          // updatedAt: serverTimestamp(),
         },
         { merge: true }
       );
