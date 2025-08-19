@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import RatingStars from "../RatingStars/RatingStars";
 
 export default function SearchCard({ teacher }) {
@@ -62,15 +62,20 @@ export default function SearchCard({ teacher }) {
 
                 <div className="card-actions mt-4">
                     {/*  justify-around */}
+                    <NavLink to={`/payment/${teacher.id}`}>
                     <button
                         onClick={bookNow}
                         className="btn bg-[var(--secondary-color)] text-[var(--background-color)] hover:bg-[var(--background-color)] hover:text-[var(--secondary-color)] hover:border-[var(--secondary-color)]"
                     >
                         Book now
                     </button>
+                    </NavLink>
+
+                    <NavLink to={`/tutor/${teacher.id}`}>
                     <button onClick={goToProfile} className="btn btn-outline border-[var(--secondary-color)] text-[var(--secondary-color)] hover:bg-[var(--secondary-color)] hover:text-[var(--background-color)]">
                         View Profile
                     </button>
+                    </NavLink>
                 </div>
             </div>
         </div>
