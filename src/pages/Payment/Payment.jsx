@@ -6,7 +6,6 @@ import RatingStars from "../../components/RatingStars/RatingStars";
 import { addBooking } from "../../store/BookSlice";
 import ConfirmPopup from "../../components/ConfirmPopup/ConfirmPopup";
 const steps = ["Book", "Your Details", "Payment"];
-
 function Payment() {
   const [activeStep, setActiveStep] = useState(0);
   const dispatch = useDispatch();
@@ -25,7 +24,12 @@ function Payment() {
   const handleBack = () => setActiveStep((prev) => prev - 1);
   const sessionType = watch("sessionType");
   const [showPopup, setShowPopup] = useState(false);
+  // Current user
+  const currentUser = useSelector((state) => state.users.currentUser);
   const handleFinish = (data) => {
+    const roomName = `Session_${Date.now()}`
+    const jistsiLink = `https://meet.jit.si/${roomName}`;
+
     const bookingData = {
       id: Date.now(), // unique id
       teacherId: TeacherId,
@@ -35,11 +39,13 @@ function Payment() {
       sessionType: data.sessionType,
       date: data.selectedDate,
       time: data.selectedTime,
+      meetingLink: jistsiLink,
       price:
         data.sessionType === "Group Session"
           ? teacher?.hourlyRate * 0.80
           : teacher?.hourlyRate,
       student: {
+        studentId: currentUser?.uid,
         firstName: data.firstName,
         lastName: data.lastName,
         email: data.email,
@@ -57,7 +63,7 @@ function Payment() {
       message: `Are you sure you want to book a ${data.sessionType} session with
       ${teacher?.name}
        on ${data.selectedDate} at ${data.selectedTime}
-        for $${bookingData.price}
+        for EGP${bookingData.price}
        ?`,
       onConfirm: () => {        
         dispatch(addBooking(bookingData));
