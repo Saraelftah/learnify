@@ -35,9 +35,9 @@ function AdminStudents() {
       <h4 className="text-lg">we have <span className="text-[var(--secondary-color)] font-bold">{students?.length}</span> students</h4>
       <div className="teachers-list grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 items-center mt-5">
         {students?.map((student)=>(
-          <div className="teacher relative shadow-[var(--box-shadow)] flex items-center gap-3 p-5 rounded-[var(--border-radius)]" 
+          <div className="student relative shadow-[var(--box-shadow)] flex items-center gap-3 p-5 rounded-[var(--border-radius)]" 
           key={student.id}>
-            <div className="w-[50px] h-[50px] rounded-full flex justify-center items-center border-2 border-[var(--secondary-color)]"> 
+            <div className="w-[50px] h-[50px] rounded-full flex justify-center items-center border-2 border-[var(--secondary-color)] text-[var(--secondary-color)]"> 
                 <i className="text-2xl fa-solid fa-user"></i>
             </div>
             <div className="">

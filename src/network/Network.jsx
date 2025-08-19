@@ -16,7 +16,7 @@ function Network() {
         const teachersSnap = await getDocs(collection(db, "teachers"));
         const teachersData = teachersSnap.docs.map((doc) => {
           const data = doc.data();
-          if (data.createdAt) {
+          if (data.createdAt && typeof data.createdAt.toDate === 'function') {
             data.createdAt = data.createdAt.toDate().toISOString();
           }
           return { id: doc.id, ...data };

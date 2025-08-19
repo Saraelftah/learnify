@@ -5,7 +5,7 @@ import logoImg from "../../assets/images/logo.png";
 function Footer() {
   return (
     <>
-      <footer className="bg-[#282828] text-[#cdcccc] py-[30px] capitalize text-sm">
+      <footer className="bg-[var(--footer-background)] text-[#cdcccc] py-[30px] capitalize text-sm">
         <div className="container">
           <div className="footer-items grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5">
             <div className="item col-span-2">
@@ -66,7 +66,7 @@ function Footer() {
                 <input
                   type="email"
                   placeholder="Your Email"
-                  className="flex-1 bg-[#383838] input border-2 border-[var(--secondary-color)] focus:outline-0"
+                  className="flex-1 bg-[var(--footer-background)] input border-2 border-[var(--secondary-color)] focus:outline-0"
                 />
                 <button
                   type="submit"

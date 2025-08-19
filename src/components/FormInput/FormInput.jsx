@@ -12,10 +12,11 @@ function FormInput({ label, type, placeholder, register, name, rules, error }) {
           focus:outline focus:outline-[var(--light-secondary-color)]
           focus:border-[var(--light-secondary-color)]
           "
+          style={{ backgroundColor: 'var(--card-background)' }}
           autoComplete="off"
           {...register(name, rules)}
         />
-        <span>{label}</span>
+        <span style={{backgroundColor: 'var(--background-color)'}}>{label}</span>
       </label>
        {error && (
         <div className="text-red-500 text-sm lg:text-xl">
