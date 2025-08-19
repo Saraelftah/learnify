@@ -63,7 +63,7 @@ function HomeReview({teachers}) {
         return(
           <div 
             key={item.id}
-            className={` shadow-[var(--box-shadow)] !h-full rounded-[var(--border-radius)] p-5 text-center items-stretch transition-all duration-300 
+            className={` shadow-[var(--box-shadow)] bg-[var(--card-background)] !h-full rounded-[var(--border-radius)] p-5 text-center items-stretch transition-all duration-300 
             ${isCenter ? "scale-y-120 border-2 border-[var(--secondary-color)] shadow-lg" : "scale-95 opacity-80"} `} >
             <i className="fa-solid fa-quote-right text-4xl items-end text-[var(--light-primary-color)] mb-2"></i>
             <div className="flex items-center justify-center">

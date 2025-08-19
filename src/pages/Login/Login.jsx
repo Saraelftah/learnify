@@ -66,7 +66,7 @@ function Login() {
 
   return (
     <>
-      <div className="flex bg-[#FFFBFA]">
+      <div className="flex bg-[var(--background-color)]">
         <div
           className={`w-5/6 mx-auto lg:w-2/4 rounded-3xl lg:rounded-none py-15 px-8 flex flex-col items-center`}
         >
@@ -74,9 +74,9 @@ function Login() {
 
           <form
             onSubmit={handleSubmit(onSubmit)}
-            className="flex flex-col items-center mb-5 w-full"
+            className="flex flex-col items-center mb-5 w-full "
           >
-            <h2 className="text-xl md:text-3xl mb-3 font-bold text-center">
+            <h2 className="text-xl md:text-3xl mb-3 font-bold text-center text-[var(--main-text-color)]">
               Login
             </h2>
 

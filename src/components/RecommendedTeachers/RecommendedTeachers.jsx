@@ -68,7 +68,7 @@ const CustomRightArrow = ({ onClick }) => (
             .map((teacher) => (
               <div
                 key={teacher.id}
-                className="teacher-card p-4 rounded-[var(--border-radius)] shadow-[var(--box-shadow)] flex flex-col items-center"
+                className="teacher-card bg-[var(--card-background)] p-4 rounded-[var(--border-radius)] shadow-[var(--box-shadow)] flex flex-col items-center"
               >
                 <img
                   className="rounded-full !w-50 mb-5"

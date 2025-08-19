@@ -73,7 +73,7 @@ function Register() {
 
   return (
     <>
-      <div className="flex bg-[#FFFBFA]">
+      <div className="flex bg-[var(--background-color)]">
         <div
           className={`w-5/6 mx-auto lg:w-3/6 rounded-3xl lg:rounded-none py-5 px-8 flex flex-col items-center`}
         >

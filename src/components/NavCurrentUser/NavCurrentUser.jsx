@@ -24,8 +24,8 @@ function NavCurrentUser() {
                                 src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
                             </div>
                         ):(
-                            <div className="w-10 h-10 rounded-full border-2 border-[var(--secondary-color)] !flex justify-center items-center">
-                                <i className="fa-solid fa-user text-xl"></i>
+                            <div className="w-10 h-10 rounded-full border-1 border-[var(--secondary-color)] text-[var(--secondary-color)] !flex justify-center items-center">
+                                <i className="fa-solid fa-user text-xl "></i>
                             </div>
                         )}
                         
