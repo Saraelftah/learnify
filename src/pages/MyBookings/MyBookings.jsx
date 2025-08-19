@@ -9,29 +9,46 @@ function MyBookings() {
       {bookings.length === 0 ? (
         <ChooseTeacher />
       ) : (
-        <ul className="space-y-4">
-          <h2 className="text-xl font-bold mb-4">My Bookings</h2>
-          {bookings.map((b) => (
-            <div key={b.id} className="p-4 shadow rounded">
+        <>
+          <div className="mt-30 p-10">
+            <div className="avatar w-60">
+              <img src={studentImage} alt="Student profile image" />
+            </div>
+            {/* Student Info */}
+            <div className="student-info">
+              <h3 className="text-2xl font-bold">Student Name</h3>
+              <p>Year: </p>
+            </div>
+            {/* Student Courses */}
+            <div>
+              <h2>My Appointment</h2>
+              <MyBookings />
+            </div>
+          </div>
+          <ul className="space-y-4">
+            <h2 className="text-xl font-bold mb-4">My Bookings</h2>
+            {bookings.map((b) => (
+              <div key={b.id} className="p-4 shadow rounded">
                 <div className="avatar w-24 ">
-                <img
-                  src={b.teacherImage}
+                  <img
+                    src={b.teacherImage}
                     alt={b.teacherName}
                     className="w-16 h-16 rounded-full mb-2"
-                />
+                  />
                 </div>
-              <p>
-                <strong>{b.teacherName}</strong> ({b.subject})
-              </p>
-              <p>
-                {b.date} - {b.time}
-              </p>
-              <p>Type: {b.sessionType}</p>
-              <p>Price: ${b.price.toFixed(2)}</p>
-              <p>Status: {b.status}</p>
-            </div>
-          ))}
-        </ul>
+                <p>
+                  <strong>{b.teacherName}</strong> ({b.subject})
+                </p>
+                <p>
+                  {b.date} - {b.time}
+                </p>
+                <p>Type: {b.sessionType}</p>
+                <p>Price: ${b.price.toFixed(2)}</p>
+                <p>Status: {b.status}</p>
+              </div>
+            ))}
+          </ul>
+        </>
       )}
     </div>
   );
