@@ -5,6 +5,7 @@ import { setCurrentUser } from '../store/UsersSlice';
 import { db } from '../../firebase';
 
 export const initializeAuthListener = (dispatch) => {
+  console.log('Initializing auth listener...');
   const auth = getAuth();
   const unsubscribe = onAuthStateChanged(auth, async (firebaseUser) => {
     if (firebaseUser) {
@@ -19,9 +20,9 @@ export const initializeAuthListener = (dispatch) => {
           image: firebaseUser.Image,
           role: userData.role,
         };
+        console.log('User data fetched from Firestore:', userObject);
         dispatch(setCurrentUser(userObject));
       } else {
-        
         dispatch(setCurrentUser(null));
       }
     } else {

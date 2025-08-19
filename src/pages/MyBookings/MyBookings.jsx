@@ -1,17 +1,28 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import ChooseTeacher from "../ChooseTeacher/ChooseTeacher";
 import studentImage from "../../assets/images/view-3d-young-school-student.jpg";
-
+import { useEffect } from "react";
+import { fetchBookings } from "../../store/BookSlice";
 function MyBookings() {
-  const bookings = useSelector((state) => state.bookings.items);
   const user = useSelector((state) => state.users.currentUser);
+  const bookings = useSelector((state) => state.bookings.bookings);
   const userBookings = bookings.filter(
-    (booking) => booking.studentId === user.uid
+    (booking) => booking.student.studentId === user?.uid
   );
+const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchBookings());
+  }, [dispatch]);
+
+
+
   // Check if user is logged in
   if (!user) {
     return "Please log in to view your bookings.";
   }
+console.log('User Bookings: ', userBookings);
+console.log('user: ', user);
 
   return (
     <div className="p-6 mt-30">
@@ -27,7 +38,7 @@ function MyBookings() {
           </div>
           <div>
             <span className="font-bold">You have </span>
-            <span className="font-semibold">{bookings.length}</span>
+            <span className="font-semibold">{userBookings.length}</span>
             <span className="font-bold"> lessons</span>
           </div>
         </div>
@@ -58,7 +69,7 @@ function MyBookings() {
           </p>
         </div>
       </div>
-      {userBookings.length !== 0 ? (
+      {userBookings.length === 0 ? (
         <div className="mt-10">
           <h2 className="text-xl font-semibold mb-4">No bookings found</h2>
           <p>
@@ -72,7 +83,7 @@ function MyBookings() {
           {/* Student Courses */}
           <div className="space-y-4 mt-10">
             <h2 className="text-xl font-bold mb-4">My Bookings</h2>
-            {bookings.map((b) => (
+            {userBookings.map((b) => (
               <div key={b.id} className="p-4 shadow ">
                 <div className="flex justify-between items-center">
                 <div className="flex items-center gap-3">

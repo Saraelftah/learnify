@@ -67,6 +67,7 @@ function Payment() {
        ?`,
       onConfirm: () => {        
         dispatch(addBooking(bookingData));
+        
         setActiveStep(steps.length);
         setShowPopup(false);
         navigate("/successfulPayment");
