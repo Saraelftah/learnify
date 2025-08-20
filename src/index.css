@@ -36,9 +36,10 @@
 .dark {
   --background-color: #1f1f1f;
   --light-background: #242424;
+  --light-secondary-color: #242424;
   --card-background: #242424;
   --text-color: #a9a8a8;
-  --main-text-color: #fff;
+  --main-text-color: #a9a8a8;
   --dark-color: #1d9190;
   --primary-color: #28bcb9;
   --admin-bg-color: #2f2e2e;

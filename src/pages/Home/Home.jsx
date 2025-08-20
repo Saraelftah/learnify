@@ -5,6 +5,7 @@ import TeacherBenefits from "../../components/TeacherBenefits/TeacherBenefits";
 import "react-multi-carousel/lib/styles.css";
 import FeaturesCard from "../../components/FeaturesCard/FeaturesCard";
 import HomeReview from "../../components/HomeReview/HomeReview";
+import Services from "../../components/Services/Services";
 
 import tutorImg1 from "../../assets/images/tutor-1.jpg";
 import tutorImg2 from "../../assets/images/tutor-2.jpg";
@@ -47,9 +48,11 @@ function Home() {
           
           
           <RecommendedTeachers />
+          <Services />
+          
         </div>
           {/* bcome a tutor section */}
-          <section className="become-atutor !bg-[var(--light-background)] py-[100px]"
+          <section className="become-atutor !bg-[var(--light-background)] py-[100px] overflow-x-hidden"
             
           >
             <div className="container">
