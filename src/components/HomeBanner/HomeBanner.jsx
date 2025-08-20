@@ -2,12 +2,8 @@ import bannerImg from "../../assets/images/banner-home.png"
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { motion } from "framer-motion";
 function HomeBanner() {
-
-
     const teachers = useSelector((state) => state.teachers.teachers);
-
     const subjects = teachers.map((t) => t.subject);
     const [text, setText] = useState("");
     const [wordIndex, setWordIndex] = useState(0); 
@@ -58,12 +54,9 @@ function HomeBanner() {
   return (
     <>
       {/* Banner section */}
-      <motion.section
+      <section
         className="home__banner min-h-fit lg:min-h-[calc(100vh-100px)] flex flex-col justify-center text-left bg-[var(--light-background)] py-[20px] lg:py-[50px]"
-        initial={{ opacity: 0, scale: 0.8 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 1 }}
-        viewport={{ once: true }}
+        data-aos="zoom-in"
       >
         <div className="container">
           <div className="flex flex-col items-center lg:flex-row gap-4 ">
@@ -117,21 +110,21 @@ function HomeBanner() {
                 />
 
                 <div className="chat chat-start absolute top-10 right-[-130px] opacity-90  hidden xl:block">
-                  <div className="chat-bubble bg-[var(--light-secondary-color)] w-fit max-w-full whitespace-nowrap px-3 py-2">
+                  <div className="chat-bubble bg-[#faddcf] w-fit max-w-full whitespace-nowrap px-3 py-2">
                     <i className="fa-solid fa-heart text-[#d53232] mr-2"></i>
                     Great Teacher
                   </div>
                 </div>
 
                 <div className="chat chat-start absolute top-35 right-[-130px] opacity-90 hidden xl:block">
-                  <div className="chat-bubble bg-[var(--light-secondary-color)] w-fit max-w-full whitespace-nowrap px-3 py-2">
+                  <div className="chat-bubble bg-[#faddcf] w-fit max-w-full whitespace-nowrap px-3 py-2">
                     <i className="fa-solid fa-heart text-[var(--primary-color)] mr-2"></i>
                     Super Clear
                   </div>
                 </div>
 
                 <div className="chat chat-start absolute bottom-15 right-[-130px] opacity-90 hidden xl:block">
-                  <div className="chat-bubble bg-[var(--light-secondary-color)] w-fit max-w-full whitespace-nowrap px-3 py-2">
+                  <div className="chat-bubble bg-[#faddcf] w-fit max-w-full whitespace-nowrap px-3 py-2">
                     <i className="fa-solid fa-lightbulb text-[var(--secondary-color)] mr-2"></i>
                     Amazing Session
                   </div>
@@ -140,7 +133,7 @@ function HomeBanner() {
             </div>
           </div>
         </div>
-      </motion.section>
+      </section>
     </>
   );
 }
