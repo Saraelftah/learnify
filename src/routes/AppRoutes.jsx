@@ -72,7 +72,7 @@ function AppRoutes() {
         </RoleRoute>},
 
          { path: "pending", element: 
-        <RoleRoute allow={["teacherPending"]} >
+        <RoleRoute allow={["teacherPending", "teacher", "admin"]} >
           <TeacherPending/>
         </RoleRoute>},
 
