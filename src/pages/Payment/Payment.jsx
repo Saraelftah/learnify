@@ -3,8 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
 import { useParams, useNavigate } from "react-router-dom";
 import RatingStars from "../../components/RatingStars/RatingStars";
-import { addBooking } from "../../store/BookSlice";
 import ConfirmPopup from "../../components/ConfirmPopup/ConfirmPopup";
+import { addBookingToStudent } from "../../store/StudentsSlice";
 const steps = ["Book", "Your Details", "Payment"];
 function Payment() {
   const [activeStep, setActiveStep] = useState(0);
@@ -66,8 +66,8 @@ function Payment() {
         for EGP${bookingData.price}
        ?`,
       onConfirm: () => {        
-        dispatch(addBooking(bookingData));
-        
+        dispatch(addBookingToStudent({ studentId: currentUser.uid, booking: newBooking }));
+
         setActiveStep(steps.length);
         setShowPopup(false);
         navigate("/successfulPayment");

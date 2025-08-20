@@ -1,27 +1,17 @@
-import { useDispatch, useSelector } from "react-redux";
+import {  useSelector } from "react-redux";
 import ChooseTeacher from "../ChooseTeacher/ChooseTeacher";
 import studentImage from "../../assets/images/view-3d-young-school-student.jpg";
-import { useEffect } from "react";
-import { fetchBookings } from "../../store/BookSlice";
+
 function MyBookings() {
   const user = useSelector((state) => state.users.currentUser);
-  const bookings = useSelector((state) => state.bookings.bookings);
-  const userBookings = bookings.filter(
-    (booking) => booking.student.studentId === user?.uid
-  );
-const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(fetchBookings());
-  }, [dispatch]);
-
-
-
+  const students = useSelector((state) => state.students.students);
+  const currentStudent = students.find((s) => s.id === user?.id);
+  const userBookings = currentStudent?.bookings || [];
   // Check if user is logged in
   if (!user) {
     return "Please log in to view your bookings.";
   }
-console.log('User Bookings: ', userBookings);
+console.log('User Bookings: ', currentStudent?.bookings);
 console.log('user: ', user);
 
   return (

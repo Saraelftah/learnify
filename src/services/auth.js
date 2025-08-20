@@ -20,7 +20,6 @@ export const initializeAuthListener = (dispatch) => {
           image: firebaseUser.Image,
           role: userData.role,
         };
-        console.log('User data fetched from Firestore:', userObject);
         dispatch(setCurrentUser(userObject));
       } else {
         dispatch(setCurrentUser(null));
