@@ -51,6 +51,7 @@ function Register() {
           firstLessonFree: false,
           hourlyRate: null,
           availableDates: [],
+          availablGroupeDates: [],
           approved: false,
           submitted: false,
           createdAt: serverTimestamp(), 
@@ -60,7 +61,7 @@ function Register() {
         await setDoc(doc(db, "students", uid),{
           studentId: uid,
           name: username,
-          createdAt: serverTimestamp(), 
+          // createdAt: serverTimestamp(), 
         })
       }
       toast.success("Registered Successfully!");

@@ -19,7 +19,7 @@ import { db } from "../../../firebase";
 import toast from "react-hot-toast";
 
 function AdminOverview() {
-  //condirmation popup
+  //confirmation popup
   const [showPopup, setShowPopup] = useState(false);
   const [actionType, setActionType] = useState(null);
   const [teacherId, setTeacherId] = useState(null);
@@ -35,8 +35,10 @@ function AdminOverview() {
     setActionType(null);
     setTeacherId(null);
   };
+
   const [pending, setPending] = useState([]);
-  const [busyId, setBusyId] = useState(null);
+  const [busyApproveId, setBusyApproveId] = useState(null);
+  const [busyRejectId, setBusyRejectId] = useState(null);
 
   const load = async () => {
     const q = query(
@@ -56,8 +58,7 @@ function AdminOverview() {
   // for approved teacher
   const approveTeacher = async (teacherId) => {
     try {
-      setBusyId(teacherId);
-
+      setBusyApproveId(teacherId);
       const newTeacherRef = doc(db, "newTeachers", teacherId);
       const userRef = doc(db, "users", teacherId);
 
@@ -69,12 +70,12 @@ function AdminOverview() {
         toast.error("Teacher data not found");
         return;
       }
-
+// const user = userSnap.data();
       const newTeacher = newTeacherSnap.data();
-      const user = userSnap.data();
+      
       const publicDoc = {
         Image: newTeacher.Image || "https://i.ibb.co/Kg8TGk7/user.png",
-        name: user.name || "Unknown",
+        name: newTeacher.name || "Unknown",
         subject: newTeacher.subject || "",
         gradeLevel: newTeacher.gradeLevel || "",
         certificateUrl: newTeacher.certificateUrl || "",
@@ -87,14 +88,13 @@ function AdminOverview() {
         availableDates: Array.isArray(newTeacher.availableDates)
           ? newTeacher.availableDates
           : [],
-        availableGroupDates: [],
+        availableGroupDates: Array.isArray(newTeacher.availableGroupDates)
+          ? newTeacher.availableGroupDates : [],
         reviews: [],
-        // createdAt: serverTimestamp(),
       };
 
       await setDoc(doc(db, "teachers", teacherId), publicDoc);
       await updateDoc(userRef, { role: "teacher" });
-
       await updateDoc(newTeacherRef, {
         approved: true,
         approvedAt: serverTimestamp(),
@@ -107,14 +107,14 @@ function AdminOverview() {
       console.error(err);
       toast.error("Approve failed");
     } finally {
-      setBusyId(null);
+      setBusyApproveId(null);
     }
   };
 
   // for rejected teacher
   const rejectTeacher = async (teacherId) => {
     try {
-      setBusyId(teacherId);
+      setBusyRejectId(teacherId);
       const newTeacherRef = doc(db, "newTeachers", teacherId);
       const userRef = doc(db, "users", teacherId);
 
@@ -126,7 +126,7 @@ function AdminOverview() {
       console.error(err);
       toast.error("Reject failed");
     } finally {
-      setBusyId(null);
+      setBusyRejectId(null);
     }
   };
 
@@ -159,7 +159,6 @@ function AdminOverview() {
                 <th>Grade</th>
                 <th>Certificate</th>
                 <th>Rate</th>
-                {/* <th>Lesson Type</th> */}
                 <th>Submitted</th>
                 <th>Actions</th>
               </tr>
@@ -190,20 +189,19 @@ function AdminOverview() {
                   ): ( "-")}</td>
 
                   <td>{t.hourlyRate ?? "—"}</td>
-                  {/* <td>{t.lessonType || "—"}</td> */}
                   <td>{String(!!t.submitted)}</td>
                   <td className="flex gap-2">
+
                     {/* approve button */}
                     <button
                       className="btn bg-[var(--success-color)] text-white btn-sm"
-                      // onClick={() => approveTeacher(t.id)}
                       onClick={()=>{
                         handleOpenPopup("approve", t.id)
                       }
                     }
-                      disabled={busyId === t.id}
+                      disabled={busyApproveId === t.id}
                     >
-                      {busyId === t.id ? (
+                      {busyApproveId === t.id ? (
                         <span className="loading loading-spinner loading-xs"></span>
                       ) : (
                         "Approve"
@@ -213,11 +211,10 @@ function AdminOverview() {
                     {/* reject button */}
                     <button
                       className="btn bg-[var(--error-color)] text-white btn-sm"
-                      // onClick={() => rejectTeacher(t.id)}
                       onClick={()=>handleOpenPopup("reject", t.id)}
-                      disabled={busyId === t.id}
+                      disabled={busyRejectId === t.id}
                     >
-                      {busyId === t.id ? (
+                      {busyRejectId === t.id ? (
                         <span className="loading loading-spinner loading-xs"></span>
                       ) : (
                         "Reject"
