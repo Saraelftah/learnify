@@ -1,15 +1,11 @@
-
 import { useEffect } from 'react'
-//import style from './StudentProfile.module.css'
-
-
+import studentImage from '../../assets/images/view-3d-young-school-student.jpg'
+import MyBookings from'../MyBookings/MyBookings'
 function StudentProfile() {
 
-    useEffect(() => {
-    }, []);
   return (
     <>
-        <div>StudentProfile</div>
+
     </>
     
   )

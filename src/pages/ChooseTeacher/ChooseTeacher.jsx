@@ -4,8 +4,7 @@ function ChooseTeacher() {
   // This component is a placeholder for when no teacher is selected
   return (
     <>
-      <div className="flex flex-col gap-8 justify-center mt-10 mb-10 items-center">
-        <span>Choose a teacher to proceed with booking.</span>
+      <div className="flex flex-col gap-8 justify-center  mb-30  mt-10">
         <NavLink
           to={"/"}
           className="btn border-[var(--secondary-color)] bg-white text-[var(--secondary-color)] w-fit"

@@ -2,6 +2,8 @@ import React from 'react'
 import { motion } from "framer-motion";
 import styles from "./SuccessfulPayment.module.css";
 import { NavLink } from 'react-router-dom';
+import checkImg from '../../../assets/images/check.png';
+
 function SuccessfulPayment() {
   return (
     <div className={`flex items-center justify-center min-h-screen ${styles.bgCustom}`}>
@@ -18,8 +20,8 @@ function SuccessfulPayment() {
           transition={{ delay: 0.3, type: "spring", stiffness: 200 }}
           className="flex justify-center -mt-12"
         >
-          <div className=" w-20 h-20 rounded-full flex items-center justify-center shadow-lg">
-            <img src="../../assets/images/check.png" alt="" />
+          <div className="w-20 h-20 rounded-full flex items-center justify-center shadow-lg">
+            <img src={checkImg} alt="Success" />
           </div>
         </motion.div>
 
