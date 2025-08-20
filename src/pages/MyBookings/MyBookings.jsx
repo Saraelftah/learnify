@@ -5,14 +5,17 @@ import studentImage from "../../assets/images/view-3d-young-school-student.jpg";
 function MyBookings() {
   const user = useSelector((state) => state.users.currentUser);
   const students = useSelector((state) => state.students.students);
-  const currentStudent = students.find((s) => s.id === user?.id);
-  const userBookings = currentStudent?.bookings || [];
+  const currentStudent = students?.find((s) => s.id === user?.uid);
+  const bookings = currentStudent?.bookings || [];
+  console.log('Bookings: ', bookings);
+  console.log(students,'students');
+  console.log('Current Student: ', currentStudent);
   // Check if user is logged in
   if (!user) {
     return "Please log in to view your bookings.";
   }
-console.log('User Bookings: ', currentStudent?.bookings);
-console.log('user: ', user);
+
+
 
   return (
     <div className="p-6 mt-30">
@@ -28,7 +31,7 @@ console.log('user: ', user);
           </div>
           <div>
             <span className="font-bold">You have </span>
-            <span className="font-semibold">{userBookings.length}</span>
+            <span className="font-semibold">{currentStudent?.bookings?.length || '0'}</span>
             <span className="font-bold"> lessons</span>
           </div>
         </div>
@@ -59,7 +62,7 @@ console.log('user: ', user);
           </p>
         </div>
       </div>
-      {userBookings.length === 0 ? (
+      {currentStudent?.bookings?.length === 0  || !currentStudent.bookings? (
         <div className="mt-10">
           <h2 className="text-xl font-semibold mb-4">No bookings found</h2>
           <p>
@@ -73,7 +76,7 @@ console.log('user: ', user);
           {/* Student Courses */}
           <div className="space-y-4 mt-10">
             <h2 className="text-xl font-bold mb-4">My Bookings</h2>
-            {userBookings.map((b) => (
+            {currentStudent?.bookings?.map((b) => (
               <div key={b.id} className="p-4 shadow ">
                 <div className="flex justify-between items-center">
                 <div className="flex items-center gap-3">
