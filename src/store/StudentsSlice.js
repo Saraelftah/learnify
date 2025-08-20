@@ -5,22 +5,19 @@ import { db } from "../../firebase";
 // add booking to the students
 export const bookAppointment = createAsyncThunk(
   "students/bookAppointment",
-  async ({ studentId, teacherId, appointmentDate }) => {
+  async ({ studentId,bookingDetails }) => {
     const studentRef = doc(db, "students", studentId);
-    
+
     await updateDoc(studentRef, {
-      bookings: arrayUnion({ //adding elements to an array
-        teacherId: teacherId,
-        date: appointmentDate,
-        status: 'pending',
-        bookedAt: new Date().toISOString()
-      })
+      bookings: arrayUnion(bookingDetails),
     });
-    
-    return { studentId, booking: { teacherId, date: appointmentDate, status: 'pending' } };
+
+    return {
+      studentId,
+      bookingDetails,
+    };
   }
 );
-
 
 // delete student (admin dashboard)
 export const deleteStudent = createAsyncThunk(
@@ -32,11 +29,10 @@ export const deleteStudent = createAsyncThunk(
     return studentId;
   }
 );
-
 const initialState = {
   students: [],
-  status: 'idle', 
-  error: null 
+  status: "idle",
+  error: null,
 };
 
 const studentsSlice = createSlice({
@@ -45,35 +41,37 @@ const studentsSlice = createSlice({
   reducers: {
     setStudents: (state, action) => {
       state.students = action.payload;
-      state.status = 'succeeded';
+      state.status = "succeeded";
     },
   },
-  
+
   extraReducers: (builder) => {
     builder
       //  deleteStudent status
       .addCase(deleteStudent.pending, (state) => {
-        state.status = 'loading';
+        state.status = "loading";
       })
       .addCase(deleteStudent.fulfilled, (state, action) => {
-        state.status = 'succeeded';
+        state.status = "succeeded";
         state.students = state.students.filter(
           (student) => student.id !== action.payload
         );
       })
       .addCase(deleteStudent.rejected, (state, action) => {
-        state.status = 'failed';
+        state.status = "failed";
         state.error = action.error.message;
       })
-      
+
       // status of booking
       .addCase(bookAppointment.pending, (state) => {
-        state.status = 'loading';
+        state.status = "loading";
       })
       .addCase(bookAppointment.fulfilled, (state, action) => {
-        state.status = 'succeeded';
+        state.status = "succeeded";
         // update bookink status
-        const student = state.students.find(s => s.id === action.payload.studentId);
+        const student = state.students.find(
+          (s) => s.id === action.payload.studentId
+        );
         if (student) {
           if (!student.bookings) {
             student.bookings = [];
@@ -82,7 +80,7 @@ const studentsSlice = createSlice({
         }
       })
       .addCase(bookAppointment.rejected, (state, action) => {
-        state.status = 'failed';
+        state.status = "failed";
         state.error = action.error.message;
       });
   },
