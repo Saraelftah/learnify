@@ -2,7 +2,7 @@ import { configureStore } from '@reduxjs/toolkit';
 import teachersReducer from './TeachersSlice';
 import studentsReducer from "./StudentsSlice";
 import usersReducer from "./UsersSlice"
-import bookingsReducer from './BookSlice';
+// import bookingsReducer from './BookSlice';
 
 
 export const store = configureStore({
@@ -10,6 +10,6 @@ export const store = configureStore({
     teachers: teachersReducer,
     students: studentsReducer,
     users: usersReducer,
-    bookings: bookingsReducer, 
+    // bookings: bookingsReducer, 
   },
 });

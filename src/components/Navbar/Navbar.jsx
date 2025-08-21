@@ -102,7 +102,7 @@ function Navbar() {
                     Login
                   </NavLink>
                   <NavLink
-                    to="/register"
+                    to="/role"
                     className="btn bg-[var(--secondary-color)] text-white ml-4 hover:bg-[var(--background-color)] hover:text-[var(--secondary-color)] border-1 border-[var(--secondary-color)] shadow-none transition-colors duration-500 ease-in-out"
                   >
                     Sign Up
@@ -165,7 +165,7 @@ function Navbar() {
                       </li>
                       <li>
                         <NavLink
-                          to="/register"
+                          to="/role"
                           className="btn bg-[var(--secondary-color)] text-white w-full"
                         >
                           Sign Up

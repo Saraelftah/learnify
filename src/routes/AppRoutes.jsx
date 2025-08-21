@@ -5,7 +5,6 @@ import RoleRoute from "./RoleRoute";
 import AdminOverview from "../components/AdminOverview/AdminOverview";
 import AdminStudents from "../components/AdminStudents/AdminStudents";
 import AdminTeachers from "../components/AdminTeachers/AdminTeachers";
-import Services from "../pages/Services/Services";
 import Contact from "../pages/ContactUS/ContactUs";
 
 const Home = lazy(() => import("../pages/Home/Home"));
@@ -43,9 +42,12 @@ function AppRoutes() {
         {path: "successfulPayment", element: <SuccessfulPayment />},
         {path: "myBookings", element: <MyBookings />},
         { path: "student/:id", element: <StudentProfile /> },
-        { path: "tutor/:id", element: <TeacherProfile /> },
-        { path: "teachers/:id", element: <TeacherProfile /> },
+        // { path: "tutor/:id", element: <TeacherProfile /> },
+
+        // { path: "teachers/:id", element: <TeacherProfile /> },
         { path: "services", element: <Services /> },
+
+
         { path: "contact", element: <Contact /> },
         { path: "about", element: <About /> },
         {
@@ -73,7 +75,7 @@ function AppRoutes() {
         </RoleRoute>},
 
          { path: "pending", element: 
-        <RoleRoute allow={["teacherPending"]} >
+        <RoleRoute allow={["teacherPending", "teacher", "admin"]} >
           <TeacherPending/>
         </RoleRoute>},
 

@@ -5,6 +5,7 @@ import { setCurrentUser } from '../store/UsersSlice';
 import { db } from '../../firebase';
 
 export const initializeAuthListener = (dispatch) => {
+  console.log('Initializing auth listener...');
   const auth = getAuth();
   const unsubscribe = onAuthStateChanged(auth, async (firebaseUser) => {
     if (firebaseUser) {
@@ -21,7 +22,6 @@ export const initializeAuthListener = (dispatch) => {
         };
         dispatch(setCurrentUser(userObject));
       } else {
-        
         dispatch(setCurrentUser(null));
       }
     } else {
