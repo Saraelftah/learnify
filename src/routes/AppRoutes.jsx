@@ -13,13 +13,20 @@ const RolePage = lazy(() => import("../pages/RolePage/RolePage"));
 const Login = lazy(() => import("../pages/Login/Login"));
 const Register = lazy(() => import("../pages/Register/Register"));
 const Admin = lazy(() => import("../pages/Admin/Admin"));
-const TeacherPending = lazy(() => import("../pages/TeacherPending/TeacherPending"));
+const TeacherPending = lazy(() =>
+  import("../pages/TeacherPending/TeacherPending")
+);
 const Teacher = lazy(() => import("../pages/Teacher/Teacher"));
-const StudentProfile = lazy(() => import("../pages/StudentProfile/StudentProfile"));
-const TeacherProfile = lazy(() => import("../pages/TeacherProfile/TeacherProfile"));
+const StudentProfile = lazy(() =>
+  import("../pages/StudentProfile/StudentProfile")
+);
+const TeacherProfile = lazy(() =>
+  import("../pages/TeacherProfile/TeacherProfile")
+);
 const Payment = lazy(() => import("../pages/Payment/Payment"));
-const ChooseTeacher = lazy(() => import("../pages/ChooseTeacher/ChooseTeacher"));
-const SuccessfulPayment = lazy(() => import("../pages/Payment/SuccessfulPayment/SuccessfulPayment"));
+const ChooseTeacher = lazy(() =>
+  import("../pages/ChooseTeacher/ChooseTeacher")
+);
 const MyBookings = lazy(() => import("../pages/MyBookings/MyBookings"));
 const Search = lazy(() => import("../pages/SearchPage/SearchPage"));
 const Unauthorized = lazy(() => import("../pages/Unauthorized/Unauthorized"));
@@ -39,46 +46,56 @@ function AppRoutes() {
         { index: true, element: <Home /> },
         { path: "search", element: <Search /> },
         { path: "payment/:id", element: <Payment /> },
-        {path: "payment", element: <ChooseTeacher />},
-        {path: "successfulPayment", element: <SuccessfulPayment />},
-        {path: "myBookings", element: <MyBookings />},
+        { path: "payment", element: <ChooseTeacher /> },
+        { path: "myBookings", element: <MyBookings /> },
         { path: "student/:id", element: <StudentProfile /> },
         // { path: "tutor/:id", element: <TeacherProfile /> },
 
         // { path: "teachers/:id", element: <TeacherProfile /> },
         { path: "services", element: <Services /> },
 
-
         { path: "contact", element: <Contact /> },
         { path: "about", element: <About /> },
         {
-        path: "admin",
-        element: (
-          <RoleRoute allow={["admin"]}>
-            <Admin />
-          </RoleRoute>
-        ),
-        children: [
-          { index: true, element: <AdminOverview /> },
-          { path: "teachers", element: <AdminTeachers /> }, 
-          { path: "students", element: <AdminStudents /> }, 
-        ],
-      },
+          path: "admin",
+          element: (
+            <RoleRoute allow={["admin"]}>
+              <Admin />
+            </RoleRoute>
+          ),
+          children: [
+            { index: true, element: <AdminOverview /> },
+            { path: "teachers", element: <AdminTeachers /> },
+            { path: "students", element: <AdminStudents /> },
+          ],
+        },
 
-         { path: "teacher", element: 
-        <RoleRoute allow={["teacher"]} >
-          <Teacher/>
-        </RoleRoute>},
+        {
+          path: "teacher",
+          element: (
+            <RoleRoute allow={["teacher", "admin"]}>
+              <Teacher />
+            </RoleRoute>
+          ),
+        },
 
-          { path: "student", element: 
-        <RoleRoute allow={["student"]} >
-          <StudentProfile/>
-        </RoleRoute>},
+        {
+          path: "student",
+          element: (
+            <RoleRoute allow={["student", "admin"]}>
+              <StudentProfile />
+            </RoleRoute>
+          ),
+        },
 
-         { path: "pending", element: 
-        <RoleRoute allow={["teacherPending", "teacher", "admin"]} >
-          <TeacherPending/>
-        </RoleRoute>},
+        {
+          path: "pending",
+          element: (
+            <RoleRoute allow={["teacherPending", "teacher", "admin"]}>
+              <TeacherPending />
+            </RoleRoute>
+          ),
+        },
 
         { path: "*", element: <Notfound /> },
       ],
