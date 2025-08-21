@@ -1,4 +1,6 @@
+
 import { NavLink, useNavigate } from "react-router-dom";
+
 import RatingStars from "../RatingStars/RatingStars";
 
 export default function SearchCard({ teacher }) {
@@ -74,6 +76,7 @@ export default function SearchCard({ teacher }) {
                     <NavLink to={`/tutor/${teacher.id}`}>
                     <button onClick={goToProfile} className="btn btn-outline border-[var(--secondary-color)] text-[var(--secondary-color)] hover:bg-[var(--secondary-color)] hover:text-[var(--background-color)]">
                         View Profile
+
                     </button>
                     </NavLink>
                 </div>

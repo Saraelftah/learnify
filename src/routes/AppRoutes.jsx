@@ -42,7 +42,12 @@ function AppRoutes() {
         {path: "successfulPayment", element: <SuccessfulPayment />},
         {path: "myBookings", element: <MyBookings />},
         { path: "student/:id", element: <StudentProfile /> },
-        { path: "tutor/:id", element: <TeacherProfile /> },
+        // { path: "tutor/:id", element: <TeacherProfile /> },
+
+        // { path: "teachers/:id", element: <TeacherProfile /> },
+        { path: "services", element: <Services /> },
+
+
         { path: "contact", element: <Contact /> },
         { path: "about", element: <About /> },
         {
