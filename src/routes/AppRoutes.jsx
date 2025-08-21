@@ -6,6 +6,7 @@ import AdminOverview from "../components/AdminOverview/AdminOverview";
 import AdminStudents from "../components/AdminStudents/AdminStudents";
 import AdminTeachers from "../components/AdminTeachers/AdminTeachers";
 import Contact from "../pages/ContactUS/ContactUs";
+import Services from "../components/Services/Services";
 
 const Home = lazy(() => import("../pages/Home/Home"));
 const RolePage = lazy(() => import("../pages/RolePage/RolePage"));
