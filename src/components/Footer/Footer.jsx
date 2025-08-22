@@ -15,9 +15,24 @@ function Footer() {
                 achieve goals through personalized online lessons. The smart way
                 to learn.
               </p>
-              <p className=" mt-5">
-                Learnify &copy; Team 4 2025 All rights reserved.
-              </p>
+               <ul className="flex gap-2 pt-5">
+                <li className="cursor-pointer group transition duration-300">
+                  <i className="fa-brands fa-facebook text-2xl group-hover:text-[var(--secondary-color)] group-hover:scale-105"></i>
+                </li>
+                <li className="cursor-pointer group transition-colors duration-300">
+                  <i className="fa-brands fa-whatsapp text-2xl group-hover:text-[var(--secondary-color)] group-hover:scale-105"></i>
+                </li>
+                <li className="cursor-pointer group transition-colors duration-300">
+                  <i className="fa-brands fa-instagram text-2xl group-hover:text-[var(--secondary-color)] group-hover:scale-105"></i>
+                </li>
+                <li className="cursor-pointer group transition-colors duration-300">
+                  <i className="fa-brands fa-youtube text-2xl group-hover:text-[var(--secondary-color)] group-hover:scale-105"></i>
+                </li>
+                <li className="cursor-pointer group transition-colors duration-300">
+                  <i className="fa-brands fa-linkedin text-2xl group-hover:text-[var(--secondary-color)]"></i>
+                </li>
+              </ul>
+              
             </div>
 
             <div className="item">
@@ -26,30 +41,18 @@ function Footer() {
                 <Link className="hover:text-[var(--light-primary-color)]" to="/">home</Link>
                 <Link className="hover:text-[var(--light-primary-color)]" to="/about">about</Link>
                 <Link className="hover:text-[var(--light-primary-color)]" to="/search">teachers</Link>
-                <Link className="hover:text-[var(--light-primary-color)]" to="/support">support</Link>
+                <Link className="hover:text-[var(--light-primary-color)]" to="/contact">support</Link>
                 <Link className="hover:text-[var(--light-primary-color)]" to="/login">login</Link>
-                <Link className="hover:text-[var(--light-primary-color)]" to="/register">sign up</Link>
+                <Link className="hover:text-[var(--light-primary-color)]" to="/role">sign up</Link>
               </div>
             </div>
 
             <div className="item">
               <h3 className="text-xl my-5 text-[var(--light-primary-color)] font-bold">contact us</h3>
-              <ul className="flex flex-col justify-center gap-2">
-                <li className="cursor-pointer group transition-colors duration-300">
-                  <i className="fa-brands fa-facebook text-xl group-hover:text-[var(--light-primary-color)]"></i> facebook
-                </li>
-                <li className="cursor-pointer group transition-colors duration-300">
-                  <i className="fa-brands fa-whatsapp text-xl group-hover:text-[var(--light-primary-color)]"></i> whatsapp
-                </li>
-                <li className="cursor-pointer group transition-colors duration-300">
-                  <i className="fa-brands fa-instagram text-xl group-hover:text-[var(--light-primary-color)]"></i> instagram
-                </li>
-                <li className="cursor-pointer group transition-colors duration-300">
-                  <i className="fa-brands fa-youtube text-xl group-hover:text-[var(--light-primary-color)]"></i> youtube
-                </li>
-                <li className="cursor-pointer group transition-colors duration-300">
-                  <i className="fa-brands fa-linkedin text-xl group-hover:text-[var(--light-primary-color)]"></i> linkedin
-                </li>
+              <ul>
+                <li className="flex gap-2 items-center mb-2 group transition duration-300"><i className="fa-solid fa-envelope group-hover:text-[var(--secondary-color)] group-hover:scale-105"></i>team.4.iti6@gmail.com</li>
+                <li className="flex gap-2 items-center mb-2 group transition duration-300"><i className="fa-solid fa-phone group-hover:text-[var(--secondary-color)] group-hover:scale-105"></i>01000000000</li>
+                <li className="flex gap-2 items-center mb-2 group transition duration-300"><i className="fa-solid fa-location-dot group-hover:text-[var(--secondary-color)] group-hover:scale-105"></i>alexandria, egypt</li>
               </ul>
             </div>
 
@@ -76,7 +79,14 @@ function Footer() {
                 </button>
               </form>
             </div>
+            
           </div>
+          <hr className="border-t-2 border-[var(--hr-footer)] w-[70%] m-auto my-10 rounded-full" />
+          <div className="footer-end text-center">
+              <p className=" mt-5">
+                Learnify &copy; Team 4 2025 All rights reserved.
+              </p>
+            </div>
         </div>
         
       </footer>
