@@ -1,6 +1,5 @@
 .search-input {
     border-radius: var(--border-radius);
-    border: 2px solid var(--primary-color);
     background-color: var(--background-color);
     color: var(--main-text-color);
     padding: 0.5rem 2.5rem 0.5rem 0.75rem;
@@ -10,7 +9,7 @@
 
 .search-input:focus {
     outline: none;
-    border-color: var(--light-primary-color);
+    border-color: var(--primary-color);
     box-shadow: 0 0 5px var(--light-primary-color);
 }
 
@@ -21,13 +20,13 @@
 
 .dropdown {
     border-radius: var(--border-radius);
-    border: 2px solid var(--primary-color);
     background-color: var(--background-color);
     color: var(--main-text-color);
     padding: 0.5rem 0.75rem;
     transition: all 0.3s ease;
     font-size: 14px;
     width: 100%;
+    
 }
 
 .dropdown:focus {
@@ -39,4 +38,9 @@
 .dropdown option {
     background-color: var(--background-color);
     color: var(--main-text-color);
+    width: 100%; 
+    box-sizing: border-box;
+    white-space: nowrap;  
+    overflow: hidden;     
+    text-overflow: ellipsis;
 }

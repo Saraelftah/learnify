@@ -58,7 +58,7 @@ function Home() {
             <div className="container">
               <h3 className="text-[var(--dark-color)] text-[length:var(--title-font-size)] font-bold mb-4">Become a Tutor</h3>
               <p>Share your knowledge and inspire the next generation</p>
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 px-[20px]  mb-[50px] rounded-[var(--border-radius)]">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-5  mb-[50px] rounded-[var(--border-radius)]">
               
               <div className="teacher-benefits grid grid-cols-1 lg:grid-cols-2 gap-5 my-5" data-aos="fade-down-right">
                 <TeacherBenefits iconClass="fa-solid fa-calendar-check" title="Flexible Schedule" description="Teach whenever it suits you"/>
@@ -78,7 +78,7 @@ function Home() {
                 <img className="absolute hidden lg:block !w-[150px] z-3 bottom-[-50px] left-[40px] border-[var(--light-primary-color)] border-4 rotate-45" src={tutorImg5} alt="tutor"/>
               </div> 
             </div>
-            <NavLink to="/register" className="flex justify-start items-center">
+            <NavLink to="/role" className="flex justify-start items-center">
             <button className="btn btn-outline block border-[var(--secondary-color)] text-white bg-[var(--secondary-color)] w-fit hover:bg-[var(--background-color)] px-10  hover:text-[var(--secondary-color)]">join us</button>
             </NavLink>
             </div>

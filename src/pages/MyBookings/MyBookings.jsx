@@ -1,118 +1,120 @@
-import {  useSelector } from "react-redux";
-import ChooseTeacher from "../ChooseTeacher/ChooseTeacher";
-import studentImage from "../../assets/images/view-3d-young-school-student.jpg";
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 function MyBookings() {
   const user = useSelector((state) => state.users.currentUser);
   const students = useSelector((state) => state.students.students);
   const currentStudent = students?.find((s) => s.id === user?.uid);
-  const bookings = currentStudent?.bookings || [];
-  console.log('Bookings: ', bookings);
-  console.log(students,'students');
-  console.log('Current Student: ', currentStudent);
-  // Check if user is logged in
-  if (!user) {
-    return "Please log in to view your bookings.";
-  }
-
 
 
   return (
-    <div className="p-6 mt-30">
-      <div className="flex justify-between items-center ">
-        <div className="flex flex-col align-middle  gap-y-4">
-          <div className="avatar avatar-online w-70 h-70">
-            <img src={studentImage} alt="Student profile image" />
+    <section className="my-booking mt-[120px] capitalize mb-[50px]">
+      <div className="container">
+        <div className="shadow-[var(--box-shadow)] p-10 rounded-[var(--border-radius)]" data-aos="fade-up">
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-5 ">
+
+          <div className="col-span-1 justify-self-center lg:justify-self-start" >
+            <div className="student-placeholder w-50 h-50 rounded-full bg-[var(--primary-color)] text-white flex justify-center items-center">
+              <h3 className="text-6xl">
+                {currentStudent?.name.split(" ").map(name => name.charAt(0).toUpperCase()).join('')}
+              </h3>
+            </div>
+            <h4 className="text-center pt-5 w-50 text-[var(--primary-color)] text-xl font-bold">{currentStudent?.name}</h4>
           </div>
-          {/* Student Info */}
-          <div className="student-info">
-            <span className="text-xl font-bold ">Student Name: </span>
-            <span className="font-semibold text-xl">{user.name}</span>
-          </div>
-          <div>
-            <span className="font-bold">You have </span>
-            <span className="font-semibold">{currentStudent?.bookings?.length || '0'}</span>
-            <span className="font-bold"> lessons</span>
+
+          {/* Instructions for attending your online class*/}
+          <div className="instructions col-span-3">
+            <h4 className="text-xl font-bold text-[var(--dark-color)] mb-5">
+              Instructions:
+            </h4>
+            <div className="mt-2 flex items-start">
+              <i className="fa-regular fa-square-check text-[var(--secondary-color)] text-2xl mr-2"></i>
+              <p className="text-[var(--text-color)]">Make sure you have a stable internet connection to avoid interruptions.</p> 
+            </div>
+            <div className="mt-2 flex items-start">
+              <i className="fa-regular fa-square-check text-[var(--secondary-color)] text-2xl mr-2"></i>
+              <p className="text-[var(--text-color)]">Make sure to enter the meeting 5 minutes early to ensure everything is set up correctly.</p>
+            </div>
+            <div className="mt-2 flex items-start">
+              <i className="fa-regular fa-square-check text-[var(--secondary-color)] text-2xl mr-2"></i>
+              <p className="text-[var(--text-color)]">Choose a quiet environment with minimal distractions during the class.</p>
+            </div>
+            <div className="mt-2 flex items-start">
+              <i className="fa-regular fa-square-check text-[var(--secondary-color)] text-2xl mr-2"></i>
+              <p className="text-[var(--text-color)]">Keep a notebook, pen, and any required course materials with you.</p>
+            </div>
+            <div className="mt-2 flex items-start">
+              <i className="fa-regular fa-square-check text-[var(--secondary-color)] text-2xl mr-2"></i>
+              <p className="text-[var(--text-color)]">If you have any issues joining the class, please contact <Link className="text-[var(--primary-color)] font-bold" to="/contact">support</Link></p>
+            </div>
+            
           </div>
         </div>
-        {/* Instructions for attending your online class*/}
-        <div className="instructions card bg-base-100 border border-base-300 shadow-md p-6 md:p-8 gap-y-3 w-1/2">
-          <span className="text-lg font-semibold text-[var(--primary-color)]">
-            Instructions:
-          </span>
-          <p className="mt-2">
-            1- Please ensure you have a stable internet connection and a quiet
-            environment for your online class.
-          </p>
-          <p>
-            2- Make sure to enter the meeting 5 minutes early to ensure
-            everything is set up correctly.
-          </p>
-          <p>
-            3- If you have any questions or need to reschedule, please contact
-            your teacher directly.
-          </p>
-          <p className="font-semibold ">
-            (If you need to cancel or reschedule, please do so at least 24 hours
-            in advance)
-          </p>
-          <p>
-            4- If you have any issues joining the class, please contact support
-            at
-          </p>
-        </div>
-      </div>
-      {currentStudent?.bookings?.length === 0  || !currentStudent.bookings? (
-        <div className="mt-10">
-          <h2 className="text-xl font-semibold mb-4">No bookings found</h2>
-          <p>
-            You have no bookings yet. Please choose a teacher to book an
-            appointment.
-          </p>
-          <ChooseTeacher />
-        </div>
-      ) : (
-        <>
-          {/* Student Courses */}
-          <div className="space-y-4 mt-10">
-            <h2 className="text-xl font-bold mb-4">My Bookings</h2>
-            {currentStudent?.bookings?.map((b) => (
-              <div key={b.id} className="p-4 shadow ">
-                <div className="flex justify-between items-center">
-                <div className="flex items-center gap-3">
-                  <div className="avatar w-30 ">
-                    <img
-                      src={b.teacherImage}
-                      alt={b.teacherName}
-                      className="w-30 h-30  mb-2"
-                    />
-                  </div>
-                  <div className="flex flex-col gap-y-1">
-                    <p>
-                      <strong>{b.teacherName}</strong> ({b.subject})
-                    </p>
-                    <p>{b.date} - {b.time}</p>
-                    <p>Type: {b.sessionType}</p>
-                    <p>Status: {b.status}</p>
-                  </div>
+
+        <hr className="border-t-2 border-[var(--hr-color)] my-10 rounded-full" />
+
+
+        {!currentStudent?.bookings ? (
+          <div className="">
+            <h2 className="text-[var(--dark-color)] text-2xl font-bold mb-5">Bookings:</h2>
+            <p className="text-[var(--text-color)]">
+              you have <span>0</span> bookings. go to <Link to="/search" className="text-[var(--primary-color)] font-bold">teachers</Link> page to make an appointment.
+            </p>
+          </div>
+        ) : (
+          
+          <div className="bookings ">
+            <h3 className="text-[var(--dark-color)] text-2xl font-bold mb-5">Bookings:</h3>
+          {currentStudent?.bookings?.map((booking)=>(
+            
+            <div className="flex flex-col md:flex-row items-center justify-between shadow-[var(--box-shadow)] rounded-[var(--border-radius)] px-5 py-5 md:py-2 border-l-10 border-[var(--light-primary-color)]" key={booking.createdAt}>
+              <div className="teacher flex items-center gap-5">
+                <div>
+                  <img className="!w-25 !h-25 rounded-full" src={booking.teacherImage} alt="teacher"/>
                 </div>
-                    <div>
-                      <a
-                        href={b.meetingLink}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="btn bg-[var(--secondary-color)] text-[var(--background-color)] mt-2"
-                      >
-                        Join Session
-                      </a>
-                    </div>
+                <div>
+                  <h4 className="text-[var(--dark-color)] text-lg ">{booking.teacherName}</h4>
+                  <p className="">{booking.subject}</p>
+                </div>
+                
+              </div>
+
+              <div className="h-0.5 w-full bg-[var(--hr-color)] md:h-30 md:w-0 md:border-l-2 md:bg-transparent md:border-[var(--hr-color)] my-5 md:my-0"></div>
+              
+              <div className="date">
+                <div className="flex items-center gap-2 mb-2">
+                  <i class="fa-regular fa-calendar text-[var(--secondary-color)] text-2xl"></i>
+                  <p className="font-bold">{booking.date}</p>
+                </div>
+                <div className="flex items-center gap-2">
+                  <i class="fa-regular fa-clock text-[var(--secondary-color)] text-2xl"></i>
+                  <p>{booking.time}</p>
                 </div>
               </div>
-            ))}
+
+              <div className="h-0.5 w-full bg-[var(--hr-color)] md:h-30 md:w-0 md:border-l-2 md:bg-transparent md:border-[var(--hr-color)] my-5 md:my-0"></div>
+
+              <div className="type">
+                <p>{booking.sessionType} session</p>
+              </div>
+
+              <div className="h-0.5 w-full bg-[var(--hr-color)] md:h-30 md:w-0 md:border-l-2 md:bg-transparent md:border-[var(--hr-color)] my-5 md:my-0"></div>
+
+
+              <div className="">
+                <a href={booking.meetingLink}
+                className="bg-[var(--primary-color)] text-white px-5 py-2 rounded-[var(--border-radius)] border-1 border-[var(--primary-color)] hover:bg-[var(--background-color)] hover:text-[var(--primary-color)]"
+                >join meeting</a>
+              </div>
+            </div>
+          ))}
+
           </div>
-        </>
-      )}
-    </div>
+          
+        )}
+        </div>
+      </div>
+    </section>
   );
 }
 

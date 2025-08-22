@@ -3,12 +3,17 @@ import Search from "../../components/Search/Search";
 export default function SearchPage() {
   return (
     <>
-      {/* <div className="container mx-auto p-6"> */}
-      <div className="container mx-auto pb-16 pt-28">
-        <h1 className="font-bold text-[var(--dark-color)] mb-8 text-center" style={{ fontSize: 'var(--title-font-size)' }}>
-          Find your teacher
-        </h1>
-        <Search />
+      <div className="search mt-[100px] mb-[50px]">
+          <div className="bg-[var(--light-background)] pt-[50px] pb-[70px] " data-aos="fade-up">
+          <h1
+            className="font-bold text-[var(--dark-color)] mb-8 text-center text-[length:var(--title-font-size)]"
+          >
+            Find your teacher
+          </h1>
+          </div>
+          <div className="container">
+          <Search />
+        </div>
       </div>
     </>
   );

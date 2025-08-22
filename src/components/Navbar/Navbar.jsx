@@ -69,19 +69,8 @@ function Navbar() {
                     Contact
                   </NavLink>
                 </li>
-                <li>
-                  <NavLink
-                    to="/services"
-                    className={({ isActive }) =>
-                      `text-[var(--main-text-color)] hover:text-[var(--primary-color)] nav-hover px-0 ${
-                        isActive ? "font-bold text-[var(--primary-color)]" : ""
-                      }`
-                    }
-                  >
-                    services
-                  </NavLink>
-                </li>
-                <li className="">
+
+                <li className="lg:ml-[20px] ">
                   <LightDark />
                 </li>
                 <li className="">
@@ -102,7 +91,7 @@ function Navbar() {
                     Login
                   </NavLink>
                   <NavLink
-                    to="/register"
+                    to="/role"
                     className="btn bg-[var(--secondary-color)] text-white ml-4 hover:bg-[var(--background-color)] hover:text-[var(--secondary-color)] border-1 border-[var(--secondary-color)] shadow-none transition-colors duration-500 ease-in-out"
                   >
                     Sign Up
@@ -149,13 +138,10 @@ function Navbar() {
                   <li>
                     <NavLink to="/contact">Contact</NavLink>
                   </li>
-                  <li>
-                    <NavLink to="/services">services</NavLink>
-                  </li>
-                  <li>
+                  <li className="mb-2 pl-2">
                     <LightDark />
                   </li>
-                  <li>
+                  <li className="pl-2">
                     <Notification />
                   </li>
                   {!user && (
@@ -165,7 +151,7 @@ function Navbar() {
                       </li>
                       <li>
                         <NavLink
-                          to="/register"
+                          to="/role"
                           className="btn bg-[var(--secondary-color)] text-white w-full"
                         >
                           Sign Up

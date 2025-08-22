@@ -23,6 +23,7 @@
   --admin-bg-color: #f2f3f4;
   --admin-even: #effefe;
   --admin-odd: #f8f7ff;
+  --hr-color: #f0f0f0;
   --border-radius: 10px;
   --box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
 
@@ -46,6 +47,7 @@
   --admin-even: #383737;
   --admin-odd: #323232;
   --footer-background: #1a1a1a;
+  --hr-color: #252525;
   --box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4), 0 0 1px rgba(0, 0, 0, 0.6);
 }
 
