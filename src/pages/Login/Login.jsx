@@ -9,13 +9,10 @@ import Google from "../../components/Google/Google";
 import SignBtn from "../../components/SignBtn/SignBtn";
 import FormInput from "../../components/FormInput/FormInput";
 import { doc, getDoc } from "firebase/firestore";
-
 import { useDispatch } from "react-redux";
 import { setCurrentUser } from "../../store/UsersSlice";
 
-
 function Login() {
-  
   const dispatch = useDispatch();
 
   const navigate = useNavigate();
@@ -34,9 +31,9 @@ function Login() {
       // get the user id and check if he is registered or not
       const uid = cred.user.uid;
       const snap = await getDoc(doc(db, "users", uid));
-      if(!snap.exists()){
+      if (!snap.exists()) {
         toast.error("user not found, please register first");
-        return
+        return;
       }
       // get the user role
       const role = snap.data().role;
@@ -45,7 +42,7 @@ function Login() {
       const userObject = {
         uid: cred.user.uid,
         email: cred.user.email,
-        name: snap.data().name, 
+        name: snap.data().name,
         image: cred.user.Image,
         role: role,
       };
@@ -54,10 +51,10 @@ function Login() {
       toast.success("Logged in successfully!");
 
       // navigate as role
-      if(role === "admin") navigate("/admin");
-      else if(role === "teacher") navigate("/teacher");
-      else if(role === "student") navigate("/");
-      else if(role === "teacherPending") navigate ("/pending");
+      if (role === "admin") navigate("/admin");
+      else if (role === "teacher") navigate("/teacher");
+      else if (role === "student") navigate("/");
+      else if (role === "teacherPending") navigate("/pending");
     } catch (err) {
       console.error(err);
       toast.error("Something went wrong");
@@ -74,41 +71,45 @@ function Login() {
 
           <form
             onSubmit={handleSubmit(onSubmit)}
-            className="flex flex-col items-center mb-5 w-full "
+            className="flex flex-col items-center mb-5 w-full gap-4 "
           >
             <h2 className="text-xl md:text-3xl mb-3 font-bold text-center text-[var(--main-text-color)]">
               Login
             </h2>
 
             {/* email */}
-            <FormInput
-              label="Email"
-              type="email"
-              placeholder="Enter your email..."
-              name="email"
-              register={register}
-              rules={{
-                required: "Email is required",
-                pattern: {
-                  value: /[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/,
-                  message: "Email is not valid",
-                },
-              }}
-              error={errors.email}
-            />
+            <div className="w-full md:w-4/6">
+              <FormInput
+                label="Email"
+                type="email"
+                placeholder="Enter your email..."
+                name="email"
+                register={register}
+                rules={{
+                  required: "Email is required",
+                  pattern: {
+                    value: /[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/,
+                    message: "Email is not valid",
+                  },
+                }}
+                error={errors.email}
+              />
+            </div>
 
             {/* /password */}
-            <FormInput
-              label="Password"
-              type="password"
-              placeholder="Enter your password..."
-              name="password"
-              register={register}
-              rules={{
-                required: "Password is required",
-              }}
-              error={errors.password}
-            />
+            <div className="w-full  md:w-4/6">
+              <FormInput
+                label="Password"
+                type="password"
+                placeholder="Enter your password..."
+                name="password"
+                register={register}
+                rules={{
+                  required: "Password is required",
+                }}
+                error={errors.password}
+              />
+            </div>
 
             {/* submit button */}
             <SignBtn label="Login" />
@@ -133,7 +134,7 @@ function Login() {
           <Google />
         </div>
 
-        <SideImg imgClass="min-h-screen"/>
+        <SideImg imgClass="min-h-screen" />
       </div>
     </>
   );

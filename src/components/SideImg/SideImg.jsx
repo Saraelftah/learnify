@@ -1,4 +1,4 @@
-import bc from "../../assets/images/labtop-bc.png";
+import bc from "../../assets/images/webinar-animate.svg";
 
 function SideImg({imgClass}) {
   return (
