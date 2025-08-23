@@ -69,19 +69,8 @@ function Navbar() {
                     Contact
                   </NavLink>
                 </li>
-                <li>
-                  <NavLink
-                    to="/services"
-                    className={({ isActive }) =>
-                      `text-[var(--main-text-color)] hover:text-[var(--primary-color)] nav-hover px-0 ${
-                        isActive ? "font-bold text-[var(--primary-color)]" : ""
-                      }`
-                    }
-                  >
-                    services
-                  </NavLink>
-                </li>
-                <li className="">
+
+                <li className="lg:ml-[20px] ">
                   <LightDark />
                 </li>
                 <li className="">
@@ -149,13 +138,10 @@ function Navbar() {
                   <li>
                     <NavLink to="/contact">Contact</NavLink>
                   </li>
-                  <li>
-                    <NavLink to="/services">services</NavLink>
-                  </li>
-                  <li>
+                  <li className="mb-2 pl-2">
                     <LightDark />
                   </li>
-                  <li>
+                  <li className="pl-2">
                     <Notification />
                   </li>
                   {!user && (

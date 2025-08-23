@@ -1,13 +1,7 @@
-import { motion, AnimatePresence } from "framer-motion";
 import styles from './Search.module.css';
 import { useState } from "react";
 import "@fortawesome/fontawesome-free/css/all.min.css";
-import { useNavigate, useSearchParams } from "react-router-dom"; //edit
-const dropdownVariants = {
-    hidden: { opacity: 0, y: -10 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.35, ease: "easeOut" } },
-    exit: { opacity: 0, y: -10, transition: { duration: 0.2 } },
-};
+import { useNavigate, useSearchParams } from "react-router-dom";
 
 export default function SearchInputs({
   subjectOptions,
@@ -15,13 +9,13 @@ export default function SearchInputs({
 }) {
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
-  // Local state for inputs
   const [localQuery, setLocalQuery] = useState(searchParams.get("query") || "");
   const [localSubject, setLocalSubject] = useState(searchParams.get("subject") || "");
   const [localGrade, setLocalGrade] = useState(searchParams.get("grade") || "");
 
   const handleSearch = () => {
     const params = new URLSearchParams();
+    
     if (localQuery.trim() !== "") {
       params.set("query", localQuery.trim());
     }
@@ -42,16 +36,13 @@ export default function SearchInputs({
   };
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-6 gap-6 mb-10">
+    <div className="grid grid-cols-1 md:grid-cols-9 gap-5 mb-10 mt-[-70px] w-[80vw] m-auto bg-[var(--card-background)] px-5 py-7 rounded-3xl shadow-[var(--box-shadow)]"
+    data-aos="fade-up"
+    >
         {/* Search by name */}
-        <motion.div
-          variants={dropdownVariants}
-          initial="hidden"
-          animate="visible"
-          className="form-control md:col-span-3 relative"
-        >
+        <div className="form-control md:col-span-4 relative">
           <label className="label">
-            <span className="label-text font-bold text-[var(--text-color)]">
+            <span className="label-text text-[var(--text-color)]">
               Search by Name
             </span>
           </label>
@@ -62,31 +53,19 @@ export default function SearchInputs({
               value={localQuery}
               onChange={(e) => setLocalQuery(e.target.value)}
               onKeyDown={handleKeyDown}
-              className={`input input-bordered w-full pr-10 text-lg ${styles["search-input"]}`}
+              className={`input w-full px-10 text-lg ${styles["search-input"]}`}
             />
           </div>
-        </motion.div>
+        </div>
 
         {/* Subject */}
-        <AnimatePresence>
-          <motion.div
-            key="subject"
-            variants={dropdownVariants}
-            initial="hidden"
-            animate="visible"
-            exit="exit"
-            transition={{ delay: 0.08 }}
-            className="form-control"
-          >
+          <div className="form-control md:col-span-2">
             <label className="label">
-              <span className="label-text font-bold text-[var(--text-color)]">
+              <span className="label-text  text-[var(--text-color)]">
                 Subject
               </span>
             </label>
-            <motion.select
-              whileFocus={{ scale: 1.03 }}
-              whileTap={{ scale: 0.98 }}
-              value={localSubject}
+            <select
               onChange={(e) => setLocalSubject(e.target.value)}
               className={`select select-bordered w-full ${styles["dropdown"]}`}
             >
@@ -96,30 +75,17 @@ export default function SearchInputs({
                   {s}
                 </option>
               ))}
-            </motion.select>
-          </motion.div>
-        </AnimatePresence>
+            </select>
+          </div>
 
         {/* Grade Level */}
-        <AnimatePresence>
-          <motion.div
-            key="grade"
-            variants={dropdownVariants}
-            initial="hidden"
-            animate="visible"
-            exit="exit"
-            transition={{ delay: 0.16 }}
-            className="form-control"
-          >
+          <div className="form-control md:col-span-2">
             <label className="label">
-              <span className="label-text font-bold text-[var(--text-color)]">
+              <span className="label-text text-[var(--text-color)]">
                 Grade Level
               </span>
             </label>
-            <motion.select
-              whileFocus={{ scale: 1.03 }}
-              whileTap={{ scale: 0.98 }}
-              value={localGrade}
+            <select
               onChange={(e) => setLocalGrade(e.target.value)}
               className={`select select-bordered w-full ${styles["dropdown"]}`}
             >
@@ -129,17 +95,16 @@ export default function SearchInputs({
                   {g}
                 </option>
               ))}
-            </motion.select>
-          </motion.div>
+            </select>
+          </div>
 
           <button
             onClick={handleSearch}
             type="button"
-            className="btn btn-outline bg-[var(--primary-color)] text-[var(--background-color)] border-2 border-[var(--primary-color)] hover:bg-[var(--background-color)]  hover:text-[var(--primary-color)] focus:outline-none self-end"
+            className="btn btn-outline md:col-span-1 bg-[var(--primary-color)] text-white border-2 border-[var(--primary-color)] hover:bg-[var(--background-color)]  hover:text-[var(--primary-color)] focus:outline-none self-end"
           >
             search
           </button>
-        </AnimatePresence>
       </div>
     );
 }

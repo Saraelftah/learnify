@@ -1,7 +1,6 @@
-import { useEffect, useMemo, useState } from "react";
-import { collection, getDocs } from "firebase/firestore";
-import { db } from "../../../firebase";
-import { motion } from "framer-motion";
+import { useMemo } from "react";
+import { useSelector } from 'react-redux';
+
 import SearchCard from "./SearchCard";
 import SearchInputs from "./SearchFilters";
 import { useSearchParams } from "react-router-dom";
@@ -11,41 +10,14 @@ function normalize(v = "") {
 }
 
 export default function Search() {
-  const [loading, setLoading] = useState(true);
-  const [teachers, setTeachers] = useState([]);
-  const [searchParams, setSearchParams] = useSearchParams(); //edit
-  // const [query, setQuery] = useState("");
-  // const [subject, setSubject] = useState("");
-  // const [gradeLevel, setGradeLevel] = useState("");
+  const teachers = useSelector((state) => state.teachers.teachers);
+  const loading = useSelector((state) => state.teachers.status) === 'loading';
+
+  const [searchParams, setSearchParams] = useSearchParams();
   const query = searchParams.get("query") || "";
   const subject = searchParams.get("subject") || "";
   const gradeLevel = searchParams.get("grade") || "";
 
-  useEffect(() => {
-    (async () => {
-      try {
-        const snap = await getDocs(collection(db, "teachers"));
-        const rows = snap.docs.map((d) => {
-          const data = d.data();
-          return {
-            id: d.id,
-            name: data.name || "",
-            subject: data.subject || "",
-            gradeLevel: data.gradeLevel || "",
-            rating: data.rating ?? null,
-            hourlyRate: data.hourlyRate ?? null,
-            firstLessonFree: !!data.firstLessonFree,
-            image: data.Image || "",
-          };
-        });
-        setTeachers(rows);
-      } catch (e) {
-        console.error("Failed to fetch teachers", e);
-      } finally {
-        setLoading(false);
-      }
-    })();
-  }, []);
 
   const subjectOptions = useMemo(() => {
     const set = new Map();
@@ -82,43 +54,33 @@ export default function Search() {
   return (
     <div>
       <SearchInputs
-        // query={query}
-        // setQuery={setQuery}
-        // subject={subject}
-        // setSubject={setSubject}
-        // gradeLevel={gradeLevel}
-        // setGradeLevel={setGradeLevel}
-        query={query} //edit
-        subject={subject} //edit
-        gradeLevel={gradeLevel} //edit
+        query={query}
+        subject={subject}
+        gradeLevel={gradeLevel}
         subjectOptions={subjectOptions}
         gradeOptions={gradeOptions}
-        setSearchParams={setSearchParams} //edit
+        setSearchParams={setSearchParams}
       />
 
       {loading ? (
-  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {Array.from({ length: 6 }).map((_, i) => (
             <div key={i} className="card bg-base-200 animate-pulse h-80" />
           ))}
         </div>
       ) : filtered.length > 0 ? (
-        <motion.div
-          layout
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"
+        <div
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5"
         >
-          {filtered.map((t, i) => (
-            <motion.div
+          
+          {filtered.map((t) => (
+            <div
               key={t.id}
-              layout
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.35, delay: i * 0.04 }}
             >
               <SearchCard teacher={t} />
-            </motion.div>
+            </div>
           ))}
-        </motion.div>
+        </div>
       ) : (
         <p className="text-center text-[var(--text-color)]">
           No teachers found.

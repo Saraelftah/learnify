@@ -20,6 +20,10 @@ function AdminSidebar() {
           <i className="fa-solid fa-graduation-cap text-[var(--light-primary-color)]"></i> 
           <h5>Students</h5>
         </NavLink>
+        <NavLink to="/admin/messages" className="nav-link flex align-center gap-2 mb-2">
+          <i className="fa-solid fa-envelope text-[var(--light-primary-color)]"></i> 
+          <h5>Messages</h5>
+        </NavLink>
       </div>
     </div>
 
