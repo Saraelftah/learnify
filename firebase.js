@@ -34,18 +34,20 @@ async function addTeachers() {
       averageRating: null,
       lessonType: "Online",
       hourlyRate: 120,
+      sessions: 100,
+      earning: 22000,
       firstLessonFree: true,
       overview:
         "Jamal Abdel Sattar is a dedicated high school mathematics teacher with a strong passion for helping students understand and enjoy the subject. He has extensive experience in explaining complex mathematical concepts in a clear and engaging way, ensuring that students of all levels can grasp the material and achieve academic success.",
       availableDates: [
-        { day: "Monday", time: "5:00", period: "PM" },
-        { day: "Wednesday", time: "7:30", period: "PM" },
-        { day: "Friday", time: "10:00", period: "AM" }
+        { date: "2025-08-30", time: "19:00" },
+        { date: "2025-09-04", time: "08:00" },
+        { date: "2025-09-04", time: "10:00" },
       ],
       availableGroupDates: [
-        { day: "Tuesday", time: "3:15", period: "PM" },
-        { day: "Thursday", time: "8:45", period: "AM" },
-        { day: "Saturday", time: "6:00", period: "PM" }
+        { date: "2025-09-05", time: "10:00" },
+        { date: "2025-09-05", time: "17:00" },
+        { date: "2025-09-06", time: "10:00" },
       ],
       reviews: [
         {
@@ -70,18 +72,20 @@ async function addTeachers() {
       averageRating: null,
       lessonType: "Online",
       hourlyRate: 100,
+      sessions: 10,
+      earning: 3000,
       firstLessonFree: false,
       overview:
         "Mohamed Ali is a dedicated middle school English teacher who is passionate about helping students improve their language skills. He focuses on building a strong foundation in grammar, vocabulary, and communication, while creating a supportive and engaging classroom environment that encourages students to express themselves confidently in English.",
       availableDates: [
-        { day: "Monday", time: "5:00", period: "PM" },
-        { day: "Wednesday", time: "7:30", period: "PM" },
-        { day: "Friday", time: "10:00", period: "AM" }
+        { date: "2025-08-30", time: "19:00" },
+        { date: "2025-09-04", time: "08:00" },
+        { date: "2025-09-04", time: "10:00" },
       ],
       availableGroupDates: [
-        { day: "Tuesday", time: "3:15", period: "PM" },
-        { day: "Thursday", time: "8:45", period: "AM" },
-        { day: "Saturday", time: "6:00", period: "PM" }
+        { date: "2025-09-05", time: "10:00" },
+        { date: "2025-09-05", time: "17:00" },
+        { date: "2025-09-06", time: "10:00" },
       ],
       reviews: [
         {
@@ -108,18 +112,20 @@ async function addTeachers() {
       averageRating: null,
       lessonType: "Online",
       hourlyRate: 150,
+      sessions: 50,
+      earning: 12000,
       firstLessonFree: true,
       overview:
         "Anna Lotfy is an enthusiastic Italian language teacher with a talent for making lessons interactive and enjoyable. She is committed to helping students develop strong language skills in speaking, reading, and writing, while also introducing them to Italian culture and traditions to enhance their learning experience.",
       availableDates: [
-        { day: "Monday", time: "5:00", period: "PM" },
-        { day: "Wednesday", time: "7:30", period: "PM" },
-        { day: "Friday", time: "10:00", period: "AM" }
+        { date: "2025-08-30", time: "19:00" },
+        { date: "2025-09-04", time: "08:00" },
+        { date: "2025-09-04", time: "10:00" },
       ],
       availableGroupDates: [
-        { day: "Tuesday", time: "3:15", period: "PM" },
-        { day: "Thursday", time: "8:45", period: "AM" },
-        { day: "Saturday", time: "6:00", period: "PM" }
+        { date: "2025-09-05", time: "10:00" },
+        { date: "2025-09-05", time: "17:00" },
+        { date: "2025-09-06", time: "10:00" },
       ],
       reviews: [
         {
@@ -144,18 +150,20 @@ async function addTeachers() {
       averageRating: null,
       lessonType: "Online",
       hourlyRate: 100,
+      sessions: 60,
+      earning: 10000,
       firstLessonFree: true,
       overview:
         "Asmaa Gamal is a passionate middle school science teacher who is committed to making learning exciting and accessible for her students. She uses creative teaching methods and real-life examples to help students understand scientific concepts and develop a love for discovery.",
       availableDates: [
-        { day: "Monday", time: "5:00", period: "PM" },
-        { day: "Wednesday", time: "7:30", period: "PM" },
-        { day: "Friday", time: "10:00", period: "AM" }
+        { date: "2025-08-30", time: "19:00" },
+        { date: "2025-09-04", time: "08:00" },
+        { date: "2025-09-04", time: "10:00" },
       ],
       availableGroupDates: [
-        { day: "Tuesday", time: "3:15", period: "PM" },
-        { day: "Thursday", time: "8:45", period: "AM" },
-        { day: "Saturday", time: "6:00", period: "PM" }
+        { date: "2025-09-05", time: "10:00" },
+        { date: "2025-09-05", time: "17:00" },
+        { date: "2025-09-06", time: "10:00" },
       ],
       reviews: [
         {
@@ -182,18 +190,20 @@ async function addTeachers() {
       averageRating: null,
       lessonType: "Online",
       hourlyRate: 80,
+      sessions: 20,
+      earning: 5000,
       firstLessonFree: true,
       overview:
         "Mohannad Soliman is an experienced history teacher for both middle and high school levels. He is dedicated to bringing history to life through engaging stories, interactive discussions, and critical thinking activities. His teaching helps students understand the past, connect it to the present, and develop a deeper appreciation for historical events and their impact on the world.",
       availableDates: [
-        { day: "Monday", time: "5:00", period: "PM" },
-        { day: "Wednesday", time: "7:30", period: "PM" },
-        { day: "Friday", time: "10:00", period: "AM" }
+        { date: "2025-08-30", time: "19:00" },
+        { date: "2025-09-04", time: "08:00" },
+        { date: "2025-09-04", time: "10:00" },
       ],
       availableGroupDates: [
-        { day: "Tuesday", time: "3:15", period: "PM" },
-        { day: "Thursday", time: "8:45", period: "AM" },
-        { day: "Saturday", time: "6:00", period: "PM" }
+        { date: "2025-09-05", time: "10:00" },
+        { date: "2025-09-05", time: "17:00" },
+        { date: "2025-09-06", time: "10:00" },
       ],
       reviews: [
         {
@@ -220,18 +230,20 @@ async function addTeachers() {
       averageRating: null,
       lessonType: "Online",
       hourlyRate: 100,
+      sessions: 150,
+      earning: 30000,
       firstLessonFree: true,
       overview:
         "Mona Waheed is a dedicated geography teacher for both middle and high school students. She has a talent for making geography engaging by connecting lessons to real-world examples and current events. Her teaching style encourages curiosity, critical thinking, and a deeper understanding of the world’s landscapes, cultures, and environments.",
       availableDates: [
-        { day: "Monday", time: "5:00", period: "PM" },
-        { day: "Wednesday", time: "7:30", period: "PM" },
-        { day: "Friday", time: "10:00", period: "AM" }
+        { date: "2025-08-30", time: "19:00" },
+        { date: "2025-09-04", time: "08:00" },
+        { date: "2025-09-04", time: "10:00" },
       ],
       availableGroupDates: [
-        { day: "Tuesday", time: "3:15", period: "PM" },
-        { day: "Thursday", time: "8:45", period: "AM" },
-        { day: "Saturday", time: "6:00", period: "PM" }
+        { date: "2025-09-05", time: "10:00" },
+        { date: "2025-09-05", time: "17:00" },
+        { date: "2025-09-06", time: "10:00" },
       ],
       reviews: [
         {
@@ -258,19 +270,20 @@ async function addTeachers() {
       averageRating: null,
       lessonType: "Online",
       hourlyRate: 120,
+      sessions: 70,
+      earning: 20000,
       firstLessonFree: false,
       overview:
         "Yasser Yehia is a skilled high school chemistry teacher with a passion for simplifying complex scientific concepts. He uses clear explanations, experiments, and real-life applications to help students understand chemistry and develop strong problem-solving skills. His lessons inspire curiosity and a deeper appreciation for the subject.",
       availableDates: [
-        { day: "Monday", time: "5:00", period: "PM" },
-        { day: "Tuesday", time: "10:00", period: "AM" },
-        { day: "Wednesday", time: "7:30", period: "PM" },
-        { day: "Friday", time: "10:00", period: "AM" }
+        { date: "2025-08-30", time: "19:00" },
+        { date: "2025-09-04", time: "08:00" },
+        { date: "2025-09-04", time: "10:00" },
       ],
       availableGroupDates: [
-        { day: "Tuesday", time: "3:15", period: "PM" },
-        { day: "Thursday", time: "8:45", period: "AM" },
-        { day: "Saturday", time: "6:00", period: "PM" }
+        { date: "2025-09-05", time: "10:00" },
+        { date: "2025-09-05", time: "17:00" },
+        { date: "2025-09-06", time: "10:00" },
       ],
       reviews: [
         {
@@ -297,18 +310,20 @@ async function addTeachers() {
       averageRating: null,
       lessonType: "Online",
       hourlyRate: 150,
+      sessions: 40,
+      earning: 10000,
       firstLessonFree: false,
       overview:
         "Marwan Abdelkader is a dedicated high school physics teacher who excels at making challenging concepts clear and engaging. He uses practical examples, demonstrations, and problem-solving exercises to help students grasp the principles of physics and apply them in real-life situations. His approach encourages analytical thinking and a genuine interest in science.",
       availableDates: [
-        { day: "Monday", time: "5:00", period: "PM" },
-        { day: "Wednesday", time: "7:30", period: "PM" },
-        { day: "Friday", time: "10:00", period: "AM" }
+        { date: "2025-08-30", time: "19:00" },
+        { date: "2025-09-04", time: "08:00" },
+        { date: "2025-09-04", time: "10:00" },
       ],
       availableGroupDates: [
-        { day: "Tuesday", time: "3:15", period: "PM" },
-        { day: "Thursday", time: "8:45", period: "AM" },
-        { day: "Saturday", time: "6:00", period: "PM" }
+        { date: "2025-09-05", time: "10:00" },
+        { date: "2025-09-05", time: "17:00" },
+        { date: "2025-09-06", time: "10:00" },
       ],
       reviews: [
         {
@@ -335,18 +350,20 @@ async function addTeachers() {
       averageRating: null,
       lessonType: "Online",
       hourlyRate: 80,
+      sessions: 70,
+      earning: 8000,
       firstLessonFree: true,
       overview:
         "Abdelrahman Gamal is a passionate high school French teacher who is committed to helping students master the language with confidence. He combines grammar, vocabulary, and conversation practice with engaging cultural insights, making learning both enjoyable and effective. His teaching style encourages active participation and continuous improvement.",
       availableDates: [
-        { day: "Monday", time: "5:00", period: "PM" },
-        { day: "Wednesday", time: "7:30", period: "PM" },
-        { day: "Friday", time: "10:00", period: "AM" }
+        { date: "2025-08-30", time: "19:00" },
+        { date: "2025-09-04", time: "08:00" },
+        { date: "2025-09-04", time: "10:00" },
       ],
       availableGroupDates: [
-        { day: "Tuesday", time: "3:15", period: "PM" },
-        { day: "Thursday", time: "8:45", period: "AM" },
-        { day: "Saturday", time: "6:00", period: "PM" }
+        { date: "2025-09-05", time: "10:00" },
+        { date: "2025-09-05", time: "17:00" },
+        { date: "2025-09-06", time: "10:00" },
       ],
       reviews: [
         {
@@ -373,20 +390,21 @@ async function addTeachers() {
       averageRating: null,
       lessonType: "Online",
       hourlyRate: 110,
+      sessions: 100,
+      earning: 20000,
       firstLessonFree: false,
       overview:
         "Yasser Ibrahim is a dedicated biology teacher for both middle and high school students. He has a talent for making the subject engaging by connecting biological concepts to everyday life and the natural world. Through clear explanations, visuals, and interactive activities, he inspires students to explore science with curiosity and enthusiasm.",
       availableDates: [
-        { day: "Sunday", time: "8:00", period: "AM" },
-        { day: "Monday", time: "5:00", period: "PM" },
-        { day: "Wednesday", time: "7:30", period: "PM" },
-        { day: "Thursdau", time: "7:30", period: "PM" },
-        { day: "Friday", time: "10:00", period: "AM" }
+        { date: "2025-08-30", time: "19:00" },
+        { date: "2025-09-04", time: "08:00" },
+        { date: "2025-09-04", time: "10:00" },
+        { date: "2025-09-06", time: "18:00" },
       ],
       availableGroupDates: [
-        { day: "Sunday", time: "9:00", period: "AM" },
-        { day: "Tuesday", time: "2:30", period: "PM" },
-        { day: "Thursday", time: "11:15", period: "AM" }
+        { date: "2025-09-05", time: "10:00" },
+        { date: "2025-09-05", time: "17:00" },
+        { date: "2025-09-06", time: "10:00" },
       ],
       reviews: [
         {
@@ -412,19 +430,21 @@ async function addTeachers() {
       averageRating: null,
       lessonType: "Online",
       hourlyRate: 100,
+      sessions: 30,
+      earning: 5000,
       firstLessonFree: true,
       overview:
         "Afnan El Gendy is a passionate middle school English teacher who focuses on building her students’ confidence in speaking, reading, and writing. She uses interactive activities, engaging materials, and clear explanations to make learning English enjoyable and effective. Her supportive teaching style encourages students to express themselves freely.",
       availableDates: [
-        { day: "Monday", time: "5:00", period: "PM" },
-        { day: "Wednesday", time: "7:30", period: "PM" },
-        { day: "Thursday", time: "7:30", period: "PM" },
-        { day: "Friday", time: "10:00", period: "AM" }
+        { date: "2025-08-30", time: "19:00" },
+        { date: "2025-09-04", time: "08:00" },
+        { date: "2025-09-04", time: "10:00" },
+        { date: "2025-09-06", time: "18:00" },
       ],
       availableGroupDates: [
-        { day: "Wednesday", time: "4:30", period: "PM" },
-        { day: "Sunday", time: "9:45", period: "AM" },
-        { day: "Friday", time: "6:15", period: "PM" }
+        { date: "2025-09-05", time: "10:00" },
+        { date: "2025-09-05", time: "17:00" },
+        { date: "2025-09-06", time: "10:00" },
       ],
       reviews: [
         {
@@ -451,19 +471,21 @@ async function addTeachers() {
       averageRating: null,
       lessonType: "Online",
       hourlyRate: 90,
+      sessions: 20,
+      earning: 4000,
       firstLessonFree: true,
       overview:
         "Ahmed El Nagar is a dedicated high school psychology teacher who is passionate about helping students understand human behavior and mental processes. He presents psychological concepts in an engaging and relatable way, encouraging critical thinking and self-awareness. His lessons inspire curiosity and a deeper interest in the subject.",
       availableDates: [
-        { day: "Monday", time: "5:00", period: "PM" },
-        { day: "Tuesday", time: "8:00", period: "AM" },
-        { day: "Wednesday", time: "7:30", period: "PM" },
-        { day: "Friday", time: "10:00", period: "AM" }
+        { date: "2025-08-30", time: "19:00" },
+        { date: "2025-09-04", time: "08:00" },
+        { date: "2025-09-04", time: "10:00" },
+        { date: "2025-09-06", time: "18:00" },
       ],
       availableGroupDates: [
-        { day: "Tuesday", time: "11:00", period: "AM" },
-        { day: "Thursday", time: "1:45", period: "PM" },
-        { day: "Saturday", time: "10:30", period: "AM" }
+        { date: "2025-09-05", time: "10:00" },
+        { date: "2025-09-05", time: "17:00" },
+        { date: "2025-09-06", time: "10:00" },
       ],
       reviews: [
         {
@@ -490,19 +512,21 @@ async function addTeachers() {
       averageRating: null,
       lessonType: "Online",
       hourlyRate: 100,
+      sessions: 70,
+      earning: 20000,
       firstLessonFree: false,
       overview:
         "Aya Ahmed is a passionate middle school biology teacher who brings science to life through engaging explanations and practical examples. She helps students understand complex concepts by connecting them to everyday life, fostering curiosity and a love for learning about the natural world.",
       availableDates: [
-        { day: "Sunday", time: "5:00", period: "PM" },
-        { day: "Monday", time: "5:00", period: "PM" },
-        { day: "Wednesday", time: "7:30", period: "PM" },
-        { day: "Friday", time: "10:00", period: "AM" }
+        { date: "2025-08-30", time: "19:00" },
+        { date: "2025-09-04", time: "08:00" },
+        { date: "2025-09-04", time: "10:00" },
+        { date: "2025-09-06", time: "18:00" },
       ],
       availableGroupDates: [
-        { day: "Tuesday", time: "11:00", period: "AM" },
-        { day: "Thursday", time: "1:45", period: "PM" },
-        { day: "Saturday", time: "10:30", period: "AM" }
+        { date: "2025-09-05", time: "10:00" },
+        { date: "2025-09-05", time: "17:00" },
+        { date: "2025-09-06", time: "10:00" },
       ],
       reviews: [
         {
@@ -529,19 +553,21 @@ async function addTeachers() {
       averageRating: null,
       lessonType: "Online",
       hourlyRate: 85,
+      sessions: 90,
+      earning: 10000,
       firstLessonFree: true,
       overview:
         "Samira Nour El Din is a dedicated high school Italian teacher who combines language learning with cultural exploration. She uses interactive activities, conversation practice, and engaging materials to help students build strong speaking, reading, and writing skills. Her lessons make learning Italian both enjoyable and effective.",
       availableDates: [
-        { day: "Saturday", time: "5:00", period: "PM" },
-        { day: "Monday", time: "5:00", period: "PM" },
-        { day: "Wednesday", time: "7:30", period: "PM" },
-        { day: "Friday", time: "10:00", period: "AM" }
+        { date: "2025-08-30", time: "19:00" },
+        { date: "2025-09-04", time: "08:00" },
+        { date: "2025-09-04", time: "10:00" },
+        { date: "2025-09-06", time: "18:00" },
       ],
       availableGroupDates: [
-        { day: "Tuesday", time: "11:00", period: "AM" },
-        { day: "Thursday", time: "1:45", period: "PM" },
-        { day: "Saturday", time: "10:30", period: "AM" }
+        { date: "2025-09-05", time: "10:00" },
+        { date: "2025-09-05", time: "17:00" },
+        { date: "2025-09-06", time: "10:00" },
       ],
       reviews: [
         {
@@ -568,19 +594,21 @@ async function addTeachers() {
       averageRating: null,
       lessonType: "Online",
       hourlyRate: 100,
+      sessions: 70,
+      earning: 9000,
       firstLessonFree: true,
       overview:
         "Mostafa Anwar is a skilled mathematics teacher for both middle and high school levels. He is dedicated to helping students understand mathematical concepts with clarity and confidence. Using step-by-step explanations, practical examples, and problem-solving exercises, he makes math engaging and accessible for learners of all abilities.",
       availableDates: [
-        { day: "Monday", time: "5:00", period: "PM" },
-        { day: "Sunday", time: "8:00", period: "AM" },
-        { day: "Wednesday", time: "7:30", period: "PM" },
-        { day: "Friday", time: "10:00", period: "AM" }
+        { date: "2025-08-30", time: "19:00" },
+        { date: "2025-09-04", time: "08:00" },
+        { date: "2025-09-04", time: "10:00" },
+        { date: "2025-09-06", time: "18:00" },
       ],
       availableGroupDates: [
-        { day: "Monday", time: "9:30", period: "AM" },
-        { day: "Wednesday", time: "9:15", period: "AM" },
-        { day: "Sunday", time: "7:00", period: "PM" }
+        { date: "2025-09-05", time: "10:00" },
+        { date: "2025-09-05", time: "17:00" },
+        { date: "2025-09-06", time: "10:00" },
       ],
       reviews: [
         {
@@ -607,14 +635,21 @@ async function addTeachers() {
       averageRating: null,
       lessonType: "Online",
       hourlyRate: 110,
+      sessions: 100,
+      earning: 15000,
       firstLessonFree: false,
       overview:
         "Hassan El Gammal is a dedicated high school chemistry teacher who is passionate about making complex scientific concepts easy to understand. He uses clear explanations, engaging experiments, and real-life applications to help students connect with the subject and develop strong problem-solving skills.",
       availableDates: [
-        { day: "Monday", time: "5:00", period: "PM" },
-        { day: "Wednesday", time: "7:30", period: "PM" },
-        { day: "Friday", time: "10:00", period: "AM" },
-        { day: "Saturday", time: "10:00", period: "AM" },
+        { date: "2025-08-30", time: "19:00" },
+        { date: "2025-09-04", time: "08:00" },
+        { date: "2025-09-04", time: "10:00" },
+        { date: "2025-09-06", time: "18:00" },
+      ],
+      availableGroupDates: [
+        { date: "2025-09-05", time: "10:00" },
+        { date: "2025-09-05", time: "17:00" },
+        { date: "2025-09-06", time: "10:00" },
       ],
       reviews: [
         {
@@ -641,19 +676,21 @@ async function addTeachers() {
       averageRating: null,
       lessonType: "Online",
       hourlyRate: 150,
+      sessions: 100,
+      earning: 22000,
       firstLessonFree: true,
       overview:
         "Hazem Kassem is a passionate high school science teacher who is committed to making learning engaging and meaningful. He explains scientific concepts clearly and uses real-life examples, experiments, and discussions to help students understand and apply their knowledge. His teaching inspires curiosity and a love for science.",
       availableDates: [
-        { day: "Monday", time: "5:00", period: "PM" },
-        { day: "Wednesday", time: "7:30", period: "PM" },
-        { day: "Thursday", time: "8:30", period: "PM" },
-        { day: "Friday", time: "10:00", period: "AM" }
+        { date: "2025-08-30", time: "19:00" },
+        { date: "2025-09-04", time: "08:00" },
+        { date: "2025-09-04", time: "10:00" },
+        { date: "2025-09-06", time: "18:00" },
       ],
       availableGroupDates: [
-        { day: "Friday", time: "8:30", period: "PM" },
-        { day: "Saturday", time: "4:15", period: "PM" },
-        { day: "Thursday", time: "11:45", period: "AM" }
+        { date: "2025-09-05", time: "10:00" },
+        { date: "2025-09-05", time: "17:00" },
+        { date: "2025-09-06", time: "10:00" },
       ],
       reviews: [
         {
@@ -680,19 +717,21 @@ async function addTeachers() {
       averageRating: null,
       lessonType: "Online",
       hourlyRate: 80,
+      sessions: 40,
+      earning: 9000,
       firstLessonFree: true,
       overview:
         "Ayman Hafez is an experienced history teacher for both middle and high school levels. He brings the past to life through engaging storytelling, interactive discussions, and clear explanations. His lessons help students understand historical events, their causes, and their impact on the world, encouraging critical thinking and a deeper appreciation for history.",
       availableDates: [
-        { day: "Saturday", time: "8:00", period: "AM" },
-        { day: "Monday", time: "5:00", period: "PM" },
-        { day: "Wednesday", time: "7:30", period: "PM" },
-        { day: "Friday", time: "10:00", period: "AM" }
+        { date: "2025-08-30", time: "19:00" },
+        { date: "2025-09-04", time: "08:00" },
+        { date: "2025-09-04", time: "10:00" },
+        { date: "2025-09-06", time: "18:00" },
       ],
       availableGroupDates: [
-        { day: "Friday", time: "8:30", period: "PM" },
-        { day: "Saturday", time: "4:15", period: "PM" },
-        { day: "Thursday", time: "11:45", period: "AM" }
+        { date: "2025-09-05", time: "10:00" },
+        { date: "2025-09-05", time: "17:00" },
+        { date: "2025-09-06", time: "10:00" },
       ],
 
       reviews: [
@@ -720,20 +759,22 @@ async function addTeachers() {
       averageRating: null,
       lessonType: "Online",
       hourlyRate: 100,
+      sessions: 70,
+      earning: 8000,
       firstLessonFree: true,
       overview:
         "Maria El Gendy is a dedicated high school psychology teacher who is passionate about helping students explore the science of the mind and behavior. She presents psychological concepts in a clear, engaging way, encouraging self-reflection, critical thinking, and active class participation. Her lessons inspire curiosity and a deeper understanding of human nature.",
       availableDates: [
-        { day: "Saturday", time: "5:00", period: "PM" },
-        { day: "Sunday", time: "8:00", period: "AM" },
-        { day: "Wednesday", time: "7:30", period: "PM" },
-        { day: "Friday", time: "10:00", period: "AM" }
+        { date: "2025-08-30", time: "19:00" },
+        { date: "2025-09-04", time: "08:00" },
+        { date: "2025-09-04", time: "10:00" },
+        { date: "2025-09-06", time: "18:00" },
       ],
 
       availableGroupDates: [
-        { day: "Friday", time: "8:30", period: "PM" },
-        { day: "Saturday", time: "8:00", period: "AM" },
-        { day: "Thursday", time: "11:45", period: "AM" }
+        { date: "2025-09-05", time: "10:00" },
+        { date: "2025-09-05", time: "17:00" },
+        { date: "2025-09-06", time: "10:00" },
       ],
       reviews: [
         {
@@ -760,20 +801,22 @@ async function addTeachers() {
       averageRating: null,
       lessonType: "Online",
       hourlyRate: 90,
+      sessions: 50,
+      earning: 7000,
       firstLessonFree: true,
       overview:
         "Omar El Attar is a passionate middle school geography teacher who makes learning about the world exciting and accessible. He uses maps, visuals, and real-life examples to help students understand geographical concepts and connect them to everyday life. His engaging teaching style encourages curiosity and exploration.",
       availableDates: [
-        { day: "Saturday", time: "5:00", period: "PM" },
-        { day: "Sunday", time: "8:00", period: "AM" },
-        { day: "Wednesday", time: "7:30", period: "PM" },
-        { day: "Friday", time: "10:00", period: "AM" }
+        { date: "2025-08-30", time: "19:00" },
+        { date: "2025-09-04", time: "08:00" },
+        { date: "2025-09-04", time: "10:00" },
+        { date: "2025-09-06", time: "18:00" },
       ],
 
       availableGroupDates: [
-        { day: "Friday", time: "8:30", period: "PM" },
-        { day: "Saturday", time: "4:15", period: "PM" },
-        { day: "Thursday", time: "11:45", period: "AM" }
+        { date: "2025-09-05", time: "10:00" },
+        { date: "2025-09-05", time: "17:00" },
+        { date: "2025-09-06", time: "10:00" },
       ],
       reviews: [
         {
@@ -793,7 +836,7 @@ async function addTeachers() {
   ];
   teachers.forEach((teacher, index) => {
     const teacherRef = doc(db, "teachers", `teacher_${index + 1}`);
-    batch.set(teacherRef, teacher);
+    batch.set(teacherRef, teacher, {merge: true});
   });
 
   try {
@@ -805,3 +848,10 @@ async function addTeachers() {
 }
 
 addTeachers();
+
+//  availableDates: [
+//       { day: "Saturday", time: "5:00", period: "PM" },
+//       { day: "Sunday", time: "8:00", period: "AM" },
+//       { day: "Wednesday", time: "7:30", period: "PM" },
+//       { day: "Friday", time: "10:00", period: "AM" }
+//     ],

@@ -1,3 +1,4 @@
+
 import visionImg from "../../assets/images/vision.jpg";
 
 export default function AboutUs() {

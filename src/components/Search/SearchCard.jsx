@@ -1,3 +1,8 @@
+
+
+import { NavLink, useNavigate } from "react-router-dom";
+
+
 import RatingStars from "../RatingStars/RatingStars";
 import BadgeFree from "../BadgeFree/BadgeFree"
 import { Link } from "react-router-dom";
@@ -49,6 +54,7 @@ export default function SearchCard({ teacher }) {
             </p>
           </div>
 
+
           <div className="card-actions mt-4">
             <Link to={`/tutor/${teacher.id}`}>
               <button className="btn btn-outline block border-[var(--secondary-color)] text-[var(--secondary-color)] w-fit hover:bg-[var(--secondary-color)] hover:text-white">
@@ -61,6 +67,7 @@ export default function SearchCard({ teacher }) {
               </button>
             </Link>
           </div>
+
         </div>
       </div>
     );

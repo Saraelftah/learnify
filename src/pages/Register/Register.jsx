@@ -39,29 +39,32 @@ function Register() {
       });
       // make newteachers collection
       if (role === "teacher") {
-        await setDoc(doc(db, "newTeachers", uid), {
-
-          ownerId: uid,
-          name: username,
-          overview: "",
-          subject: "",
-          Image: "",
-          gradeLevel: "",
-          lessonType: "Online",
-          firstLessonFree: false,
-          hourlyRate: null,
-          availableDates: [],
-          approved: false,
-          submitted: false,
-          createdAt: serverTimestamp(), 
-        }, {merge: true});
-
-      } else{
-        await setDoc(doc(db, "students", uid),{
+        await setDoc(
+          doc(db, "newTeachers", uid),
+          {
+            ownerId: uid,
+            name: username,
+            overview: "",
+            subject: "",
+            Image: "",
+            gradeLevel: "",
+            lessonType: "Online",
+            firstLessonFree: false,
+            hourlyRate: null,
+            availableDates: [],
+            availablGroupeDates: [],
+            approved: false,
+            submitted: false,
+            createdAt: serverTimestamp(),
+          },
+          { merge: true }
+        );
+      } else {
+        await setDoc(doc(db, "students", uid), {
           studentId: uid,
           name: username,
-          createdAt: serverTimestamp(), 
-        })
+          // createdAt: serverTimestamp(),
+        });
       }
       toast.success("Registered Successfully!");
       navigate("/login");
@@ -80,35 +83,57 @@ function Register() {
           <Logo />
           <form
             onSubmit={handleSubmit(onSubmit)}
-            className="flex flex-col items-center mb-5 w-full"
+            className="flex flex-col items-center mb-5 w-full px-3"
           >
-            <h2 className="text-xl lg:text-3xl md:text-2xl mb-3 font-bold text-center">
+            <h2 className="text-lg lg:text-3xl md:text-2xl md:mb-3 font-bold text-center">
               Hey, We are glad you <br></br> chose Learnify
             </h2>
             <div className="divider w-full lg:w-5/6 mx-auto mb-5">
               Lets get started
             </div>
 
-            <div className="flex flex-col md:flex-row justify-between w-full gap-5">
-
+            <div className="flex flex-col md:flex-row justify-between w-full md:gap-5 gap-3 mb-3 md:mb-4">
               {/* username */}
-              <FormInput
-                label="Name"
-                type="text"
-                placeholder="Enter your name..."
-                name="username"
-                register={register}
-                rules={{
-                  required: "Username is required",
-                  minLength: {
-                    value: 6,
-                    message: "Username must be at least 6 characters",
-                  },
-                }}
-                error={errors.username}
-              />
+              <div className="lg:w-3/6 md:w-2/4">
+                <FormInput
+                  label="Name"
+                  type="text"
+                  placeholder="Enter your name..."
+                  name="username"
+                  register={register}
+                  rules={{
+                    required: "Username is required",
+                    minLength: {
+                      value: 6,
+                      message: "Username must be at least 6 characters",
+                    },
+                  }}
+                  error={errors.username}
+                />
+              </div>
 
-              {/* email */}
+              {/* Phone*/}
+              <div className="lg:w-3/6 md:w-2/4">
+                <FormInput
+                  label="Phone"
+                  type="tel"
+                  placeholder="Enter your phone number..."
+                  name="phone"
+                  register={register}
+                  rules={{
+                    required: "Phone is required",
+                    pattern: {
+                      value: /^[0-9]{10,12}$/,
+                      message: "Phone number must contain only digits",
+                    },
+                  }}
+                  error={errors.phone}
+                />
+              </div>
+            </div>
+
+            {/* email */}
+            <div className="w-full mb-3 md:mb-4">
               <FormInput
                 label="Email"
                 type="email"
@@ -126,69 +151,54 @@ function Register() {
               />
             </div>
 
-
-            <div className="flex flex-col md:flex-row justify-between w-full gap-5">
-
+            <div className="flex flex-col md:flex-row justify-between w-full md:gap-5 gap-3">
               {/* Password */}
-              <FormInput
-                label="Password"
-                type="password"
-                placeholder="Enter your password..."
-                name="password"
-                register={register}
-                rules={{
-                  required: "Password is required",
-                  minLength: {
-                    value: 6,
-                    message: "Password must be at least 6 characters",
-                  },
-                  pattern: {
-                    value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).+$/,
-                    message:
-                      "Password must contain uppercase, lowercase, number, and special character",
-                  },
-                }}
-                error={errors.password}
-              />
+              <div className="lg:w-3/6 md:w-2/4">
+                <FormInput
+                  label="Password"
+                  type="password"
+                  placeholder="Enter your password..."
+                  name="password"
+                  register={register}
+                  rules={{
+                    required: "Password is required",
+                    minLength: {
+                      value: 6,
+                      message: "Password must be at least 6 characters",
+                    },
+                    pattern: {
+                      value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).+$/,
+                      message:
+                        "Password must contain uppercase, lowercase, number, and special character",
+                    },
+                  }}
+                  error={errors.password}
+                />
+              </div>
 
               {/* confirm password */}
-              <FormInput
-                label="Confirm Password"
-                type="password"
-                placeholder="Confirm your password..."
-                name="confirmPassword"
-                register={register}
-                rules={{
-                  required: "Confirmation is required",
-                  validate: (value) =>
-                    value === watch("password") || "Password do not match",
-                }}
-                error={errors.confirmPassword}
-              />
+              <div className="lg:w-3/6 md:w-2/4">
+                <FormInput
+                  label="Confirm Password"
+                  type="password"
+                  placeholder="Confirm your password..."
+                  name="confirmPassword"
+                  register={register}
+                  rules={{
+                    required: "Confirmation is required",
+                    validate: (value) =>
+                      value === watch("password") || "Password do not match",
+                  }}
+                  error={errors.confirmPassword}
+                />
+              </div>
             </div>
-
-            {/* Phone*/}
-            <FormInput
-              label="Phone"
-              type="tel"
-              placeholder="Enter your phone number..."
-              name="phone"
-              register={register}
-              rules={{
-                required: "Phone is required",
-                pattern: {
-                  value: /^[0-9]{10,12}$/,
-                  message: "Phone number must contain only digits",
-                },
-              }}
-              error={errors.phone}
-            />
 
             {/* submit button */}
             <SignBtn label="Sign Up" />
           </form>
 
-          <div className="mb-5">
+          <div className="md:mb-5">
             <p className="text-center">
               Already have an account?{" "}
               <NavLink to="/login">
@@ -198,7 +208,7 @@ function Register() {
             </p>
           </div>
 
-          <div className="divider w-full lg:w-5/6 mx-auto mb-9">
+          <div className="divider w-full lg:w-5/6 mx-auto md:mb-9">
             <p className="text-sm md:text-lg">
               <b>Signup </b>With Others
             </p>

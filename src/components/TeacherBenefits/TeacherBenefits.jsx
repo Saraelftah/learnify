@@ -1,4 +1,3 @@
-
 function TeacherBenefits({iconClass, title, description}) {
   return (
     <>
@@ -12,5 +11,4 @@ function TeacherBenefits({iconClass, title, description}) {
     </>
   )
 }
-
 export default TeacherBenefits

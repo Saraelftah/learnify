@@ -39,6 +39,7 @@ const Contact = () => {
   return (
     <div className="contact-page pt-[100px] min-h-screen capitalize">
       {/* Hero Section */}
+
       <section className="hero-section" data-aos="fade-down">
         <div className="container mx-auto text-center py-5">
           <h3 className="text-[length:var(--title-font-size)] text-[var(--dark-color)] font-bold mb-6">Get In Touch</h3>
@@ -58,6 +59,7 @@ const Contact = () => {
 
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-2">
               <h2 className="text-lg font-bold text-[var(--dark-color)] mb-8">
+
               Send us a Message
             </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
