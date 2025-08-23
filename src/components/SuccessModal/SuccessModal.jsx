@@ -1,6 +1,6 @@
-function SuccessModal({setShowModal}) {
+function SuccessModal({ setShowModal }) {
   return (
-       <dialog id="success_modal" className="modal modal-open">
+    <dialog id="success_modal" className="modal modal-open">
       <div className="modal-box text-center">
         <h3 className="font-bold text-lg text-green-600">
           Payment Successful! 🎉
@@ -15,7 +15,7 @@ function SuccessModal({setShowModal}) {
         </div>
       </div>
     </dialog>
-  )
+  );
 }
 
-export default SuccessModal
+export default SuccessModal;

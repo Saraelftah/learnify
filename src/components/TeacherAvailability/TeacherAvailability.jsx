@@ -1,72 +1,81 @@
-import React from "react";
-import { motion } from "framer-motion";
+const TeacherAvailability = ({ availableDates, availableGroupDates }) => {
+  const formatDate = (dateString, timeString) => {
+    const dateTimeString = `${dateString}T${timeString}:00`;
+    const dateObj = new Date(dateTimeString);
 
-const TeacherAvailability = ({ teacher }) => {
-  const formatTime = (time, period) => {
-    return `${time} ${period}`;
+    if (isNaN(dateObj.getTime())) {
+      return "Invalid Date";
+    }
+    const dayOfWeek = dateObj.toLocaleDateString("en-US", { weekday: "long" });
+    const dayOfMonth = dateObj.getDate();
+    const month = dateObj.toLocaleDateString("en-US", { month: "short" });
+    const time = dateObj.toLocaleTimeString("en-US", {
+      hour: "numeric",
+      minute: "numeric",
+      hour12: true,
+    });
+
+    return `${dayOfWeek}, ${dayOfMonth} ${month} - ${time}`;
   };
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
-      className="space-y-6"
-    >
+    <div className="space-y-6">
       <h2 className="text-xl font-bold text-[var(--dark-color)] mb-4">
         Available Times
       </h2>
-      
-      
-      {teacher.availableDates?.length > 0 && (
-        <div className="mb-6">
-          <h3 className="text-lg font-semibold text-[var(--dark-color)] mb-3">
-            Individual Lessons
-          </h3>
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-            {teacher.availableDates.map((slot, index) => (
-              <motion.div
+      {/* Individual Lessons */}
+      {availableDates?.length > 0 && (
+        <div className="mb-10">
+          <div className="divider">
+            <div className="flex gap-2">
+              <h3 className="text-lg font-semibold text-[var(--dark-color)] mb-3">
+                Individual Lessons
+              </h3>
+              <i className="fa-solid fa-calendar-days text-2xl text-[var(--primary-color)]"></i>
+            </div>
+          </div>
+
+          {/* grid grid-cols-2 sm:grid-cols-3 */}
+          <div className="flex flex-wrap gap-3">
+            {availableDates.map((slot, index) => (
+              <div
                 key={index}
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: index * 0.1 }}
-                className="bg-[var(--light-background)] text-[var(--primary-color)] py-3 px-4 rounded-lg text-center text-sm font-medium border border-[var(--primary-color)] hover:bg-[var(--primary-color)] hover:text-white transition-colors"
+                className="bg-[var(--light-background)] text-[var(--primary-color)] py-3 px-4 rounded-lg text-center text-sm font-medium border border-[var(--primary-color)] hover:bg-[var(--primary-color)] hover:text-white transition-colors duration-500"
               >
-                <div className="font-bold">{slot.day}</div>
-                <div className="text-xs opacity-80">
-                  {formatTime(slot.time, slot.period)}
-                </div>
-              </motion.div>
+                {formatDate(slot.date, slot.time)}
+              </div>
             ))}
           </div>
         </div>
       )}
 
       {/* Group Lessons */}
-      {teacher.availableGroupDates?.length > 0 && (
+      {availableGroupDates?.length > 0 && (
         <div>
-          <h3 className="text-lg font-semibold text-[var(--dark-color)] mb-3">
-            Group Lessons
-          </h3>
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-            {teacher.availableGroupDates.map((slot, index) => (
-              <motion.div
+        
+            <div className="divider">
+            <div className="flex gap-2">
+              <h3 className="text-lg font-semibold text-[var(--dark-color)] mb-3">
+                Group Lessons
+              </h3>
+              <i className="fa-solid fa-calendar-days text-2xl text-[var(--primary-color)]"></i>
+              <i class="fa-solid fa-people-group text-2xl text-[var(--primary-color)]"></i>
+            </div>
+          </div>
+
+          <div className="flex flex-wrap gap-3">
+            {availableGroupDates.map((slot, index) => (
+              <div
                 key={index}
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: index * 0.1 }}
-                className="bg-[var(--light-background)] text-[var(--primary-color)] py-3 px-4 rounded-lg text-center text-sm font-medium border border-[var(--primary-color)] hover:bg-[var(--primary-color)] hover:text-white transition-colors"
+                className="bg-[var(--light-background)] text-[var(--primary-color)] py-3 px-4 rounded-lg text-center text-sm font-medium border border-[var(--primary-color)] hover:bg-[var(--primary-color)] hover:text-white transition-colors duration-500"
               >
-                <div className="font-bold">{slot.day}</div>
-                <div className="text-xs opacity-80">
-                  {formatTime(slot.time, slot.period)}
-                </div>
-              </motion.div>
+                {formatDate(slot.date, slot.time)}
+              </div>
             ))}
           </div>
         </div>
       )}
-    </motion.div>
+    </div>
   );
 };
 
