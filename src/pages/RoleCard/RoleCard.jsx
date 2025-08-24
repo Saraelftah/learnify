@@ -5,8 +5,8 @@ function RoleCard({ src, label, statment, onSelect }) {
   return (
     <>
       <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-        <div className="card bg-base-100 lg:w-96 md:w-70 sm:w-60 shadow-sm">
-          <figure className="px-10 pt-10 w-80 mx-auto">
+        <div className="card bg-base-100 lg:w-96 md:w-70 sm:w-full shadow-sm">
+          <figure className="px-10 pt-10 w-70 mx-auto">
             <img src={src} alt="role" className="rounded-xl" />
           </figure>
           <div className="card-body items-center text-center">

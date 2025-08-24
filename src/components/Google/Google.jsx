@@ -1,15 +1,17 @@
 import { signInWithPopup } from "firebase/auth";
 import google from "../../assets/images/google-color.svg";
 import { auth, googleProvider } from "../../../firebase";
-import { Navigate, NavLink } from "react-router-dom";
+import {useNavigate, NavLink } from "react-router-dom";
 import toast from "react-hot-toast";
 
 export default function Google() {
+  const navigate = useNavigate();
+  
   const signUpWithGoogle = async () => {
     try {
       await signInWithPopup(auth, googleProvider);
       toast.success("Logged in with Google!");
-      Navigate("/");
+      navigate("/");
     } catch (err) {
       console.error(err);
     }

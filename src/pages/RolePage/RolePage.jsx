@@ -25,7 +25,7 @@ function RolePage() {
 
         </h1>
 
-        <div className="flex items-center justify-center gap-4 md:gap-10">
+        <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-10">
           {/* Teacher Card */}
           <RoleCard
             src={teacher}

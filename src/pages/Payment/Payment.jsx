@@ -1,15 +1,15 @@
-import { useCallback, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
 import { useParams } from "react-router-dom";
 import ConfirmPopup from "../../components/ConfirmPopup/ConfirmPopup";
 import { bookAppointment } from "../../store/StudentsSlice";
-import paymentImg from "../../assets/images/payment.png";
 import DetailsStep from "../../components/DetailsStep/DetailsStep";
 import BookStep from "../../components/BookStep/BookStep";
 import PaymentStep from "../../components/PaymentStep/PaymentStep";
 import Stepper from "../../components/Stepper/Stepper";
 import SuccessModal from "../../components/SuccessModal/SuccessModal";
+import SummaryCard from "../../components/SummaryCard/SummaryCard";
 
 const steps = ["Book", "Your Details", "Payment"];
 
@@ -28,6 +28,7 @@ function Payment() {
     setValue,
     formState: { errors },
     trigger,
+    reset,
   } = useForm();
 
   // get teachers from redux
@@ -40,6 +41,14 @@ function Payment() {
 
   const sessionType = watch("sessionType");
   const selectedDate = watch("selectedDate");
+  const selectedTime = watch("selectedTime");
+  // session price
+  const sessionPrice = useMemo(() => {
+    if (!teacher || !sessionType) return 0;
+    return sessionType === "Group Session"
+      ? teacher.hourlyRate * 0.8
+      : teacher.hourlyRate;
+  }, [sessionType, teacher]);
 
   // Filter available times based on the selected date
   const availableTimes = useMemo(() => {
@@ -54,6 +63,17 @@ function Payment() {
     return selectedDayTimes || [];
   }, [selectedDate, sessionType, teacher]);
 
+  useEffect(() => {
+    if (currentUser) {
+      reset({
+        firstName: currentUser.name.split(" ")[0] || "",
+        lastName: currentUser.name.split(" ")[1] || "",
+        email: currentUser.email || "",
+        mobile: currentUser.phone || "",
+      });
+    }
+  }, [currentUser, reset]);
+
   const handleNext = async () => {
     const stepFields = {
       0: ["sessionType", "selectedDate", "selectedTime"],
@@ -63,7 +83,11 @@ function Payment() {
 
     const isValid = await trigger(stepFields[activeStep]);
     if (isValid) {
-      setActiveStep((prev) => prev + 1);
+      if (activeStep < steps.length - 1) {
+        setActiveStep((prev) => prev + 1);
+      } else {
+        handleSubmit(onSubmit)();
+      }
     }
   };
 
@@ -76,7 +100,7 @@ function Payment() {
     const jistsiLink = `https://meet.jit.si/${roomName}`;
 
     const bookingDetails = {
-      id: Date.now(), // unique id
+      id: Date.now(),
       teacherId: teacherId,
       teacherImage: teacher?.Image,
       teacherName: teacher?.name,
@@ -133,7 +157,7 @@ function Payment() {
     switch (activeStep) {
       case 0:
         return (
-          <BookStep 
+          <BookStep
             teacher={teacher}
             sessionType={sessionType}
             availableDates={teacher?.availableDates}
@@ -142,25 +166,20 @@ function Payment() {
             register={register}
             errors={errors}
             setValue={setValue}
-            watch={watch} 
+            watch={watch}
           />
-          
         );
       case 1:
-        return (
-          <DetailsStep register={register} errors={errors}/>
-        );
+        return <DetailsStep register={register} errors={errors} />;
       case 2:
-        return (
-          <PaymentStep register={register} errors={errors}/>
-        );
+        return <PaymentStep register={register} errors={errors} />;
       default:
         return null;
     }
   };
 
   return (
-    <div className=" p-4 mt-30">
+    <div className=" p-4 mt-20">
       <div className="container">
         {showPopup && (
           <ConfirmPopup
@@ -172,48 +191,55 @@ function Payment() {
           />
         )}
         {/* DaisyUI Success Modal */}
-        {showModal && (
-           <SuccessModal setShowModal={setShowModal}/>
-        )}
+        {showModal && <SuccessModal setShowModal={setShowModal} />}
+        {/* grid grid-cols-1 lg:grid-cols-5 */}
 
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 shadow-[var(--box-shadow)] p-10 capitalize rounded-lg bg-[var(--card-background)] items-center">
-          {/* Stepper */}
-          <div className="col-span-3">
-         <Stepper steps={steps} activeStep={activeStep}/>
+        <div className="flex flex-col gap-10 lg:flex-row justify-between lg:gap-5 shadow-[var(--box-shadow)] p-4 lg:p-10 capitalize rounded-lg bg-[var(--card-background)] lg:mt-20 mt-10">
+
+          <div className="lg:w-4/6 w-full flex flex-col justify-between gap-5 ">
+            {/* Stepper */}
+            <Stepper steps={steps} activeStep={activeStep} />
 
             <form onSubmit={handleSubmit(onSubmit)}>
               {renderStep()}
               {/* Navigation Buttons */}
-              <div className="flex justify-between mt-6">
+              <div className="flex justify-between mt-6 px-8">
                 <button
                   type="button"
-                  className="btn border-[var(--secondary-color)] text-[var(--secondary-color)] disabled:border-[var(--background-color)] disabled:text-[var(--background-color)]"
+                  className="btn border-[var(--secondary-color)] text-[var(--secondary-color)] disabled:border-[var(--background-color)] disabled:text-[var(--background-color)]
+                  btn-sm md:btn-md"
                   onClick={handleBack}
                   disabled={activeStep === 0}
                 >
-                  Back
+                  <i class="fa-solid fa-chevron-left"></i> Back
                 </button>
-                {activeStep === steps.length - 1 ? (
-                  <button
-                    type="submit"
-                    className="btn bg-[var(--secondary-color)] border-[var(--secondary-color)] text-[var(--background-color)]"
-                  >
-                    Finish
-                  </button>
-                ) : (
-                  <button
-                    type="button"
-                    className="btn bg-[var(--secondary-color)] border-[var(--secondary-color)] text-[var(--background-color)]"
-                    onClick={handleNext}
-                  >
-                    Next
-                  </button>
-                )}
+                <button
+                  type="button"
+                  className="btn bg-[var(--secondary-color)] border-[var(--secondary-color)] text-[var(--background-color)] btn-sm md:btn-md"
+                  onClick={handleNext}
+                >
+                  {activeStep === steps.length - 1 ? (
+                    <>
+                    Finish <i className="fa-solid fa-flag text-white"></i>
+                    </>
+                  ) : (
+                    <>
+                      Next <i class="fa-solid fa-chevron-right"></i>
+                    </>
+                  )}
+                </button>
               </div>
             </form>
           </div>
-          <div className="w-90">
-            <img src={paymentImg} alt="payment" />
+
+          <div className="lg:w-1/4">
+            <SummaryCard
+              teacher={teacher}
+              sessionType={sessionType}
+              selectedDate={selectedDate}
+              selectedTime={selectedTime}
+              sessionPrice={sessionPrice}
+            />
           </div>
         </div>
       </div>
