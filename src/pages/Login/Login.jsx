@@ -20,6 +20,7 @@ function Login() {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm();
 
@@ -49,6 +50,7 @@ function Login() {
       dispatch(setCurrentUser(userObject));
 
       toast.success("Logged in successfully!");
+       reset();
 
       // navigate as role
       if (role === "admin") navigate("/admin");

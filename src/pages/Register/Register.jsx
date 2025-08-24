@@ -19,6 +19,7 @@ function Register() {
     register,
     handleSubmit,
     watch,
+    reset,
     formState: { errors },
   } = useForm();
 
@@ -67,6 +68,7 @@ function Register() {
         });
       }
       toast.success("Registered Successfully!");
+      reset();
       navigate("/login");
     } catch (err) {
       console.error(err);

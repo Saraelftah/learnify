@@ -12,7 +12,7 @@ function TeacherReview({ reviews }) {
   };
 
   return (
-    <div className="mt-9 p-2 rounded-2xl shadow-md">
+    <div className="mt-9 p-4 rounded-2xl shadow-md">
       <h3 className="text-xl font-bold mb-2 text-shadow-md">
         Reviews{" "}
         <i className="fa-solid fa-star text-[var(--stars-color)]"></i>{" "}
