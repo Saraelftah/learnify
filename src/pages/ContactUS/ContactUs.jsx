@@ -54,7 +54,7 @@ const Contact = () => {
       <section className="contact-form py-10 bg-[var(--background-color)]">
         <div className="container">
           
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 shadow-[var(--box-shadow)] p-5 rounded-[var(--border-radius)] items-center overflow-x-hidden" data-aos="zoom-in">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 bg-[var(--card-background)] shadow-[var(--box-shadow)] p-5 rounded-[var(--border-radius)] items-center overflow-x-hidden" data-aos="zoom-in">
           <div className="order-2 lg:order-1">
 
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-2">

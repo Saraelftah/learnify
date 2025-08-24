@@ -51,8 +51,10 @@ function Home() {
           <Services />
           
         </div>
+        {/* reviews section */}
+        <HomeReview teachers={teachers} />
           {/* bcome a tutor section */}
-          <section className="become-atutor !bg-[var(--light-background)] py-[100px] overflow-x-hidden"
+          <section className="become-atutor !bg-[var(--light-background)] py-[100px] overflow-x-hidden mb-[50px]"
             
           >
             <div className="container">
@@ -87,8 +89,7 @@ function Home() {
       </section>
 
 
-      {/* reviews section */}
-      <HomeReview teachers={teachers} />
+      
     
     </>
   );

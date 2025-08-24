@@ -5,7 +5,7 @@ const Services = () => {
 
   return (
     <section className="services pb-[50px] capitalize overflow-x-hidden">
-      <div className="container mx-auto ">
+      <div className="">
         <div className="w-1/2 m-auto text-center mb-5">
           <h3 className="text-[var(--dark-color)] text-[length:var(--title-font-size)] font-bold">
             Our Services
@@ -35,7 +35,7 @@ const Services = () => {
             </div>
             
             <div className="services-item grid grid-cols-1 lg:grid-cols-3 gap-5 mt-5" data-aos="fade-left">
-                <div className="col-span-2 bg-[var(--light-secondary-color)] rounded-[var(--border-radius)] p-5">
+                <div className="col-span-2 bg-[var(--light-background)] rounded-[var(--border-radius)] p-5">
                   <h3 className="text-[var(--dark-color)] font-bold text-xl">group sessions</h3>
                   <p className="text-[var(--text-color)] py-3">Learn alongside peers in interactive group sessions that encourage collaboration and discussion.</p>
                   <ul className="features">

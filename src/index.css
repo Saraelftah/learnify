@@ -4,35 +4,7 @@
 
 
 
-:root {
-  /* colors */
-  --background-color: #FFFBFA;
-  --primary-color: #4d7ec1; /*border - icons - special text - highlights*/
-  --light-primary-color: #a0cafa;
-  --secondary-color: #f9b198; /*buttons*/
-  --light-secondary-color: #faddcf; /*light background*/
-  --light-background: #d1e3f7;
-  --dark-color: #0f203c; /* for titles */
-  --card-background: #fff;
-  --footer-background: #0f203c;
-  --stars-color: #ffb500;
-  --text-color: #7e7d7d; /*paragraphs*/
-  --main-text-color: #585858;
-  --error-color: #e86366;
-  --success-color: #76bfa4;
-  --admin-bg-color: #f2f3f4;
-  --admin-even: #effefe;
-  --admin-odd: #f8f7ff;
-  --hr-color: #f0f0f0;
-  --hr-footer: #2b466b;
-  --border-radius: 10px;
-  --box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
 
-  /* text */
-  --title-font-size: 30px;
-  --font-size-xs: 14px;
-  --line-height: 1.7;
-}
 
 :root {
   /* colors */
@@ -64,10 +36,10 @@
   --line-height: 1.7;
 }
 .dark {
-  --background-color: #1f1f1f;
-  --light-background: #242424;
+  --background-color: #232323;
+  --light-background: #2a2a2a;
   --light-secondary-color: #242424;
-  --card-background: #242424;
+  --card-background: #292929;
   --text-color: #a9a8a8;
   --main-text-color: #a9a8a8;
   --dark-color: #1d9190;
@@ -75,7 +47,7 @@
   --admin-bg-color: #2f2e2e;
   --admin-even: #383737;
   --admin-odd: #323232;
-  --footer-background: #1a1a1a;
+  --footer-background: #222222;
   --hr-color: #252525;
   --hr-footer: #323232;
   --box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4), 0 0 1px rgba(0, 0, 0, 0.6);

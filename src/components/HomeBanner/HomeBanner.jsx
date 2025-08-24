@@ -101,8 +101,8 @@ function HomeBanner() {
                 </div>
               </div>
             </div>
-            <div className=" w-[350px] lg:w-1/2 order-1 lg:order-2">
-              <div className="banner-img  justify-self-center w-70 lg:w-[350px] rounded-full relative">
+            <div className=" w-[380px] lg:w-1/2 order-1 lg:order-2">
+              <div className="banner-img  justify-self-center w-70 lg:w-[380px] rounded-full relative">
                 <img
                   className="w-100 object-cover"
                   src={bannerImg}
