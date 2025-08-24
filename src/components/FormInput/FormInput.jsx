@@ -5,7 +5,7 @@ function FormInput({ label, type, placeholder, register, name, rules, error, min
           <input
             type={type}
             placeholder={placeholder}
-            className="input input-md lg:input-lg w-full rounded-xl shadow-md
+            className="input input-sm md:input-md lg:input-lg w-full rounded-xl shadow-md
                         focus:ring-1 focus:ring-[var(--light-secondary-color)]
                         focus:outline focus:outline-[var(--light-secondary-color)]
                         focus:border-[var(--light-secondary-color)]
@@ -20,9 +20,9 @@ function FormInput({ label, type, placeholder, register, name, rules, error, min
           </span>
         </label>
         {error && (
-          <div className="text-red-500 text-sm lg:text-xl">
+          <div className="text-red-500 text-xs md:text-sm mt-1">
             <i className="fa-solid fa-circle-exclamation"></i>
-            <span className="text-sm"> {error.message} </span>
+            <span> {error.message} </span>
           </div>
         )}
     </>

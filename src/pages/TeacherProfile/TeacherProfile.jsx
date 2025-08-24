@@ -2,11 +2,6 @@ import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useParams} from "react-router-dom";
 import Loader from "../../components/Loader/Loader";
-import TeacherHeader from "../../components/TeacherHeader/TeacherHeader";
-import TeacherSidebar from "../../components/TeacherSidebar/TeacherSidebar";
-import TeacherAbout from "../../components/TeacherAbout/TeacherAbout";
-import TeacherAvailability from "../../components/TeacherAvailability/TeacherAvailability";
-import TeacherBenefits from "../../components/TeacherBenefits/TeacherBenefits";
 import TeacherDetails from "../../components/TeacherDetails/TeacherDetails";
 
 

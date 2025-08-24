@@ -4,7 +4,7 @@ const TeacherAvailability = ({ availableDates, availableGroupDates }) => {
     const dateObj = new Date(dateTimeString);
 
     if (isNaN(dateObj.getTime())) {
-      return "Invalid Date";
+      return "No Date";
     }
     const dayOfWeek = dateObj.toLocaleDateString("en-US", { weekday: "long" });
     const dayOfMonth = dateObj.getDate();
