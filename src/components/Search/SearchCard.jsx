@@ -1,8 +1,5 @@
 
 
-import { NavLink, useNavigate } from "react-router-dom";
-
-
 import RatingStars from "../RatingStars/RatingStars";
 import BadgeFree from "../BadgeFree/BadgeFree"
 import { Link } from "react-router-dom";
@@ -11,7 +8,7 @@ import { Link } from "react-router-dom";
 export default function SearchCard({ teacher }) {
 
     return (
-      <div className="bg-[var(--card-color)] rounded-[var(--border-radius)] flex flex-col shadow-[var(--box-shadow)] hover:shadow-2xl transition-all duration-300"
+      <div className="bg-[var(--card-background)] rounded-[var(--border-radius)] flex flex-col shadow-[var(--box-shadow)] hover:shadow-2xl transition-all duration-300"
       data-aos="fade-up"
       >
         <figure className="relative">

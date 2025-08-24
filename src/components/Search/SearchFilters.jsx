@@ -37,7 +37,7 @@ export default function SearchInputs({
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-9 gap-5 mb-10 mt-[-70px] w-[80vw] m-auto bg-[var(--card-background)] px-5 py-7 rounded-3xl shadow-[var(--box-shadow)]"
-    data-aos="fade-up"
+    data-aos="fade-down"
     >
         {/* Search by name */}
         <div className="form-control md:col-span-4 relative">

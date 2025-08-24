@@ -41,7 +41,7 @@ function HomeReview({teachers}) {
   return (
     <>
         {/* reviews section */}
-      <section className="reviews my-[50px] py-[50px] relative " data-aos="zoom-in">
+      <section className="reviews my-[50px] py-[50px] relative " data-aos="fade-up">
         <div className="container">
         <h3 className="text-[var(--dark-color)] text-[length:var(--title-font-size)] font-bold capitalize mb-2">testiomonials</h3>
         <p>what students say about us?</p>

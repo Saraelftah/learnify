@@ -26,7 +26,7 @@ function NavCurrentUser() {
                   role="button"
                   className="btn btn-ghost btn-circle avatar"
                 >
-                  <div className="image-placeholder w-10 h-10 rounded-full bg-[var(--primary-color)] text-white !flex justify-center items-center">
+                  <div className="image-placeholder w-10 h-10 rounded-full bg-[var(--secondary-color)] text-white !flex justify-center items-center">
                         <h3 className="text-md">
                             {user?.name?.split(" ").map(name => name.charAt(0).toUpperCase()).join('')}
                         </h3>
@@ -55,7 +55,7 @@ function NavCurrentUser() {
                   role="button"
                   className="btn btn-ghost btn-circle"
                 >
-                  <div className="image-placeholder w-10 h-10 rounded-full bg-[var(--primary-color)] text-white !flex justify-center items-center ">
+                  <div className="image-placeholder w-10 h-10 rounded-full bg-[var(--secondary-color)] text-white !flex justify-center items-center ">
                     
                         <h3 className="text-md">
                             {user?.name?.split(" ").map(name => name.charAt(0).toUpperCase()).join('')}
@@ -93,7 +93,7 @@ function NavCurrentUser() {
                       />
                     </div>
                   ) : (
-                    <div className="image-placeholder w-10 h-10 rounded-full bg-[var(--primary-color)] text-white !flex justify-center items-center">
+                    <div className="image-placeholder w-10 h-10 rounded-full bg-[var(--secondary-color)] text-white !flex justify-center items-center">
                         <h3 className="text-md">
                             {currentTeacher?.name?.split(" ").map(name => name.charAt(0).toUpperCase()).join('')}
                         </h3>

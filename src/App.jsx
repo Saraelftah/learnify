@@ -6,7 +6,6 @@ import Network from "./network/Network";
 import { useDispatch } from "react-redux";
 import { initializeAuthListener } from "./services/auth";
 
-
 function App() {
   //It ensures that the Redux store's currentUser is always synchronized with the user's Firebase session(profile icon navbar)
   const dispatch = useDispatch();

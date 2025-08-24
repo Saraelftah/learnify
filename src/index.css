@@ -36,10 +36,10 @@
   --line-height: 1.7;
 }
 .dark {
-  --background-color: #1f1f1f;
-  --light-background: #242424;
+  --background-color: #232323;
+  --light-background: #2a2a2a;
   --light-secondary-color: #242424;
-  --card-background: #242424;
+  --card-background: #292929;
   --text-color: #a9a8a8;
   --main-text-color: #a9a8a8;
   --dark-color: #1d9190;
@@ -47,7 +47,7 @@
   --admin-bg-color: #2f2e2e;
   --admin-even: #383737;
   --admin-odd: #323232;
-  --footer-background: #1a1a1a;
+  --footer-background: #222222;
   --hr-color: #252525;
   --hr-footer: #323232;
   --box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4), 0 0 1px rgba(0, 0, 0, 0.6);
