@@ -2,12 +2,13 @@ import RatingStars from "../RatingStars/RatingStars";
 import video from "../../assets/images/video-camera (2).png";
 import TeacherAvailability from "../TeacherAvailability/TeacherAvailability";
 import TeacherReview from "../TeacherReview/TeacherReview";
+import { NavLink } from "react-router-dom";
 
 function TeacherDetails({ teacher }) {
   return (
     <>
       <div className="container py-30 ">
-        <div className="flex flex-col items-center lg:flex-row gap-5 lg:items-start">
+        <div className="flex flex-col items-center lg:flex-row gap-5 lg:items-stretch">
           {/* info */}
           <div className="lg:w-1/4 w-full rounded-2xl overflow-hidden shadow-md bg-[var(--light-background)] flex lg:flex-col ">
             {/* image */}
@@ -16,7 +17,6 @@ function TeacherDetails({ teacher }) {
             </div>
 
             <div className= "p-4 w-4/6 lg:w-full">
-            
               <h2 className="font-bold text-lg lg:hidden block text-center mb-2">{teacher.name}</h2>
               {/* first lesson free badge */}
               <div className="flex justify-center lg:mb-2 mb-5">
@@ -41,7 +41,7 @@ function TeacherDetails({ teacher }) {
                   <span className="text-[var(--dark-color)] font-semibold">
                     {teacher.lessonType}
                   </span>
-                  <div className="w-8">
+                  <div className="w-6">
                     <img src={video} alt="" />
                   </div>
                 </div>
@@ -62,6 +62,13 @@ function TeacherDetails({ teacher }) {
                 <span className="text-[var(--dark-color)] font-bold">
                   {teacher.sessions}
                 </span>
+              </div>
+
+              <div>
+                <NavLink to={`/payment/${teacher.id}`}>
+                  <button className="btn btn-outline block border-[var(--secondary-color)] text-[var(--background-color)] bg-[var(--secondary-color)] mx-auto hover:bg-[var(--background-color)] hover:text-[var(--secondary-color)]">
+                  book now </button>    
+                </NavLink>
               </div>
             </div>
 

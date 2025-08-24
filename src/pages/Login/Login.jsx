@@ -50,7 +50,7 @@ function Login() {
       dispatch(setCurrentUser(userObject));
 
       toast.success("Logged in successfully!");
-       reset();
+      reset();
 
       // navigate as role
       if (role === "admin") navigate("/admin");
@@ -66,77 +66,77 @@ function Login() {
   return (
     <>
       <div className="flex bg-[var(--background-color)]">
-        <div
-          className={`w-5/6 mx-auto lg:w-2/4 rounded-3xl lg:rounded-none py-15 px-8 flex flex-col items-center`}
-        >
-          <Logo />
-
-          <form
-            onSubmit={handleSubmit(onSubmit)}
-            className="flex flex-col items-center mb-5 w-full gap-4 "
+          <div
+            className={`w-5/6 mx-auto lg:w-2/4 rounded-3xl lg:rounded-none py-15 px-8 flex flex-col items-center`}
           >
-            <h2 className="text-xl md:text-3xl mb-3 font-bold text-center text-[var(--main-text-color)]">
-              Login
-            </h2>
+            <Logo />
 
-            {/* email */}
-            <div className="w-full md:w-4/6">
-              <FormInput
-                label="Email"
-                type="email"
-                placeholder="Enter your email..."
-                name="email"
-                register={register}
-                rules={{
-                  required: "Email is required",
-                  pattern: {
-                    value: /[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/,
-                    message: "Email is not valid",
-                  },
-                }}
-                error={errors.email}
-              />
+            <form
+              onSubmit={handleSubmit(onSubmit)}
+              className="flex flex-col items-center mb-5 w-full gap-4 "
+            >
+              <h2 className="text-xl md:text-3xl mb-3 font-bold text-center text-[var(--main-text-color)]">
+                Login
+              </h2>
+
+              {/* email */}
+              <div className="w-full md:w-4/6">
+                <FormInput
+                  label="Email"
+                  type="email"
+                  placeholder="Enter your email..."
+                  name="email"
+                  register={register}
+                  rules={{
+                    required: "Email is required",
+                    pattern: {
+                      value: /[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/,
+                      message: "Email is not valid",
+                    },
+                  }}
+                  error={errors.email}
+                />
+              </div>
+
+              {/* /password */}
+              <div className="w-full  md:w-4/6">
+                <FormInput
+                  label="Password"
+                  type="password"
+                  placeholder="Enter your password..."
+                  name="password"
+                  register={register}
+                  rules={{
+                    required: "Password is required",
+                  }}
+                  error={errors.password}
+                />
+              </div>
+
+              {/* submit button */}
+              <SignBtn label="Login" />
+            </form>
+
+            <div className="mb-5">
+              <p className="text-center">
+                Don't have an account?{" "}
+                <NavLink to="/role">
+                  {" "}
+                  <b className="text-[var(--primary-color)]">Register</b>{" "}
+                </NavLink>{" "}
+              </p>
             </div>
 
-            {/* /password */}
-            <div className="w-full  md:w-4/6">
-              <FormInput
-                label="Password"
-                type="password"
-                placeholder="Enter your password..."
-                name="password"
-                register={register}
-                rules={{
-                  required: "Password is required",
-                }}
-                error={errors.password}
-              />
+            <div className="divider w-5/6 mx-auto mb-9">
+              <p className="mb-3">
+                <b>Login </b>With Others
+              </p>
             </div>
 
-            {/* submit button */}
-            <SignBtn label="Login" />
-          </form>
-
-          <div className="mb-5">
-            <p className="text-center">
-              Don't have an account?{" "}
-              <NavLink to="/role">
-                {" "}
-                <b className="text-[var(--primary-color)]">Register</b>{" "}
-              </NavLink>{" "}
-            </p>
+            <Google />
           </div>
 
-          <div className="divider w-5/6 mx-auto mb-9">
-            <p className="mb-3">
-              <b>Login </b>With Others
-            </p>
-          </div>
-
-          <Google />
-        </div>
-
-        <SideImg imgClass="min-h-screen" />
+          <SideImg imgClass="min-h-screen" />
       </div>
     </>
   );

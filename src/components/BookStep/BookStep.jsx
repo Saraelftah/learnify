@@ -1,7 +1,9 @@
-import { useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 import RatingStars from "../RatingStars/RatingStars";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import paymentImg from "../../assets/images/payment.png";
+
 
 function BookStep({
   teacher,
@@ -12,8 +14,19 @@ function BookStep({
   register,
   errors,
   setValue,
-  watch
+  watch,
 }) {
+  const [isDateTimeDisabled, setIsDateTimeDisabled] = useState(true);
+  const selectSession = watch("sessionType");
+
+  useEffect(() => {
+    if (selectSession) {
+      setIsDateTimeDisabled(false);
+    } else {
+      setIsDateTimeDisabled(true);
+    }
+  }, [selectSession]);
+
   const datesToDisplay = useMemo(() => {
     const dates =
       sessionType === "Private" ? availableDates : availableGroupDates;
@@ -26,40 +39,21 @@ function BookStep({
     return datesToDisplay.map((d) => new Date(d));
   }, [datesToDisplay]);
 
-    const selectedDateValue = watch("selectedDate");
-
-    const selectedDateObject = selectedDateValue ? new Date(selectedDateValue) : null;
-
-
+  const selectedDateValue = watch("selectedDate");
+  const selectedDateObject = selectedDateValue
+    ? new Date(selectedDateValue)
+    : null;
 
   return (
     <>
-      <div className="pt-10">
-        {/* Teacher info card */}
-        <div className="p-5 shadow-[var(--box-shadow)] w-fit my-10 rounded-[var(--border-radius)] bg-[var(--card-background)]">
-          <h3 className="text-[var(--dark-color)] font-bold pb-3">
-            Teacher Details
-          </h3>
-          <div className="flex items-center gap-5">
-            <div className="w-24 rounded-full">
-              <img
-                src={teacher?.Image}
-                alt="Teacher"
-                className="rounded-full"
-              />
-            </div>
-            <div>
-              <h4 className="text-[var(--text-color)] mb-2">{teacher?.name}</h4>
-              <RatingStars value={teacher?.rating || 0} />
-              <p className="text-[var(--text-color)] mb-2">{teacher?.subject}</p>
-            </div>
-          </div>
-        </div>
-
+      <div className="px-8">
+        
+        <div className="w-40 mx-auto"><img src={paymentImg} alt="payment" /></div>
+        
         <div className="mt-2 space-y-3">
           {/* Session price */}
-          <div className="flex join-horizontal">
-            <span className="mr-2 font-bold text-[var(--dark-color)]">
+          <div className="flex">
+            {/* <span className="mr-2 font-bold text-[var(--dark-color)]">
               Session price:
             </span>
             {sessionType === "Group Session" ? (
@@ -67,7 +61,22 @@ function BookStep({
                 <span className="text-[var(--text-color)] line-through mr-2">
                   EGP {teacher?.hourlyRate}
                 </span>
-                <span  className="text-[var(--stars-color)] font-semibold">EGP {teacher?.hourlyRate * 0.8}</span>
+                <span className="text-[var(--stars-color)] font-semibold">
+                  EGP {teacher?.hourlyRate * 0.8}
+                </span>
+              </div>
+            ) : (
+              <span>EGP {teacher?.hourlyRate}</span>
+            )} */}
+
+            {sessionType === "Group Session" ? (
+              <div>
+                <span className="text-[var(--text-color)] line-through mr-2">
+                  EGP {teacher?.hourlyRate}
+                </span>
+                <span className="text-[var(--stars-color)] font-semibold">
+                  EGP {teacher?.hourlyRate * 0.8}
+                </span>
               </div>
             ) : (
               <span>EGP {teacher?.hourlyRate}</span>
@@ -105,8 +114,8 @@ function BookStep({
             </label>
           </div>
           {errors.sessionType && (
-            <div className="text-red-500 text-sm lg:text-xl">
-              <i className="fa-solid fa-circle-exclamation"></i>
+            <div className="text-red-500 mt-1">
+              <i className="fa-solid fa-circle-exclamation text-sm"></i>
               <span className="text-sm">{errors.sessionType.message}</span>
             </div>
           )}
@@ -120,14 +129,18 @@ function BookStep({
               </label>
               <DatePicker
                 placeholderText="Select a date"
+                disabled={isDateTimeDisabled}
                 dateFormat="dd/MM/yyyy"
                 className="border border-gray-300 rounded-md p-2 w-full shadow-md focus:ring-1 focus:ring-[var(--light-secondary-color)] focus:outline focus:outline-[var(--light-secondary-color)] focus:border-[var(--light-secondary-color)]
                 bg-[var(--card-background)]"
                 selected={selectedDateObject}
-                 onChange={(date) => {
-                  setValue("selectedDate", date.toISOString().split("T")[0]);
+                onChange={(date) => {
+                  const year = date.getFullYear();
+                  const month = String(date.getMonth() + 1).padStart(2, "0");
+                  const day = String(date.getDate()).padStart(2, "0");
+                  const formattedDate = `${year}-${month}-${day}`;
+                  setValue("selectedDate", formattedDate);
                 }}
-                
                 filterDate={(date) =>
                   allowedDates.some(
                     (d) =>
@@ -138,7 +151,7 @@ function BookStep({
                 }
               />
               {errors.selectedDate && (
-                <div className="text-red-500 text-sm lg:text-xl">
+                <div className="text-red-500 mt-1">
                   <i className="fa-solid fa-circle-exclamation"></i>
                   <span className="text-sm">{errors.selectedDate.message}</span>
                 </div>
@@ -152,19 +165,29 @@ function BookStep({
               </label>
               <select
                 className="border border-gray-300 rounded-md p-2 w-full shadow-md focus:ring-1 focus:ring-[var(--light-secondary-color)] focus:outline focus:outline-[var(--light-secondary-color)] focus:border-[var(--light-secondary-color)]"
+                disabled={isDateTimeDisabled}
                 {...register("selectedTime", {
                   required: "Time is required.",
                 })}
               >
                 <option value="">Select a time</option>
-                {availableTimes?.map((time, index) => (
-                  <option key={index} value={time.time}>
-                    {time.time}
-                  </option>
-                ))}
+                {availableTimes?.map((time, index) => {
+                  const dateObj = new Date(`2000-01-01T${time.time}`);
+                  const formattedTime = dateObj.toLocaleTimeString("en-US", {
+                    hour: "numeric",
+                    minute: "numeric",
+                    hour12: true,
+                  });
+
+                  return (
+                    <option key={index} value={time.time}>
+                      {formattedTime}
+                    </option>
+                  );
+                })}
               </select>
               {errors.selectedTime && (
-                <div className="text-red-500 text-sm lg:text-xl">
+                <div className="text-red-500 mt-1">
                   <i className="fa-solid fa-circle-exclamation"></i>
                   <span className="text-sm">{errors.selectedTime.message}</span>
                 </div>
@@ -230,4 +253,31 @@ export default BookStep;
               )}
             </div>
           </div> */
+}
+
+{
+  /* Teacher info card */
+}
+{
+  /* <div className="p-5 shadow-[var(--box-shadow)] w-fit my-10 rounded-[var(--border-radius)] bg-[var(--card-background)]">
+          <h3 className="text-[var(--dark-color)] font-bold pb-3">
+            Teacher Details
+          </h3>
+          <div className="flex items-center gap-5">
+            <div className="w-24 rounded-full">
+              <img
+                src={teacher?.Image}
+                alt="Teacher"
+                className="rounded-full"
+              />
+            </div>
+            <div>
+              <h4 className="text-[var(--text-color)] mb-2">{teacher?.name}</h4>
+              <RatingStars value={teacher?.rating || 0} />
+              <p className="text-[var(--text-color)] mb-2">
+                {teacher?.subject}
+              </p>
+            </div>
+          </div>
+        </div> */
 }
