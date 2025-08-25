@@ -73,9 +73,9 @@ function Navbar() {
                 <li className="lg:ml-[20px] ">
                   <LightDark />
                 </li>
-                <li className="">
+                {/* <li className="">
                   <Notification />
-                </li>
+                </li> */}
               </ul>
 
               {!user && (
@@ -141,9 +141,9 @@ function Navbar() {
                   <li className="mb-2 pl-2">
                     <LightDark />
                   </li>
-                  <li className="pl-2">
+                  {/* <li className="pl-2">
                     <Notification />
-                  </li>
+                  </li> */}
                   {!user && (
                     <>
                       <li>
