@@ -53,22 +53,6 @@ function BookStep({
         <div className="mt-2 space-y-3">
           {/* Session price */}
           <div className="flex">
-            {/* <span className="mr-2 font-bold text-[var(--dark-color)]">
-              Session price:
-            </span>
-            {sessionType === "Group Session" ? (
-              <div>
-                <span className="text-[var(--text-color)] line-through mr-2">
-                  EGP {teacher?.hourlyRate}
-                </span>
-                <span className="text-[var(--stars-color)] font-semibold">
-                  EGP {teacher?.hourlyRate * 0.8}
-                </span>
-              </div>
-            ) : (
-              <span>EGP {teacher?.hourlyRate}</span>
-            )} */}
-
             {sessionType === "Group Session" ? (
               <div>
                 <span className="text-[var(--text-color)] line-through mr-2">
@@ -201,83 +185,3 @@ function BookStep({
 }
 
 export default BookStep;
-
-{
-  /* <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div>
-              <label className="label font-medium mb-1 text-[var(--dark-color)]">
-                Available Dates
-              </label>
-              <select
-                className="border border-gray-300 rounded-md p-2 w-full focus:outline-none focus:ring-2 focus:ring-[var(--secondary-color)]"
-                {...register("selectedDate", {
-                  required: "Date is required.",
-                })}
-              >
-                <option value="">Select a day</option>
-                {datesToDisplay.map((date, index) => (
-                  <option key={index} value={date}>
-                    {date}
-                  </option>
-                ))}
-              </select>
-              {errors.selectedDate && (
-                <div className="text-red-500 text-sm lg:text-xl">
-                  <i className="fa-solid fa-circle-exclamation"></i>
-                  <span className="text-sm">{errors.selectedDate.message}</span>
-                </div>
-              )}
-            </div>
-            <div>
-              <label className="label font-medium mb-1 text-[var(--dark-color)]">
-                Available Times
-              </label>
-              <select
-                className="border border-gray-300 rounded-md p-2 w-full focus:outline-none focus:ring-2 focus:ring-[var(--secondary-color)]"
-                {...register("selectedTime", {
-                  required: "Time is required.",
-                })}
-              >
-                <option value="">Select a time</option>
-                {availableTimes?.map((time, index) => (
-                  <option key={index} value={time.time}>
-                    {time.time}
-                  </option>
-                ))}
-              </select>
-              {errors.selectedTime && (
-                <div className="text-red-500 text-sm lg:text-xl">
-                  <i className="fa-solid fa-circle-exclamation"></i>
-                  <span className="text-sm">{errors.selectedTime.message}</span>
-                </div>
-              )}
-            </div>
-          </div> */
-}
-
-{
-  /* Teacher info card */
-}
-{
-  /* <div className="p-5 shadow-[var(--box-shadow)] w-fit my-10 rounded-[var(--border-radius)] bg-[var(--card-background)]">
-          <h3 className="text-[var(--dark-color)] font-bold pb-3">
-            Teacher Details
-          </h3>
-          <div className="flex items-center gap-5">
-            <div className="w-24 rounded-full">
-              <img
-                src={teacher?.Image}
-                alt="Teacher"
-                className="rounded-full"
-              />
-            </div>
-            <div>
-              <h4 className="text-[var(--text-color)] mb-2">{teacher?.name}</h4>
-              <RatingStars value={teacher?.rating || 0} />
-              <p className="text-[var(--text-color)] mb-2">
-                {teacher?.subject}
-              </p>
-            </div>
-          </div>
-        </div> */
-}

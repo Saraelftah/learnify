@@ -1,10 +1,9 @@
 import { useMemo } from "react";
-import { useSelector } from 'react-redux';
+import { useSelector } from "react-redux";
 import SearchCard from "./SearchCard";
 import SearchInputs from "./SearchFilters";
 import { useSearchParams } from "react-router-dom";
-import noresults from '../../assets/images/no-results.png';
-
+import noresults from "../../assets/images/no-results.png";
 
 function normalize(v = "") {
   return String(v).trim().toLowerCase();
@@ -12,13 +11,12 @@ function normalize(v = "") {
 
 export default function Search() {
   const teachers = useSelector((state) => state.teachers.teachers);
-  const loading = useSelector((state) => state.teachers.status) === 'loading';
+  const loading = useSelector((state) => state.teachers.status) === "loading";
 
   const [searchParams, setSearchParams] = useSearchParams();
   const query = searchParams.get("query") || "";
   const subject = searchParams.get("subject") || "";
   const gradeLevel = searchParams.get("grade") || "";
-
 
   const subjectOptions = useMemo(() => {
     const set = new Map();
@@ -70,30 +68,22 @@ export default function Search() {
           ))}
         </div>
       ) : filtered.length > 0 ? (
-        <div
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5"
-        >
-          
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {filtered.map((t) => (
-            <div
-              key={t.id}
-            >
+            <div key={t.id}>
               <SearchCard teacher={t} />
             </div>
           ))}
         </div>
       ) : (
         <div data-aos="zoom-in-up">
-        <div className="w-30 md:w-50 mx-auto">
-          <img src={noresults} alt="" />
-        </div>
-
+          <div className="w-30 md:w-50 mx-auto">
+            <img src={noresults} alt="" />
+          </div>
           <p className="text-center text-[var(--text-color)] mt-2 text-xl font-bold">
-          No teachers found.
-        </p>
-        
+            No teachers found.
+          </p>
         </div>
-        
       )}
     </div>
   );
