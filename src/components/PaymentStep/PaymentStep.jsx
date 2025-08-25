@@ -5,7 +5,6 @@ import amex from "../../assets/images/amex.svg";
 import master from "../../assets/images/master.svg";
 import cardb from "../../assets/images/plain-credit-card-animate (1).svg";
 
-
 function PaymentStep({ register, errors }) {
   return (
     <>

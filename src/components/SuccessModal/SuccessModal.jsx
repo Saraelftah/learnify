@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 function SuccessModal({ setShowModal }) {
   return (
     <dialog id="success_modal" className="modal modal-open">
@@ -8,9 +10,12 @@ function SuccessModal({ setShowModal }) {
         <p className="py-4">Your appointment has been successfully booked.</p>
         <div className="modal-action">
           <form method="dialog">
-            <button className="btn" onClick={() => setShowModal(false)}>
+            <Link className="btn btn-outline border-1 border-[var(--secondary-color)] capitalize hover:bg-[var(--secondary-color)] hover:text-white" 
+            to="/myBookings">go to my booking</Link>
+            {/* <button className="btn" onClick={() => setShowModal(false)}>
               Close
-            </button>
+            </button> */}
+
           </form>
         </div>
       </div>

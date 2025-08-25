@@ -3,6 +3,7 @@ import { deleteTeacher } from '../../store/TeachersSlice';
 import { useDispatch } from 'react-redux';
 import ConfirmPopup from '../ConfirmPopup/ConfirmPopup';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 function AdminTeachers() {
     const teachers = useSelector((state) => state.teachers.teachers);
@@ -40,6 +41,7 @@ function AdminTeachers() {
             <div className="">
               <h3 className="text-[var(--primary-color)] font-bold">{teacher.name}</h3>
               <p className="text-[var(--text-color)] text-sm">{teacher.subject}</p>
+              
             </div>
 
             {/* remove dropdown */}
@@ -47,14 +49,17 @@ function AdminTeachers() {
               <div tabIndex={0} role="button" className="text-[var(--secondary-color)] cursor-pointer">
                 <i className="fa-solid fa-ellipsis-vertical"></i>
               </div>
-              <ul tabIndex={0} className="dropdown-content menu z-1 w-fit shadow-sm bg-[var(--admin-bg-color)]">
-                <li className='bg-transparent'>
+              <ul tabIndex={0} className="dropdown-content menu z-1 shadow-sm bg-[var(--admin-bg-color)] !w-[200px]">
+                <li className='bg-transparent active:bg-transparent'>
                   <button onClick={()=>{
                     if (document.activeElement) {
                     document.activeElement.blur();
                     }
                     handleOpenPopup(teacher.id)}}
                     >Remove</button>
+                </li>
+                <li className='bg-transparent active:bg-transparent'>
+                  <Link className="bg-transparent active:bg-transparent" to={`/tutor/${teacher.id}`}>view profile</Link>
                 </li>
               </ul>
             </div>
