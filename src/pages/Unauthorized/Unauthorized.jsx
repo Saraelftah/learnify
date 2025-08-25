@@ -1,16 +1,10 @@
-import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import lock from "../../assets/images/lock.png";
 
 function Unauthorized() {
   const navigate = useNavigate();
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen text-center p-6">
-      <motion.div
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-      >
+    <div className="flex flex-col items-center justify-center min-h-screen text-center p-6" data-aos="fade-down">
         {/* <i className="fa-solid fa-lock text-red-500 text-6xl mb-4"></i>  */}
         <div className="w-30 mx-auto">
           <img src={lock} alt="lock" />
@@ -28,7 +22,6 @@ function Unauthorized() {
         >
           Go Home
         </button>
-      </motion.div>
     </div>
   );
 }

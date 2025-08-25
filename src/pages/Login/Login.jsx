@@ -83,8 +83,8 @@ function Login() {
   return (
     <>
       <div className="flex bg-[var(--background-color)]">
-        <div
-          className={`w-5/6 mx-auto lg:w-2/4 rounded-3xl lg:rounded-none py-15 px-8 flex flex-col items-center`}
+        <div data-aos="fade-right"
+          className={`w-5/6 mx-auto lg:w-2/4 py-15 px-8 flex flex-col items-center`}
         >
           <Logo />
 
