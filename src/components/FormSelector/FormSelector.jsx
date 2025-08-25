@@ -3,10 +3,11 @@ function FormSelector({ name, label, options = [], register, rules, error }) {
     <>
       <div>
           <select
-            className="select select-lg rounded-xl shadow-md focus:ring-1 
+            className="select select-sm md:select-md lg:select-lg rounded-xl shadow-md 
+            focus:ring-1 
             focus:ring-[var(--light-secondary-color)]
             focus:outline focus:outline-[var(--light-secondary-color)]
-            focus:border-[var(--light-secondary-color)] w-full"
+            focus:border-[var(--light-secondary-color)] w-full bg-[var(--card-background)]"
             defaultValue=""
             {...register(name, rules)}
           >

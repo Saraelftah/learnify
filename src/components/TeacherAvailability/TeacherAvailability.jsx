@@ -52,8 +52,7 @@ const TeacherAvailability = ({ availableDates, availableGroupDates }) => {
       {/* Group Lessons */}
       {availableGroupDates?.length > 0 && (
         <div>
-        
-            <div className="divider">
+          <div className="divider">
             <div className="flex gap-2">
               <h3 className="text-lg font-semibold text-[var(--dark-color)] mb-3">
                 Group Lessons

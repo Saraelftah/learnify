@@ -14,6 +14,7 @@ import FormInput from "../../components/FormInput/FormInput";
 import AvailableDates from "../../components/AvailableDates/AvailableDates";
 import NoReviewSection from "../../components/NoReviewSection/NoReviewSection";
 import AvailableDatesDisplay from "../../components/AvailableDatesDisplay/AvailableDatesDisplay";
+import video from "../../assets/images/video-camera (2).png";
 
 function Teacher() {
   const [loading, setLoading] = useState(0);
@@ -171,13 +172,18 @@ function Teacher() {
         {/* not edit mode */}
         {!isEditing && (
           <>
-            <div className="flex flex-col lg:flex-row gap-5 lg:items-start ">
+            <div className="flex flex-col lg:flex-row gap-5 ">
               {/* Display current image*/}
               <div
-                className="flex flex-col items-center bg-[var(--card-background)] py-4 px-8 rounded-2xl shadow-md"
+                className="flex lg:flex-col gap-10 lg:gap-0 bg-[var(--card-background)] py-4 px-6 rounded-2xl shadow-md lg:w-1/4 w-3/4 mx-auto"
                 data-aos="fade-up"
               >
-                <div className="relative w-60 h-60 mb-6 rounded-full overflow-hidden shadow-lg border-4 border-[var(--primary-color)]">
+                {/* image */}
+                <div
+                  className="relative xl:w-60 xl:h-60
+                md:w-40 md:h-40 w-30 h-30
+                 mb-6 rounded-full overflow-hidden shadow-lg border-4 border-[var(--primary-color)] lg:mx-auto"
+                >
                   <img
                     src={
                       profileData.Image || "https://i.ibb.co/Kg8TGk7/user.png"
@@ -186,57 +192,83 @@ function Teacher() {
                     className="w-full h-full object-cover"
                   />
                 </div>
-
-                {/* first lesson free badge */}
-                {profileData.firstLessonFree ? (
-                  <div className=" badge badge-soft bg-pink-100">
-                    First Lesson Free
+                {/* info */}
+                <div className="w-3/6 lg:w-full text-sm lg:text-base">
+                  {/* first lesson free badge */}
+                  <div className="flex justify-center mb-5">
+                    {profileData.firstLessonFree ? (
+                      <div className=" badge badge-soft bg-pink-100">
+                        First Lesson Free <i className="fa-solid fa-gift"></i>
+                      </div>
+                    ) : null}
                   </div>
-                ) : null}
 
-                {/* edit profile btn */}
-                <button
-                  className="btn mt-8 hover:text-white hover:bg-[var(--secondary-color)] rounded-xl bg-white text-[var(--secondary-color)] transition-colors duration-300 shadow-md border-[var(--secondary-color)]"
-                  onClick={() => setIsEditing(true)}
-                >
-                  Edit Profile
-                </button>
+                  {/* subject */}
+                  <div className="flex justify-between items-center lg:mb-2 mb-3">
+                    <span className="text-[var(--text-color)]">Subject: </span>
+                    <span className="font-semibold">{profileData.subject}</span>
+                  </div>
+
+                  {/* grade level */}
+                  <div className="flex justify-between items-center lg:mb-2 mb-3">
+                    <span className="text-[var(--text-color)]">
+                      Grade Level:{" "}
+                    </span>
+                    <span className="font-semibold">
+                      {profileData.gradeLevel}
+                    </span>
+                  </div>
+
+                  {/* hourly rate */}
+                  <div className="flex justify-between items-center lg:mb-2 mb-3">
+                    <span className="text-[var(--text-color)]">
+                      Hourly Rate:{" "}
+                    </span>
+                    <b className="text-[var(--stars-color)]">
+                      {profileData.hourlyRate} EGP
+                    </b>
+                  </div>
+
+                  {/* lesson type */}
+                  <div className="flex justify-between items-center lg:mb-2 mb-3">
+                    <span className="text-[var(--text-color)]">
+                      Lesson Type:
+                    </span>
+                    <div className="flex items-end gap-2">
+                      <span className="text-[var(--dark-color)] font-semibold">
+                        {profileData.lessonType}
+                      </span>
+                      <div className="w-6">
+                        <img src={video} alt="" />
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* edit profile btn */}
+                  <button
+                    className="btn hover:text-white hover:bg-[var(--secondary-color)] rounded-xl bg-white text-[var(--secondary-color)] transition-colors duration-300 shadow-md border-[var(--secondary-color)] mt-2 w-full"
+                    onClick={() => setIsEditing(true)}
+                  >
+                    Edit Profile
+                  </button>
+                </div>
               </div>
+
               {/* data */}
               <div
-                className="lg:w-3/6 py-4 px-6 rounded-2xl bg-[var(--card-background)] shadow-md"
+                className="py-4 px-6 rounded-2xl bg-[var(--card-background)] shadow-md lg:w-3/4"
                 data-aos="fade-down"
               >
                 <div>
                   {/* names */}
-                  <h2 className="text-2xl capitalize font-bold mb-8">
+                  <h2 className="text-2xl capitalize font-bold mb-2">
                     {profileData.name}
                   </h2>
 
                   {/* rating */}
-                  <div className="mb-2">
+                  <div className="mb-4">
                     <RatingStars value={profileData.rating} />
                   </div>
-
-                  {/* subject */}
-                  <p className="text-md md:text-lg mb-2">
-                    Subject:{" "}
-                    <span className="font-semibold">{profileData.subject}</span>
-                  </p>
-                  {/* grade level */}
-                  <p className="text-md md:text-lg mb-2">
-                    Grade Level:{" "}
-                    <span className="font-semibold">
-                      {profileData.gradeLevel}
-                    </span>
-                  </p>
-                  {/* hourly rate */}
-                  <p className="text-md md:text-lg mb-4">
-                    Hourly Rate:{" "}
-                    <b className="text-[var(--stars-color)]">
-                      {profileData.hourlyRate} EGP
-                    </b>
-                  </p>
 
                   {/* overview */}
                   <div
@@ -248,26 +280,41 @@ function Teacher() {
                       {profileData.overview}
                     </p>
                   </div>
+
+                  {/* dates */}
+                  <div className="mt-5 py-2">
+                    <h2 className="text-xl font-bold text-[var(--dark-color)] mb-5">
+                      Available Times
+                    </h2>
+                    {/* available Individual dates */}
+                    <div className="divider">
+                      <div className="flex gap-2">
+                        <h3 className="text-lg font-semibold text-[var(--dark-color)] mb-3">
+                          Individual Lessons
+                        </h3>
+                        <i className="fa-solid fa-calendar-days text-2xl text-[var(--primary-color)]"></i>
+                      </div>
+                    </div>
+                    <AvailableDatesDisplay
+                      dates={profileData?.availableDates}
+                    />
+                    <div className="mt-9">
+                      <div className="divider">
+                        <div className="flex gap-2">
+                          <h3 className="text-lg font-semibold text-[var(--dark-color)] mb-3">
+                            Group Lessons
+                          </h3>
+                          <i className="fa-solid fa-calendar-days text-2xl text-[var(--primary-color)]"></i>
+                          <i class="fa-solid fa-people-group text-2xl text-[var(--primary-color)]"></i>
+                        </div>
+                      </div>
+                      {/* Display Group Dates */}
+                      <AvailableDatesDisplay
+                        dates={profileData?.availableGroupDates}
+                      />
+                    </div>
+                  </div>
                 </div>
-              </div>
-              {/* dates */}
-              <div
-                className="py-4 px-6 rounded-2xl bg-[var(--card-background)] shadow-md"
-                data-aos="fade-up"
-              >
-                {/* available Individual dates */}
-                <AvailableDatesDisplay
-                  dates={profileData?.availableDates}
-                  title="Available Individual Dates"
-                />
-                <div className="divider">
-                  <i className="fa-solid fa-calendar-days text-2xl text-[var(--primary-color)]"></i>
-                </div>
-                {/* Display Group Dates */}
-                <AvailableDatesDisplay
-                  dates={profileData?.availableGroupDates}
-                  title="Available Group Dates"
-                />
               </div>
             </div>
 
@@ -283,7 +330,7 @@ function Teacher() {
         {/* Editing mode */}
         {isEditing && (
           <form onSubmit={handleSubmit(onSubmit)}>
-            <div className="flex flex-col gap-8 justify-between items-center md:flex-row md:items-start lg:justify-start lg:gap-20">
+            <div className="flex flex-col gap-8 justify-between items-center lg:flex-row lg:items-start lg:justify-start lg:gap-20">
               {/* image section */}
               <div className="flex flex-col gap-5 items-center bg-[var(--card-background)] py-4 px-8 rounded-2xl shadow-md">
                 <div
@@ -314,8 +361,8 @@ function Teacher() {
                 />
               </div>
 
-              <div className="lg:w-3/6 px-4 flex flex-col gap-5">
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 lg:w-5/6 w-full">
+              <div className="lg:w-3/6 px-4 flex flex-col gap-5 w-full">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 w-full">
                   {/* Subject field */}
                   <FormInput
                     label="Subject"
@@ -388,7 +435,7 @@ function Teacher() {
                 />
 
                 {/* buttons */}
-                <div className="flex gap-4 mt-8 lg:w-5/6 w-full justify-center">
+                <div className="flex gap-4 mt-8 w-full justify-center">
                   {/* submit */}
                   <button
                     type="submit"
@@ -424,4 +471,3 @@ function Teacher() {
 }
 
 export default Teacher;
-

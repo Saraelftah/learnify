@@ -206,7 +206,7 @@ function Payment() {
               <div className="flex justify-between mt-6 px-8">
                 <button
                   type="button"
-                  className="btn border-[var(--secondary-color)] text-[var(--secondary-color)] disabled:border-[var(--background-color)] disabled:text-[var(--background-color)]
+                  className="btn border-[var(--secondary-color)] text-[var(--secondary-color)] disabled:border-[var(--background-color)] disabled:text-white
                   btn-sm md:btn-md"
                   onClick={handleBack}
                   disabled={activeStep === 0}
@@ -232,7 +232,7 @@ function Payment() {
             </form>
           </div>
 
-          <div className="lg:w-1/4">
+          <div className="lg:w-1/4" data-aos="flip-left">
             <SummaryCard
               teacher={teacher}
               sessionType={sessionType}

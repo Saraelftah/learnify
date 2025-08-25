@@ -23,7 +23,7 @@ export default function Google() {
         onClick={signUpWithGoogle}
 
         className="flex gap-2 items-center justify-center bg-[var(--card-background)] py-3 rounded-3xl border 
-         w-full lg:w-3/4  md:w-3/4
+         w-3/4
          border-gray-200  hover:bg-gray-50
           transition-colors duration-500 ease-in-out"
       >

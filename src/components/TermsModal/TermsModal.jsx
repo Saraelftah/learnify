@@ -6,15 +6,15 @@ function TermsModal() {
       <div>
         <button
           type="button"
-          className="btn
-                       bg-white  text-[var(--secondary-color)]
+          className="btn btn-sm md:btn-md
+                       bg-[var(--card-background)]  text-[var(--secondary-color)]
                         hover:text-white hover:bg-[var(--secondary-color)] transition-colors duration-300 shadow-md border-[var(--secondary-color)]"
           onClick={() => document.getElementById("my_modal_1").showModal()}
         >
           Read Terms & Conditions
         </button>
         <dialog id="my_modal_1" className="modal">
-          <div className="modal-box">
+          <div className="modal-box bg-[var(--card-background)]">
             <div className="flex gap-2 items-center">
               <div className="w-10">
                 <img src={terms} alt="terms" />
@@ -80,7 +80,7 @@ function TermsModal() {
                 type="button"
                 onClick={() => document.getElementById("my_modal_1").close()}
                 className="btn text-white 
-                              bg-[var(--primary-color)] hover:bg-white hover:text-[var(--primary-color)] transition-colors duration-300 shadow-md 
+                              bg-[var(--primary-color)] hover:bg-[var(--card-background)] hover:text-[var(--primary-color)] transition-colors duration-300 shadow-md 
                               border-[var(--primary-color)]"
               >
                 Close

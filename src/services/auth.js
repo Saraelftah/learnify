@@ -16,7 +16,8 @@ export const initializeAuthListener = (dispatch) => {
         const userObject = {
           uid: firebaseUser.uid,
           email: firebaseUser.email,
-          name: userData.name, 
+          name: userData.name,
+          phone: docSnap.phone, 
           image: firebaseUser.Image,
           role: userData.role,
         };

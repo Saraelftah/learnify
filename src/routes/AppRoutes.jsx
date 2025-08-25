@@ -2,7 +2,6 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Layout from "../layout/Layout";
 import { lazy } from "react";
 import RoleRoute from "./RoleRoute";
-import Contact from "../pages/ContactUS/ContactUs";
 import AdminMessages from "../components/AdminMessages/AdminMessages";
 
 const Home = lazy(() => import("../pages/Home/Home"));
@@ -15,9 +14,6 @@ const AdminStudents = lazy(() => import("../components/AdminStudents/AdminStuden
 const AdminTeachers = lazy(() => import("../components/AdminTeachers/AdminTeachers"));
 const TeacherPending = lazy(() => import("../pages/TeacherPending/TeacherPending"));
 const Teacher = lazy(() => import("../pages/Teacher/Teacher"));
-const StudentProfile = lazy(() =>
-  import("../pages/StudentProfile/StudentProfile")
-);
 const TeacherProfile = lazy(() =>
   import("../pages/TeacherProfile/TeacherProfile")
 );
@@ -29,6 +25,7 @@ const MyBookings = lazy(() => import("../pages/MyBookings/MyBookings"));
 const Search = lazy(() => import("../pages/SearchPage/SearchPage"));
 const Unauthorized = lazy(() => import("../pages/Unauthorized/Unauthorized"));
 const About = lazy(() => import("../pages/AboutUs/AboutUs"));
+const Contact = lazy(() => import("../pages/ContactUS/ContactUs"));
 const Notfound = lazy(() => import("../pages/Notfound/Notfound"));
 
 function AppRoutes() {
@@ -46,7 +43,6 @@ function AppRoutes() {
         { path: "payment/:id", element: <Payment /> },
         { path: "payment", element: <ChooseTeacher /> },
         { path: "myBookings", element: <MyBookings /> },
-        { path: "student/:id", element: <StudentProfile /> },
         { path: "tutor/:id", element: <TeacherProfile /> },
         { path: "contact", element: <Contact /> },
         { path: "about", element: <About /> },
@@ -77,10 +73,10 @@ function AppRoutes() {
         },
 
         {
-          path: "student",
+          path: "myBookings",
           element: (
             <RoleRoute allow={["student", "admin"]}>
-              <StudentProfile />
+              <MyBookings />
             </RoleRoute>
           ),
         },

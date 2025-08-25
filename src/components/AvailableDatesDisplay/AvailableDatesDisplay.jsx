@@ -1,10 +1,9 @@
 import React from "react";
 
-function AvailableDatesDisplay({ dates, title }) {
+function AvailableDatesDisplay({ dates }) {
   return (
     <div>
-      <h3 className="text-lg font-semibold mb-2">{title}</h3>
-      <div className="flex flex-wrap gap-2">
+      <div className="flex flex-wrap gap-2 justify-center lg:justify-normal ">
         {dates?.map((date, index) => {
           if (date.date) {
             const fullDate = new Date(date.date);

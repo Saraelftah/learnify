@@ -1,9 +1,10 @@
 import { useMemo } from "react";
 import { useSelector } from 'react-redux';
-
 import SearchCard from "./SearchCard";
 import SearchInputs from "./SearchFilters";
 import { useSearchParams } from "react-router-dom";
+import noresults from '../../assets/images/no-results.png';
+
 
 function normalize(v = "") {
   return String(v).trim().toLowerCase();
@@ -82,9 +83,17 @@ export default function Search() {
           ))}
         </div>
       ) : (
-        <p className="text-center text-[var(--text-color)]">
+        <div data-aos="zoom-in-up">
+        <div className="w-30 md:w-50 mx-auto">
+          <img src={noresults} alt="" />
+        </div>
+
+          <p className="text-center text-[var(--text-color)] mt-2 text-xl font-bold">
           No teachers found.
         </p>
+        
+        </div>
+        
       )}
     </div>
   );

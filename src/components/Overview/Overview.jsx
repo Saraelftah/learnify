@@ -2,11 +2,11 @@ function Overview({ register, error, overviewCount, setOverviewCount }) {
   return (
     <>
       {/* Overview */}
-      <div className="flex flex-col lg:w-5/6 w-full">
+      <div className="flex flex-col w-full">
         <label htmlFor="">Overview</label>
         <textarea
-          className="textarea rounded-lg shadow-md w-full focus:ring-1 focus:ring-[var(--light-secondary-color)] focus:outline focus:outline-[var(--light-secondary-color)] focus:border-[var(--light-secondary-color)]"
-          rows={4}
+          className="textarea rounded-lg shadow-md w-full bg-[var(--card-background)] focus:ring-1 focus:ring-[var(--light-secondary-color)] focus:outline focus:outline-[var(--light-secondary-color)] focus:border-[var(--light-secondary-color)]"
+          rows={5}
           placeholder="Tell students about your experience and teaching style..."
           {...register("overview", {
             required: "Overview is required",

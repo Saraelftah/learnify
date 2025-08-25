@@ -8,11 +8,11 @@ function TeacherDetails({ teacher }) {
   return (
     <>
       <div className="container py-30 ">
-        <div className="flex flex-col items-center lg:flex-row gap-5 lg:items-stretch">
+        <div className="flex flex-col items-center lg:flex-row gap-5 lg:items-stretch" data-aos="fade-down">
           {/* info */}
-          <div className="lg:w-1/4 w-full rounded-2xl overflow-hidden shadow-md bg-[var(--light-background)] flex lg:flex-col ">
+          <div className="lg:w-1/4 w-full rounded-2xl overflow-hidden shadow-md bg-[var(--light-background)] flex lg:flex-col">
             {/* image */}
-            <div className="w-2/6 bg-amber-50  lg:w-full">
+            <div className="w-2/6 lg:w-full">
               <img src={teacher.Image} alt={teacher.name} className="h-full"/>
             </div>
 
@@ -63,7 +63,7 @@ function TeacherDetails({ teacher }) {
                   {teacher.sessions}
                 </span>
               </div>
-
+              {/* book button */}
               <div>
                 <NavLink to={`/payment/${teacher.id}`}>
                   <button className="btn btn-outline block border-[var(--secondary-color)] text-[var(--background-color)] bg-[var(--secondary-color)] mx-auto hover:bg-[var(--background-color)] hover:text-[var(--secondary-color)]">
@@ -75,7 +75,7 @@ function TeacherDetails({ teacher }) {
           </div>
 
           {/* about */}
-          <div className="space-y-6 lg:w-3/4 rounded-2xl shadow-md overflow-hidden">
+          <div className="space-y-6 lg:w-3/4 rounded-2xl shadow-md overflow-hidden" data-aos="fade-up-left">
             <div className="hidden lg:block bg-gradient-to-r from-[var(--primary-color)] to-[var(--light-primary-color)] px-6 py-6 text-white">
               <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
                 <div className="space-y-2">

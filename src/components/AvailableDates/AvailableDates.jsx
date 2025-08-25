@@ -10,7 +10,7 @@ function AvailableDates({ control, register, name }) {
       <div>
         <label htmlFor={name}>{name === "availableDates" ? "Available Private Dates" : "Available Group Dates"}</label>
 
-        <div className="space-y-2 lg:w-5/6 w-full">
+        <div className="space-y-2  w-full">
           {fields.map((field, idx) => (
             <div
               key={field.id}
