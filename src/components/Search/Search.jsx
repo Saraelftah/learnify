@@ -76,14 +76,14 @@ export default function Search() {
           ))}
         </div>
       ) : (
-        <div data-aos="zoom-in-up">
-          <div className="w-30 md:w-50 mx-auto">
+        <>
+          <div className="w-30 md:w-50 mx-auto" data-aos="zoom-in-up">
             <img src={noresults} alt="" />
           </div>
           <p className="text-center text-[var(--text-color)] mt-2 text-xl font-bold">
             No teachers found.
           </p>
-        </div>
+        </>
       )}
     </div>
   );
