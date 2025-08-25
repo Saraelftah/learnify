@@ -1,17 +1,19 @@
 import { useDispatch, useSelector } from "react-redux";
 import { signOutUser } from "../../store/UsersSlice";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function NavCurrentUser() {
   const user = useSelector((state) => state.users.currentUser);
   const teachers = useSelector((state) => state.teachers.teachers);
-  const currentTeacher = teachers?.find((teacher) => teacher?.id === user?.id);
-
+  const currentTeacher = teachers?.find((teacher) => teacher?.id === user?.uid);
+  const navigate = useNavigate()
   console.log(user);
+  console.log(currentTeacher)
   const dispatch = useDispatch();
 
   const handleLogout = () => {
     dispatch(signOutUser());
+    navigate("/");
   };
   return (
     <>
@@ -36,14 +38,14 @@ function NavCurrentUser() {
                   tabIndex={0}
                   className="menu menu-sm py-5 dropdown-content bg-[var(--background-color)] text-[var(--main-color)] rounded-box z-1 mt-3 w-70 p-2 shadow"
                 >
-                    <h3 className="ml-2 mb-2 text-[var(--dark-color)] font-bold text-[18px]">hi admin,</h3>
+                    <h3 className="ml-2 mb-2 text-[var(--dark-color)] font-bold text-[16px]">hi admin,</h3>
                   <li>
-                    <Link to="/admin" className="justify-between text-[18px]">
+                    <Link to="/admin" className="justify-between text-[16px]">
                       dashboard
                     </Link>
                   </li>
                   <li >
-                    <button className="justify-between text-[18px]" onClick={handleLogout}>Logout</button>
+                    <button className="justify-between text-[16px]" onClick={handleLogout}>Logout</button>
                   </li>
                 </ul>
               </div>
@@ -66,9 +68,9 @@ function NavCurrentUser() {
                   tabIndex={0}
                   className="menu menu-sm dropdown-content bg-[var(--background-color)] text-[var(--main-color)] rounded-box z-1 mt-3 w-52 p-2 shadow"
                 >
-                    <h3 className="ml-2 mb-2 text-[var(--dark-color)] font-bold text-[18px]">hi {user.name},</h3>
+                    <h3 className="ml-2 mb-2 text-[var(--dark-color)] font-bold text-[16px]">hi {user.name},</h3>
                   <li>
-                    <Link to="/myBookings" className="justify-between text-[18px]">
+                    <Link to="/myBookings" className="justify-between text-[16px]">
                       my booking
                     </Link>
                   </li>
@@ -85,7 +87,7 @@ function NavCurrentUser() {
                   role="button"
                   className="btn btn-ghost btn-circle avatar"
                 >
-                  {currentTeacher?.Image ? (
+                  {currentTeacher?.Image && currentTeacher.Image.length > 0 ? (
                     <div className="w-10 rounded-full">
                       <img
                         alt={currentTeacher?.name}
@@ -100,22 +102,23 @@ function NavCurrentUser() {
                     </div>
                   )}
                 </div>
+                
                 <ul
                   tabIndex={0}
                   className="menu menu-sm dropdown-content bg-[var(--background-color)] text-[var(--main-color)] rounded-box z-1 mt-3 w-52 p-2 shadow"
                 >
-                   <h3 className="ml-2 mb-2 text-[var(--dark-color)] font-bold text-[18px]">hi {user.name},</h3>
+                   <h3 className="ml-2 mb-2 text-[var(--dark-color)] font-bold text-[16px]">hi {user.name},</h3>
 
                   <li>
-                    <Link to={`/tutor/${user.uid}`} className="justify-between text-[18px]">
+                    {/* <Link to={`/tutor/${user.uid}`} className="justify-between text-[16px]">
+                      Profile
+                    </Link> */}
+                    <Link to={`/teacher`} className="justify-between text-[16px]">
                       Profile
                     </Link>
                   </li>
                   <li>
-                    <Link to="" className="justify-between text-[18px]" >edit profile</Link>
-                  </li>
-                  <li>
-                    <button className=" text-[18px]" onClick={handleLogout}>Logout</button>
+                    <button className=" text-[16px]" onClick={handleLogout}>Logout</button>
                   </li>
                 </ul>
               </div>

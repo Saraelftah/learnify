@@ -67,42 +67,47 @@ function MyBookings() {
             <h3 className="text-[var(--dark-color)] text-2xl font-bold mb-5">Bookings:</h3>
           {currentStudent?.bookings?.map((booking)=>(
             
-            <div className="flex flex-col md:flex-row items-center justify-between shadow-[var(--box-shadow)] rounded-[var(--border-radius)] px-5 py-5 md:py-2 border-l-10 border-[var(--light-primary-color)]" key={booking.createdAt}>
-              <div className="teacher flex items-center gap-5">
+            <div className="flex flex-none flex-col md:flex-row items-center justify-between shadow-[var(--box-shadow)] rounded-[var(--border-radius)] px-5 py-3 md:py-2 border-l-10 border-[var(--light-primary-color)] bg-[var(--card-background)] mb-5" key={booking?.id}>
+              <div className="teacher flex items-center gap-5 w-[24%]">
                 <div>
-                  <img className="!w-25 !h-25 rounded-full" src={booking.teacherImage} alt="teacher"/>
+                  <img className="!w-[70px] !h-[70px] rounded-full" src={booking?.teacherImage} alt="teacher"/>
                 </div>
                 <div>
-                  <h4 className="text-[var(--dark-color)] text-lg ">{booking.teacherName}</h4>
-                  <p className="">{booking.subject}</p>
+                  <h4 className="text-[var(--dark-color)] text-lg ">{booking?.teacherName}</h4>
+                  <p className="">{booking?.subject}</p>
                 </div>
                 
               </div>
 
               <div className="h-0.5 w-full bg-[var(--hr-color)] md:h-30 md:w-0 md:border-l-2 md:bg-transparent md:border-[var(--hr-color)] my-5 md:my-0"></div>
               
-              <div className="date">
-                <div className="flex items-center gap-2 mb-2">
-                  <i class="fa-regular fa-calendar text-[var(--secondary-color)] text-2xl"></i>
-                  <p className="font-bold">{booking.date}</p>
-                </div>
-                <div className="flex items-center gap-2">
-                  <i class="fa-regular fa-clock text-[var(--secondary-color)] text-2xl"></i>
-                  <p>{booking.time}</p>
+              <div className="date w-[24%] flex flex-col justify-center items-center">
+                <div>
+                  <div className="flex items-center gap-2 mb-2">
+                    <i className="fa-regular fa-calendar text-[var(--secondary-color)] text-2xl"></i>
+                    <p className="font-bold">{booking?.date}</p>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <i className="fa-regular fa-clock text-[var(--secondary-color)] text-2xl"></i>
+                    <p>{booking?.time}</p>
+                  </div>
                 </div>
               </div>
 
               <div className="h-0.5 w-full bg-[var(--hr-color)] md:h-30 md:w-0 md:border-l-2 md:bg-transparent md:border-[var(--hr-color)] my-5 md:my-0"></div>
 
-              <div className="type">
-                <p>{booking.sessionType} session</p>
+              <div className="type w-[24%] flex justify-center items-center" >
+                <p>{booking?.sessionType === "Private"
+                  ? `${booking?.sessionType} session`
+                  : booking?.sessionType}
+                </p>
               </div>
 
               <div className="h-0.5 w-full bg-[var(--hr-color)] md:h-30 md:w-0 md:border-l-2 md:bg-transparent md:border-[var(--hr-color)] my-5 md:my-0"></div>
 
 
-              <div className="">
-                <a href={booking.meetingLink}
+              <div className="w-[24%] flex justify-center items-center">
+                <a href={booking?.meetingLink} target="_blank"
                 className="bg-[var(--primary-color)] text-white px-5 py-2 rounded-[var(--border-radius)] border-1 border-[var(--primary-color)] hover:bg-[var(--background-color)] hover:text-[var(--primary-color)]"
                 >join meeting</a>
               </div>

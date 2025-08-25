@@ -211,7 +211,7 @@ function Payment() {
                   onClick={handleBack}
                   disabled={activeStep === 0}
                 >
-                  <i class="fa-solid fa-chevron-left"></i> Back
+                  <i className="fa-solid fa-chevron-left"></i> Back
                 </button>
                 <button
                   type="button"
@@ -224,7 +224,7 @@ function Payment() {
                     </>
                   ) : (
                     <>
-                      Next <i class="fa-solid fa-chevron-right"></i>
+                      Next <i className="fa-solid fa-chevron-right"></i>
                     </>
                   )}
                 </button>
