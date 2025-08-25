@@ -127,9 +127,9 @@ function TeacherPending() {
 
   return (
     <>
-      <div className="container py-40 flex gap-9">
-        <div className="">
-          <h1 className="text-2xl mb-5 font-semibold">Complete your Profile</h1>
+      <div className="container py-30 lg:py-40 flex gap-9 justify-between flex-col-reverse lg:flex-row">
+        <div className="lg:w-3/6 " data-aos="fade-right">
+          <h1 className="text-2xl mb-5 font-semibold hidden lg:block">Complete your Profile</h1>
           <form onSubmit={handleSubmit(onSubmit)}>
             <div className="flex flex-col gap-5">
               {/* profile Image */}
@@ -201,6 +201,7 @@ function TeacherPending() {
                   accept=".pdf, .jpg, .jpeg, .png"
                   className="file-input
                   rounded-xl shadow-md w-full
+                  bg-[var(--card-background)]
                               focus:ring-1 focus:ring-[var(--light-secondary-color)]
                               focus:outline focus:outline-[var(--light-secondary-color)]
                               focus:border-[var(--light-secondary-color)] "
@@ -209,9 +210,9 @@ function TeacherPending() {
                   })}
                 />
                 {errors.certificate && (
-                  <div className="text-red-500 text-sm lg:text-xl">
+                  <div className="text-red-500 text-sm">
                     <i className="fa-solid fa-circle-exclamation"></i>
-                    <span className="text-sm">
+                    <span>
                       {" "}
                       {errors.certificate.message}{" "}
                     </span>
@@ -233,7 +234,7 @@ function TeacherPending() {
               <div>
                 <input
                   type="checkbox"
-                  className="checkbox mr-2 border-[var(--light-secondary-color)] bg-[var(--light-secondary-color)] checked:border-orange-500 checked:bg-[var(--secondary-color)] checked:text-orange-800"
+                  className="checkbox mr-2 border-[var(--secondary-color)] bg-[var(--light-secondary-color)] checked:border-orange-500 checked:bg-[var(--secondary-color)] checked:text-orange-800"
                   {...register("agreeTerms", { required: true })}
                 />
                 <label>I agree to the Terms and Conditions</label>

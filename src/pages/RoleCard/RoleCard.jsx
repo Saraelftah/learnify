@@ -4,8 +4,9 @@ function RoleCard({ src, label, statment, onSelect }) {
 
   return (
     <>
-      <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-        <div className="card bg-base-100 lg:w-96 md:w-70 sm:w-full shadow-sm">
+      {/* <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}> data-aos="fade-up" */}
+      <div data-aos="fade-up">
+        <div className="card bg-base-100 lg:w-96 md:w-70 sm:w-full shadow-sm transform transition-transform duration-300 ease-in-out hover:scale-105 active:scale-95" >
           <figure className="px-10 pt-10 w-70 mx-auto">
             <img src={src} alt="role" className="rounded-xl" />
           </figure>
@@ -24,7 +25,9 @@ function RoleCard({ src, label, statment, onSelect }) {
             </div>
           </div>
         </div>
-      </motion.div>
+      </div>
+        
+      {/* </motion.div> */}
     </>
   );
 }

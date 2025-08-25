@@ -31,7 +31,7 @@ function PaymentStep({ register, errors }) {
               }}
               error={errors.cardNumber}
             />
-            <div className="absolute top-1/2 transform -translate-y-1/2  right-3 flex gap-1 z-10">
+            <div className="absolute top-1/2 transform -translate-y-1/2 pointer-events-none h-full  items-center  right-3 flex gap-1 z-10">
               <img src={credit} alt="credit" className="w-3 h-3 md:w-4 md:h-4"/>
               <img src={visa} alt="visa" className="w-3 h-3 md:w-4 md:h-4"/>
               <img src={amex} alt="amex" className="w-3 h-3 md:w-4 md:h-4"/>
@@ -43,7 +43,7 @@ function PaymentStep({ register, errors }) {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
             <div className="">
               <FormInput
-                label="Card Number"
+                label="CVV Number"
                 type="text"
                 placeholder="CVV Number..."
                 name="cvv"

@@ -1,6 +1,6 @@
 function Stepper({ steps = [], activeStep = 0 }) {
   return (
-    <ul className="steps w-full">
+    <ul className="steps w-full" data-aos="fade-down">
       {steps.map((label, index) => (
         <li
           key={label}

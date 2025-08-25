@@ -71,155 +71,166 @@ function Register() {
       reset();
       navigate("/login");
     } catch (err) {
+      let errorMessage;
+
+      switch (err.code) {
+        case "auth/email-already-in-use":
+          errorMessage =
+            "This email is already in use. Please use a different one.";
+          break;
+        default:
+          errorMessage = "An unexpected error occurred. Please try again.";
+          break;
+      }
       console.error(err);
-      toast.error(err.message);
+      toast.error(errorMessage);
     }
   };
 
   return (
     <>
       <div className="flex bg-[var(--background-color)]">
-          <div
-            className={`w-5/6 mx-auto lg:w-3/6 rounded-3xl lg:rounded-none py-5 px-8 flex flex-col items-center`}
+        <div
+          className={`w-5/6 mx-auto lg:w-3/6 rounded-3xl lg:rounded-none py-5 px-8 flex flex-col items-center`}
+        >
+          <Logo />
+          <form
+            onSubmit={handleSubmit(onSubmit)}
+            className="flex flex-col items-center mb-5 w-full px-3"
           >
-            <Logo />
-            <form
-              onSubmit={handleSubmit(onSubmit)}
-              className="flex flex-col items-center mb-5 w-full px-3"
-            >
-              <h2 className="text-lg lg:text-3xl md:text-2xl md:mb-3 font-bold text-center">
-                Hey, We are glad you <br></br> chose Learnify
-              </h2>
-              <div className="divider w-full lg:w-5/6 mx-auto mb-5">
-                Lets get started
-              </div>
+            <h2 className="text-lg lg:text-3xl md:text-2xl md:mb-3 font-bold text-center">
+              Hey, We are glad you <br></br> chose Learnify
+            </h2>
+            <div className="divider w-full lg:w-5/6 mx-auto mb-5">
+              Lets get started
+            </div>
 
-              <div className="flex flex-col md:flex-row justify-between w-full md:gap-5 gap-3 mb-3 md:mb-4">
-                {/* username */}
-                <div className="lg:w-3/6 md:w-2/4">
-                  <FormInput
-                    label="Name"
-                    type="text"
-                    placeholder="Enter your name..."
-                    name="username"
-                    register={register}
-                    rules={{
-                      required: "Username is required",
-                      minLength: {
-                        value: 6,
-                        message: "Username must be at least 6 characters",
-                      },
-                    }}
-                    error={errors.username}
-                  />
-                </div>
-
-                {/* Phone*/}
-                <div className="lg:w-3/6 md:w-2/4">
-                  <FormInput
-                    label="Phone"
-                    type="tel"
-                    placeholder="Enter your phone number..."
-                    name="phone"
-                    register={register}
-                    rules={{
-                      required: "Phone is required",
-                      pattern: {
-                        value: /^[0-9]{10,12}$/,
-                        message: "Phone number must contain only digits",
-                      },
-                    }}
-                    error={errors.phone}
-                  />
-                </div>
-              </div>
-
-              {/* email */}
-              <div className="w-full mb-3 md:mb-4">
+            <div className="flex flex-col md:flex-row justify-between w-full md:gap-5 gap-3 mb-3 md:mb-4">
+              {/* username */}
+              <div className="lg:w-3/6 md:w-2/4">
                 <FormInput
-                  label="Email"
-                  type="email"
-                  placeholder="Enter your email..."
-                  name="email"
+                  label="Name"
+                  type="text"
+                  placeholder="Enter your name..."
+                  name="username"
                   register={register}
                   rules={{
-                    required: "Email is required",
-                    pattern: {
-                      value: /[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/,
-                      message: "Email is not valid",
+                    required: "Username is required",
+                    minLength: {
+                      value: 6,
+                      message: "Username must be at least 6 characters",
                     },
                   }}
-                  error={errors.email}
+                  error={errors.username}
                 />
               </div>
 
-              <div className="flex flex-col md:flex-row justify-between w-full md:gap-5 gap-3">
-                {/* Password */}
-                <div className="lg:w-3/6 md:w-2/4">
-                  <FormInput
-                    label="Password"
-                    type="password"
-                    placeholder="Enter your password..."
-                    name="password"
-                    register={register}
-                    rules={{
-                      required: "Password is required",
-                      minLength: {
-                        value: 6,
-                        message: "Password must be at least 6 characters",
-                      },
-                      pattern: {
-                        value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).+$/,
-                        message:
-                          "Password must contain uppercase, lowercase, number, and special character",
-                      },
-                    }}
-                    error={errors.password}
-                  />
-                </div>
+              {/* Phone*/}
+              <div className="lg:w-3/6 md:w-2/4">
+                <FormInput
+                  label="Phone"
+                  type="tel"
+                  placeholder="Enter your phone number..."
+                  name="phone"
+                  register={register}
+                  rules={{
+                    required: "Phone is required",
+                    pattern: {
+                      value: /^[0-9]{10,12}$/,
+                      message: "Phone number must contain only digits",
+                    },
+                  }}
+                  error={errors.phone}
+                />
+              </div>
+            </div>
 
-                {/* confirm password */}
-                <div className="lg:w-3/6 md:w-2/4">
-                  <FormInput
-                    label="Confirm Password"
-                    type="password"
-                    placeholder="Confirm your password..."
-                    name="confirmPassword"
-                    register={register}
-                    rules={{
-                      required: "Confirmation is required",
-                      validate: (value) =>
-                        value === watch("password") || "Password do not match",
-                    }}
-                    error={errors.confirmPassword}
-                  />
-                </div>
+            {/* email */}
+            <div className="w-full mb-3 md:mb-4">
+              <FormInput
+                label="Email"
+                type="email"
+                placeholder="Enter your email..."
+                name="email"
+                register={register}
+                rules={{
+                  required: "Email is required",
+                  pattern: {
+                    value: /[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/,
+                    message: "Email is not valid",
+                  },
+                }}
+                error={errors.email}
+              />
+            </div>
+
+            <div className="flex flex-col md:flex-row justify-between w-full md:gap-5 gap-3">
+              {/* Password */}
+              <div className="lg:w-3/6 md:w-2/4">
+                <FormInput
+                  label="Password"
+                  type="password"
+                  placeholder="Enter your password..."
+                  name="password"
+                  register={register}
+                  rules={{
+                    required: "Password is required",
+                    minLength: {
+                      value: 6,
+                      message: "Password must be at least 6 characters",
+                    },
+                    pattern: {
+                      value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).+$/,
+                      message:
+                        "Password must contain uppercase, lowercase, number, and special character",
+                    },
+                  }}
+                  error={errors.password}
+                />
               </div>
 
-              {/* submit button */}
-              <SignBtn label="Sign Up" />
-            </form>
-
-            <div className="md:mb-5">
-              <p className="text-center">
-                Already have an account?{" "}
-                <NavLink to="/login">
-                  {" "}
-                  <b className="text-[var(--primary-color)]">Login</b>{" "}
-                </NavLink>{" "}
-              </p>
+              {/* confirm password */}
+              <div className="lg:w-3/6 md:w-2/4">
+                <FormInput
+                  label="Confirm Password"
+                  type="password"
+                  placeholder="Confirm your password..."
+                  name="confirmPassword"
+                  register={register}
+                  rules={{
+                    required: "Confirmation is required",
+                    validate: (value) =>
+                      value === watch("password") || "Password do not match",
+                  }}
+                  error={errors.confirmPassword}
+                />
+              </div>
             </div>
 
-            <div className="divider w-full lg:w-5/6 mx-auto md:mb-9">
-              <p className="text-sm md:text-lg">
-                <b>Signup </b>With Others
-              </p>
-            </div>
+            {/* submit button */}
+            <SignBtn label="Sign Up" />
+          </form>
 
-            <Google />
+          <div className="md:mb-5">
+            <p className="text-center">
+              Already have an account?{" "}
+              <NavLink to="/login">
+                {" "}
+                <b className="text-[var(--primary-color)]">Login</b>{" "}
+              </NavLink>{" "}
+            </p>
           </div>
 
-          <SideImg imgClass="h-full" />
+          <div className="divider w-full lg:w-5/6 mx-auto md:mb-9">
+            <p className="text-sm md:text-lg">
+              <b>Signup </b>With Others
+            </p>
+          </div>
+
+          <Google />
+        </div>
+
+        <SideImg imgClass="h-full" />
       </div>
     </>
   );

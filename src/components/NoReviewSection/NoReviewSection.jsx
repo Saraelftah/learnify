@@ -9,7 +9,7 @@ function NoReviewSection() {
         <div>
           <img src={feedback} alt="" />
         </div>
-        <p className="text-[var(--text-color)] text-center font-semibold">
+        <p className="text-[var(--text-color)] text-center font-semibold italic">
           No reviews yet. <br></br> Be the first to review this teacher!
         </p>
       </div>
