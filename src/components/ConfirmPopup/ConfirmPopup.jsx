@@ -2,7 +2,7 @@
 function ConfirmPopup({title, description, buttonTitle, buttonFunction, close}) {
   return (
     <>
-    <div className="fixed inset-0 bg-[#0000006b] z-100 overflow-y-auto h-full w-full flex items-center justify-center ">
+    <div className="fixed inset-0 bg-[#00000028] z-100 overflow-y-auto h-full w-full flex items-center justify-center ">
         
         <div className="confirm-popup relative bg-[var(--background-color)] shadow-[var(--box-shadow)] rounded-[var(--border-radius)] p-12 flex flex-col items-center w-[500px]" data-aos="zoom-in">
             

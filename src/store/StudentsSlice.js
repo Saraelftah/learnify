@@ -76,7 +76,7 @@ const studentsSlice = createSlice({
           if (!student.bookings) {
             student.bookings = [];
           }
-          student.bookings.push(action.payload.booking);
+          student.bookings.push(action.payload.bookingDetails);
         }
       })
       .addCase(bookAppointment.rejected, (state, action) => {

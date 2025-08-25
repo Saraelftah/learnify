@@ -2,7 +2,6 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Layout from "../layout/Layout";
 import { lazy } from "react";
 import RoleRoute from "./RoleRoute";
-import AdminMessages from "../components/AdminMessages/AdminMessages";
 
 const Home = lazy(() => import("../pages/Home/Home"));
 const RolePage = lazy(() => import("../pages/RolePage/RolePage"));
@@ -18,6 +17,7 @@ const AdminStudents = lazy(() =>
 const AdminTeachers = lazy(() =>
   import("../components/AdminTeachers/AdminTeachers")
 );
+const AdminMessages = lazy(() => import("../components/AdminMessages/AdminMessages"))
 const TeacherPending = lazy(() =>
   import("../pages/TeacherPending/TeacherPending")
 );
