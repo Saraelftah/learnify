@@ -1,12 +1,23 @@
-# React + Vite
+# Learnify - Online Lesson Booking Platform
+Learnify is an online learning platform that connects students with teachers.  
+Students can easily book **private or group lessons** without leaving their homes, and teachers can manage their schedules effortlessly.  
+This platform aims to make learning **accessible, flexible, and convenient** for both sides.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 🚀 Features
+- User Authentication (Firebase)
+- Role-based Access (Admin, Teacher, Student)
+- Browse and book private or group lessons
+- Manage availability and schedules
+- Responsive UI using Tailwind CSS
 
-Currently, two official plugins are available:
+## 🛠 Tech Stack
+- **React** (Frontend)
+- **Tailwind CSS** (Styling)
+- **DaisyUI** (Styling)
+- **Firebase** (Authentication & Database)
+- **React Router** (Routing)
+- **Redux** (State Management)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+
