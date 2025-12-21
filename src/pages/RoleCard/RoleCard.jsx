@@ -1,5 +1,3 @@
-import { motion } from "framer-motion";
-
 function RoleCard({ src, label, statment, onSelect }) {
 
   return (

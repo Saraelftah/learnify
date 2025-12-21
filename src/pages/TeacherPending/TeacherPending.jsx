@@ -129,7 +129,9 @@ function TeacherPending() {
     <>
       <div className="container py-30 lg:py-40 flex gap-9 justify-between flex-col-reverse lg:flex-row">
         <div className="lg:w-3/6 " data-aos="fade-right">
-          <h1 className="text-2xl mb-5 font-semibold hidden lg:block">Complete your Profile</h1>
+          <h1 className="text-2xl mb-5 font-semibold hidden lg:block">
+            Complete your Profile
+          </h1>
           <form onSubmit={handleSubmit(onSubmit)}>
             <div className="flex flex-col gap-5">
               {/* profile Image */}
@@ -163,7 +165,7 @@ function TeacherPending() {
                     "Biology",
                     "Chemistry",
                     "Physics",
-                    "Italy"
+                    "Italy",
                   ]}
                   register={register}
                   rules={{ required: "Subject is required" }}
@@ -174,7 +176,11 @@ function TeacherPending() {
                 <FormSelector
                   name="gradeLevel"
                   label="Grade Level"
-                  options={["Preparatory", "Secondary"]}
+                  options={[
+                    "Preparatory",
+                    "Secondary",
+                    "Preparatory and Secondary",
+                  ]}
                   register={register}
                   rules={{ required: "Grade Level is required" }}
                   error={errors.gradeLevel}
@@ -190,7 +196,7 @@ function TeacherPending() {
                   rules={{
                     required: "Price is required",
                   }}
-                  error={errors.hourlyRate}
+                  error={errors.hourlyRate} 
                 />
               </div>
 
@@ -212,10 +218,7 @@ function TeacherPending() {
                 {errors.certificate && (
                   <div className="text-red-500 text-sm">
                     <i className="fa-solid fa-circle-exclamation"></i>
-                    <span>
-                      {" "}
-                      {errors.certificate.message}{" "}
-                    </span>
+                    <span> {errors.certificate.message} </span>
                   </div>
                 )}
               </div>

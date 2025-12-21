@@ -8,7 +8,6 @@ import { doc, getDoc, setDoc } from "firebase/firestore";
 import { setTeachers } from "../../store/TeachersSlice";
 import toast from "react-hot-toast";
 import RatingStars from "../../components/RatingStars/RatingStars";
-import "cally";
 import Overview from "../../components/Overview/Overview";
 import FormInput from "../../components/FormInput/FormInput";
 import AvailableDates from "../../components/AvailableDates/AvailableDates";
