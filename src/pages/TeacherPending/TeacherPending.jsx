@@ -196,7 +196,7 @@ function TeacherPending() {
                   rules={{
                     required: "Price is required",
                   }}
-                  error={errors.hourlyRate}
+                  error={errors.hourlyRate} 
                 />
               </div>
 
